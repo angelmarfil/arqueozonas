@@ -14,6 +14,7 @@ const sites = defineCollection({
     schema: z.object({
         name: z.string(),
         state: z.string(),
+        guide: z.string().optional(),
     })
 })
 export const collections = { states, sites };

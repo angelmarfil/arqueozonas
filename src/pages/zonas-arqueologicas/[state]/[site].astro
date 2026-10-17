@@ -25,4 +25,10 @@ const { Content } = await render(site);
 	<h1>{site.data.name}</h1>
 
 	<Content />
+
+	{site.data.guide && (
+		<a href={`/guides/${site.data.guide}.pdf`} target="_blank" rel="noopener">
+			Ver guía
+		</a>
+	)}
 </Layout>
