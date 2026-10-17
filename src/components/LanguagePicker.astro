@@ -7,9 +7,9 @@ const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 const route = getRouteFromUrl(Astro.url);
 ---
-
-<nav aria-label={t('languagePicker.label')}>
-	<ul>
+<div class="dropdown dropdown-end">
+  <div tabindex="0" role="button" class="btn m-1">Idioma</div>
+  <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
 		{Object.entries(languages).map(([code, label]) => (
 			<li>
 				<a
@@ -22,5 +22,5 @@ const route = getRouteFromUrl(Astro.url);
 				</a>
 			</li>
 		))}
-	</ul>
-</nav>
+  </ul>
+</div>

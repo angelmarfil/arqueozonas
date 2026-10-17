@@ -1,8 +1,10 @@
 ---
 import "../../styles/global.css";
-import Layout from '../../layouts/Layout.astro';
-import { getStates } from '../../i18n/content';
-import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import Layout from "../../layouts/Layout.astro";
+import { getStates } from "../../i18n/content";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import { SEO } from "astro-seo";
+import { SITE_TITLE, TITLE_DELIMITER } from "astro:env/client";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -10,14 +12,42 @@ const states = await getStates(lang);
 ---
 
 <Layout>
-	<h1 class="text-3xl font-bold underline">
-		{t('nav.states')}
-	</h1>
+  <SEO
+    slot="head"
+    charset="utf-8"
+    title={SITE_TITLE}
+    titleTemplate={`%s ${TITLE_DELIMITER} ${SITE_TITLE}`}
+    description=""
+    extend={{
+      meta: [
+        {
+          name: "viewport",
+          content: "width=device-width",
+        },
+        {
+          name: "generator",
+          content: Astro.generator,
+        },
+      ],
+      link: [
+        {
+          rel: "icon",
+          type: "image/svg+xml",
+          href: "/favicon.svg",
+        },
+        {
+          rel: "icon",
+          href: "/favicon.ico",
+        },
+      ],
+    }}
+  />
 
-	<ul>
-		{states.map(state => (
-			<li>{state.data.name}</li>
-		))}
-	</ul>
+  <h1 class="text-3xl font-bold underline">
+    {t("nav.states")}
+  </h1>
 
+  <ul>
+    {states.map((state) => <li>{state.data.name}</li>)}
+  </ul>
 </Layout>
