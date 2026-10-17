@@ -19,5 +19,8 @@
     "astro-icon": "^1.2.0",
     "astro-seo": "^1.2.0",
     "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "daisyui": "^5.7.50"
   }
 }
