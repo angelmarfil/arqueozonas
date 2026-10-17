@@ -1,0 +1,16 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const states = await getCollection('states');
+---
+
+<Layout>
+	<h1>Zonas arqueológicas</h1>
+
+	<ul>
+		{states.map(state => (
+			<li><a href={`/zonas-arqueologicas/${state.id}`}>{state.data.name}</a></li>
+		))}
+	</ul>
+</Layout>

@@ -1,0 +1,25 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+	const states = await getCollection('states');
+	return states.map(state => ({
+		params: { state: state.id },
+		props: { state },
+	}));
+}
+
+const { state } = Astro.props;
+const { Content } = await render(state);
+---
+
+<Layout>
+	<a href="/estados">Estados</a>
+
+	<h1>{state.data.name}</h1>
+
+	<Content />
+
+	<a href={`/zonas-arqueologicas/${state.id}`}>Ver zonas arqueológicas</a>
+</Layout>
