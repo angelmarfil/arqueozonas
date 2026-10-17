@@ -1,15 +1,17 @@
 ---
-import Layout from '../../../../layouts/Layout.astro';
-import { render, type CollectionEntry } from 'astro:content';
-import { getSitePaths, getSiteState, getSlug } from '../../../../i18n/content';
-import { getLangFromUrl, useTranslatedPath } from '../../../../i18n/utils';
+import Layout from "../../../../layouts/Layout.astro";
+import { render, type CollectionEntry } from "astro:content";
+import { getSitePaths, getSiteState, getSlug } from "../../../../i18n/content";
+import { getLangFromUrl, useTranslatedPath } from "../../../../i18n/utils";
+import { SEO } from "astro-seo";
+import { TITLE_DELIMITER, SITE_TITLE } from "astro:env/client";
 
 export function getStaticPaths() {
-	return getSitePaths('en');
+  return getSitePaths("en");
 }
 
 interface Props {
-	site: CollectionEntry<'sites'>;
+  site: CollectionEntry<"sites">;
 }
 
 const { site } = Astro.props;
@@ -20,9 +22,42 @@ const { Content } = await render(site);
 ---
 
 <Layout>
-	<a href={translatePath(`/zonas-arqueologicas/${getSlug(state)}`)}>{state.data.name}</a>
+  <SEO
+    slot="head"
+    charset="utf-8"
+    title={site.data.name}
+    titleTemplate={`%s ${TITLE_DELIMITER} ${SITE_TITLE}`}
+    description=""
+    extend={{
+      meta: [
+        {
+          name: "viewport",
+          content: "width=device-width",
+        },
+        {
+          name: "generator",
+          content: Astro.generator,
+        },
+      ],
+      link: [
+        {
+          rel: "icon",
+          type: "image/svg+xml",
+          href: "/favicon.svg",
+        },
+        {
+          rel: "icon",
+          href: "/favicon.ico",
+        },
+      ],
+    }}
+  />
 
-	<h1>{site.data.name}</h1>
+  <a href={translatePath(`/zonas-arqueologicas/${getSlug(state)}`)}
+    >{state.data.name}</a
+  >
 
-	<Content />
+  <h1>{site.data.name}</h1>
+
+  <Content />
 </Layout>
