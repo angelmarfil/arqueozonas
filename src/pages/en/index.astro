@@ -1,0 +1,23 @@
+---
+import "../../styles/global.css";
+import Layout from '../../layouts/Layout.astro';
+import { getStates } from '../../i18n/content';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const states = await getStates(lang);
+---
+
+<Layout>
+	<h1 class="text-3xl font-bold underline">
+		{t('nav.states')}
+	</h1>
+
+	<ul>
+		{states.map(state => (
+			<li>{state.data.name}</li>
+		))}
+	</ul>
+
+</Layout>

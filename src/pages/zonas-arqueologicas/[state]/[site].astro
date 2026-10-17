@@ -1,22 +1,26 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
-import { getCollection, getEntry, render } from 'astro:content';
+import { render, type CollectionEntry } from 'astro:content';
+import { getSitePaths, getSiteState, getSlug } from '../../../i18n/content';
+import { getLangFromUrl, useTranslatedPath } from '../../../i18n/utils';
 
-export async function getStaticPaths() {
-	const sites = await getCollection('sites');
-	return sites.map(site => ({
-		params: { state: site.data.state.id, site: site.id },
-		props: { site },
-	}));
+export function getStaticPaths() {
+	return getSitePaths('es');
+}
+
+interface Props {
+	site: CollectionEntry<'sites'>;
 }
 
 const { site } = Astro.props;
-const state = await getEntry(site.data.state);
+const lang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
+const state = await getSiteState(site, lang);
 const { Content } = await render(site);
 ---
 
 <Layout>
-	<a href={`/zonas-arqueologicas/${state.id}`}>{state.data.name}</a>
+	<a href={translatePath(`/zonas-arqueologicas/${getSlug(state)}`)}>{state.data.name}</a>
 
 	<h1>{site.data.name}</h1>
 

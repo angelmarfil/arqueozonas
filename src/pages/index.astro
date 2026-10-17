@@ -1,14 +1,17 @@
 ---
 import "../styles/global.css";
 import Layout from '../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
+import { getStates } from '../i18n/content';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
-const states = await getCollection('states');
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const states = await getStates(lang);
 ---
 
 <Layout>
 	<h1 class="text-3xl font-bold underline">
-		Estados
+		{t('nav.states')}
 	</h1>
 
 	<ul>

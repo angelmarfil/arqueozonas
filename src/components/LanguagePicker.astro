@@ -1,0 +1,26 @@
+---
+import { languages, type Lang } from '../i18n/ui';
+import { getLangFromUrl, getRouteFromUrl, useTranslatedPath, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+const route = getRouteFromUrl(Astro.url);
+---
+
+<nav aria-label={t('languagePicker.label')}>
+	<ul>
+		{Object.entries(languages).map(([code, label]) => (
+			<li>
+				<a
+					href={translatePath(route, code as Lang)}
+					hreflang={code}
+					lang={code}
+					aria-current={code === lang ? 'true' : undefined}
+				>
+					{label}
+				</a>
+			</li>
+		))}
+	</ul>
+</nav>

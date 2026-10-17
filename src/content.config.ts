@@ -1,5 +1,5 @@
-import { defineCollection, reference } from 'astro:content';
-import { glob, file } from 'astro/loaders';
+import { defineCollection } from 'astro:content';
+import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 
 const states = defineCollection({
@@ -13,7 +13,7 @@ const sites = defineCollection({
     loader: glob({ pattern: "**/*.mdx", base: "./src/data/sites" }),
     schema: z.object({
         name: z.string(),
-        state: reference("states"),
+        state: z.string(),
     })
 })
 export const collections = { states, sites };
