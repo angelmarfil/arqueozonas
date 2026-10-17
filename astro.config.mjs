@@ -12,7 +12,8 @@ export default defineConfig({
   },
   env: {
       schema: {
-          SITE_TITLE: envField.string({ context: "client", access: "public" }),
+          SITE_TITLE: envField.string({ context: "client", access: "public", default: "Arqueozonas MX" }),
+          TITLE_DELIMITER: envField.string({ context: "client", access: "public", default: "|" }),
       }
   },
 

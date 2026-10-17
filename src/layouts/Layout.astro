@@ -1,7 +1,5 @@
 ---
-import { SITE_TITLE } from "astro:env/client";
 import LanguagePicker from "../components/LanguagePicker.astro";
-import { languages, type Lang } from "../i18n/ui";
 import { getLangFromUrl, getRouteFromUrl, useTranslatedPath } from "../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
@@ -12,15 +10,7 @@ const route = getRouteFromUrl(Astro.url);
 <!doctype html>
 <html lang={lang}>
 	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		{Object.keys(languages).map((code) => (
-			<link rel="alternate" hreflang={code} href={translatePath(route, code as Lang)} />
-		))}
-		<title>{SITE_TITLE}</title>
+		<slot name="head" />
 	</head>
 	<body>
 		<header>
@@ -29,12 +19,3 @@ const route = getRouteFromUrl(Astro.url);
 		<slot />
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
