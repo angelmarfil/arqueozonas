@@ -5,8 +5,8 @@ export function getSlug(entry: { id: string }): string {
 	return entry.id.split('/').slice(1).join('/');
 }
 
-export function getStates(lang: Lang) {
-	return getCollection('states', (state) => state.id.startsWith(`${lang}/`));
+export function getStates() {
+	return getCollection('states');
 }
 
 export function getSites(lang: Lang, stateSlug?: string) {
@@ -18,16 +18,16 @@ export function getSites(lang: Lang, stateSlug?: string) {
 	);
 }
 
-export async function getSiteState(site: CollectionEntry<'sites'>, lang: Lang) {
-	const state = await getEntry('states', `${lang}/${site.data.state}`);
-	if (!state) throw new Error(`State "${site.data.state}" not found for language "${lang}" (site ${site.id})`);
+export async function getSiteState(site: CollectionEntry<'sites'>) {
+	const state = await getEntry('states', site.data.state);
+	if (!state) throw new Error(`State "${site.data.state}" not found (site ${site.id})`);
 	return state;
 }
 
-export async function getStatePaths(lang: Lang) {
-	const states = await getStates(lang);
+export async function getStatePaths() {
+	const states = await getStates();
 	return states.map((state) => ({
-		params: { state: getSlug(state) },
+		params: { state: state.id },
 		props: { state },
 	}));
 }

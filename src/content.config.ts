@@ -1,9 +1,9 @@
 import { defineCollection } from 'astro:content';
-import { glob } from 'astro/loaders';
+import { file, glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 
 const states = defineCollection({
-    loader: glob({ pattern: "**/*.mdx", base: "./src/data/states" }),
+    loader: file("./src/data/states.json"),
     schema: z.object({
         name: z.string(),
     })

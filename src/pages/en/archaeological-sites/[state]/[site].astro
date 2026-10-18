@@ -17,7 +17,7 @@ interface Props {
 const { site } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 const translatePath = useTranslatedPath(lang);
-const state = await getSiteState(site, lang);
+const state = await getSiteState(site);
 const { Content } = await render(site);
 ---
 

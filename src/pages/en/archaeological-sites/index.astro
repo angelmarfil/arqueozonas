@@ -1,12 +1,12 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
-import { getSlug, getStates } from '../../../i18n/content';
+import { getStates } from '../../../i18n/content';
 import { getLangFromUrl, useTranslatedPath, useTranslations } from '../../../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
-const states = await getStates(lang);
+const states = await getStates();
 ---
 
 <Layout>
@@ -14,7 +14,7 @@ const states = await getStates(lang);
 
 	<ul>
 		{states.map(state => (
-			<li><a href={translatePath(`/zonas-arqueologicas/${getSlug(state)}`)}>{state.data.name}</a></li>
+			<li><a href={translatePath(`/zonas-arqueologicas/${state.id}`)}>{state.data.name}</a></li>
 		))}
 	</ul>
 </Layout>

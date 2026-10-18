@@ -5,7 +5,7 @@ import { getStatePaths, getSites, getSlug } from '../../../i18n/content';
 import { getLangFromUrl, useTranslatedPath, useTranslations } from '../../../i18n/utils';
 
 export function getStaticPaths() {
-	return getStatePaths('es');
+	return getStatePaths();
 }
 
 interface Props {
@@ -16,7 +16,7 @@ const { state } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
-const stateSlug = getSlug(state);
+const stateSlug = state.id;
 const sites = await getSites(lang, stateSlug);
 ---
 

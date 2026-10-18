@@ -8,7 +8,7 @@ import { TITLE_DELIMITER, SITE_TITLE } from "astro:env/client";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const states = await getStates(lang);
+const states = await getStates();
 ---
 
 <Layout>
