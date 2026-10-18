@@ -6,6 +6,8 @@ import mdx from "@astrojs/mdx";
 import icon from "astro-icon";
 
 import react from "@astrojs/react";
+import { satteri } from "@astrojs/markdown-satteri";
+import sectionTabs from "./src/markdown/section-tabs.mjs";
 
 // https://astro.build/config
 export default defineConfig({
@@ -20,6 +22,10 @@ export default defineConfig({
           R2_PUBLIC_URL: envField.string({ context: "server", access: "public", url: true, default: "https://pub-943f8dc39de9413eb77121b2bed8a963.r2.dev" }),
           LIGHTGALLERY_LICENSE_KEY: envField.string({ context: "client", access: "public", optional: true }),
       }
+  },
+
+  markdown: {
+      processor: satteri({ hastPlugins: [sectionTabs] }),
   },
 
   image: {
