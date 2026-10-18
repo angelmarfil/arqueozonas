@@ -1,6 +1,6 @@
 import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
 import { R2_PUBLIC_URL } from 'astro:env/server';
-import type { Lang } from './ui';
+import { defaultLang, type Lang } from './ui';
 
 export function getSlug(entry: { id: string }): string {
 	return entry.id.split('/').slice(1).join('/');
@@ -31,10 +31,21 @@ export async function getSiteGallery(site: CollectionEntry<'sites'>) {
 	return gallery;
 }
 
-export async function getSiteCover(site: CollectionEntry<'sites'>) {
-	const gallery = await getSiteGallery(site);
+function getGalleryCover(gallery: CollectionEntry<'galleries'> | undefined) {
 	const key = gallery?.data.cover ?? gallery?.data.images[0]?.key;
 	return key && new URL(key, R2_PUBLIC_URL).href;
+}
+
+export async function getSiteCover(site: CollectionEntry<'sites'>) {
+	return getGalleryCover(await getSiteGallery(site));
+}
+
+export async function getStateCover(state: CollectionEntry<'states'>) {
+	if (state.data.cover) return getGalleryCover(await getEntry(state.data.cover));
+	for (const site of await getSites(defaultLang, state.id)) {
+		const cover = await getSiteCover(site);
+		if (cover) return cover;
+	}
 }
 
 export async function getStatePaths() {

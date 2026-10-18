@@ -1,4 +1,4 @@
-import { defineCollection } from 'astro:content';
+import { defineCollection, reference } from 'astro:content';
 import { file, glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 
@@ -6,6 +6,7 @@ const states = defineCollection({
     loader: file("./src/data/states.json"),
     schema: z.object({
         name: z.string(),
+        cover: reference("galleries").optional(),
     })
 })
 
