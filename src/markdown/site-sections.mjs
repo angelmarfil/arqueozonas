@@ -62,7 +62,7 @@ const article = (sections) =>
 const visitPanel = (label, sections) =>
 	element(
 		"aside",
-		{ className: ["rounded-box", "bg-base-200", "p-6", "self-start", "max-lg:order-first", "lg:sticky", "lg:top-6"] },
+		{ className: ["rounded-box", "bg-base-200", "p-6", "self-start", "max-lg:order-first", "lg:sticky", "lg:top-22"] },
 		[
 			element("h2", { className: ["flex", "items-center", "gap-2", "text-lg", "font-bold", "tracking-tight"] }, [
 				icon(VISIT_ICON, ["size-5", "shrink-0", "text-base-content/60"]),
