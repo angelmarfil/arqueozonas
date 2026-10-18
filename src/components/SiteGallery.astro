@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import { Icon } from "astro-icon/components";
 import ImageLicense from "./ImageLicense.astro";
 import InlineGallery, { type Slide } from "./InlineGallery";
 import { getImageUrl } from "../i18n/content";
@@ -23,7 +24,19 @@ const slides: Slide[] = gallery.data.images.map(({ key, title, credit }) => ({
 ---
 
 <section>
-  <InlineGallery client:load slides={slides} />
+  <InlineGallery client:load slides={slides}>
+    <Icon slot="prev" name="boxicons:chevron-left" is:inline aria-hidden="true" />
+    <Icon slot="next" name="boxicons:chevron-right" is:inline aria-hidden="true" />
+    <Icon slot="download" name="boxicons:arrow-in-down-square-half" is:inline aria-hidden="true" />
+    <Icon slot="maximize" name="boxicons:maximize" is:inline aria-hidden="true" />
+    <Icon slot="minimize" name="boxicons:minimize" is:inline aria-hidden="true" />
+    <Icon slot="zoomIn" name="boxicons:search-plus" is:inline aria-hidden="true" />
+    <Icon slot="zoomOut" name="boxicons:search-minus" is:inline aria-hidden="true" />
+    <Icon slot="actualSize" name="boxicons:scale" is:inline aria-hidden="true" />
+    <Icon slot="autoplayPlay" name="boxicons:play" is:inline aria-hidden="true" />
+    <Icon slot="autoplayPause" name="boxicons:pause" is:inline aria-hidden="true" />
+    <Icon slot="more" name="boxicons:dots-horizontal-rounded" is:inline aria-hidden="true" />
+  </InlineGallery>
   <ImageLicense class="mt-2">
     {" · "}
     <a
