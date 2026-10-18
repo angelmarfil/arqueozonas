@@ -1,0 +1,40 @@
+{
+	"inahId": 4344,
+	"images": [
+		{
+			"key": "el-tigre/194-sliders-2.jpg",
+			"title": "El Tigre",
+			"credit": "INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "el-tigre/194-estructuras-estructura-4.jpeg",
+			"title": "Estructura 4",
+			"credit": "INAH-Zona Arqueológica de El Tigre"
+		},
+		{
+			"key": "el-tigre/194-subestructura-plataforma-1a-b.jpeg",
+			"title": "Plataforma 1A",
+			"credit": "INAH-Zona Arqueológica de El Tigre"
+		},
+		{
+			"key": "el-tigre/194-a-el-tigre-archivo-inah-3.jpg",
+			"title": "El Tigre",
+			"credit": "INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "el-tigre/194-a-el-tigre-archivo-inah-2.jpg",
+			"title": "El Tigre",
+			"credit": "INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "el-tigre/194-estructuras-estructura-2.jpeg",
+			"title": "Estructura 2",
+			"credit": "INAH-Zona Arqueológica de El Tigre"
+		},
+		{
+			"key": "el-tigre/194-estructuras-palacio-habitacional-a.jpeg",
+			"title": "Palacio habitacional",
+			"credit": "INAH-Centro INAH Campeche"
+		}
+	]
+}

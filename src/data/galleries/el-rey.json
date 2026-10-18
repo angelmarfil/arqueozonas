@@ -1,0 +1,45 @@
+{
+	"inahId": 4404,
+	"images": [
+		{
+			"key": "el-rey/basamento-piramidal-y-edificio-de-las-pinturas.jpeg",
+			"title": "Basamento piramidal",
+			"credit": "INAH-Zona Arqueológica de El Rey"
+		},
+		{
+			"key": "el-rey/el-rey-misael-cruz-sanchez-centro-inah-quintana-roo.jpg",
+			"title": "El Rey",
+			"credit": "Misael Cruz Sánchez / INAH-Centro INAH Quintana Roo"
+		},
+		{
+			"key": "el-rey/254-a-000.jpg",
+			"title": "El Rey",
+			"credit": "Héctor Montaño Morales / INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "el-rey/254-a-el-rey-1.jpg",
+			"title": "El Rey",
+			"credit": "Héctor Montaño Morales / INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "el-rey/edificio-de-las-pinturas.jpeg",
+			"title": "Edificio de las Pinturas",
+			"credit": "INAH-Zona Arqueológica de El Rey"
+		},
+		{
+			"key": "el-rey/vista-area-de-la-plaza-principal.jpeg",
+			"title": "Plaza Principal",
+			"credit": "INAH-Zona Arqueológica de El Rey"
+		},
+		{
+			"key": "el-rey/el-rey-0.jpg",
+			"title": "El Rey",
+			"credit": "Manuel Curiel / INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "el-rey/254-a-el-rey-2.jpg",
+			"title": "El Rey",
+			"credit": "Héctor Montaño Morales / INAH-Dirección de Medios de Comunicación"
+		}
+	]
+}

@@ -1,0 +1,55 @@
+{
+	"inahId": 4353,
+	"images": [
+		{
+			"key": "paquime/casa-amurallada-nik-3891-21-12-2015-01-14-01-pm-0.jpeg",
+			"title": "Casa Amurallada",
+			"credit": "Francisco Javier Pedraza Reyes / INAH-Centro Cultural Paquimé"
+		},
+		{
+			"key": "paquime/zona-arqueologica-de-paquime.jpg",
+			"title": "Paquimé",
+			"credit": "INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "paquime/casa-de-las-guacamayas-archivo-proyecto-arqueologico-paquime.jpg",
+			"title": "Casa de las Guacamayas",
+			"credit": "INAH-Proyecto Arqueológico Paquimé"
+		},
+		{
+			"key": "paquime/columnas-casa-nik-3777-17-12-2015-01-02-24-pm-0.jpeg",
+			"title": "La Casa de las Columnas",
+			"credit": "Francisco Javier Pedraza Reyes / INAH-Centro Cultural Paquimé"
+		},
+		{
+			"key": "paquime/203-estructura-plaza-central.jpeg",
+			"title": "Plaza Central o Plaza-Mercado",
+			"credit": "Francisco Javier Pedraza Reyes / INAH-Centro Cultural Paquimé"
+		},
+		{
+			"key": "paquime/craneos-casa-nik-3762-17-12-2015-12-58-58-pm-0.jpeg",
+			"title": "Casa de los Cráneos",
+			"credit": "Francisco Javier Pedraza Reyes / INAH-Centro Cultural Paquimé"
+		},
+		{
+			"key": "paquime/cruz-montculo-nik-3866-21-12-2015-12-58-58-pm.jpeg",
+			"title": "Montículo de la Cruz",
+			"credit": "Héctor Montaño Morales / INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "paquime/203-a-paquime-14-bis.jpg",
+			"title": "Paquimé",
+			"credit": "INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "paquime/agua-depsito-nik-3634-17-12-2015-12-16-46-pm.jpeg",
+			"title": "Depósito de agua",
+			"credit": "Francisco Javier Pedraza Reyes / INAH-Centro Cultural Paquimé"
+		},
+		{
+			"key": "paquime/fotos-mauricio-marat-3.jpg",
+			"title": "Paquimé",
+			"credit": "Mauricio Marat / INAH-Dirección de Medios de Comunicación"
+		}
+	]
+}

@@ -1,0 +1,35 @@
+{
+	"inahId": 4329,
+	"images": [
+		{
+			"key": "becan/thumbnail-zona-arqueologica-de-becan-rio-bec-foto-mauricio-marat-inah.jpg",
+			"title": "Becán",
+			"credit": "Mauricio Marat / INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "becan/179-estructura-zona-becan-pasadizo.jpg",
+			"title": "Pasadizo",
+			"credit": "INAH-Centro INAH Campeche"
+		},
+		{
+			"key": "becan/179-a-partesuperiorestructurax-becan-javierhinojosa.jpg",
+			"title": "Parte superior Estructura X",
+			"credit": "Javier Hinojosa / INAH-Centro INAH Campeche"
+		},
+		{
+			"key": "becan/179-becan-centro-inha-campeche-2.jpg",
+			"title": "Becán",
+			"credit": "INAH-Centro INAH Campeche"
+		},
+		{
+			"key": "becan/179-becan-centro-inha-campeche-1.jpg",
+			"title": "Estructura III",
+			"credit": "INAH-Centro INAH Campeche"
+		},
+		{
+			"key": "becan/179-a-estructura-ix-becan-javierhinojosa.jpg",
+			"title": "Estructura IX",
+			"credit": "Javier Hinojosa / INAH-Centro INAH Campeche"
+		}
+	]
+}

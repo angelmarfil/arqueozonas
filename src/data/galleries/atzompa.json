@@ -1,0 +1,39 @@
+{
+	"inahId": 4501,
+	"images": [
+		{
+			"key": "atzompa/logo-atzompa.png",
+			"title": "Atzompa"
+		},
+		{
+			"key": "atzompa/349-atzompa-hector-montano-4.jpg",
+			"title": "Atzompa",
+			"credit": "Héctor Montaño Morales / INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "atzompa/349-atzompa-hector-montano-3.jpg",
+			"title": "Atzompa",
+			"credit": "Héctor Montaño Morales / INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "atzompa/atzompa-foto-hctor-montao-inah3.jpg",
+			"title": "Atzompa",
+			"credit": "Héctor Montaño Morales / INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "atzompa/zona-arqueologica-atzompa-hector-montano.jpg",
+			"title": "Atzompa",
+			"credit": "Héctor Montaño Morales / INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "atzompa/349-atzompa-hector-montano-1.jpg",
+			"title": "Atzompa",
+			"credit": "Héctor Montaño Morales / INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "atzompa/atzompa-foto-mauricio-marat-inah.jpg",
+			"title": "Atzompa",
+			"credit": "Mauricio Marat / INAH-Dirección de Medios de Comunicación"
+		}
+	]
+}

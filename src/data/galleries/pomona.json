@@ -1,0 +1,40 @@
+{
+	"inahId": 4448,
+	"images": [
+		{
+			"key": "pomona/plaza-conjunto1.jpeg",
+			"title": "Conjunto 1",
+			"credit": "INAH-Centro INAH Tabasco"
+		},
+		{
+			"key": "pomona/fachadaeste-edificio-n4.jpeg",
+			"title": "Edificio 4",
+			"credit": "INAH-Centro INAH Tabasco"
+		},
+		{
+			"key": "pomona/edificio-1-2-0.jpeg",
+			"title": "Edificio 2",
+			"credit": "INAH-Centro INAH Tabasco"
+		},
+		{
+			"key": "pomona/fachadaoeste-edificio-n12.jpeg",
+			"title": "Edificio 12",
+			"credit": "INAH-Centro INAH Tabasco"
+		},
+		{
+			"key": "pomona/edificio-1.jpeg",
+			"title": "Edificio 1",
+			"credit": "INAH-Centro INAH Tabasco"
+		},
+		{
+			"key": "pomona/edificio-n-7.jpeg",
+			"title": "Edificio 7",
+			"credit": "INAH-Centro INAH Tabasco"
+		},
+		{
+			"key": "pomona/pomon1.jpg",
+			"title": "Zona Arqueológica Pomoná",
+			"credit": "INAH-Centro INAH Tabasco"
+		}
+	]
+}

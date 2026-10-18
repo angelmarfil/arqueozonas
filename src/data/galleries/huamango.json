@@ -1,0 +1,35 @@
+{
+	"inahId": 4410,
+	"images": [
+		{
+			"key": "huamango/260-a-000.jpg",
+			"title": "Huamango",
+			"credit": "INAH-Centro INAH Estado de México"
+		},
+		{
+			"key": "huamango/altar.jpeg",
+			"title": "Altar",
+			"credit": "INAH-Centro INAH Estado de México"
+		},
+		{
+			"key": "huamango/260-a-huamango-centroinah-2.jpg",
+			"title": "Huamango",
+			"credit": "INAH-Centro INAH Estado de México"
+		},
+		{
+			"key": "huamango/260-a-huamango-centroinah-4.jpg",
+			"title": "Huamango",
+			"credit": "INAH-Centro INAH Estado de México"
+		},
+		{
+			"key": "huamango/grupo-b.jpeg",
+			"title": "Conjunto Este B",
+			"credit": "INAH-Centro INAH Estado de México"
+		},
+		{
+			"key": "huamango/260-a-huamango-centroinah-3.jpg",
+			"title": "Huamango",
+			"credit": "INAH-Centro INAH Estado de México"
+		}
+	]
+}

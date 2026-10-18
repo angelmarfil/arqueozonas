@@ -1,0 +1,55 @@
+{
+	"inahId": 4465,
+	"images": [
+		{
+			"key": "tenayuca/314-00-11.jpg",
+			"title": "Pirámide de Tenayuca, se observa el Coatepantli",
+			"credit": "INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "tenayuca/314-00-21.jpg",
+			"title": "Escultura de Xiuhcóatl (La serpiente de fuego)",
+			"credit": "INAH-Museo de sitio Xólotl"
+		},
+		{
+			"key": "tenayuca/zona-arqueologica-de-tenayuca-templo-mayor-sofia-jimenez.jpg",
+			"title": "Templo Mayor",
+			"credit": "Sofía Jiménez / INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "tenayuca/tenayuca-portada.jpg",
+			"title": "Tenayuca",
+			"credit": "INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "tenayuca/zona-arqueologica-de-tenayuca-fabian-gonzalez.jpg",
+			"title": "Tenayuca",
+			"credit": "Fabián González / INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "tenayuca/314-00-09.jpg",
+			"title": "Pirámide de Tenayuca, se observa a la derecha Altar Tzompantli o de las Calaveras",
+			"credit": "INAH-Museo de sitio Xólotl"
+		},
+		{
+			"key": "tenayuca/314-00-30.jpg",
+			"title": "Detalle de Coatepantli",
+			"credit": "INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "tenayuca/zona-arqueologica-de-tenayuca-meliton-tapia.jpg",
+			"title": "Tenayuca",
+			"credit": "Melitón Tapia / INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "tenayuca/zona-arqueologica-de-tenayuca-xiuhcoatl-la-serpiente-de-fuego-sofia-jimenez.jpg",
+			"title": "Xiuhcóatl la serpiente de fuego",
+			"credit": "Sofía Jiménez / INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "tenayuca/tenayuca-foto-melitn-tapia-inah.jpg",
+			"title": "Tenayuca",
+			"credit": "Melitón Tapia / INAH-Dirección de Medios de Comunicación"
+		}
+	]
+}

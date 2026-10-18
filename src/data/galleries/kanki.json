@@ -1,0 +1,30 @@
+{
+	"inahId": 4424,
+	"images": [
+		{
+			"key": "kanki/274-a-kanki-archivo-inah-3.jpg",
+			"title": "Kankí",
+			"credit": "INAH-Zona Arqueológica Kankí"
+		},
+		{
+			"key": "kanki/8-crestera.jpeg",
+			"title": "Edificio 1 o de la Crestería",
+			"credit": "INAH-Zona Arqueológica Kankí"
+		},
+		{
+			"key": "kanki/274-a-kanki-archivo-inah-2.jpg",
+			"title": "Kankí",
+			"credit": "INAH-Zona Arqueológica Kankí"
+		},
+		{
+			"key": "kanki/274-a-000.jpg",
+			"title": "Kankí",
+			"credit": "INAH-Zona Arqueológica Kankí"
+		},
+		{
+			"key": "kanki/274-estructuras-casa-del-oriente-b.jpeg",
+			"title": "Casa del Oriente",
+			"credit": "INAH-Zona Arqueológica Kankí"
+		}
+	]
+}

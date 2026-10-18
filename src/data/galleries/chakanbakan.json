@@ -1,0 +1,30 @@
+{
+	"inahId": 4383,
+	"images": [
+		{
+			"key": "chakanbakan/mascaron2.jpeg",
+			"title": "Mascarón 2",
+			"credit": "INAH-Zona Arqueológica de Chakanbakán"
+		},
+		{
+			"key": "chakanbakan/233-a-000.jpg",
+			"title": "Chakanbakán",
+			"credit": "INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "chakanbakan/chakangeneral.jpeg",
+			"title": "Pirámide de los mascarones",
+			"credit": "INAH-Zona Arqueológica de Chakanbakán"
+		},
+		{
+			"key": "chakanbakan/mascaron1.jpeg",
+			"title": "Mascarón 1",
+			"credit": "INAH-Zona Arqueológica de Chakanbakán"
+		},
+		{
+			"key": "chakanbakan/233-a-chakanbakan-fernando-cortes-1.jpg",
+			"title": "Chakanbakán",
+			"credit": "Fernando Cortés / INAH-Dirección de Medios de Comunicación"
+		}
+	]
+}

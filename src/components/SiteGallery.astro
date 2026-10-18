@@ -1,0 +1,62 @@
+---
+import { getImage, inferRemoteSize } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import { R2_PUBLIC_URL } from "astro:env/server";
+import InlineGallery, { type Slide } from "./InlineGallery";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+interface Props {
+  gallery: CollectionEntry<"galleries">;
+}
+
+const { gallery } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const slides: Slide[] = await Promise.all(
+  gallery.data.images.map(async ({ key, title, credit }) => {
+    const src = new URL(key, R2_PUBLIC_URL).href;
+    const { width, height } = await inferRemoteSize(src);
+    const scaled = (target: number) => ({
+      width: Math.min(target, width),
+      height: Math.round((Math.min(target, width) * height) / width),
+    });
+    const display = scaled(1600);
+    const [image, thumb] = await Promise.all([
+      getImage({ src, ...display, format: "webp" }),
+      getImage({ src, ...scaled(240), format: "webp" }),
+    ]);
+
+    return {
+      src: image.src,
+      thumb: thumb.src,
+      downloadUrl: src,
+      alt: title,
+      lgSize: `${display.width}-${display.height}`,
+      credit: credit && `${t("site.gallery.credit")}: ${credit}`,
+    };
+  }),
+);
+---
+
+<section class="mb-8">
+  <InlineGallery client:load slides={slides} />
+  <p class="mt-2 text-xs text-base-content/60">
+    {t("site.gallery.license")}{" "}
+    <a
+      href={`https://creativecommons.org/licenses/by-nc-nd/4.0/deed.${lang}`}
+      target="_blank"
+      rel="noopener license"
+      class="link">CC BY-NC-ND 4.0</a
+    >
+    {" · "}
+    <a
+      href={`https://lugares.inah.gob.mx/${lang}/node/${gallery.data.inahId}`}
+      target="_blank"
+      rel="noopener"
+      class="link"
+    >
+      {t("site.gallery.source")}
+    </a>
+  </p>
+</section>

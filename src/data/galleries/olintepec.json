@@ -1,0 +1,35 @@
+{
+	"inahId": 4444,
+	"images": [
+		{
+			"key": "olintepec/5-monticulo-5.jpg",
+			"title": "Detalle de la Capilla dominica",
+			"credit": "INAH-Zona Arqueológica Olintepec"
+		},
+		{
+			"key": "olintepec/7-monticulo-1.jpg",
+			"title": "Vista de las escaleras del basamento",
+			"credit": "INAH-Zona Arqueológica Olintepec"
+		},
+		{
+			"key": "olintepec/4-monticulo-1.jpg",
+			"title": "Vista lateral del Montículo 1",
+			"credit": "INAH-Zona Arqueológica Olintepec"
+		},
+		{
+			"key": "olintepec/6-monticulo-1.jpg",
+			"title": "Detalle de las escaleras del Montículo",
+			"credit": "INAH-Zona Arqueológica Olintepec"
+		},
+		{
+			"key": "olintepec/olintepec-monticulo-1.jpg",
+			"title": "Vista lateral del Montículo 1",
+			"credit": "INAH-Zona Arqueológica Olintepec"
+		},
+		{
+			"key": "olintepec/3-monticulo-1.jpg",
+			"title": "Montículo 1",
+			"credit": "INAH-Zona Arqueológica Olintepec"
+		}
+	]
+}

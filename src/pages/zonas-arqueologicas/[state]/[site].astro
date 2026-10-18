@@ -1,9 +1,10 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import SiteGallery from "../../../components/SiteGallery.astro";
 import { SEO } from "astro-seo";
 import { SITE_TITLE, TITLE_DELIMITER } from "astro:env/client";
 import { render, type CollectionEntry } from "astro:content";
-import { getSitePaths, getSiteState } from "../../../i18n/content";
+import { getSiteGallery, getSitePaths, getSiteState } from "../../../i18n/content";
 import {
   getLangFromUrl,
   useTranslatedPath,
@@ -23,6 +24,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 const state = await getSiteState(site);
+const gallery = await getSiteGallery(site);
 const { Content } = await render(site);
 ---
 
@@ -76,6 +78,8 @@ const { Content } = await render(site);
       <h1 class="text-3xl font-bold md:text-4xl">{site.data.name}</h1>
       <p class="mt-2 text-base-content/60">{state.data.name}</p>
     </header>
+
+    {gallery && <SiteGallery gallery={gallery} />}
 
     <div class="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_20rem]">
       <article class="prose">

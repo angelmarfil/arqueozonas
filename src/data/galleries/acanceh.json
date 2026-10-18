@@ -1,0 +1,30 @@
+{
+	"inahId": 4526,
+	"images": [
+		{
+			"key": "acanceh/acanceh-mascarn-2.jpg",
+			"title": "Mascarón 2",
+			"credit": "INAH-Archivo Técnico de Arqueología"
+		},
+		{
+			"key": "acanceh/380-acanceh-sinafo-2.jpg",
+			"title": "Palacio de los Estucos",
+			"credit": "INAH-Fototeca Nacional"
+		},
+		{
+			"key": "acanceh/acanceh-mascarn-1.jpg",
+			"title": "Mascarón 1",
+			"credit": "INAH-Archivo Técnico de Arqueología"
+		},
+		{
+			"key": "acanceh/380-a-000.jpg",
+			"title": "Palacio de los Estucos",
+			"credit": "INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "acanceh/acanceh-palacio.jpg",
+			"title": "Palacio de los Estucos",
+			"credit": "INAH-Dirección de Medios de Comunicación"
+		}
+	]
+}

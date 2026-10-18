@@ -1,0 +1,45 @@
+{
+	"inahId": 4342,
+	"images": [
+		{
+			"key": "el-meco/estructura-5-0.jpeg",
+			"title": "Estructura 5",
+			"credit": "INAH-Zona Arqueológica El Meco"
+		},
+		{
+			"key": "el-meco/zona-arqueologica-de-el-meco-cinah-quintana-roo.jpg",
+			"title": "El Meco",
+			"credit": "INAH-Centro INAH Quintana Roo"
+		},
+		{
+			"key": "el-meco/192-a-001.jpg",
+			"title": "El Meco",
+			"credit": "Mauricio Marat / INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "el-meco/portada-opinion-192.jpg",
+			"title": "Portada",
+			"credit": "INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "el-meco/estructura-12.jpeg",
+			"title": "Plaza C",
+			"credit": "INAH-Zona Arqueológica El Meco"
+		},
+		{
+			"key": "el-meco/el-meco-ashuni-romero-cinah-quintana-roo.jpg",
+			"title": "El Meco",
+			"credit": "Ashuni Emmanuel Romero Butrón / INAH-Centro INAH Quintana Roo"
+		},
+		{
+			"key": "el-meco/192-a-000.jpg",
+			"title": "El Meco",
+			"credit": "Mauricio Marat / INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "el-meco/192-b-001.jpg",
+			"title": "Incensario tipo Chen Mul",
+			"credit": "Mauricio Marat / INAH-Dirección de Medios de Comunicación"
+		}
+	]
+}

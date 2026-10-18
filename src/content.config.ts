@@ -17,4 +17,16 @@ const sites = defineCollection({
         guide: z.string().optional(),
     })
 })
-export const collections = { states, sites };
+
+const galleries = defineCollection({
+    loader: glob({ pattern: "*.json", base: "./src/data/galleries" }),
+    schema: z.object({
+        inahId: z.number(),
+        images: z.array(z.object({
+            key: z.string(),
+            title: z.string(),
+            credit: z.string().optional(),
+        })),
+    })
+})
+export const collections = { states, sites, galleries };

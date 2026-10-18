@@ -1,0 +1,35 @@
+{
+	"inahId": 4414,
+	"images": [
+		{
+			"key": "huapalcalco/z-a-huapalcalco-oaxaca-foto-inah-3.jpg",
+			"title": "Huapalcalco",
+			"credit": "INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "huapalcalco/huapalco.jpg",
+			"title": "Huapalcalco",
+			"credit": "INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "huapalcalco/huapalcalco-2-1.jpeg",
+			"title": "Pirámide principal",
+			"credit": "INAH-Zona Arqueológica de Huapalcalco"
+		},
+		{
+			"key": "huapalcalco/huapalcalco-5.jpg",
+			"title": "Huapalcalco",
+			"credit": "INAH-Zona Arqueológica Huapalcalco"
+		},
+		{
+			"key": "huapalcalco/copia-de-z-a-huapalcalco-en-hidalgo-1-1.jpg",
+			"title": "Huapalcalco",
+			"credit": "INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "huapalcalco/b.jpeg",
+			"title": "Altar-estela",
+			"credit": "INAH-Zona Arqueológica de Huapalcalco"
+		}
+	]
+}

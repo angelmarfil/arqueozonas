@@ -1,0 +1,20 @@
+{
+	"inahId": 4369,
+	"images": [
+		{
+			"key": "calica/219-a-000.jpg",
+			"title": "Calica",
+			"credit": "INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "calica/pintura-de-la-estructura-p-1.jpg",
+			"title": "Pintura de la Estructura P-1 o Casa Azul",
+			"credit": "Javier Hinojosa / INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "calica/calica-casa-azul.jpg",
+			"title": "Casa Azul de CALICA",
+			"credit": "Ashuni Emmanuel Romero Butrón / INAH-Centro INAH Quintana Roo"
+		}
+	]
+}

@@ -1,0 +1,30 @@
+{
+	"inahId": 4372,
+	"images": [
+		{
+			"key": "balamcanche/222-a-001.jpg",
+			"title": "Piezas Balamcanché",
+			"credit": "Mauricio Marat / INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "balamcanche/dsc-0267-0.jpg",
+			"title": "Cover image",
+			"credit": "INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "balamcanche/222-a-000.jpg",
+			"title": "Balamcanché",
+			"credit": "INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "balamcanche/222-a-003-balamcache-raices-carlos-blanco-2.jpg",
+			"title": "Detalle de un incensario",
+			"credit": "Carlos Blanco / INAH-Coordinación Nacional de Arqueología"
+		},
+		{
+			"key": "balamcanche/balancanche-grupo-2-0.jpg",
+			"title": "Group 2, Balamcanché",
+			"credit": "INAH-Zona Arqueológica de Balamcanché"
+		}
+	]
+}

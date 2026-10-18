@@ -24,6 +24,12 @@ export async function getSiteState(site: CollectionEntry<'sites'>) {
 	return state;
 }
 
+export async function getSiteGallery(site: CollectionEntry<'sites'>) {
+	const slug = getSlug(site);
+	const [gallery] = await getCollection('galleries', ({ id }) => id === slug);
+	return gallery;
+}
+
 export async function getStatePaths() {
 	const states = await getStates();
 	return states.map((state) => ({

@@ -1,0 +1,54 @@
+{
+	"inahId": 4495,
+	"images": [
+		{
+			"key": "tancama/logo-tancama-0.png",
+			"title": "Tancama"
+		},
+		{
+			"key": "tancama/edificio-3.jpeg",
+			"title": "Edificio 3 o de la Culebra Azul",
+			"credit": "INAH-Zona Arqueológica Tancama"
+		},
+		{
+			"key": "tancama/edificio-7.jpeg",
+			"title": "Edificio 7 o del Personaje Huasteco",
+			"credit": "INAH-Zona Arqueológica Tancama"
+		},
+		{
+			"key": "tancama/zona-arqueologica-de-tancama.jpg",
+			"title": "Tancama",
+			"credit": "INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "tancama/edificio-2a.jpg",
+			"title": "Tancama",
+			"credit": "INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "tancama/343-a-tancama-mauricio-marat-3.jpg",
+			"title": "Tancama",
+			"credit": "Mauricio Marat / INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "tancama/edificio-2.jpeg",
+			"title": "Edificio 2 o De los Muertos",
+			"credit": "INAH-Zona Arqueológica Tancama"
+		},
+		{
+			"key": "tancama/edificio-5.jpeg",
+			"title": "Edificio 5 o de las Espinas de Mantarraya",
+			"credit": "INAH-Zona Arqueológica Tancama"
+		},
+		{
+			"key": "tancama/tancama-foto-mauricio-marat-inah.jpg",
+			"title": "Tancama",
+			"credit": "Mauricio Marat / INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "tancama/343-a-tancama-mauricio-marat-2.jpg",
+			"title": "Tancama",
+			"credit": "Mauricio Marat / INAH-Dirección de Medios de Comunicación"
+		}
+	]
+}

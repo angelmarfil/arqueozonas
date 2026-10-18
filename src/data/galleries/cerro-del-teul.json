@@ -1,0 +1,30 @@
+{
+	"inahId": 4542,
+	"images": [
+		{
+			"key": "cerro-del-teul/imagen-1.jpg",
+			"title": "Cerro del Teúl",
+			"credit": "INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "cerro-del-teul/imagen-6.jpeg",
+			"title": "Tumba de tiro",
+			"credit": "INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "cerro-del-teul/cerro-del-teul-zacatecas-foto-hector-montano-inahjpg.jpg",
+			"title": "Cerro del Teúl",
+			"credit": "Héctor Montaño Morales / INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "cerro-del-teul/imagen-5.jpeg",
+			"title": "Juego de Pelota",
+			"credit": "INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "cerro-del-teul/cerro-teul.jpg",
+			"title": "Cerro del Teúl",
+			"credit": "Héctor Montaño Morales / INAH-Dirección de Medios de Comunicación"
+		}
+	]
+}
