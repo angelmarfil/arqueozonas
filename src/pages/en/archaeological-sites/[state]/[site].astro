@@ -1,10 +1,14 @@
 ---
 import Layout from "../../../../layouts/Layout.astro";
-import { render, type CollectionEntry } from "astro:content";
-import { getSitePaths, getSiteState, getSlug } from "../../../../i18n/content";
-import { getLangFromUrl, useTranslatedPath } from "../../../../i18n/utils";
 import { SEO } from "astro-seo";
-import { TITLE_DELIMITER, SITE_TITLE } from "astro:env/client";
+import { SITE_TITLE, TITLE_DELIMITER } from "astro:env/client";
+import { render, type CollectionEntry } from "astro:content";
+import { getSitePaths, getSiteState } from "../../../../i18n/content";
+import {
+  getLangFromUrl,
+  useTranslatedPath,
+  useTranslations,
+} from "../../../../i18n/utils";
 
 export function getStaticPaths() {
   return getSitePaths("en");
@@ -16,6 +20,7 @@ interface Props {
 
 const { site } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 const state = await getSiteState(site);
 const { Content } = await render(site);
@@ -27,7 +32,6 @@ const { Content } = await render(site);
     charset="utf-8"
     title={site.data.name}
     titleTemplate={`%s ${TITLE_DELIMITER} ${SITE_TITLE}`}
-    description=""
     extend={{
       meta: [
         {
@@ -53,11 +57,64 @@ const { Content } = await render(site);
     }}
   />
 
-  <a href={translatePath(`/zonas-arqueologicas/${getSlug(state)}`)}
-    >{state.data.name}</a
-  >
+  <main class="mx-auto w-full max-w-7xl px-4 py-8 md:px-8">
+    <div class="breadcrumbs text-sm">
+      <ul>
+        <li>
+          <a href={translatePath("/zonas-arqueologicas")}>{t("nav.sites")}</a>
+        </li>
+        <li>
+          <a href={translatePath(`/zonas-arqueologicas/${state.id}`)}
+            >{state.data.name}</a
+          >
+        </li>
+        <li>{site.data.name}</li>
+      </ul>
+    </div>
 
-  <h1>{site.data.name}</h1>
+    <header class="mb-8">
+      <h1 class="text-3xl font-bold md:text-4xl">{site.data.name}</h1>
+      <p class="mt-2 text-base-content/60">{state.data.name}</p>
+    </header>
 
-  <Content />
+    <div class="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_20rem]">
+      <article class="prose">
+        <Content />
+      </article>
+
+      {
+        site.data.guide && (
+          <aside class="card card-border bg-base-100 self-start lg:sticky lg:top-8">
+            <div class="card-body">
+              <h2 class="card-title">{t("site.guide.title")}</h2>
+              <div class="card-actions mt-2">
+                <a
+                  href={`/guides/${site.data.guide}.pdf`}
+                  target="_blank"
+                  rel="noopener"
+                  class="btn btn-block"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    class="h-5 w-5 stroke-current"
+                    aria-hidden="true"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 4v12m0 0-4-4m4 4 4-4M4 20h16"
+                    />
+                  </svg>
+                  {t("site.guide.download")}
+                </a>
+              </div>
+            </div>
+          </aside>
+        )
+      }
+    </div>
+  </main>
 </Layout>
