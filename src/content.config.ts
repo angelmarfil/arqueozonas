@@ -23,11 +23,15 @@ const galleries = defineCollection({
     loader: glob({ pattern: "*.json", base: "./src/data/galleries" }),
     schema: z.object({
         inahId: z.number(),
+        cover: z.string().optional(),
         images: z.array(z.object({
             key: z.string(),
             title: z.string(),
             credit: z.string().optional(),
         })),
-    })
+    }).refine(
+        ({ cover, images }) => cover === undefined || images.some(({ key }) => key === cover),
+        { path: ["cover"], message: "cover must be the key of one of the gallery images" },
+    )
 })
 export const collections = { states, sites, galleries };

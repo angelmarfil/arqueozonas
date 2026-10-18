@@ -1,17 +1,47 @@
 ---
+import { getImage, inferRemoteSize } from "astro:assets";
+
 interface Props {
 	href: string;
 	title: string;
 	subtitle?: string;
+	/** Remote cover image URL; `null` renders an empty placeholder so cards stay aligned. */
+	cover?: string | null;
 }
 
-const { href, title, subtitle } = Astro.props;
+const { href, title, subtitle, cover } = Astro.props;
+
+const COVER_WIDTH = 640;
+
+let coverImage: { src: string; width: number; height: number } | undefined;
+if (cover) {
+	const { width, height } = await inferRemoteSize(cover);
+	const targetWidth = Math.min(COVER_WIDTH, width);
+	const targetHeight = Math.round((targetWidth * height) / width);
+	const image = await getImage({ src: cover, width: targetWidth, height: targetHeight, format: "webp" });
+	coverImage = { src: image.src, width: targetWidth, height: targetHeight };
+}
 ---
 
 <a
 	href={href}
 	class="card card-border bg-base-100 transition-colors hover:bg-base-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-base-content"
 >
+	{cover !== undefined && (
+		<figure class="aspect-4/3 bg-base-200">
+			{coverImage && (
+				<img
+					src={coverImage.src}
+					width={coverImage.width}
+					height={coverImage.height}
+					alt=""
+					loading="lazy"
+					decoding="async"
+					class="h-full w-full object-cover"
+				/>
+			)}
+		</figure>
+	)}
 	<div class="card-body">
 		<h2 class="card-title">{title}</h2>
 		{subtitle && <p class="text-base-content/60">{subtitle}</p>}

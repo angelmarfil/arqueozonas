@@ -4,7 +4,7 @@ import { SEO } from 'astro-seo';
 import { SITE_TITLE, TITLE_DELIMITER } from 'astro:env/client';
 import type { CollectionEntry } from 'astro:content';
 import LinkCard from '../../../../components/LinkCard.astro';
-import { getStatePaths, getSites, getSlug } from '../../../../i18n/content';
+import { getStatePaths, getSiteCover, getSites, getSlug } from '../../../../i18n/content';
 import { getLangFromUrl, useTranslatedPath, useTranslations } from '../../../../i18n/utils';
 
 export function getStaticPaths() {
@@ -21,6 +21,7 @@ const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 const stateSlug = state.id;
 const sites = await getSites(lang, stateSlug);
+const covers = await Promise.all(sites.map(getSiteCover));
 ---
 
 <Layout>
@@ -66,10 +67,11 @@ const sites = await getSites(lang, stateSlug);
 
 		{sites.length > 0 ? (
 			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-				{sites.map(site => (
+				{sites.map((site, i) => (
 					<LinkCard
 						href={translatePath(`/zonas-arqueologicas/${stateSlug}/${getSlug(site)}`)}
 						title={site.data.name}
+						cover={covers[i] ?? null}
 					/>
 				))}
 			</div>
