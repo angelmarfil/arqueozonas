@@ -1,4 +1,6 @@
 ---
+import { Icon } from "astro-icon/components";
+
 interface Props {
 	href: string;
 	title: string;
@@ -15,14 +17,16 @@ const { href, title, subtitle, cover } = Astro.props;
 	class="card card-border bg-base-100 transition-colors hover:bg-base-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-base-content"
 >
 	{cover !== undefined && (
-		<figure class="aspect-4/3 bg-base-200">
+		<figure class="relative aspect-4/3 bg-base-200">
+			<Icon name="boxicons:image-landscape" class="size-12 text-base-content/25" aria-hidden="true" />
 			{cover && (
 				<img
 					src={cover}
 					alt=""
 					loading="lazy"
 					decoding="async"
-					class="h-full w-full object-cover"
+					onerror="this.hidden = true"
+					class="absolute inset-0 h-full w-full object-cover"
 				/>
 			)}
 		</figure>
