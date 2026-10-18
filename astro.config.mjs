@@ -5,6 +5,8 @@ import { defineConfig, envField } from 'astro/config';
 import mdx from "@astrojs/mdx";
 import icon from "astro-icon";
 
+import react from "@astrojs/react";
+
 // https://astro.build/config
 export default defineConfig({
   i18n: {
@@ -22,5 +24,5 @@ export default defineConfig({
       plugins: [tailwindcss()],
   },
 
-  integrations: [mdx(), icon()]
+  integrations: [mdx(), icon(), react()]
 });
