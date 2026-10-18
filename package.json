@@ -28,6 +28,7 @@
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
+    "@iconify-json/boxicons": "^1.2.0",
     "@tailwindcss/typography": "^0.5.20",
     "daisyui": "^5.7.50"
   }
