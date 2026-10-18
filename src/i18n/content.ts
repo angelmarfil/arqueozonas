@@ -31,6 +31,12 @@ export async function getSiteGallery(site: CollectionEntry<'sites'>) {
 	return gallery;
 }
 
+export async function getSiteTours(site: CollectionEntry<'sites'>) {
+	const slug = getSlug(site);
+	const tours = await getCollection('tours', ({ data }) => data.sites.some((ref) => getSlug(ref) === slug));
+	return tours.sort((a, b) => Number(b.data.type === 'site') - Number(a.data.type === 'site'));
+}
+
 const COVER_WIDTH = 640;
 
 export function getImageUrl(key: string, width?: number) {

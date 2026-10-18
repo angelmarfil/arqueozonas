@@ -7,7 +7,7 @@ import Layout from "../layouts/Layout.astro";
 import Breadcrumbs from "./Breadcrumbs.astro";
 import SiteBadges from "./SiteBadges.astro";
 import SiteGallery from "./SiteGallery.astro";
-import { getSiteGallery, getSiteState } from "../i18n/content";
+import { getSiteGallery, getSiteState, getSiteTours } from "../i18n/content";
 import { getLangFromUrl, useTranslatedPath, useTranslations } from "../i18n/utils";
 
 interface Props {
@@ -38,6 +38,17 @@ if (site.data.guide) {
     label: t("site.guide.download"),
     icon: "boxicons:arrow-in-down-square-half",
     href: `/guides/${site.data.guide}.pdf`,
+    external: true,
+  });
+}
+const tours = await getSiteTours(site);
+const groupTours = tours.length > 1;
+if (tours.length === 1) {
+  const [{ data }] = tours;
+  actions.push({
+    label: data.type === "site" ? t("site.tour") : data.name,
+    icon: "boxicons:street-view",
+    href: data.url,
     external: true,
   });
 }
@@ -108,7 +119,7 @@ if (site.data.guide) {
         </div>
 
         {
-          actions.length > 0 && (
+          (actions.length > 0 || groupTours) && (
             <div class="flex flex-wrap gap-2 md:shrink-0 md:justify-end">
               {actions.map(({ label, icon, href, external }) => (
                 <a
@@ -120,6 +131,24 @@ if (site.data.guide) {
                   {label}
                 </a>
               ))}
+              {groupTours && (
+                <div class="dropdown md:dropdown-end">
+                  <div tabindex="0" role="button" class="btn">
+                    <Icon name="boxicons:street-view" class="size-5" aria-hidden="true" />
+                    {t("site.tours")}
+                    <Icon name="boxicons:chevron-down" class="size-3 opacity-60" aria-hidden="true" />
+                  </div>
+                  <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-5 mt-2 w-72 p-2 shadow-sm">
+                    {tours.map(({ data }) => (
+                      <li>
+                        <a href={data.url} target="_blank" rel="noopener">
+                          {data.name}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           )
         }
