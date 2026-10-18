@@ -14,6 +14,9 @@ const sites = defineCollection({
     schema: z.object({
         name: z.string(),
         state: z.string(),
+        sicId: z.number().int().optional(),
+        isOpen: z.boolean().optional(),
+        hasMayaTrain: z.boolean().default(false),
         guide: z.string().optional(),
         lastReviewed: z.coerce.date().optional(),
     })
