@@ -11,11 +11,17 @@ export const ui = {
 	es: {
 		'nav.states': 'Estados',
 		'nav.sites': 'Zonas arqueológicas',
+		'nav.museums': 'Museos',
+		'nav.openMenu': 'Abrir menú',
+		'nav.closeMenu': 'Cerrar menú',
 		'languagePicker.label': 'Idioma',
 	},
 	en: {
 		'nav.states': 'States',
 		'nav.sites': 'Archaeological sites',
+		'nav.museums': 'Museums',
+		'nav.openMenu': 'Open menu',
+		'nav.closeMenu': 'Close menu',
 		'languagePicker.label': 'Language',
 	},
 } as const;

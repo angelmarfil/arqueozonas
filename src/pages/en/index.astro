@@ -1,10 +1,10 @@
 ---
 import "../../styles/global.css";
 import Layout from "../../layouts/Layout.astro";
-import { getStates } from "../../i18n/content";
-import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 import { SEO } from "astro-seo";
 import { SITE_TITLE, TITLE_DELIMITER } from "astro:env/client";
+import { getStates } from "../../i18n/content";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -15,9 +15,8 @@ const states = await getStates();
   <SEO
     slot="head"
     charset="utf-8"
-    title={SITE_TITLE}
+    titleDefault={SITE_TITLE}
     titleTemplate={`%s ${TITLE_DELIMITER} ${SITE_TITLE}`}
-    description=""
     extend={{
       meta: [
         {

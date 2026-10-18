@@ -1,0 +1,42 @@
+---
+import type { UIKey } from "../i18n/ui";
+import {
+  getLangFromUrl,
+  getRouteFromUrl,
+  useTranslatedPath,
+  useTranslations,
+} from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+const route = getRouteFromUrl(Astro.url);
+
+const navItems: { label: UIKey; href?: string }[] = [
+  { label: "nav.sites", href: "/zonas-arqueologicas" },
+  { label: "nav.museums" },
+];
+
+const isActive = (href: string) =>
+  route === href || route.startsWith(`${href}/`);
+---
+
+{
+  navItems.map(({ label, href }) =>
+    href ? (
+      <li>
+        <a
+          href={translatePath(href)}
+          class:list={{ "menu-active": isActive(href) }}
+          aria-current={isActive(href) ? "page" : undefined}
+        >
+          {t(label)}
+        </a>
+      </li>
+    ) : (
+      <li class="menu-disabled">
+        <span>{t(label)}</span>
+      </li>
+    ),
+  )
+}

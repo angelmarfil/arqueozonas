@@ -1,15 +1,12 @@
 ---
+import "../styles/global.css";
 import { SITE_TITLE } from "astro:env/client";
 import LanguagePicker from "../components/LanguagePicker.astro";
-import {
-  getLangFromUrl,
-  getRouteFromUrl,
-  useTranslatedPath,
-} from "../i18n/utils";
+import NavLinks from "../components/NavLinks.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
-const translatePath = useTranslatedPath(lang);
-const route = getRouteFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <!doctype html>
@@ -26,7 +23,7 @@ const route = getRouteFromUrl(Astro.url);
           <div class="flex-none lg:hidden">
             <label
               for="my-drawer-2"
-              aria-label="open sidebar"
+              aria-label={t("nav.openMenu")}
               class="btn btn-square btn-ghost drawer-button"
             >
               <svg
@@ -46,12 +43,9 @@ const route = getRouteFromUrl(Astro.url);
           <div class="mx-2 flex-1 px-2">{SITE_TITLE}</div>
           <div class="hidden flex-none lg:block">
             <ul class="menu menu-horizontal">
-              <!-- Navbar menu content here -->
-              <li><a>Zonas Arqueológicas</a></li>
-              <li><a>Museos</a></li>
-			  <li><a>Estados</a></li>
+              <NavLinks />
             </ul>
-			<LanguagePicker />
+            <LanguagePicker />
           </div>
         </div>
         <!-- Page content here -->
@@ -60,13 +54,14 @@ const route = getRouteFromUrl(Astro.url);
       <div class="drawer-side">
         <label
           for="my-drawer-2"
-          aria-label="close sidebar"
+          aria-label={t("nav.closeMenu")}
           class="drawer-overlay"></label>
-        <ul class="menu bg-base-200 min-h-full w-80 p-4">
-          <!-- Sidebar content here -->
-          <li><a>Sidebar Item 1</a></li>
-          <li><a>Sidebar Item 2</a></li>
-        </ul>
+        <div class="flex min-h-full w-80 flex-col gap-4 bg-base-200 p-4">
+          <ul class="menu w-full p-0">
+            <NavLinks />
+          </ul>
+          <LanguagePicker />
+        </div>
       </div>
     </div>
   </body>

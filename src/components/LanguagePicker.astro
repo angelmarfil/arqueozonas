@@ -8,7 +8,7 @@ const translatePath = useTranslatedPath(lang);
 const route = getRouteFromUrl(Astro.url);
 ---
 <div class="dropdown dropdown-end">
-  <div tabindex="0" role="button" class="btn m-1">Idioma</div>
+  <div tabindex="0" role="button" class="btn m-1">{t('languagePicker.label')}</div>
   <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
 		{Object.entries(languages).map(([code, label]) => (
 			<li>
