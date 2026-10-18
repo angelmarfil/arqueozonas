@@ -84,6 +84,16 @@ const { Content } = await render(site);
     <div class="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_20rem]">
       <article class="prose">
         <Content />
+        {
+          site.data.lastReviewed && (
+            <p class="text-sm text-base-content/60">
+              {t("site.lastReviewed")}:{" "}
+              <time datetime={site.data.lastReviewed.toISOString().slice(0, 10)}>
+                {site.data.lastReviewed.toLocaleDateString(lang, { dateStyle: "long", timeZone: "UTC" })}
+              </time>
+            </p>
+          )
+        }
       </article>
 
       {

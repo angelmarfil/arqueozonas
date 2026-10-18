@@ -15,6 +15,7 @@ const sites = defineCollection({
         name: z.string(),
         state: z.string(),
         guide: z.string().optional(),
+        lastReviewed: z.coerce.date().optional(),
     })
 })
 
