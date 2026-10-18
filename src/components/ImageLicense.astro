@@ -1,0 +1,22 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<p class:list={["text-xs text-base-content/60", className]}>
+  {t("site.gallery.license")}{" "}
+  <a
+    href={`https://creativecommons.org/licenses/by-nc-nd/4.0/deed.${lang}`}
+    target="_blank"
+    rel="noopener license"
+    class="link">CC BY-NC-ND 4.0</a
+  >
+  <slot />
+</p>

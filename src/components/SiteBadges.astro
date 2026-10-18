@@ -1,0 +1,34 @@
+---
+import { Icon } from "astro-icon/components";
+import type { CollectionEntry } from "astro:content";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+interface Props {
+  site: CollectionEntry<"sites">;
+  size?: "sm" | "md";
+}
+
+const { site, size = "sm" } = Astro.props;
+const { isOpen, hasMayaTrain } = site.data;
+const t = useTranslations(getLangFromUrl(Astro.url));
+const sizeClass = size === "sm" ? "badge-sm" : "badge-md";
+---
+
+{
+  (isOpen !== undefined || hasMayaTrain) && (
+    <div class="flex flex-wrap gap-1.5">
+      {isOpen !== undefined && (
+        <span class:list={["badge badge-soft", sizeClass, isOpen ? "badge-success" : "badge-error"]}>
+          <span class:list={["status", isOpen ? "status-success" : "status-error"]} aria-hidden="true" />
+          {t(isOpen ? "site.status.open" : "site.status.closed")}
+        </span>
+      )}
+      {hasMayaTrain && (
+        <span class:list={["badge badge-soft badge-info", sizeClass]}>
+          <Icon name="boxicons:train" class="size-3.5" aria-hidden="true" />
+          {t("site.mayaTrain")}
+        </span>
+      )}
+    </div>
+  )
+}

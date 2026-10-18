@@ -7,7 +7,7 @@ import icon from "astro-icon";
 
 import react from "@astrojs/react";
 import { satteri } from "@astrojs/markdown-satteri";
-import sectionTabs from "./src/markdown/section-tabs.mjs";
+import siteSections from "./src/markdown/site-sections.mjs";
 
 // https://astro.build/config
 export default defineConfig({
@@ -25,7 +25,7 @@ export default defineConfig({
   },
 
   markdown: {
-      processor: satteri({ hastPlugins: [sectionTabs] }),
+      processor: satteri({ hastPlugins: [siteSections], features: { headingAttributes: true } }),
   },
 
   image: {

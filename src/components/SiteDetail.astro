@@ -1,0 +1,152 @@
+---
+import { Icon } from "astro-icon/components";
+import { SEO } from "astro-seo";
+import { SITE_TITLE, TITLE_DELIMITER } from "astro:env/client";
+import { render, type CollectionEntry } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "./Breadcrumbs.astro";
+import SiteBadges from "./SiteBadges.astro";
+import SiteGallery from "./SiteGallery.astro";
+import { getSiteGallery, getSiteState } from "../i18n/content";
+import { getLangFromUrl, useTranslatedPath, useTranslations } from "../i18n/utils";
+
+interface Props {
+  site: CollectionEntry<"sites">;
+}
+
+interface SiteAction {
+  label: string;
+  icon: string;
+  href: string;
+  external?: boolean;
+}
+
+const { site } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+const state = await getSiteState(site);
+const gallery = await getSiteGallery(site);
+const { Content } = await render(site);
+const statePath = `/zonas-arqueologicas/${state.id}`;
+const formatDate = (date: Date) => date.toLocaleDateString(lang, { dateStyle: "long", timeZone: "UTC" });
+const isoDate = (date: Date) => date.toISOString().slice(0, 10);
+
+const actions: SiteAction[] = [];
+if (site.data.guide) {
+  actions.push({
+    label: t("site.guide.download"),
+    icon: "boxicons:arrow-in-down-square-half",
+    href: `/guides/${site.data.guide}.pdf`,
+    external: true,
+  });
+}
+---
+
+<Layout>
+  <SEO
+    slot="head"
+    charset="utf-8"
+    title={site.data.name}
+    titleTemplate={`%s ${TITLE_DELIMITER} ${SITE_TITLE}`}
+    extend={{
+      meta: [
+        {
+          name: "viewport",
+          content: "width=device-width",
+        },
+        {
+          name: "generator",
+          content: Astro.generator,
+        },
+      ],
+      link: [
+        {
+          rel: "icon",
+          type: "image/svg+xml",
+          href: "/favicon.svg",
+        },
+        {
+          rel: "icon",
+          href: "/favicon.ico",
+        },
+      ],
+    }}
+  />
+
+  <main class="mx-auto flex w-full max-w-5xl flex-col gap-8 px-4 py-6 sm:gap-10 sm:px-6 sm:py-10">
+    <div class="flex flex-col gap-4 sm:gap-6">
+      <Breadcrumbs
+        items={[
+          { label: t("nav.sites"), href: "/zonas-arqueologicas", icon: "boxicons:pyramid-filled" },
+          { label: state.data.name, href: statePath },
+          { label: site.data.name },
+        ]}
+      />
+
+      <header class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+        <div class="flex flex-col gap-3">
+          <SiteBadges site={site} size="md" />
+          <h1 class="text-3xl font-bold tracking-tight text-balance sm:text-4xl lg:text-5xl">
+            {site.data.name}
+          </h1>
+          <div class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-base-content/70">
+            <a href={translatePath(statePath)} class="link link-hover inline-flex items-center gap-1.5">
+              <Icon name="boxicons:map" class="size-4" aria-hidden="true" />
+              {state.data.name}
+            </a>
+            {
+              site.data.lastReviewed && (
+                <span class="inline-flex items-center gap-1.5">
+                  <Icon name="boxicons:calendar" class="size-4" aria-hidden="true" />
+                  {t("site.lastReviewed")}:
+                  <time datetime={isoDate(site.data.lastReviewed)}>{formatDate(site.data.lastReviewed)}</time>
+                </span>
+              )
+            }
+          </div>
+        </div>
+
+        {
+          actions.length > 0 && (
+            <div class="flex flex-wrap gap-2 md:shrink-0 md:justify-end">
+              {actions.map(({ label, icon, href, external }) => (
+                <a
+                  href={href}
+                  class="btn"
+                  {...(external && { target: "_blank", rel: "noopener" })}
+                >
+                  <Icon name={icon} class="size-5" aria-hidden="true" />
+                  {label}
+                </a>
+              ))}
+            </div>
+          )
+        }
+      </header>
+    </div>
+
+    {gallery && <SiteGallery gallery={gallery} />}
+
+    <article class="flex flex-col gap-4">
+      <Content />
+      <footer class="flex flex-col gap-1 text-xs text-base-content/60">
+        {
+          site.data.sicId && (
+            <p>
+              {t("site.source.text")}:{" "}
+              <a
+                href={`https://sic.cultura.gob.mx/ficha.php?table=zona_arqueologica&table_id=${site.data.sicId}`}
+                target="_blank"
+                rel="noopener"
+                class="link"
+              >
+                {t("site.source.sic")}
+              </a>, {t("site.source.publisher")}
+            </p>
+          )
+        }
+      </footer>
+    </article>
+  </main>
+</Layout>

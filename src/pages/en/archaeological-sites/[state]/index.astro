@@ -3,6 +3,9 @@ import Layout from '../../../../layouts/Layout.astro';
 import { SEO } from 'astro-seo';
 import { SITE_TITLE, TITLE_DELIMITER } from 'astro:env/client';
 import type { CollectionEntry } from 'astro:content';
+import Breadcrumbs from '../../../../components/Breadcrumbs.astro';
+import ImageLicense from '../../../../components/ImageLicense.astro';
+import SiteBadges from '../../../../components/SiteBadges.astro';
 import LinkCard from '../../../../components/LinkCard.astro';
 import { getStatePaths, getSiteCover, getSites, getSlug } from '../../../../i18n/content';
 import { getLangFromUrl, useTranslatedPath, useTranslations } from '../../../../i18n/utils';
@@ -56,12 +59,12 @@ const covers = await Promise.all(sites.map(getSiteCover));
 	/>
 
 	<main class="mx-auto w-full max-w-7xl px-4 py-8 md:px-8">
-		<div class="breadcrumbs text-sm">
-			<ul>
-				<li><a href={translatePath('/zonas-arqueologicas')}>{t('nav.sites')}</a></li>
-				<li>{state.data.name}</li>
-			</ul>
-		</div>
+		<Breadcrumbs
+			items={[
+				{ label: t('nav.sites'), href: '/zonas-arqueologicas', icon: 'boxicons:pyramid-filled' },
+				{ label: state.data.name },
+			]}
+		/>
 
 		<h1 class="mb-6 text-3xl font-bold">{state.data.name}</h1>
 
@@ -72,11 +75,15 @@ const covers = await Promise.all(sites.map(getSiteCover));
 						href={translatePath(`/zonas-arqueologicas/${stateSlug}/${getSlug(site)}`)}
 						title={site.data.name}
 						cover={covers[i] ?? null}
-					/>
+					>
+						<SiteBadges site={site} />
+					</LinkCard>
 				))}
 			</div>
 		) : (
 			<p class="text-base-content/60">{t('sites.empty')}</p>
 		)}
+
+		{covers.some(Boolean) && <ImageLicense class="mt-6" />}
 	</main>
 </Layout>

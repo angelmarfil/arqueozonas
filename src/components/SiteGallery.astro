@@ -2,6 +2,7 @@
 import { getImage, inferRemoteSize } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import { R2_PUBLIC_URL } from "astro:env/server";
+import ImageLicense from "./ImageLicense.astro";
 import InlineGallery, { type Slide } from "./InlineGallery";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
@@ -39,16 +40,9 @@ const slides: Slide[] = await Promise.all(
 );
 ---
 
-<section class="mb-8">
+<section>
   <InlineGallery client:load slides={slides} />
-  <p class="mt-2 text-xs text-base-content/60">
-    {t("site.gallery.license")}{" "}
-    <a
-      href={`https://creativecommons.org/licenses/by-nc-nd/4.0/deed.${lang}`}
-      target="_blank"
-      rel="noopener license"
-      class="link">CC BY-NC-ND 4.0</a
-    >
+  <ImageLicense class="mt-2">
     {" · "}
     <a
       href={`https://lugares.inah.gob.mx/${lang}/node/${gallery.data.inahId}`}
@@ -58,5 +52,5 @@ const slides: Slide[] = await Promise.all(
     >
       {t("site.gallery.source")}
     </a>
-  </p>
+  </ImageLicense>
 </section>

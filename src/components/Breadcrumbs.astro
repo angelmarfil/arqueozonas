@@ -1,0 +1,46 @@
+---
+import { Icon } from "astro-icon/components";
+import { getLangFromUrl, useTranslatedPath, useTranslations } from "../i18n/utils";
+
+export interface Crumb {
+  label: string;
+  href?: string;
+  icon?: string;
+}
+
+interface Props {
+  items: Crumb[];
+}
+
+const { items } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+---
+
+<nav aria-label={t("nav.breadcrumbs")} class="breadcrumbs text-sm text-base-content/70">
+  <ul>
+    <li>
+      <a href={translatePath("/")} class="gap-1.5" aria-label={t("nav.home")}>
+        <Icon name="boxicons:home" class="size-4" aria-hidden="true" />
+      </a>
+    </li>
+    {
+      items.map(({ label, href, icon }) => (
+        <li>
+          {href ? (
+            <a href={translatePath(href)} class="gap-1.5">
+              {icon && <Icon name={icon} class="size-4" aria-hidden="true" />}
+              {label}
+            </a>
+          ) : (
+            <span aria-current="page" class="gap-1.5 font-medium text-base-content">
+              {icon && <Icon name={icon} class="size-4" aria-hidden="true" />}
+              {label}
+            </span>
+          )}
+        </li>
+      ))
+    }
+  </ul>
+</nav>
