@@ -1,20 +1,68 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
-import { getStates } from '../../../i18n/content';
+import { SEO } from 'astro-seo';
+import { SITE_TITLE, TITLE_DELIMITER } from 'astro:env/client';
+import LinkCard from '../../../components/LinkCard.astro';
+import { getSites, getStates } from '../../../i18n/content';
 import { getLangFromUrl, useTranslatedPath, useTranslations } from '../../../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 const states = await getStates();
+const sites = await getSites(lang);
+const siteCount = (stateId: string) =>
+	sites.filter((site) => site.data.state === stateId).length;
 ---
 
 <Layout>
-	<h1>{t('nav.sites')}</h1>
+	<SEO
+		slot="head"
+		charset="utf-8"
+		title={t('nav.sites')}
+		description={t('seo.sites.description')}
+		titleTemplate={`%s ${TITLE_DELIMITER} ${SITE_TITLE}`}
+		extend={{
+			meta: [
+				{
+					name: "viewport",
+					content: "width=device-width",
+				},
+				{
+					name: "generator",
+					content: Astro.generator,
+				},
+			],
+			link: [
+				{
+					rel: "icon",
+					type: "image/svg+xml",
+					href: "/favicon.svg",
+				},
+				{
+					rel: "icon",
+					href: "/favicon.ico",
+				},
+			],
+		}}
+	/>
 
-	<ul>
-		{states.map(state => (
-			<li><a href={translatePath(`/zonas-arqueologicas/${state.id}`)}>{state.data.name}</a></li>
-		))}
-	</ul>
+	<main class="mx-auto w-full max-w-7xl px-4 py-8 md:px-8">
+		<h1 class="mb-6 text-3xl font-bold">{t('nav.sites')}</h1>
+
+		<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+			{
+				states.map((state) => {
+					const count = siteCount(state.id);
+					return (
+						<LinkCard
+							href={translatePath(`/zonas-arqueologicas/${state.id}`)}
+							title={state.data.name}
+							subtitle={`${count} ${t(count === 1 ? 'sites.one' : 'sites.other')}`}
+						/>
+					);
+				})
+			}
+		</div>
+	</main>
 </Layout>

@@ -1,6 +1,9 @@
 ---
 import Layout from '../../../../layouts/Layout.astro';
+import { SEO } from 'astro-seo';
+import { SITE_TITLE, TITLE_DELIMITER } from 'astro:env/client';
 import type { CollectionEntry } from 'astro:content';
+import LinkCard from '../../../../components/LinkCard.astro';
 import { getStatePaths, getSites, getSlug } from '../../../../i18n/content';
 import { getLangFromUrl, useTranslatedPath, useTranslations } from '../../../../i18n/utils';
 
@@ -21,13 +24,57 @@ const sites = await getSites(lang, stateSlug);
 ---
 
 <Layout>
-	<a href={translatePath('/zonas-arqueologicas')}>{t('nav.states')}</a>
+	<SEO
+		slot="head"
+		charset="utf-8"
+		title={`${t('seo.sitesIn')} ${state.data.name}`}
+		titleTemplate={`%s ${TITLE_DELIMITER} ${SITE_TITLE}`}
+		extend={{
+			meta: [
+				{
+					name: "viewport",
+					content: "width=device-width",
+				},
+				{
+					name: "generator",
+					content: Astro.generator,
+				},
+			],
+			link: [
+				{
+					rel: "icon",
+					type: "image/svg+xml",
+					href: "/favicon.svg",
+				},
+				{
+					rel: "icon",
+					href: "/favicon.ico",
+				},
+			],
+		}}
+	/>
 
-	<h1>{state.data.name}</h1>
+	<main class="mx-auto w-full max-w-7xl px-4 py-8 md:px-8">
+		<div class="breadcrumbs text-sm">
+			<ul>
+				<li><a href={translatePath('/zonas-arqueologicas')}>{t('nav.sites')}</a></li>
+				<li>{state.data.name}</li>
+			</ul>
+		</div>
 
-	<ul>
-		{sites.map(site => (
-			<li><a href={translatePath(`/zonas-arqueologicas/${stateSlug}/${getSlug(site)}`)}>{site.data.name}</a></li>
-		))}
-	</ul>
+		<h1 class="mb-6 text-3xl font-bold">{state.data.name}</h1>
+
+		{sites.length > 0 ? (
+			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+				{sites.map(site => (
+					<LinkCard
+						href={translatePath(`/zonas-arqueologicas/${stateSlug}/${getSlug(site)}`)}
+						title={site.data.name}
+					/>
+				))}
+			</div>
+		) : (
+			<p class="text-base-content/60">{t('sites.empty')}</p>
+		)}
+	</main>
 </Layout>

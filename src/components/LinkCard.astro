@@ -1,0 +1,19 @@
+---
+interface Props {
+	href: string;
+	title: string;
+	subtitle?: string;
+}
+
+const { href, title, subtitle } = Astro.props;
+---
+
+<a
+	href={href}
+	class="card card-border bg-base-100 transition-colors hover:bg-base-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-base-content"
+>
+	<div class="card-body">
+		<h2 class="card-title">{title}</h2>
+		{subtitle && <p class="text-base-content/60">{subtitle}</p>}
+	</div>
+</a>

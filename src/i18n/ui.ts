@@ -14,7 +14,12 @@ export const ui = {
 		'nav.museums': 'Museos',
 		'nav.openMenu': 'Abrir menú',
 		'nav.closeMenu': 'Cerrar menú',
+		'sites.one': 'zona arqueológica',
+		'sites.other': 'zonas arqueológicas',
+		'sites.empty': 'Aún no hay zonas arqueológicas registradas en este estado.',
 		'languagePicker.label': 'Idioma',
+		'seo.sitesIn': 'Zonas arqueológicas en',
+		'seo.sites.description': 'Explora las zonas arqueológicas de México organizadas por estado.',
 	},
 	en: {
 		'nav.states': 'States',
@@ -22,7 +27,12 @@ export const ui = {
 		'nav.museums': 'Museums',
 		'nav.openMenu': 'Open menu',
 		'nav.closeMenu': 'Close menu',
+		'sites.one': 'archaeological site',
+		'sites.other': 'archaeological sites',
+		'sites.empty': 'No archaeological sites have been added for this state yet.',
 		'languagePicker.label': 'Language',
+		'seo.sitesIn': 'Archaeological sites in',
+		'seo.sites.description': "Explore Mexico's archaeological sites by state.",
 	},
 } as const;
 
