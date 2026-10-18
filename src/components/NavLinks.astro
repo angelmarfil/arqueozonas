@@ -1,4 +1,5 @@
 ---
+import { Icon } from "astro-icon/components";
 import type { UIKey } from "../i18n/ui";
 import {
   getLangFromUrl,
@@ -12,9 +13,13 @@ const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 const route = getRouteFromUrl(Astro.url);
 
-const navItems: { label: UIKey; href?: string }[] = [
-  { label: "nav.sites", href: "/zonas-arqueologicas" },
-  { label: "nav.museums" },
+const navItems: { label: UIKey; icon: string; href?: string }[] = [
+  {
+    label: "nav.sites",
+    icon: "boxicons:pyramid-filled",
+    href: "/zonas-arqueologicas",
+  },
+  { label: "nav.museums", icon: "boxicons:bank-filled" },
 ];
 
 const isActive = (href: string) =>
@@ -22,7 +27,7 @@ const isActive = (href: string) =>
 ---
 
 {
-  navItems.map(({ label, href }) =>
+  navItems.map(({ label, icon, href }) =>
     href ? (
       <li>
         <a
@@ -30,12 +35,16 @@ const isActive = (href: string) =>
           class:list={{ "menu-active": isActive(href) }}
           aria-current={isActive(href) ? "page" : undefined}
         >
+          <Icon name={icon} class="size-5" aria-hidden="true" />
           {t(label)}
         </a>
       </li>
     ) : (
       <li class="menu-disabled">
-        <span>{t(label)}</span>
+        <span>
+          <Icon name={icon} class="size-5" aria-hidden="true" />
+          {t(label)}
+        </span>
       </li>
     ),
   )

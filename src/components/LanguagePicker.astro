@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components';
 import { languages, type Lang } from '../i18n/ui';
 import { getLangFromUrl, getRouteFromUrl, useTranslatedPath, useTranslations } from '../i18n/utils';
 
@@ -8,7 +9,15 @@ const translatePath = useTranslatedPath(lang);
 const route = getRouteFromUrl(Astro.url);
 ---
 <div class="dropdown dropdown-end">
-  <div tabindex="0" role="button" class="btn m-1">{t('languagePicker.label')}</div>
+  <div
+    tabindex="0"
+    role="button"
+    class="btn max-lg:btn-square"
+    aria-label={t('languagePicker.label')}
+  >
+    <Icon name="boxicons:translate" class="size-5" aria-hidden="true" />
+    <span class="hidden lg:inline">{t('languagePicker.label')}</span>
+  </div>
   <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
 		{Object.entries(languages).map(([code, label]) => (
 			<li>
