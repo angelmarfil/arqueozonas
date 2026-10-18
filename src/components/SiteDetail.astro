@@ -132,17 +132,25 @@ if (site.data.guide) {
       <Content />
       <footer class="flex flex-col gap-1 text-xs text-base-content/60">
         {
-          site.data.sicId && (
+          site.data.inahId && (
             <p>
-              {t("site.source.text")}:{" "}
+              {t("site.source.text")}{" "}
               <a
-                href={`https://sic.cultura.gob.mx/ficha.php?table=zona_arqueologica&table_id=${site.data.sicId}`}
+                href={`https://creativecommons.org/licenses/by-nc-nd/4.0/deed.${lang}`}
+                target="_blank"
+                rel="noopener license"
+                class="link"
+              >
+                CC BY-NC-ND 4.0
+              </a>. {t("site.source.unmodified")}{" · "}
+              <a
+                href={`https://lugares.inah.gob.mx/${lang}/node/${site.data.inahId}`}
                 target="_blank"
                 rel="noopener"
                 class="link"
               >
-                {t("site.source.sic")}
-              </a>, {t("site.source.publisher")}
+                {t("site.source.lugares")}
+              </a>
             </p>
           )
         }

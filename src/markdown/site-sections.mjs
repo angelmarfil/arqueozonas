@@ -9,8 +9,10 @@ const SECTIONS = {
 	history: { icon: "book-open" },
 	hours: { icon: "clock", visit: 0 },
 	fees: { icon: "ticket", visit: 1 },
-	chronology: { icon: "hourglass", visit: 2 },
-	location: { icon: "map", visit: 3 },
+	location: { icon: "map", visit: 2 },
+	access: { icon: "car", visit: 3 },
+	important: { icon: "alert-circle", visit: 4 },
+	contact: { icon: "phone", visit: 5 },
 };
 
 const VISIT_ICON = "compass";
