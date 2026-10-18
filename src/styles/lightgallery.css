@@ -1,0 +1,102 @@
+@import "lightgallery/css/lightgallery.css";
+@import "lightgallery/css/lg-thumbnail.css";
+@import "lightgallery/css/lg-zoom.css";
+@import "lightgallery/css/lg-autoplay.css";
+
+@keyframes lg-progress-fill {
+  from {
+    width: 0;
+  }
+}
+
+.lg-progress-bar.lg-start .lg-progress {
+  animation: lg-progress-fill var(--lg-autoplay-duration) linear;
+}
+
+.lg-container {
+  font-family: inherit;
+}
+
+.lg-backdrop {
+  background-color: var(--color-base-300);
+}
+
+.lg-next,
+.lg-prev {
+  background-color: color-mix(in oklab, var(--color-base-100) 70%, transparent);
+  color: color-mix(in oklab, var(--color-base-content) 70%, transparent);
+  border-radius: var(--radius-field);
+}
+
+.lg-next:hover:not(.disabled),
+.lg-prev:hover:not(.disabled) {
+  color: var(--color-base-content);
+}
+
+.lg-media-overlap .lg-toolbar {
+  background-image: linear-gradient(0deg, transparent, color-mix(in oklab, var(--color-base-100) 70%, transparent));
+}
+
+.lg-toolbar .lg-icon,
+.lg-counter,
+.lg-error-msg {
+  color: color-mix(in oklab, var(--color-base-content) 70%, transparent);
+}
+
+.lg-toolbar .lg-icon:hover,
+.lg-icon:focus-visible {
+  color: var(--color-base-content);
+}
+
+.lg-icon:focus-visible {
+  outline-color: var(--color-base-content);
+}
+
+.lg-toolbar-menu {
+  background-color: var(--color-base-100);
+  border-radius: var(--radius-box);
+}
+
+.lg-toolbar-menu .lg-toolbar-menu-item {
+  color: var(--color-base-content);
+}
+
+.lg-toolbar-menu .lg-toolbar-menu-item:hover,
+.lg-toolbar-menu .lg-toolbar-menu-item:focus-visible {
+  background-color: var(--color-base-200);
+}
+
+.lg-sub-html {
+  color: var(--color-base-content);
+}
+
+.lg-media-overlap .lg-sub-html {
+  background-image: linear-gradient(180deg, transparent, color-mix(in oklab, var(--color-base-100) 85%, transparent));
+}
+
+.lg-outer .lg-thumb-outer {
+  background-color: var(--color-base-200);
+}
+
+.lg-outer .lg-thumb-item {
+  border-radius: var(--radius-selector);
+}
+
+@media (min-width: 768px) {
+  .lg-outer .lg-thumb-item {
+    border-color: var(--color-base-300);
+  }
+}
+
+.lg-outer .lg-thumb-item.active,
+.lg-outer .lg-thumb-item:hover {
+  border-color: var(--color-primary);
+}
+
+.lg-progress-bar {
+  background-color: var(--color-base-300);
+}
+
+.lg-progress-bar .lg-progress {
+  background-color: var(--color-primary);
+}

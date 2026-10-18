@@ -5,11 +5,7 @@ import Zoom from "@lightgallery/react/plugins/zoom";
 import Autoplay from "@lightgallery/react/plugins/autoplay";
 import { LIGHTGALLERY_LICENSE_KEY } from "astro:env/client";
 
-import "lightgallery/css/lightgallery.css";
-import "lightgallery/css/lg-thumbnail.css";
-import "lightgallery/css/lg-zoom.css";
-import "lightgallery/css/lg-autoplay.css";
-import "./InlineGallery.css";
+import "../styles/lightgallery.css";
 
 const SPEED = 400;
 const SLIDE_INTERVAL = 5000;

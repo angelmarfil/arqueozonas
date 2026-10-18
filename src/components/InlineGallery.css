@@ -1,9 +1,0 @@
-@keyframes lg-progress-fill {
-	from {
-		width: 0;
-	}
-}
-
-.lg-progress-bar.lg-start .lg-progress {
-	animation: lg-progress-fill var(--lg-autoplay-duration) linear;
-}
