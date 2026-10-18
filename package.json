@@ -21,6 +21,7 @@
     "@types/react-dom": "^19.3.0",
     "astro": "^7.4.0",
     "astro-icon": "^1.2.0",
+    "astro-pagefind": "^2.0.1",
     "astro-seo": "^1.2.0",
     "lightgallery": "^3.0.0",
     "react": "^19.3.1",
