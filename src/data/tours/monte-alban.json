@@ -1,0 +1,9 @@
+{
+	"name": "Monte Albán",
+	"type": "site",
+	"url": "https://www.inah.gob.mx/images/recorridos-virtuales/montealban/",
+	"state": "oaxaca",
+	"sites": [
+		"es/monte-alban"
+	]
+}

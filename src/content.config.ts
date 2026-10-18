@@ -38,4 +38,16 @@ const galleries = defineCollection({
         { path: ["cover"], message: "cover must be the key of one of the gallery images" },
     )
 })
-export const collections = { states, sites, galleries };
+
+const tours = defineCollection({
+    loader: glob({ pattern: "*.json", base: "./src/data/tours" }),
+    schema: z.object({
+        name: z.string(),
+        type: z.enum(["site", "museum", "object", "exhibition", "other"]),
+        url: z.url(),
+        state: reference("states").optional(),
+        sites: z.array(reference("sites")).default([]),
+    })
+})
+
+export const collections = { states, sites, galleries, tours };

@@ -1,0 +1,9 @@
+{
+	"name": "Chichén Itzá",
+	"type": "site",
+	"url": "https://www.inah.gob.mx/images/recorridos-virtuales/chichenitza/",
+	"state": "yucatan",
+	"sites": [
+		"es/chichen-itza"
+	]
+}

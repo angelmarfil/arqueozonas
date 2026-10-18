@@ -1,0 +1,9 @@
+{
+	"name": "Uxmal",
+	"type": "site",
+	"url": "https://www.inah.gob.mx/images/recorridos-virtuales/uxmal/",
+	"state": "yucatan",
+	"sites": [
+		"es/uxmal"
+	]
+}

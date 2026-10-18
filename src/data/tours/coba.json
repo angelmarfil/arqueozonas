@@ -1,0 +1,9 @@
+{
+	"name": "Cobá",
+	"type": "site",
+	"url": "https://www.inah.gob.mx/images/recorridos-virtuales/coba/",
+	"state": "quintana-roo",
+	"sites": [
+		"es/coba"
+	]
+}
