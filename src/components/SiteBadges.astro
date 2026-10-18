@@ -1,6 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 import type { CollectionEntry } from "astro:content";
+import { getSiteTours } from "../i18n/content";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
 interface Props {
@@ -10,12 +11,13 @@ interface Props {
 
 const { site, size = "sm" } = Astro.props;
 const { isOpen, hasMayaTrain } = site.data;
+const hasTour = (await getSiteTours(site)).length > 0;
 const t = useTranslations(getLangFromUrl(Astro.url));
 const sizeClass = size === "sm" ? "badge-sm" : "badge-md";
 ---
 
 {
-  (isOpen !== undefined || hasMayaTrain) && (
+  (isOpen !== undefined || hasMayaTrain || hasTour) && (
     <div class="flex flex-wrap gap-1.5">
       {isOpen !== undefined && (
         <span class:list={["badge badge-soft", sizeClass, isOpen ? "badge-success" : "badge-error"]}>
@@ -27,6 +29,12 @@ const sizeClass = size === "sm" ? "badge-sm" : "badge-md";
         <span class:list={["badge badge-soft badge-info", sizeClass]}>
           <Icon name="boxicons:train" class="size-3.5" aria-hidden="true" />
           {t("site.mayaTrain")}
+        </span>
+      )}
+      {hasTour && (
+        <span class:list={["badge badge-soft badge-secondary", sizeClass]}>
+          <Icon name="boxicons:street-view" class="size-3.5" aria-hidden="true" />
+          {t("site.tour")}
         </span>
       )}
     </div>
