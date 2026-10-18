@@ -2,10 +2,6 @@
 	"inahId": 4477,
 	"images": [
 		{
-			"key": "tlatelolco/logo-tlatelolco.png",
-			"title": "Tlatelolco"
-		},
-		{
 			"key": "tlatelolco/zona-arqueologica-tlatelolco-2.jpeg",
 			"title": "Zona Arqueológica Tlatelolco",
 			"credit": "INAH-Zona Arqueológica Tlatelolco"
