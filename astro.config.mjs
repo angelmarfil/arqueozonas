@@ -11,6 +11,8 @@ import siteSections from "./src/markdown/site-sections.mjs";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://arqueozonas.mx",
+
   i18n: {
     locales: ["es", "en"],
     defaultLocale: "es",
