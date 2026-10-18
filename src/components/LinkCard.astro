@@ -1,6 +1,4 @@
 ---
-import { getImage, inferRemoteSize } from "astro:assets";
-
 interface Props {
 	href: string;
 	title: string;
@@ -10,17 +8,6 @@ interface Props {
 }
 
 const { href, title, subtitle, cover } = Astro.props;
-
-const COVER_WIDTH = 640;
-
-let coverImage: { src: string; width: number; height: number } | undefined;
-if (cover) {
-	const { width, height } = await inferRemoteSize(cover);
-	const targetWidth = Math.min(COVER_WIDTH, width);
-	const targetHeight = Math.round((targetWidth * height) / width);
-	const image = await getImage({ src: cover, width: targetWidth, height: targetHeight, format: "webp" });
-	coverImage = { src: image.src, width: targetWidth, height: targetHeight };
-}
 ---
 
 <a
@@ -29,11 +16,9 @@ if (cover) {
 >
 	{cover !== undefined && (
 		<figure class="aspect-4/3 bg-base-200">
-			{coverImage && (
+			{cover && (
 				<img
-					src={coverImage.src}
-					width={coverImage.width}
-					height={coverImage.height}
+					src={cover}
 					alt=""
 					loading="lazy"
 					decoding="async"

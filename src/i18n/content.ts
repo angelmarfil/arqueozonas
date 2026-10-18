@@ -1,5 +1,5 @@
 import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
-import { R2_PUBLIC_URL } from 'astro:env/server';
+import { IMAGE_TRANSFORMS, R2_PUBLIC_URL } from 'astro:env/server';
 import { defaultLang, type Lang } from './ui';
 
 export function getSlug(entry: { id: string }): string {
@@ -31,9 +31,19 @@ export async function getSiteGallery(site: CollectionEntry<'sites'>) {
 	return gallery;
 }
 
+const COVER_WIDTH = 640;
+
+export function getImageUrl(key: string, width?: number) {
+	const path =
+		IMAGE_TRANSFORMS && width
+			? `cdn-cgi/image/width=${width},fit=scale-down,format=auto/${key}`
+			: key;
+	return new URL(path, R2_PUBLIC_URL).href;
+}
+
 function getGalleryCover(gallery: CollectionEntry<'galleries'> | undefined) {
 	const key = gallery?.data.cover ?? gallery?.data.images[0]?.key;
-	return key && new URL(key, R2_PUBLIC_URL).href;
+	return key && getImageUrl(key, COVER_WIDTH);
 }
 
 export async function getSiteCover(site: CollectionEntry<'sites'>) {

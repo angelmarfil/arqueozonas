@@ -19,7 +19,6 @@ export interface Slide {
 	thumb: string;
 	downloadUrl: string;
 	alt: string;
-	lgSize: string;
 	credit?: string;
 }
 
