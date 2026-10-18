@@ -3,6 +3,7 @@ import "../styles/global.css";
 import { SITE_TITLE } from "astro:env/client";
 import LanguagePicker from "../components/LanguagePicker.astro";
 import NavLinks from "../components/NavLinks.astro";
+import ThemePicker from "../components/ThemePicker.astro";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
@@ -12,6 +13,10 @@ const t = useTranslations(lang);
 <!doctype html>
 <html lang={lang}>
   <head>
+    <script is:inline>
+      const theme = localStorage.getItem("theme");
+      if (theme) document.documentElement.dataset.theme = theme;
+    </script>
     <slot name="head" />
   </head>
   <body>
@@ -46,6 +51,7 @@ const t = useTranslations(lang);
               <NavLinks />
             </ul>
             <LanguagePicker />
+            <ThemePicker name="theme-navbar" />
           </div>
         </div>
         <!-- Page content here -->
@@ -61,6 +67,7 @@ const t = useTranslations(lang);
             <NavLinks />
           </ul>
           <LanguagePicker />
+          <ThemePicker name="theme-drawer" />
         </div>
       </div>
     </div>
