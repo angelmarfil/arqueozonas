@@ -1,0 +1,43 @@
+---
+import { SITE_TITLE } from "astro:env/client";
+import LogoVertical from "../assets/brand/logo-vertical.svg";
+import { getLangFromUrl, useTranslatedPath, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+const year = new Date().getFullYear();
+const repoUrl = "https://github.com/angelmarfil/arqueozonas";
+---
+
+<footer class="bg-base-200 text-base-content mt-auto" transition:animate="none">
+  <div class="footer sm:footer-horizontal p-10 md:px-16">
+    <aside class="max-w-xs justify-items-center text-center">
+      <a href={translatePath("/")} aria-label={SITE_TITLE}>
+        <LogoVertical class="h-24 w-auto" aria-hidden="true" />
+      </a>
+      <p class="text-base-content/70">{t("home.title")}</p>
+    </aside>
+    <nav>
+      <h2 class="footer-title">{t("footer.explore")}</h2>
+      <a href={translatePath("/")} class="link link-hover">{t("nav.home")}</a>
+      <a href={translatePath("/zonas-arqueologicas")} class="link link-hover">{t("nav.sites")}</a>
+      <a href={translatePath("/museos")} class="link link-hover">{t("nav.museums")}</a>
+    </nav>
+    <nav>
+      <h2 class="footer-title">{t("footer.sources")}</h2>
+      <a href="https://lugares.inah.gob.mx/" target="_blank" rel="noopener" class="link link-hover">Lugares INAH</a>
+      <a href="https://www.datos.gob.mx/dataset/visitantes_zonas_arqueologicas" target="_blank" rel="noopener" class="link link-hover">{t("footer.sources.visitors")}</a>
+      <a href="https://www.datos.gob.mx/dataset/red_ferroviaria_nacional" target="_blank" rel="noopener" class="link link-hover">{t("footer.sources.mayaTrain")}</a>
+    </nav>
+    <nav>
+      <h2 class="footer-title">{t("footer.project")}</h2>
+      <a href={repoUrl} target="_blank" rel="noopener" class="link link-hover">{t("footer.sourceCode")}</a>
+      <a href={`${repoUrl}/blob/master/LICENSE`} target="_blank" rel="noopener" class="link link-hover">{t("footer.license")}</a>
+    </nav>
+  </div>
+  <div class="footer sm:footer-horizontal border-base-300 gap-1 border-t px-10 py-4 text-sm md:px-16">
+    <p>© {year} {SITE_TITLE}</p>
+    <p class="text-base-content/70 sm:justify-self-end">{t("footer.disclaimer")}</p>
+  </div>
+</footer>
