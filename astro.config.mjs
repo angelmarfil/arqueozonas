@@ -7,6 +7,7 @@ import icon from "astro-icon";
 
 import react from "@astrojs/react";
 import pagefind from "astro-pagefind";
+import sitemap from "@astrojs/sitemap";
 import { satteri } from "@astrojs/markdown-satteri";
 import siteSections from "./src/markdown/site-sections.mjs";
 
@@ -39,5 +40,5 @@ export default defineConfig({
       },
   },
 
-  integrations: [mdx(), icon(), react(), pagefind()]
+  integrations: [mdx(), icon(), react(), pagefind(), sitemap()]
 });

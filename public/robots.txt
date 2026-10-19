@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://arqueozonas.mx/sitemap-index.xml
