@@ -1,4 +1,9 @@
-# Astro Starter Kit: Basics
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset=".github/assets/logo-dark.svg">
+    <img src=".github/assets/logo-light.svg" alt="Arqueozonas" width="420">
+  </picture>
+</p>
 
 ```sh
 pnpm create astro@latest -- --template basics
