@@ -47,14 +47,6 @@ const relatedMuseums = await Promise.all(
 
 const { position, boundary } = site.data;
 const actions: SiteAction[] = [];
-if (position) {
-  actions.push({
-    label: t("site.directions"),
-    icon: "boxicons:directions",
-    href: `https://www.openstreetmap.org/directions?route=%3B${position.lat}%2C${position.lng}`,
-    external: true,
-  });
-}
 const { guide } = site.data;
 if (guide) {
   actions.push({
