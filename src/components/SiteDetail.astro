@@ -5,10 +5,11 @@ import { GOOGLE_MAPS_API_KEY, SITE_TITLE, TITLE_DELIMITER } from "astro:env/clie
 import { render, type CollectionEntry } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import PageHeader from "./PageHeader.astro";
+import RelatedPlaces from "./RelatedPlaces.astro";
 import SiteBadges from "./SiteBadges.astro";
 import SiteGallery from "./SiteGallery.astro";
 import ZoneMap from "./ZoneMap";
-import { getSiteCover, getSiteGallery, getSiteState, getSiteTours, getSlug } from "../i18n/content";
+import { getSiteCover, getSiteGallery, getSiteMuseums, getSiteState, getSiteTours, getSlug } from "../i18n/content";
 import { languages } from "../i18n/ui";
 import { getLangFromUrl, useTranslatedPath, useTranslations } from "../i18n/utils";
 
@@ -34,6 +35,15 @@ const { Content } = await render(site);
 const statePath = `/zonas-arqueologicas/${state.id}`;
 const formatDate = (date: Date) => date.toLocaleDateString(lang, { dateStyle: "long", timeZone: "UTC" });
 const isoDate = (date: Date) => date.toISOString().slice(0, 10);
+
+const museums = await getSiteMuseums(site);
+const relatedMuseums = await Promise.all(
+  museums.map(async (museum) => ({
+    href: translatePath(`/museos/${museum.data.state}/${getSlug(museum)}`),
+    title: museum.data.name,
+    cover: await getSiteCover(museum),
+  })),
+);
 
 const { position, boundary } = site.data;
 const actions: SiteAction[] = [];
@@ -193,6 +203,8 @@ if (tours.length === 1) {
         }
       </footer>
     </article>
+
+    <RelatedPlaces title={t("site.museums")} icon="boxicons:bank-filled" places={relatedMuseums} />
 
     {
       GOOGLE_MAPS_API_KEY && position && (
