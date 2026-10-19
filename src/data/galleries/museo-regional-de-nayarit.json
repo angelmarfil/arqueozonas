@@ -1,0 +1,35 @@
+{
+	"inahId": 4250,
+	"images": [
+		{
+			"key": "museo-regional-de-nayarit/100-a-000.jpg",
+			"title": "Museo Regional de Nayarit",
+			"credit": "INAH-Museo Regional de Nayarit"
+		},
+		{
+			"key": "museo-regional-de-nayarit/100-a-000bis.jpg",
+			"title": "Fachada del museo",
+			"credit": "INAH-Museo Regional de Nayarit"
+		},
+		{
+			"key": "museo-regional-de-nayarit/100-a-001.jpg",
+			"title": "Museo Regional de Nayarit",
+			"credit": "INAH-Museo Regional de Nayarit"
+		},
+		{
+			"key": "museo-regional-de-nayarit/100-a-002.jpg",
+			"title": "Patio interior",
+			"credit": "INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "museo-regional-de-nayarit/100-a-003.jpg",
+			"title": "Planta alta",
+			"credit": "INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "museo-regional-de-nayarit/100-a-004.jpg",
+			"title": "Planta alta",
+			"credit": "INAH-Dirección de Medios de Comunicación"
+		}
+	]
+}

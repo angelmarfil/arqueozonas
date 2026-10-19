@@ -1,0 +1,35 @@
+{
+	"inahId": 4512,
+	"images": [
+		{
+			"key": "museo-de-sitio-de-el-tajin/museo1.jpg",
+			"title": "Museo de Sitio de El Tajín",
+			"credit": "INAH-Museo de Sitio de El Tajín"
+		},
+		{
+			"key": "museo-de-sitio-de-el-tajin/00-explanada.jpg",
+			"title": "Explanada",
+			"credit": "INAH-Museo de Sitio de El Tajín"
+		},
+		{
+			"key": "museo-de-sitio-de-el-tajin/03-sala1-maqueta.jpg",
+			"title": "Sala 1",
+			"credit": "INAH-Museo de Sitio de El Tajín"
+		},
+		{
+			"key": "museo-de-sitio-de-el-tajin/08-sala2.jpg",
+			"title": "Sala 2",
+			"credit": "INAH-Museo de Sitio de El Tajín"
+		},
+		{
+			"key": "museo-de-sitio-de-el-tajin/12-sala2.jpg",
+			"title": "Sala 2",
+			"credit": "INAH-Museo de Sitio de El Tajín"
+		},
+		{
+			"key": "museo-de-sitio-de-el-tajin/base-5.jpg",
+			"title": "Museo de Sitio de El Tajín",
+			"credit": "INAH-Museo de Sitio de El Tajín"
+		}
+	]
+}

@@ -1,0 +1,30 @@
+{
+	"inahId": 4242,
+	"images": [
+		{
+			"key": "museo-regional-de-la-laguna/m-regional-lalaguna-60.jpg",
+			"title": "Museo Regional de La Laguna",
+			"credit": "Teresa Galindo / INAH-Mediateca"
+		},
+		{
+			"key": "museo-regional-de-la-laguna/museo-regional-de-la-laguna-torreon-coahuila-foto-mauricio-marat-inah-2.jpg",
+			"title": "Museo Regional de La Laguna",
+			"credit": "Mauricio Marat / INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "museo-regional-de-la-laguna/m-regional-lalaguna-2.jpg",
+			"title": "Museo Regional de La Laguna",
+			"credit": "Teresa Galindo / INAH-Mediateca"
+		},
+		{
+			"key": "museo-regional-de-la-laguna/92-001-02.jpg",
+			"title": "Museo Regional de La Laguna",
+			"credit": "INAH-Museo Regional de La Laguna"
+		},
+		{
+			"key": "museo-regional-de-la-laguna/92a000.jpg",
+			"title": "Museo Regional de La Laguna",
+			"credit": "INAH-Museo Regional de La Laguna"
+		}
+	]
+}

@@ -1,0 +1,20 @@
+{
+	"inahId": 4312,
+	"images": [
+		{
+			"key": "museo-de-sitio-de-pomona/fachada-principal-museo-de-sitio-pomona.jpg",
+			"title": "Fachada principal",
+			"credit": "INAH-Museo de Sitio de Pomoná"
+		},
+		{
+			"key": "museo-de-sitio-de-pomona/museo-de-pomona.jpg",
+			"title": "Museo de Sitio de Pomoná",
+			"credit": "INAH-Museo de Sitio de Pomoná"
+		},
+		{
+			"key": "museo-de-sitio-de-pomona/portada-expo-1649.jpeg",
+			"title": "Sala de la réplica de la Tumba de Pakal",
+			"credit": "INAH-Dirección de Medios de Comunicación"
+		}
+	]
+}

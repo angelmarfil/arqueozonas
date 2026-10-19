@@ -1,0 +1,50 @@
+{
+	"inahId": 4236,
+	"images": [
+		{
+			"key": "museo-del-templo-mayor/mtm-fach.jpg",
+			"title": "Museo del Templo Mayor",
+			"credit": "INAH-Museo del Templo Mayor"
+		},
+		{
+			"key": "museo-del-templo-mayor/templo-mayor-01.png",
+			"title": "Museo del Templo Mayor",
+			"credit": "INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "museo-del-templo-mayor/templomayor-3.png",
+			"title": "Museo del Templo Mayor",
+			"credit": "INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "museo-del-templo-mayor/templo-mayor-2.png",
+			"title": "Museo del Templo Mayor",
+			"credit": "INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "museo-del-templo-mayor/312-a-slider-braseros-hctor-montao-3.jpg",
+			"title": "Museo del Templo Mayor",
+			"credit": "Héctor Montaño Morales / INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "museo-del-templo-mayor/312-a-slider-maqueta-centro-historico-manuel-curiel-4.jpg",
+			"title": "Museo del Templo Mayor",
+			"credit": "Manuel Curiel / INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "museo-del-templo-mayor/312-a-slider-almenas-manuel-curiel-1.jpg",
+			"title": "Museo del Templo Mayor",
+			"credit": "Manuel Curiel / INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "museo-del-templo-mayor/312-a-slider-maqueta-templo-mayor-hctor-montao-5.jpg",
+			"title": "Museo del Templo Mayor",
+			"credit": "Héctor Montaño Morales / INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "museo-del-templo-mayor/museo-del-templo-mayor.jpg",
+			"title": "Museo del Templo Mayor",
+			"credit": "INAH-Museo del Templo Mayor"
+		}
+	]
+}

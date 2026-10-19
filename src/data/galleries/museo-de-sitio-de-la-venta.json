@@ -1,0 +1,40 @@
+{
+	"inahId": 4310,
+	"images": [
+		{
+			"key": "museo-de-sitio-de-la-venta/1-portada-1.jpg",
+			"title": "Museo de Sitio de La Venta",
+			"credit": "INAH-Museo de Sitio de La Venta"
+		},
+		{
+			"key": "museo-de-sitio-de-la-venta/5a-1-sala-2-cermica.jpg",
+			"title": "Sala 2 - Cerámica",
+			"credit": "INAH-Museo de Sitio de La Venta"
+		},
+		{
+			"key": "museo-de-sitio-de-la-venta/6a-sala-3.jpg",
+			"title": "Sala 3",
+			"credit": "INAH-Museo de Sitio de La Venta"
+		},
+		{
+			"key": "museo-de-sitio-de-la-venta/7c-sala-5-vitrina-blindada.jpg",
+			"title": "Sala 5",
+			"credit": "INAH-Museo de Sitio de La Venta"
+		},
+		{
+			"key": "museo-de-sitio-de-la-venta/4-sala-1.jpg",
+			"title": "Sala 1",
+			"credit": "INAH-Museo de Sitio de La Venta"
+		},
+		{
+			"key": "museo-de-sitio-de-la-venta/7b-sala-5-ofreda-4.jpg",
+			"title": "Sala 5 Ofrenda 4",
+			"credit": "INAH-Museo de Sitio de La Venta"
+		},
+		{
+			"key": "museo-de-sitio-de-la-venta/5b-2-sala-2-cermica-copy.jpg",
+			"title": "Sala 2 - Cerámica",
+			"credit": "INAH-Museo de Sitio de La Venta"
+		}
+	]
+}

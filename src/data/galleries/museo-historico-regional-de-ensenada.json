@@ -1,0 +1,30 @@
+{
+	"inahId": 4260,
+	"images": [
+		{
+			"key": "museo-historico-regional-de-ensenada/110-slider-fachada-1.jpg",
+			"title": "Fachada",
+			"credit": "INAH-Museo Histórico Regional de Ensenada"
+		},
+		{
+			"key": "museo-historico-regional-de-ensenada/110-slider-fachada-2.jpg",
+			"title": "Fachada",
+			"credit": "INAH-Museo Histórico Regional de Ensenada"
+		},
+		{
+			"key": "museo-historico-regional-de-ensenada/110-slider-patio.jpg",
+			"title": "Patio",
+			"credit": "INAH-Museo Histórico Regional de Ensenada"
+		},
+		{
+			"key": "museo-historico-regional-de-ensenada/museo-historico-regional-de-ensenada-bc-foto-cortesia-centro-inah-bc.jpg",
+			"title": "Fachada",
+			"credit": "INAH-Centro INAH Baja California"
+		},
+		{
+			"key": "museo-historico-regional-de-ensenada/110-slider-mamut.jpg",
+			"title": "Mamut",
+			"credit": "INAH-Museo Histórico Regional de Ensenada"
+		}
+	]
+}

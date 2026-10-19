@@ -1,0 +1,45 @@
+{
+	"inahId": 4294,
+	"images": [
+		{
+			"key": "museo-de-sitio-de-tonina/museo-tonina-1.jpg",
+			"title": "Museo de Sitio de Toniná",
+			"credit": "Teresa Galindo / INAH-Mediateca"
+		},
+		{
+			"key": "museo-de-sitio-de-tonina/museo-tonina-2.jpg",
+			"title": "Vista lateral del museo de sitio",
+			"credit": "Teresa Galindo / INAH-Mediateca"
+		},
+		{
+			"key": "museo-de-sitio-de-tonina/dsc01557.jpeg",
+			"title": "Sala A o Roja",
+			"credit": "INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "museo-de-sitio-de-tonina/museo-tonina-3.jpg",
+			"title": "Sala A del Museo de Sitio",
+			"credit": "Teresa Galindo / INAH-Mediateca"
+		},
+		{
+			"key": "museo-de-sitio-de-tonina/museo-tonina-4.jpg",
+			"title": "Entrada al museo de sitio",
+			"credit": "Teresa Galindo / INAH-Mediateca"
+		},
+		{
+			"key": "museo-de-sitio-de-tonina/dsc01561.jpeg",
+			"title": "Sala B o Azul",
+			"credit": "INAH-Dirección de Medios de Comunicación"
+		},
+		{
+			"key": "museo-de-sitio-de-tonina/museo-tonina-5.jpg",
+			"title": "Vista lateral de la entrada al museo",
+			"credit": "Teresa Galindo / INAH-Mediateca"
+		},
+		{
+			"key": "museo-de-sitio-de-tonina/museo-tonina-6.jpg",
+			"title": "Sala B del Museo",
+			"credit": "Teresa Galindo / INAH-Mediateca"
+		}
+	]
+}
