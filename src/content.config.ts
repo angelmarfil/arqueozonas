@@ -20,6 +20,11 @@ const sites = defineCollection({
         hasMayaTrain: z.boolean().default(false),
         guide: z.string().optional(),
         lastReviewed: z.coerce.date().optional(),
+        position: z.object({
+            lat: z.number().min(-90).max(90),
+            lng: z.number().min(-180).max(180),
+        }).optional(),
+        boundary: z.array(z.string().min(1)).min(1).optional(),
     })
 })
 
