@@ -21,8 +21,9 @@ const translatePath = useTranslatedPath(lang);
 <nav aria-label={t("nav.breadcrumbs")} class="breadcrumbs text-sm text-base-content/70">
   <ul>
     <li>
-      <a href={translatePath("/")} class="gap-1.5" aria-label={t("nav.home")}>
+      <a href={translatePath("/")} class="gap-1.5">
         <Icon name="boxicons:home" class="size-4" aria-hidden="true" />
+        {t("nav.home")}
       </a>
     </li>
     {
