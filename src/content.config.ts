@@ -28,6 +28,23 @@ const sites = defineCollection({
     })
 })
 
+const museums = defineCollection({
+    loader: glob({ pattern: "**/*.mdx", base: "./src/data/museums" }),
+    schema: z.object({
+        name: z.string(),
+        state: z.string(),
+        inahId: z.number().int(),
+        type: z.enum(["site", "local", "regional", "national", "metropolitan", "exhibitionHall", "communityCenter"]).optional(),
+        guide: z.enum(["es", "en"]).optional(),
+        lastReviewed: z.coerce.date().optional(),
+        sites: z.array(reference("sites")).default([]),
+        position: z.object({
+            lat: z.number().min(-90).max(90),
+            lng: z.number().min(-180).max(180),
+        }).optional(),
+    })
+})
+
 const galleries = defineCollection({
     loader: glob({ pattern: "*.json", base: "./src/data/galleries" }),
     schema: z.object({
@@ -52,7 +69,8 @@ const tours = defineCollection({
         url: z.url(),
         state: reference("states").optional(),
         sites: z.array(reference("sites")).default([]),
+        museums: z.array(reference("museums")).default([]),
     })
 })
 
-export const collections = { states, sites, galleries, tours };
+export const collections = { states, sites, museums, galleries, tours };

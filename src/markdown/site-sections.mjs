@@ -128,6 +128,6 @@ const siteSections = (lang) => ({
 });
 
 export default ({ fileURL }) => {
-	const match = fileURL?.pathname.match(/\/src\/data\/sites\/(\w+)\//);
+	const match = fileURL?.pathname.match(/\/src\/data\/(?:sites|museums)\/(\w+)\//);
 	return match ? siteSections(match[1]) : false;
 };
