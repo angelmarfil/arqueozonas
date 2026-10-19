@@ -205,7 +205,7 @@ if (tours.length === 1) {
             <Icon name="boxicons:location" class="size-6 shrink-0 text-base-content/50" aria-hidden="true" />
             {t("site.map")}
           </h2>
-          <ZoneMap client:visible name={site.data.name} position={position} boundary={boundary} labels={getMapLabels(t)} />
+          <ZoneMap client:visible kind="site" name={site.data.name} position={position} boundary={boundary} labels={getMapLabels(t)} />
         </section>
       )
     }

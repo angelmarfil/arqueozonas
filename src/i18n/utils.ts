@@ -28,6 +28,9 @@ export function getMapLabels(t: ReturnType<typeof useTranslations>) {
 		open: t('site.status.open'),
 		closed: t('site.status.closed'),
 		details: t('map.details'),
+		museumDetails: t('map.museumDetails'),
+		sites: t('nav.sites'),
+		museums: t('nav.museums'),
 		close: t('map.close'),
 	};
 }

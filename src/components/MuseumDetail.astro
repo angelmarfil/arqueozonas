@@ -189,7 +189,7 @@ if (tours.length === 1) {
             <Icon name="boxicons:location" class="size-6 shrink-0 text-base-content/50" aria-hidden="true" />
             {t("site.map")}
           </h2>
-          <ZoneMap client:visible name={museum.data.name} position={position} labels={getMapLabels(t)} />
+          <ZoneMap client:visible kind="museum" name={museum.data.name} position={position} labels={getMapLabels(t)} />
         </section>
       )
     }

@@ -3,13 +3,15 @@ import { createPortal } from "react-dom";
 import type * as Leaflet from "leaflet";
 import Supercluster from "supercluster";
 import type { MapLabels } from "../i18n/utils";
-import { MapFrame, streetsLayer, useLeafletMap, type LatLng } from "./MapFrame";
+import { KIND_COLORS, MapFrame, kindIcon, streetsLayer, useLeafletMap, type LatLng, type PlaceKind } from "./MapFrame";
 
 const MIN_SPAN = 0.5;
 const CARD_WIDTH = 288;
+const KINDS: PlaceKind[] = ["site", "museum"];
 
 export interface MapSite {
 	id: string;
+	kind: PlaceKind;
 	name: string;
 	href: string;
 	position: LatLng;
@@ -44,18 +46,24 @@ function getBounds(sites: MapSite[]): Leaflet.LatLngBoundsLiteral {
 	];
 }
 
-function siteIcon(L: typeof Leaflet) {
+function placeIcon(L: typeof Leaflet, kind: PlaceKind) {
 	return L.divIcon({
 		className: "",
-		html: '<span class="bg-primary block size-4 rounded-full border-2 border-white shadow-md"></span>',
-		iconSize: [16, 16],
+		html: `<span class="${KIND_COLORS[kind]} grid size-7 place-items-center rounded-full border-2 border-white shadow-md">${kindIcon(kind, "size-4")}</span>`,
+		iconSize: [28, 28],
 	});
 }
 
-function clusterIcon(L: typeof Leaflet, count: number) {
+function clusterColors(count: number, museums: number) {
+	if (museums === 0) return "bg-primary text-primary-content ring-primary/30";
+	if (museums === count) return "bg-secondary text-secondary-content ring-secondary/30";
+	return "bg-neutral text-neutral-content ring-neutral/30";
+}
+
+function clusterIcon(L: typeof Leaflet, count: number, museums: number) {
 	return L.divIcon({
 		className: "",
-		html: `<span class="bg-primary text-primary-content ring-primary/30 grid size-9 place-items-center rounded-full text-xs font-bold shadow-md ring-4">${count}</span>`,
+		html: `<span class="${clusterColors(count, museums)} grid size-9 place-items-center rounded-full text-xs font-bold shadow-md ring-4">${count}</span>`,
 		iconSize: [36, 36],
 	});
 }
@@ -72,7 +80,14 @@ export default function ClusteredMap({ sites, labels, closeIcon }: Props) {
 		const { L, map } = leaflet;
 		const streets = streetsLayer(L).addTo(map);
 		const markers = L.layerGroup().addTo(map);
-		const index = new Supercluster<MapSite>({ radius: 60, maxZoom: 16 }).load(
+		const index = new Supercluster<MapSite, { museums: number }>({
+			radius: 60,
+			maxZoom: 16,
+			map: ({ kind }) => ({ museums: kind === "museum" ? 1 : 0 }),
+			reduce: (total, { museums }) => {
+				total.museums += museums;
+			},
+		}).load(
 			sites.map((site) => ({
 				type: "Feature",
 				geometry: { type: "Point", coordinates: [site.position.lng, site.position.lat] },
@@ -90,12 +105,12 @@ export default function ClusteredMap({ sites, labels, closeIcon }: Props) {
 			for (const { geometry, properties } of features) {
 				const [lng, lat] = geometry.coordinates;
 				if ("cluster" in properties) {
-					const { cluster_id, point_count } = properties;
-					L.marker([lat, lng], { icon: clusterIcon(L, point_count), zIndexOffset: 1000 + point_count })
+					const { cluster_id, point_count, museums } = properties;
+					L.marker([lat, lng], { icon: clusterIcon(L, point_count, museums), zIndexOffset: 1000 + point_count })
 						.on("click", () => map.flyTo([lat, lng], index.getClusterExpansionZoom(cluster_id)))
 						.addTo(markers);
 				} else {
-					L.marker([lat, lng], { icon: siteIcon(L), title: properties.name })
+					L.marker([lat, lng], { icon: placeIcon(L, properties.kind), title: properties.name })
 						.on("click", () => setSelectedId(properties.id))
 						.addTo(markers);
 				}
@@ -147,6 +162,17 @@ export default function ClusteredMap({ sites, labels, closeIcon }: Props) {
 
 	return (
 		<MapFrame map={leafletMap} className="rounded-box h-[75svh] min-h-96 w-full">
+			<ul className="bg-base-100/90 text-base-content rounded-box absolute bottom-2 left-2 z-1000 flex flex-col gap-1.5 p-2 text-xs shadow-sm">
+				{KINDS.map((kind) => (
+					<li key={kind} className="flex items-center gap-2">
+						<span
+							className={`${KIND_COLORS[kind]} grid size-5 place-items-center rounded-full`}
+							dangerouslySetInnerHTML={{ __html: kindIcon(kind, "size-3") }}
+						/>
+						{kind === "museum" ? labels.museums : labels.sites}
+					</li>
+				))}
+			</ul>
 			{sitePopup &&
 				selected &&
 				createPortal(
@@ -174,7 +200,7 @@ export default function ClusteredMap({ sites, labels, closeIcon }: Props) {
 								</span>
 							)}
 							<a href={selected.href} className="btn btn-primary btn-sm btn-block">
-								{labels.details}
+								{selected.kind === "museum" ? labels.museumDetails : labels.details}
 							</a>
 						</div>
 					</div>,

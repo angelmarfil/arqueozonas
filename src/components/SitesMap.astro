@@ -2,7 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 import { Icon } from "astro-icon/components";
 import ClusteredMap, { type MapSite } from "./ClusteredMap";
-import { getSiteCover, getSlug } from "../i18n/content";
+import { getMuseums, getSiteCover, getSlug } from "../i18n/content";
 import { getLangFromUrl, getMapLabels, useTranslatedPath, useTranslations } from "../i18n/utils";
 
 interface Props {
@@ -15,18 +15,31 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
-const mapSites: MapSite[] = await Promise.all(
-  sites
+const museums = await getMuseums(lang);
+
+const mapSites: MapSite[] = await Promise.all([
+  ...sites
     .filter((site) => site.data.position)
     .map(async (site) => ({
-      id: site.id,
+      id: `site:${site.id}`,
+      kind: "site" as const,
       name: site.data.name,
       href: translatePath(`/zonas-arqueologicas/${site.data.state}/${getSlug(site)}`),
       position: site.data.position!,
       cover: await getSiteCover(site),
       isOpen: site.data.isOpen,
     })),
-);
+  ...museums
+    .filter((museum) => museum.data.position)
+    .map(async (museum) => ({
+      id: `museum:${museum.id}`,
+      kind: "museum" as const,
+      name: museum.data.name,
+      href: translatePath(`/museos/${museum.data.state}/${getSlug(museum)}`),
+      position: museum.data.position!,
+      cover: await getSiteCover(museum),
+    })),
+]);
 ---
 
 {

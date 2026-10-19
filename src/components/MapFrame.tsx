@@ -11,6 +11,23 @@ export interface LatLng {
 	lng: number;
 }
 
+export type PlaceKind = "site" | "museum";
+
+export const KIND_COLORS: Record<PlaceKind, string> = {
+	site: "bg-primary text-primary-content",
+	museum: "bg-secondary text-secondary-content",
+};
+
+export const KIND_PATHS: Record<PlaceKind, string> = {
+	site: '<path fill="currentColor" d="M12.8 3.44c-.38-.5-1.22-.5-1.6 0l-9 12a.996.996 0 0 0 .39 1.51l9 4a.98.98 0 0 0 .82 0l9-4a.996.996 0 0 0 .39-1.51zm-.8 15.5V5.71l7.45 9.93L12 18.95Z"/>',
+	museum:
+		'<path fill="currentColor" d="m21.49 7.13l-9-5a.99.99 0 0 0-.97 0l-9.01 5C2.19 7.31 2 7.64 2 8v2c0 .55.45 1 1 1h2v7H3c-.55 0-1 .45-1 1v2c0 .55.45 1 1 1h18c.55 0 1-.45 1-1v-2c0-.55-.45-1-1-1h-2v-7h2c.55 0 1-.45 1-1V8a1 1 0 0 0-.51-.87M9 18H7v-7h2zm4 0h-2v-7h2zm-1-9c-.83 0-1.5-.67-1.5-1.5S11.17 6 12 6s1.5.67 1.5 1.5S12.83 9 12 9m5 9h-2v-7h2z"/>',
+};
+
+export function kindIcon(kind: PlaceKind, className: string) {
+	return `<svg viewBox="0 0 24 24" class="${className}" aria-hidden="true">${KIND_PATHS[kind]}</svg>`;
+}
+
 export interface LeafletMap {
 	L: LeafletModule;
 	map: Leaflet.Map;
