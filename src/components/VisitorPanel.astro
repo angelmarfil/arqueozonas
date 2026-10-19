@@ -1,0 +1,212 @@
+---
+import { Icon } from "astro-icon/components";
+import { getCollection, type CollectionEntry } from "astro:content";
+import { getMuseums, getPlaceVisitorRecords, getRecordVisitors, getSites, getSlug, getVisitorYears } from "../i18n/content";
+import { locales } from "../i18n/ui";
+import { getLangFromUrl, useTranslatedPath, useTranslations } from "../i18n/utils";
+
+interface Props {
+  kind: "sites" | "museums";
+}
+
+const DATASETS = {
+  sites: { collection: "siteVisitors", url: "https://www.datos.gob.mx/dataset/visitantes_zonas_arqueologicas", route: "/zonas-arqueologicas" },
+  museums: { collection: "museumVisitors", url: "https://www.datos.gob.mx/dataset/visitantes_museos_abiertos_publico", route: "/museos" },
+} as const;
+
+const TOP_LIMIT = 10;
+
+const { kind } = Astro.props;
+const { collection, url, route } = DATASETS[kind];
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+const locale = locales[lang];
+const formatNumber = new Intl.NumberFormat(locale).format;
+const formatPercent = new Intl.NumberFormat(locale, { style: "percent", maximumFractionDigits: 1 }).format;
+const formatChange = new Intl.NumberFormat(locale, { style: "percent", maximumFractionDigits: 1, signDisplay: "exceptZero" }).format;
+const formatMonth = new Intl.DateTimeFormat(locale, { month: "long", timeZone: "UTC" }).format;
+
+const years = await getVisitorYears(collection);
+const complete = years.filter(({ months }) => months === 12);
+const latest = complete.at(-1);
+const previous = complete.at(-2);
+const current = years.at(-1);
+const partial = current && current.months < 12 && current.months > 0 ? current : undefined;
+
+const total = latest ? latest.national + latest.foreign : 0;
+const previousTotal = previous ? previous.national + previous.foreign : 0;
+const change = previousTotal > 0 ? (total - previousTotal) / previousTotal : undefined;
+
+const states = new Map((await getCollection("states")).map(({ id, data }) => [id, data.name]));
+const places: (CollectionEntry<"sites"> | CollectionEntry<"museums">)[] =
+  kind === "sites" ? await getSites(lang) : await getMuseums(lang);
+const records = await getCollection(collection);
+const placeRecords = await Promise.all(places.map(getPlaceVisitorRecords));
+const placeByRecord = new Map(places.flatMap((place, i) => placeRecords[i].map((id) => [id, place] as const)));
+
+const groups = new Map<string, { ids: string[]; name: string; state: string; href?: string }>();
+for (const record of records) {
+  const place = placeByRecord.get(record.id);
+  const key = place?.id ?? record.id;
+  const group = groups.get(key) ?? {
+    ids: [],
+    name: place?.data.name ?? record.data.name,
+    state: place?.data.state ?? record.data.state,
+    href: place && translatePath(`${route}/${place.data.state}/${getSlug(place)}`),
+  };
+  group.ids.push(record.id);
+  groups.set(key, group);
+}
+
+const top = latest
+  ? (
+      await Promise.all(
+        [...groups.values()].map(async (group) => ({
+          ...group,
+          ...(await getRecordVisitors(collection, group.ids, latest.year)),
+        })),
+      )
+    )
+      .filter(({ total }) => total > 0)
+      .sort((a, b) => b.total - a.total)
+      .slice(0, TOP_LIMIT)
+  : [];
+
+const chart = {
+  years: complete.map(({ year }) => year),
+  national: complete.map(({ national }) => national),
+  foreign: complete.map(({ foreign }) => foreign),
+  labels: { national: t("visitors.national"), foreign: t("visitors.foreign"), total: t("visitors.totalColumn") },
+  locale,
+};
+---
+
+{
+  latest && (
+    <div class="flex flex-col gap-6">
+      <div class="stats stats-vertical w-full border border-base-300 lg:stats-horizontal">
+        <div class="stat">
+          <div class="stat-figure text-base-content/40">
+            <Icon name="boxicons:group" class="size-8" aria-hidden="true" />
+          </div>
+          <div class="stat-title">{t("visitors.total").replace("{year}", String(latest.year))}</div>
+          <div class="stat-value">{formatNumber(total)}</div>
+          {change !== undefined && previous && (
+            <div class="stat-desc flex items-center gap-1">
+              <Icon
+                name={change >= 0 ? "boxicons:trending-up" : "boxicons:trending-down"}
+                class:list={["size-4", change >= 0 ? "text-success" : "text-error"]}
+                aria-hidden="true"
+              />
+              {t("visitors.change").replace("{change}", formatChange(change)).replace("{year}", String(previous.year))}
+            </div>
+          )}
+        </div>
+        <div class="stat">
+          <div class="stat-figure">
+            <span class="block size-3 rounded-sm bg-primary" aria-hidden="true" />
+          </div>
+          <div class="stat-title">{t("visitors.national")}</div>
+          <div class="stat-value">{formatNumber(latest.national)}</div>
+          <div class="stat-desc">{t("visitors.share").replace("{percent}", formatPercent(latest.national / total))}</div>
+        </div>
+        <div class="stat">
+          <div class="stat-figure">
+            <span class="block size-3 rounded-sm bg-secondary" aria-hidden="true" />
+          </div>
+          <div class="stat-title">{t("visitors.foreign")}</div>
+          <div class="stat-value">{formatNumber(latest.foreign)}</div>
+          <div class="stat-desc">{t("visitors.share").replace("{percent}", formatPercent(latest.foreign / total))}</div>
+        </div>
+      </div>
+
+      {partial && (
+        <p class="text-sm text-base-content/70">
+          {t("visitors.partial")
+            .replace("{year}", String(partial.year))
+            .replace("{count}", formatNumber(partial.national + partial.foreign))
+            .replace("{month}", formatMonth(new Date(Date.UTC(2000, partial.months - 1, 1))))}
+        </p>
+      )}
+
+      <div class="grid grid-cols-1 gap-8 xl:grid-cols-5">
+        <figure class="flex min-w-0 flex-col gap-3 xl:col-span-3">
+          <figcaption class="font-semibold">{t("visitors.byYear")}</figcaption>
+          <div class="relative h-72 sm:h-80">
+            <canvas
+              data-visitor-chart={JSON.stringify(chart)}
+              role="img"
+              aria-label={`${t("visitors.byYear")}, ${chart.years[0]}–${latest.year}`}
+            />
+          </div>
+          <details class="collapse collapse-arrow border border-base-300">
+            <summary class="collapse-title text-sm font-medium">{t("visitors.showData")}</summary>
+            <div class="collapse-content overflow-x-auto">
+              <table class="table table-sm">
+                <thead>
+                  <tr>
+                    <th>{t("visitors.year")}</th>
+                    <th class="text-right">{t("visitors.national")}</th>
+                    <th class="text-right">{t("visitors.foreign")}</th>
+                    <th class="text-right">{t("visitors.totalColumn")}</th>
+                  </tr>
+                </thead>
+                <tbody class="tabular-nums">
+                  {complete.toReversed().map(({ year, national, foreign }) => (
+                    <tr>
+                      <th>{year}</th>
+                      <td class="text-right">{formatNumber(national)}</td>
+                      <td class="text-right">{formatNumber(foreign)}</td>
+                      <td class="text-right">{formatNumber(national + foreign)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </details>
+        </figure>
+
+        <div class="flex min-w-0 flex-col gap-3 xl:col-span-2">
+          <h3 class="font-semibold">{t("visitors.top").replace("{year}", String(latest.year))}</h3>
+          <div class="overflow-x-auto">
+            <table class="table table-sm">
+              <thead>
+                <tr>
+                  <th class="w-0">
+                    <span class="sr-only">{t("visitors.rank")}</span>
+                  </th>
+                  <th>{t("visitors.place")}</th>
+                  <th class="text-right">{t("visitors.totalColumn")}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {top.map(({ name, state, href, total }, index) => (
+                  <tr>
+                    <td class="text-base-content/50 tabular-nums">{index + 1}</td>
+                    <td>
+                      {href ? (
+                        <a href={href} class="link link-hover font-medium">{name}</a>
+                      ) : (
+                        <span class="font-medium">{name}</span>
+                      )}
+                      <div class="text-xs text-base-content/60">{states.get(state) ?? state}</div>
+                    </td>
+                    <td class="text-right tabular-nums">{formatNumber(total)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-xs text-base-content/60">
+        {t("visitors.source")}{" "}
+        <a href={url} class="link" target="_blank" rel="noopener noreferrer">datos.gob.mx</a>{" "}
+        {t("visitors.license")}{" "}
+        <a href={`https://creativecommons.org/licenses/by/4.0/deed.${lang}`} class="link" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>.
+      </p>
+    </div>
+  )
+}

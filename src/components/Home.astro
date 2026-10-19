@@ -1,0 +1,61 @@
+---
+import { Icon } from "astro-icon/components";
+import SitesMap from "./SitesMap.astro";
+import VisitorStats from "./VisitorStats.astro";
+import { getMuseums, getSites } from "../i18n/content";
+import { locales } from "../i18n/ui";
+import { getLangFromUrl, useTranslatedPath, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+const formatNumber = new Intl.NumberFormat(locales[lang]).format;
+const sites = await getSites(lang);
+const museums = await getMuseums(lang);
+
+const counts = [
+  { value: sites.length, label: t("sites.other"), icon: "boxicons:pyramid-filled" },
+  { value: museums.length, label: t("museums.other"), icon: "boxicons:bank-filled" },
+  { value: sites.filter(({ data }) => data.hasMayaTrain).length, label: `${t("sites.other")} ${t("home.mayaTrain")}`, icon: "boxicons:train" },
+];
+---
+
+<main class="flex flex-col gap-16 pb-16 sm:gap-24 sm:pb-24">
+  <section class="hero bg-base-200">
+    <div class="hero-content w-full max-w-7xl flex-col items-start gap-6 px-4 py-16 sm:py-24 md:px-8">
+      <h1 class="max-w-3xl text-4xl leading-tight font-bold text-balance sm:text-5xl sm:leading-tight">{t("home.title")}</h1>
+      <p class="max-w-2xl text-lg text-pretty text-base-content/70">{t("home.subtitle")}</p>
+      <div class="flex flex-wrap gap-3">
+        <a href={translatePath("/zonas-arqueologicas")} class="btn btn-primary">
+          <Icon name="boxicons:pyramid-filled" class="size-5" aria-hidden="true" />
+          {t("home.exploreSites")}
+        </a>
+        <a href={translatePath("/museos")} class="btn">
+          <Icon name="boxicons:bank-filled" class="size-5" aria-hidden="true" />
+          {t("home.exploreMuseums")}
+        </a>
+      </div>
+      <ul class="mt-2 flex flex-wrap gap-x-8 gap-y-3 text-base-content/70">
+        {counts.map(({ value, label, icon }) => (
+          <li class="flex items-center gap-2">
+            <Icon name={icon} class="size-5 shrink-0 text-base-content/40" aria-hidden="true" />
+            <span><strong class="font-semibold text-base-content">{formatNumber(value)}</strong> {label}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="mx-auto flex w-full max-w-7xl flex-col gap-4 px-4 md:px-8">
+    <div class="flex flex-col gap-1">
+      <h2 class="flex items-center gap-2 text-2xl font-bold tracking-tight">
+        <Icon name="boxicons:map" class="size-6 shrink-0 text-base-content/50" aria-hidden="true" />
+        {t("home.map.title")}
+      </h2>
+      <p class="max-w-3xl text-base-content/70">{t("home.map.description")}</p>
+    </div>
+    <SitesMap sites={sites} />
+  </section>
+
+  <VisitorStats class="mx-auto w-full max-w-7xl px-4 md:px-8" />
+</main>

@@ -2,12 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import { SEO } from "astro-seo";
 import { SITE_TITLE, TITLE_DELIMITER } from "astro:env/client";
-import SitesMap from "../components/SitesMap.astro";
-import { getSites } from "../i18n/content";
-import { getLangFromUrl } from "../i18n/utils";
-
-const lang = getLangFromUrl(Astro.url);
-const sites = await getSites(lang);
+import Home from "../components/Home.astro";
 ---
 
 <Layout>
@@ -41,5 +36,5 @@ const sites = await getSites(lang);
     }}
   />
 
-  <SitesMap sites={sites} class="mx-auto w-full max-w-7xl px-4 py-8 md:px-8" />
+  <Home />
 </Layout>
