@@ -1,19 +1,21 @@
-import { useMemo } from "react";
-import { APIProvider, AdvancedMarker, Map, Polygon } from "@vis.gl/react-google-maps";
-import { GOOGLE_MAPS_API_KEY, GOOGLE_MAPS_ZONE_MAP_ID } from "astro:env/client";
-import { useColorScheme } from "./useColorScheme";
+import { useEffect, useMemo } from "react";
+import type * as Leaflet from "leaflet";
+import type { MapLabels } from "../i18n/utils";
+import { MapFrame, satelliteLayer, streetsLayer, useLeafletMap, type LatLng } from "./MapFrame";
 
 const BOUNDARY_COLOR = "#f59e0b";
+const PIN_ICON =
+	'<svg viewBox="0 0 24 24" width="36" height="36" class="text-primary drop-shadow-md"><path fill="currentColor" stroke="white" stroke-width="1.5" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5" fill="white"/></svg>';
 
 interface Props {
 	name: string;
-	lang: string;
-	position: google.maps.LatLngLiteral;
+	position: LatLng;
 	boundary?: string[];
+	labels: MapLabels;
 }
 
 function decodePath(encoded: string) {
-	const path: google.maps.LatLngLiteral[] = [];
+	const path: LatLng[] = [];
 	const coordinate = [0, 0];
 	let index = 0;
 	while (index < encoded.length) {
@@ -33,52 +35,44 @@ function decodePath(encoded: string) {
 	return path;
 }
 
-function getBounds(points: google.maps.LatLngLiteral[]) {
-	const lats = points.map(({ lat }) => lat);
-	const lngs = points.map(({ lng }) => lng);
-	return {
-		north: Math.max(...lats),
-		south: Math.min(...lats),
-		east: Math.max(...lngs),
-		west: Math.min(...lngs),
-		padding: 48,
-	};
+function pinIcon(L: typeof Leaflet) {
+	return L.divIcon({ className: "", html: PIN_ICON, iconSize: [36, 36], iconAnchor: [18, 34] });
 }
 
-export default function ZoneMap({ name, lang, position, boundary }: Props) {
-	const colorScheme = useColorScheme();
+export default function ZoneMap({ name, position, boundary, labels }: Props) {
+	const leafletMap = useLeafletMap(labels);
+	const { leaflet } = leafletMap;
 	const polygons = useMemo(() => (boundary ?? []).map(decodePath), [boundary]);
-	const camera = useMemo(
-		() =>
-			polygons.length
-				? { defaultBounds: getBounds([position, ...polygons.flat()]) }
-				: { defaultCenter: position, defaultZoom: 15 },
-		[position, polygons],
-	);
 
-	return (
-		<APIProvider apiKey={GOOGLE_MAPS_API_KEY ?? ""} language={lang} region="MX">
-			<Map
-				className="rounded-box aspect-square w-full overflow-hidden sm:aspect-video"
-				mapId={GOOGLE_MAPS_ZONE_MAP_ID}
-				colorScheme={colorScheme}
-				mapTypeId="hybrid"
-				{...camera}
-				gestureHandling="cooperative"
-			>
-				{polygons.map((path, i) => (
-					<Polygon
-						key={i}
-						paths={[path]}
-						strokeColor={BOUNDARY_COLOR}
-						strokeWeight={2}
-						fillColor={BOUNDARY_COLOR}
-						fillOpacity={0.15}
-						clickable={false}
-					/>
-				))}
-				<AdvancedMarker position={position} title={name} />
-			</Map>
-		</APIProvider>
-	);
+	useEffect(() => {
+		if (!leaflet) return;
+		const { L, map } = leaflet;
+		const satellite = satelliteLayer(L).addTo(map);
+		const streets = streetsLayer(L);
+		const layers = L.control.layers({ [labels.satellite]: satellite, [labels.streets]: streets }).addTo(map);
+		const features = L.layerGroup([
+			...polygons.map((path) =>
+				L.polygon(path, {
+					color: BOUNDARY_COLOR,
+					weight: 2,
+					fillColor: BOUNDARY_COLOR,
+					fillOpacity: 0.15,
+					interactive: false,
+				}),
+			),
+			L.marker(position, { icon: pinIcon(L), title: name }),
+		]).addTo(map);
+
+		if (polygons.length) map.fitBounds(L.latLngBounds([position, ...polygons.flat()]), { padding: [48, 48] });
+		else map.setView(position, 15);
+
+		return () => {
+			layers.remove();
+			satellite.remove();
+			streets.remove();
+			features.remove();
+		};
+	}, [leaflet, labels, name, position, polygons]);
+
+	return <MapFrame map={leafletMap} className="rounded-box aspect-square w-full sm:aspect-video" />;
 }

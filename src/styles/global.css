@@ -3,3 +3,59 @@
 @plugin "daisyui" {
   themes: all;
 }
+
+.leaflet-container {
+  background-color: var(--color-base-200);
+  font: inherit;
+}
+
+.leaflet-container .leaflet-bar a,
+.leaflet-container .leaflet-control-layers {
+  background-color: var(--color-base-100);
+  border-color: var(--color-base-300);
+  color: var(--color-base-content);
+}
+
+.leaflet-container .leaflet-bar a:hover {
+  background-color: var(--color-base-200);
+}
+
+.leaflet-container .leaflet-bar a.leaflet-disabled {
+  background-color: var(--color-base-200);
+  color: color-mix(in oklab, var(--color-base-content) 40%, transparent);
+}
+
+.leaflet-container .leaflet-control-attribution {
+  background-color: color-mix(in oklab, var(--color-base-100) 80%, transparent);
+  color: var(--color-base-content);
+}
+
+.leaflet-container .leaflet-control-attribution a {
+  color: var(--color-primary);
+}
+
+.leaflet-container a.btn {
+  color: var(--btn-fg);
+}
+
+.map-dark .map-streets {
+  filter: invert(1) hue-rotate(180deg) brightness(0.95) contrast(0.9);
+}
+
+.map-card .leaflet-popup-content-wrapper {
+  padding: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  color: inherit;
+}
+
+.map-card .leaflet-popup-content {
+  margin: 0;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.map-card .leaflet-popup-tip-container {
+  display: none;
+}

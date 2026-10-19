@@ -1,7 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 import { SEO } from "astro-seo";
-import { GOOGLE_MAPS_API_KEY, SITE_TITLE, TITLE_DELIMITER } from "astro:env/client";
+import { SITE_TITLE, TITLE_DELIMITER } from "astro:env/client";
 import { render, type CollectionEntry } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import PageHeader from "./PageHeader.astro";
@@ -11,7 +11,7 @@ import SiteGallery from "./SiteGallery.astro";
 import ZoneMap from "./ZoneMap";
 import { getMuseumSites, getMuseumTours, getSiteCover, getSiteGallery, getSiteState, getSlug } from "../i18n/content";
 import { languages } from "../i18n/ui";
-import { getLangFromUrl, useTranslatedPath, useTranslations } from "../i18n/utils";
+import { getLangFromUrl, getMapLabels, useTranslatedPath, useTranslations } from "../i18n/utils";
 
 interface Props {
   museum: CollectionEntry<"museums">;
@@ -50,7 +50,7 @@ if (position) {
   actions.push({
     label: t("site.directions"),
     icon: "boxicons:directions",
-    href: `https://www.google.com/maps/dir/?api=1&destination=${position.lat},${position.lng}`,
+    href: `https://www.openstreetmap.org/directions?route=%3B${position.lat}%2C${position.lng}`,
   });
 }
 const { guide } = museum.data;
@@ -190,13 +190,13 @@ if (tours.length === 1) {
     <RelatedPlaces title={t("museum.sites")} icon="boxicons:pyramid-filled" places={relatedSites} />
 
     {
-      GOOGLE_MAPS_API_KEY && position && (
+      position && (
         <section class="flex flex-col gap-4">
           <h2 class="flex items-center gap-2 text-2xl font-bold tracking-tight">
             <Icon name="boxicons:location" class="size-6 shrink-0 text-base-content/50" aria-hidden="true" />
             {t("site.map")}
           </h2>
-          <ZoneMap client:visible name={museum.data.name} lang={lang} position={position} />
+          <ZoneMap client:visible name={museum.data.name} position={position} labels={getMapLabels(t)} />
         </section>
       )
     }

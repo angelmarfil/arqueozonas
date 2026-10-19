@@ -1,10 +1,9 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { GOOGLE_MAPS_API_KEY } from "astro:env/client";
 import { Icon } from "astro-icon/components";
 import ClusteredMap, { type MapSite } from "./ClusteredMap";
 import { getSiteCover, getSlug } from "../i18n/content";
-import { getLangFromUrl, useTranslatedPath, useTranslations } from "../i18n/utils";
+import { getLangFromUrl, getMapLabels, useTranslatedPath, useTranslations } from "../i18n/utils";
 
 interface Props {
   sites: CollectionEntry<"sites">[];
@@ -31,18 +30,12 @@ const mapSites: MapSite[] = await Promise.all(
 ---
 
 {
-  GOOGLE_MAPS_API_KEY && mapSites.length > 0 && (
+  mapSites.length > 0 && (
     <section class={className}>
       <ClusteredMap
         client:visible
         sites={mapSites}
-        lang={lang}
-        labels={{
-          open: t("site.status.open"),
-          closed: t("site.status.closed"),
-          details: t("map.details"),
-          close: t("map.close"),
-        }}
+        labels={getMapLabels(t)}
       >
         <Icon slot="closeIcon" name="boxicons:x" class="size-5" is:inline aria-hidden="true" />
       </ClusteredMap>

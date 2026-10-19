@@ -1,5 +1,6 @@
 import { useSyncExternalStore } from "react";
-import { ColorScheme } from "@vis.gl/react-google-maps";
+
+export type ColorScheme = "light" | "dark";
 
 function subscribe(onChange: () => void) {
 	const observer = new MutationObserver(onChange);
@@ -12,12 +13,12 @@ function subscribe(onChange: () => void) {
 	};
 }
 
-function getSnapshot() {
-	return getComputedStyle(document.documentElement).colorScheme === "dark" ? ColorScheme.DARK : ColorScheme.LIGHT;
+function getSnapshot(): ColorScheme {
+	return getComputedStyle(document.documentElement).colorScheme === "dark" ? "dark" : "light";
 }
 
-function getServerSnapshot() {
-	return ColorScheme.LIGHT;
+function getServerSnapshot(): ColorScheme {
+	return "light";
 }
 
 export function useColorScheme() {

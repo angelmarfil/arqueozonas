@@ -16,6 +16,24 @@ export function useTranslations(lang: Lang) {
 	};
 }
 
+export function getMapLabels(t: ReturnType<typeof useTranslations>) {
+	return {
+		zoomIn: t('map.zoomIn'),
+		zoomOut: t('map.zoomOut'),
+		fullscreen: t('map.fullscreen'),
+		satellite: t('map.satellite'),
+		streets: t('map.streets'),
+		scrollHint: t('map.scrollHint'),
+		touchHint: t('map.touchHint'),
+		open: t('site.status.open'),
+		closed: t('site.status.closed'),
+		details: t('map.details'),
+		close: t('map.close'),
+	};
+}
+
+export type MapLabels = ReturnType<typeof getMapLabels>;
+
 export function useTranslatedPath(lang: Lang) {
 	return function translatePath(path: string, l: Lang = lang): string {
 		const translated = path

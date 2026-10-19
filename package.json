@@ -15,25 +15,26 @@
     "@astrojs/markdown-satteri": "^0.4.4",
     "@astrojs/mdx": "^8.1.0",
     "@astrojs/react": "^7.1.0",
-    "@googlemaps/markerclusterer": "^2.6.2",
     "@lightgallery/react": "^3.0.0",
     "@tailwindcss/vite": "^4.3.3",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
-    "@vis.gl/react-google-maps": "^1.10.1",
     "astro": "^7.4.0",
     "astro-icon": "^1.2.0",
     "astro-pagefind": "^2.0.1",
     "astro-seo": "^1.2.0",
+    "leaflet": "1.9.4",
     "lightgallery": "^3.0.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
+    "supercluster": "9.1.0",
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
     "@iconify-json/boxicons": "^1.2.0",
     "@tailwindcss/typography": "^0.5.20",
-    "@types/google.maps": "^3.66.7",
+    "@types/geojson": "^7946.0.16",
+    "@types/leaflet": "^1.9.22",
     "daisyui": "^5.7.50"
   }
 }
