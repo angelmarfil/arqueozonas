@@ -17,3 +17,12 @@ import "../styles/pagefind.css";
     <pagefind-keyboard-hints></pagefind-keyboard-hints>
   </pagefind-modal-footer>
 </pagefind-modal>
+
+<script>
+  import { getInstanceManager } from "@pagefind/component-ui";
+
+  document.addEventListener("astro:before-swap", () => {
+    const manager = getInstanceManager();
+    manager.getInstanceNames().forEach((name) => manager.removeInstance(name));
+  });
+</script>

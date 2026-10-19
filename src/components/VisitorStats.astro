@@ -57,8 +57,11 @@ const available = tabs.filter(({ years }) => years.length > 0);
     locale: string;
   }
 
+  let cleanups: (() => void)[] = [];
+
   async function renderCharts(section: HTMLElement) {
     const { BarController, BarElement, CategoryScale, Chart, Legend, LinearScale, Tooltip } = await import("chart.js");
+    if (!section.isConnected) return;
     Chart.register(BarController, BarElement, CategoryScale, LinearScale, Legend, Tooltip);
     const canvases = [...section.querySelectorAll<HTMLCanvasElement>("canvas[data-visitor-chart]")];
     let charts: ChartType[] = [];
@@ -108,19 +111,34 @@ const available = tabs.filter(({ years }) => years.length > 0);
     };
 
     draw();
-    new MutationObserver(draw).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
-    matchMedia("(prefers-color-scheme: dark)").addEventListener("change", draw);
+    const themeObserver = new MutationObserver(draw);
+    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+    const colorScheme = matchMedia("(prefers-color-scheme: dark)");
+    colorScheme.addEventListener("change", draw);
+    cleanups.push(() => {
+      themeObserver.disconnect();
+      colorScheme.removeEventListener("change", draw);
+      charts.forEach((chart) => chart.destroy());
+    });
   }
 
-  for (const section of document.querySelectorAll<HTMLElement>("[data-visitor-stats]")) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (!entries.some(({ isIntersecting }) => isIntersecting)) return;
-        observer.disconnect();
-        renderCharts(section);
-      },
-      { rootMargin: "200px" },
-    );
-    observer.observe(section);
-  }
+  document.addEventListener("astro:before-swap", () => {
+    cleanups.forEach((cleanup) => cleanup());
+    cleanups = [];
+  });
+
+  document.addEventListener("astro:page-load", () => {
+    for (const section of document.querySelectorAll<HTMLElement>("[data-visitor-stats]")) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (!entries.some(({ isIntersecting }) => isIntersecting)) return;
+          observer.disconnect();
+          renderCharts(section);
+        },
+        { rootMargin: "200px" },
+      );
+      observer.observe(section);
+      cleanups.push(() => observer.disconnect());
+    }
+  });
 </script>

@@ -52,22 +52,29 @@ const t = useTranslations(lang);
 </div>
 
 <script>
-  const controllers = document.querySelectorAll<HTMLInputElement>('.theme-controller');
+  const getControllers = () => document.querySelectorAll<HTMLInputElement>('.theme-controller');
 
   const applyTheme = (theme: string) => {
     document.documentElement.dataset.theme = theme;
-    controllers.forEach((input) => {
+    getControllers().forEach((input) => {
       input.checked = input.value === theme;
     });
   };
 
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme) applyTheme(savedTheme);
+  document.addEventListener('astro:before-swap', ({ newDocument }) => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) newDocument.documentElement.dataset.theme = savedTheme;
+  });
 
-  controllers.forEach((input) => {
-    input.addEventListener('change', () => {
-      localStorage.setItem('theme', input.value);
-      applyTheme(input.value);
+  document.addEventListener('astro:page-load', () => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) applyTheme(savedTheme);
+
+    getControllers().forEach((input) => {
+      input.addEventListener('change', () => {
+        localStorage.setItem('theme', input.value);
+        applyTheme(input.value);
+      });
     });
   });
 </script>

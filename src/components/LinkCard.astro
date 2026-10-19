@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
+import { getTransitionName } from "../lib/view-transitions";
 
 interface Props {
 	href: string;
@@ -32,7 +33,7 @@ const { href, title, subtitle, cover } = Astro.props;
 		</figure>
 	)}
 	<div class="card-body">
-		<h2 class="card-title">{title}</h2>
+		<h2 class="card-title" transition:name={getTransitionName(href)}>{title}</h2>
 		{subtitle && <p class="text-base-content/60">{subtitle}</p>}
 		<slot />
 	</div>
