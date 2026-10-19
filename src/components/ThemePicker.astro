@@ -8,6 +8,7 @@ interface Props {
 }
 
 const { name } = Astro.props;
+const themeList = ['arqueozonas', 'arqueozonas-dark', ...themes];
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
@@ -32,7 +33,7 @@ const t = useTranslations(lang);
   >
     <ul class="menu w-full">
       <li class="menu-title text-xs">{t('themePicker.label')}</li>
-      {themes.map((theme) => (
+      {themeList.map((theme) => (
         <li>
           <label class="group gap-3 px-2">
             <input type="radio" name={name} value={theme} class="theme-controller sr-only" />
