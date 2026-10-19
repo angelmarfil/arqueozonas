@@ -2,5 +2,8 @@
 	"name": "Museo Nacional de las Culturas del Mundo",
 	"type": "museum",
 	"url": "https://www.inah.gob.mx/images/recorridos-virtuales/museodelasculturas/",
-	"state": "cdmx"
+	"state": "cdmx",
+	"museums": [
+		"es/museo-nacional-de-las-culturas-del-mundo"
+	]
 }

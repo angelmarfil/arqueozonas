@@ -2,5 +2,8 @@
 	"name": "Exposición Tlachtli — MNA",
 	"type": "exhibition",
 	"url": "https://www.inah.gob.mx/images/360/ExposicionTlachtli/",
-	"state": "cdmx"
+	"state": "cdmx",
+	"museums": [
+		"es/museo-nacional-de-antropologia"
+	]
 }

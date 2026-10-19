@@ -2,5 +2,8 @@
 	"name": "Museo de las Culturas de Oaxaca Santo Domingo",
 	"type": "museum",
 	"url": "https://www.inah.gob.mx/images/recorridos-virtuales/museodelasculturasdeoaxaca/",
-	"state": "oaxaca"
+	"state": "oaxaca",
+	"museums": [
+		"es/museo-de-las-culturas-de-oaxaca"
+	]
 }
