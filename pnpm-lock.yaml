@@ -20,6 +20,9 @@ importers:
       '@lightgallery/react':
         specifier: ^3.0.0
         version: 3.0.0(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      '@pagefind/component-ui':
+        specifier: ^1.5.2
+        version: 1.5.2
       '@tailwindcss/vite':
         specifier: ^4.3.3
         version: 4.3.3(vite@8.3.4(jiti@2.7.0)(yaml@2.9.1))

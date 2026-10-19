@@ -34,6 +34,9 @@ export default defineConfig({
 
   vite: {
       plugins: [tailwindcss()],
+      optimizeDeps: {
+          exclude: ["@pagefind/component-ui"],
+      },
   },
 
   integrations: [mdx(), icon(), react(), pagefind()]
