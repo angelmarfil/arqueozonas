@@ -1,0 +1,84 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { SEO } from "astro-seo";
+import { SITE_TITLE, TITLE_DELIMITER } from "astro:env/client";
+import PageHeader from "../../components/PageHeader.astro";
+import ImageLicense from "../../components/ImageLicense.astro";
+import LinkCard from "../../components/LinkCard.astro";
+import { getMuseums, getStateMuseumCover, getStates } from "../../i18n/content";
+import {
+  getLangFromUrl,
+  useTranslatedPath,
+  useTranslations,
+} from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+const museums = await getMuseums(lang);
+const museumCount = (stateId: string) =>
+  museums.filter((museum) => museum.data.state === stateId).length;
+const states = (await getStates()).filter((state) => museumCount(state.id) > 0);
+const covers = await Promise.all(states.map(getStateMuseumCover));
+---
+
+<Layout>
+  <SEO
+    slot="head"
+    charset="utf-8"
+    title={t("nav.museums")}
+    description={t("seo.museums.description")}
+    titleTemplate={`%s ${TITLE_DELIMITER} ${SITE_TITLE}`}
+    extend={{
+      meta: [
+        {
+          name: "viewport",
+          content: "width=device-width",
+        },
+        {
+          name: "generator",
+          content: Astro.generator,
+        },
+      ],
+      link: [
+        {
+          rel: "icon",
+          type: "image/svg+xml",
+          href: "/favicon.svg",
+        },
+        {
+          rel: "icon",
+          href: "/favicon.ico",
+        },
+      ],
+    }}
+  />
+
+  <main class="mx-auto w-full max-w-7xl px-4 py-6 sm:py-10 md:px-8">
+    <PageHeader
+      class="mb-6 sm:mb-8"
+      title={t("nav.museums")}
+      crumbs={[{ label: t("nav.museums"), icon: "boxicons:bank-filled" }]}
+    >
+      <p class="text-base-content/70">{t("seo.museums.description")}</p>
+    </PageHeader>
+
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {
+        states.map((state, i) => {
+          const count = museumCount(state.id);
+          return (
+            <LinkCard
+              href={translatePath(`/museos/${state.id}`)}
+              title={state.data.name}
+              subtitle={`${count} ${t(count === 1 ? "museums.one" : "museums.other")}`}
+              cover={covers[i] ?? null}
+            />
+          );
+        })
+      }
+    </div>
+
+    <ImageLicense class="mt-6" />
+  </main>
+</Layout>

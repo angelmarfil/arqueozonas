@@ -1,0 +1,204 @@
+---
+import { Icon } from "astro-icon/components";
+import { SEO } from "astro-seo";
+import { GOOGLE_MAPS_API_KEY, SITE_TITLE, TITLE_DELIMITER } from "astro:env/client";
+import { render, type CollectionEntry } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import PageHeader from "./PageHeader.astro";
+import MuseumBadges from "./MuseumBadges.astro";
+import RelatedPlaces from "./RelatedPlaces.astro";
+import SiteGallery from "./SiteGallery.astro";
+import ZoneMap from "./ZoneMap";
+import { getMuseumSites, getMuseumTours, getSiteCover, getSiteGallery, getSiteState, getSlug } from "../i18n/content";
+import { languages } from "../i18n/ui";
+import { getLangFromUrl, useTranslatedPath, useTranslations } from "../i18n/utils";
+
+interface Props {
+  museum: CollectionEntry<"museums">;
+}
+
+interface MuseumAction {
+  label: string;
+  icon: string;
+  href: string;
+}
+
+const { museum } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+const state = await getSiteState(museum);
+const gallery = await getSiteGallery(museum);
+const cover = await getSiteCover(museum);
+const { Content } = await render(museum);
+const statePath = `/museos/${state.id}`;
+const formatDate = (date: Date) => date.toLocaleDateString(lang, { dateStyle: "long", timeZone: "UTC" });
+const isoDate = (date: Date) => date.toISOString().slice(0, 10);
+
+const sites = await getMuseumSites(museum);
+const relatedSites = await Promise.all(
+  sites.map(async (site) => ({
+    href: translatePath(`/zonas-arqueologicas/${site.data.state}/${getSlug(site)}`),
+    title: site.data.name,
+    cover: await getSiteCover(site),
+  })),
+);
+
+const { position } = museum.data;
+const actions: MuseumAction[] = [];
+if (position) {
+  actions.push({
+    label: t("site.directions"),
+    icon: "boxicons:directions",
+    href: `https://www.google.com/maps/dir/?api=1&destination=${position.lat},${position.lng}`,
+  });
+}
+const { guide } = museum.data;
+if (guide) {
+  actions.push({
+    label: guide === lang ? t("site.guide.download") : `${t("site.guide.download")} (${languages[guide]})`,
+    icon: "boxicons:arrow-in-down-square-half",
+    href: `/guides/${guide}/${getSlug(museum)}.pdf`,
+  });
+}
+const tours = await getMuseumTours(museum);
+const groupTours = tours.length > 1;
+if (tours.length === 1) {
+  actions.push({ label: t("site.tour"), icon: "boxicons:street-view", href: tours[0].data.url });
+}
+---
+
+<Layout>
+  <SEO
+    slot="head"
+    charset="utf-8"
+    title={museum.data.name}
+    titleTemplate={`%s ${TITLE_DELIMITER} ${SITE_TITLE}`}
+    extend={{
+      meta: [
+        {
+          name: "viewport",
+          content: "width=device-width",
+        },
+        {
+          name: "generator",
+          content: Astro.generator,
+        },
+      ],
+      link: [
+        {
+          rel: "icon",
+          type: "image/svg+xml",
+          href: "/favicon.svg",
+        },
+        {
+          rel: "icon",
+          href: "/favicon.ico",
+        },
+      ],
+    }}
+  />
+
+  <main
+    class="mx-auto flex w-full max-w-5xl flex-col gap-10 px-4 py-6 sm:gap-12 sm:py-10 md:px-8"
+    data-pagefind-meta={cover && `image:${cover}`}
+  >
+    <PageHeader
+      searchable
+      title={museum.data.name}
+      crumbs={[
+        { label: t("nav.museums"), href: "/museos", icon: "boxicons:bank-filled" },
+        { label: state.data.name, href: statePath, icon: "boxicons:map" },
+        { label: museum.data.name },
+      ]}
+    >
+      <div class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-base-content/70">
+        <MuseumBadges museum={museum} size="md" />
+        <a href={translatePath(statePath)} class="link link-hover inline-flex items-center gap-1.5">
+          <Icon name="boxicons:map" class="size-4" aria-hidden="true" />
+          {state.data.name}
+        </a>
+        {
+          museum.data.lastReviewed && (
+            <span class="inline-flex items-center gap-1.5">
+              <Icon name="boxicons:calendar" class="size-4" aria-hidden="true" />
+              {t("site.lastReviewed")}:
+              <time datetime={isoDate(museum.data.lastReviewed)}>{formatDate(museum.data.lastReviewed)}</time>
+            </span>
+          )
+        }
+      </div>
+      {
+        (actions.length > 0 || groupTours) && (
+          <Fragment slot="actions">
+            {actions.map(({ label, icon, href }) => (
+              <a href={href} class="btn" target="_blank" rel="noopener">
+                <Icon name={icon} class="size-5" is:inline aria-hidden="true" />
+                {label}
+              </a>
+            ))}
+            {groupTours && (
+              <div class="dropdown md:dropdown-end">
+                <div tabindex="0" role="button" class="btn">
+                  <Icon name="boxicons:street-view" class="size-5" aria-hidden="true" />
+                  {t("site.tours")}
+                  <Icon name="boxicons:chevron-down" class="size-3 opacity-60" aria-hidden="true" />
+                </div>
+                <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-5 mt-2 w-72 p-2 shadow-sm">
+                  {tours.map(({ data }) => (
+                    <li>
+                      <a href={data.url} target="_blank" rel="noopener">
+                        {data.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </Fragment>
+        )
+      }
+    </PageHeader>
+
+    {gallery && <SiteGallery gallery={gallery} />}
+
+    <article class="flex flex-col gap-4">
+      <Content />
+      <footer class="flex flex-col gap-1 text-xs text-base-content/60">
+        <p>
+          {t("site.source.text")}{" "}
+          <a
+            href={`https://creativecommons.org/licenses/by-nc-nd/4.0/deed.${lang}`}
+            target="_blank"
+            rel="noopener license"
+            class="link"
+          >
+            CC BY-NC-ND 4.0
+          </a>. {t("site.source.unmodified")}{" · "}
+          <a
+            href={`https://lugares.inah.gob.mx/${lang}/node/${museum.data.inahId}`}
+            target="_blank"
+            rel="noopener"
+            class="link"
+          >
+            {t("site.source.lugares")}
+          </a>
+        </p>
+      </footer>
+    </article>
+
+    <RelatedPlaces title={t("museum.sites")} icon="boxicons:pyramid-filled" places={relatedSites} />
+
+    {
+      GOOGLE_MAPS_API_KEY && position && (
+        <section class="flex flex-col gap-4">
+          <h2 class="flex items-center gap-2 text-2xl font-bold tracking-tight">
+            <Icon name="boxicons:location" class="size-6 shrink-0 text-base-content/50" aria-hidden="true" />
+            {t("site.map")}
+          </h2>
+          <ZoneMap client:visible name={museum.data.name} lang={lang} position={position} />
+        </section>
+      )
+    }
+  </main>
+</Layout>

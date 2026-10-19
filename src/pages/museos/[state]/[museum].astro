@@ -1,0 +1,12 @@
+---
+import MuseumDetail from "../../../components/MuseumDetail.astro";
+import { getMuseumPaths } from "../../../i18n/content";
+
+export function getStaticPaths() {
+  return getMuseumPaths("es");
+}
+
+const { museum } = Astro.props;
+---
+
+<MuseumDetail museum={museum} />

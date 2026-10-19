@@ -1,0 +1,91 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import { SEO } from 'astro-seo';
+import { SITE_TITLE, TITLE_DELIMITER } from 'astro:env/client';
+import type { CollectionEntry } from 'astro:content';
+import PageHeader from '../../../../components/PageHeader.astro';
+import ImageLicense from '../../../../components/ImageLicense.astro';
+import MuseumBadges from '../../../../components/MuseumBadges.astro';
+import LinkCard from '../../../../components/LinkCard.astro';
+import { getMuseums, getSiteCover, getSlug, getStatePaths } from '../../../../i18n/content';
+import { getLangFromUrl, useTranslatedPath, useTranslations } from '../../../../i18n/utils';
+
+export function getStaticPaths() {
+	return getStatePaths();
+}
+
+interface Props {
+	state: CollectionEntry<'states'>;
+}
+
+const { state } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+const stateSlug = state.id;
+const museums = await getMuseums(lang, stateSlug);
+const covers = await Promise.all(museums.map(getSiteCover));
+---
+
+<Layout>
+	<SEO
+		slot="head"
+		charset="utf-8"
+		title={`${t('seo.museumsIn')} ${state.data.name}`}
+		titleTemplate={`%s ${TITLE_DELIMITER} ${SITE_TITLE}`}
+		extend={{
+			meta: [
+				{
+					name: "viewport",
+					content: "width=device-width",
+				},
+				{
+					name: "generator",
+					content: Astro.generator,
+				},
+			],
+			link: [
+				{
+					rel: "icon",
+					type: "image/svg+xml",
+					href: "/favicon.svg",
+				},
+				{
+					rel: "icon",
+					href: "/favicon.ico",
+				},
+			],
+		}}
+	/>
+
+	<main class="mx-auto w-full max-w-7xl px-4 py-6 sm:py-10 md:px-8">
+		<PageHeader
+			class="mb-6 sm:mb-8"
+			title={state.data.name}
+			crumbs={[
+				{ label: t('nav.museums'), href: '/museos', icon: 'boxicons:bank-filled' },
+				{ label: state.data.name, icon: 'boxicons:map' },
+			]}
+		>
+			<p class="text-base-content/70">{`${museums.length} ${t(museums.length === 1 ? 'museums.one' : 'museums.other')}`}</p>
+		</PageHeader>
+
+		{museums.length > 0 ? (
+			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+				{museums.map((museum, i) => (
+					<LinkCard
+						href={translatePath(`/museos/${stateSlug}/${getSlug(museum)}`)}
+						title={museum.data.name}
+						cover={covers[i] ?? null}
+					>
+						<MuseumBadges museum={museum} />
+					</LinkCard>
+				))}
+			</div>
+		) : (
+			<p class="text-base-content/60">{t('museums.empty')}</p>
+		)}
+
+		{covers.some(Boolean) && <ImageLicense class="mt-6" />}
+	</main>
+</Layout>

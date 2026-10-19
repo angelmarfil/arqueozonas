@@ -1,0 +1,36 @@
+---
+import { Icon } from "astro-icon/components";
+import type { CollectionEntry } from "astro:content";
+import { getMuseumTours } from "../i18n/content";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+interface Props {
+  museum: CollectionEntry<"museums">;
+  size?: "sm" | "md";
+}
+
+const { museum, size = "sm" } = Astro.props;
+const { type } = museum.data;
+const hasTour = (await getMuseumTours(museum)).length > 0;
+const t = useTranslations(getLangFromUrl(Astro.url));
+const sizeClass = size === "sm" ? "badge-sm" : "badge-md";
+---
+
+{
+  (type || hasTour) && (
+    <div class="flex flex-wrap gap-1.5">
+      {type && (
+        <span class:list={["badge badge-soft badge-primary", sizeClass]}>
+          <Icon name="boxicons:bank" class="size-3.5" aria-hidden="true" />
+          {t(`museum.type.${type}`)}
+        </span>
+      )}
+      {hasTour && (
+        <span class:list={["badge badge-soft badge-secondary", sizeClass]}>
+          <Icon name="boxicons:street-view" class="size-3.5" aria-hidden="true" />
+          {t("site.tour")}
+        </span>
+      )}
+    </div>
+  )
+}
