@@ -42,6 +42,7 @@ const relatedMuseums = await Promise.all(
     href: translatePath(`/museos/${museum.data.state}/${getSlug(museum)}`),
     title: museum.data.name,
     cover: await getSiteCover(museum),
+    entry: museum,
   })),
 );
 

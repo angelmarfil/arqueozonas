@@ -41,6 +41,7 @@ const relatedSites = await Promise.all(
     href: translatePath(`/zonas-arqueologicas/${site.data.state}/${getSlug(site)}`),
     title: site.data.name,
     cover: await getSiteCover(site),
+    entry: site,
   })),
 );
 

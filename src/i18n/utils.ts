@@ -1,5 +1,5 @@
 import { getRelativeLocaleUrl } from 'astro:i18n';
-import { defaultLang, languages, routes, ui, type Lang, type UIKey } from './ui';
+import { defaultLang, languages, locales, routes, ui, type Lang, type UIKey } from './ui';
 
 export function isLang(value: string | undefined): value is Lang {
 	return value !== undefined && value in languages;
@@ -33,6 +33,12 @@ export function getMapLabels(t: ReturnType<typeof useTranslations>) {
 		museums: t('nav.museums'),
 		close: t('map.close'),
 	};
+}
+
+export function formatVisitorCount(lang: Lang, { total, year }: { total: number; year: number }) {
+	return useTranslations(lang)('visitors.count')
+		.replace('{count}', new Intl.NumberFormat(locales[lang]).format(total))
+		.replace('{year}', String(year));
 }
 
 export type MapLabels = ReturnType<typeof getMapLabels>;

@@ -6,6 +6,7 @@ import type { CollectionEntry } from 'astro:content';
 import PageHeader from '../../../components/PageHeader.astro';
 import ImageLicense from '../../../components/ImageLicense.astro';
 import SiteBadges from '../../../components/SiteBadges.astro';
+import VisitorCount from '../../../components/VisitorCount.astro';
 import LinkCard from '../../../components/LinkCard.astro';
 import { getStatePaths, getSiteCover, getSites, getSlug } from '../../../i18n/content';
 import { getLangFromUrl, useTranslatedPath, useTranslations } from '../../../i18n/utils';
@@ -78,6 +79,7 @@ const covers = await Promise.all(sites.map(getSiteCover));
 						title={site.data.name}
 						cover={covers[i] ?? null}
 					>
+						<VisitorCount place={site} />
 						<SiteBadges site={site} />
 					</LinkCard>
 				))}

@@ -7,6 +7,11 @@ export type Lang = keyof typeof languages;
 
 export const defaultLang: Lang = 'es';
 
+export const locales: Record<Lang, string> = {
+	es: 'es-MX',
+	en: 'en-US',
+};
+
 export const ui = {
 	es: {
 		'nav.home': 'Inicio',
@@ -60,6 +65,24 @@ export const ui = {
 		'seo.sites.description': 'Explora las zonas arqueológicas de México organizadas por estado.',
 		'seo.museumsIn': 'Museos en',
 		'seo.museums.description': 'Explora los museos del INAH en México organizados por estado.',
+		'visitors.title': 'Visitantes',
+		'visitors.description': 'Visitantes registrados por el INAH en zonas arqueológicas y museos abiertos al público, divididos en nacionales y extranjeros.',
+		'visitors.count': '{count} visitantes en {year}',
+		'visitors.total': 'Visitantes en {year}',
+		'visitors.national': 'Nacionales',
+		'visitors.foreign': 'Extranjeros',
+		'visitors.share': '{percent} del total',
+		'visitors.change': '{change} respecto a {year}',
+		'visitors.partial': 'En {year} se han registrado {count} visitantes de enero a {month}.',
+		'visitors.byYear': 'Visitantes por año',
+		'visitors.top': 'Más visitados en {year}',
+		'visitors.rank': 'Posición',
+		'visitors.place': 'Lugar',
+		'visitors.year': 'Año',
+		'visitors.totalColumn': 'Total',
+		'visitors.showData': 'Ver datos por año',
+		'visitors.source': 'Fuente: INAH, datos abiertos publicados en',
+		'visitors.license': 'bajo licencia',
 	},
 	en: {
 		'nav.home': 'Home',
@@ -113,6 +136,24 @@ export const ui = {
 		'seo.sites.description': "Explore Mexico's archaeological sites by state.",
 		'seo.museumsIn': 'Museums in',
 		'seo.museums.description': "Explore Mexico's INAH museums by state.",
+		'visitors.title': 'Visitors',
+		'visitors.description': 'Visitors recorded by INAH at archaeological sites and museums open to the public, split into national and foreign visitors.',
+		'visitors.count': '{count} visitors in {year}',
+		'visitors.total': 'Visitors in {year}',
+		'visitors.national': 'National',
+		'visitors.foreign': 'Foreign',
+		'visitors.share': '{percent} of total',
+		'visitors.change': '{change} vs {year}',
+		'visitors.partial': '{count} visitors recorded in {year} from January to {month}.',
+		'visitors.byYear': 'Visitors per year',
+		'visitors.top': 'Most visited in {year}',
+		'visitors.rank': 'Rank',
+		'visitors.place': 'Place',
+		'visitors.year': 'Year',
+		'visitors.totalColumn': 'Total',
+		'visitors.showData': 'Show data by year',
+		'visitors.source': 'Source: INAH, open data published on',
+		'visitors.license': 'licensed under',
 	},
 } as const;
 

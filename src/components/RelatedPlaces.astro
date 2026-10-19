@@ -1,11 +1,14 @@
 ---
 import { Icon } from "astro-icon/components";
+import type { CollectionEntry } from "astro:content";
 import LinkCard from "./LinkCard.astro";
+import VisitorCount from "./VisitorCount.astro";
 
 interface Place {
   href: string;
   title: string;
   cover?: string | null;
+  entry?: CollectionEntry<"sites"> | CollectionEntry<"museums">;
 }
 
 interface Props {
@@ -25,8 +28,10 @@ const { title, icon, places } = Astro.props;
         {title}
       </h2>
       <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {places.map(({ href, title, cover }) => (
-          <LinkCard href={href} title={title} cover={cover ?? null} />
+        {places.map(({ href, title, cover, entry }) => (
+          <LinkCard href={href} title={title} cover={cover ?? null}>
+            {entry && <VisitorCount place={entry} />}
+          </LinkCard>
         ))}
       </div>
     </section>
