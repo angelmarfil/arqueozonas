@@ -1,5 +1,7 @@
 import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
 import { IMAGE_TRANSFORMS, R2_PUBLIC_URL } from 'astro:env/server';
+import { visitorAliases } from '../lib/visitor-aliases';
+import { matchVisitorRecords } from '../lib/visitor-matching';
 import { defaultLang, type Lang } from './ui';
 
 type Place = CollectionEntry<'sites'> | CollectionEntry<'museums'>;
@@ -129,4 +131,78 @@ export async function getMuseumPaths(lang: Lang) {
 		params: { state: museum.data.state, museum: getSlug(museum) },
 		props: { museum },
 	}));
+}
+
+type VisitorCollection = 'siteVisitors' | 'museumVisitors';
+
+const VISITOR_COLLECTIONS = { sites: 'siteVisitors', museums: 'museumVisitors' } as const;
+
+export interface VisitorTotals {
+	year: number;
+	national: number;
+	foreign: number;
+	months: number;
+}
+
+function sum(values: number[]) {
+	return values.reduce((total, value) => total + value, 0);
+}
+
+export async function getVisitorYears(collection: VisitorCollection): Promise<VisitorTotals[]> {
+	const totals = new Map<number, { national: number[]; foreign: number[] }>();
+	for (const { data } of await getCollection(collection)) {
+		for (const { year, national, foreign } of data.years) {
+			const entry = totals.get(year) ?? { national: Array(12).fill(0), foreign: Array(12).fill(0) };
+			national.forEach((count, month) => (entry.national[month] += count));
+			foreign.forEach((count, month) => (entry.foreign[month] += count));
+			totals.set(year, entry);
+		}
+	}
+	return [...totals]
+		.sort(([a], [b]) => a - b)
+		.map(([year, { national, foreign }]) => ({
+			year,
+			national: sum(national),
+			foreign: sum(foreign),
+			months: national.findLastIndex((count, month) => count + foreign[month] > 0) + 1,
+		}));
+}
+
+export async function getLatestVisitorYear(collection: VisitorCollection) {
+	return (await getVisitorYears(collection)).findLast(({ months }) => months === 12)?.year;
+}
+
+export async function getRecordVisitors(collection: VisitorCollection, ids: string[], year: number) {
+	let national = 0;
+	let foreign = 0;
+	for (const id of ids) {
+		const record = await getEntry(collection, id);
+		const counts = record?.data.years.find((entry) => entry.year === year);
+		if (!counts) continue;
+		national += sum(counts.national);
+		foreign += sum(counts.foreign);
+	}
+	return { year, national, foreign, total: national + foreign };
+}
+
+export async function getPlaceVisitorRecords(place: Place) {
+	const slug = getSlug(place);
+	const id = `${defaultLang}/${slug}`;
+	const source = (place.collection === 'sites' ? await getEntry('sites', id) : await getEntry('museums', id)) ?? place;
+	const records = await getCollection(VISITOR_COLLECTIONS[place.collection]);
+	return matchVisitorRecords(
+		{ slug, name: source.data.name, state: source.data.state },
+		records.map(({ id, data }) => ({ id, name: data.name, state: data.state })),
+		visitorAliases[place.collection],
+	);
+}
+
+export async function getPlaceVisitors(place: Place) {
+	const ids = await getPlaceVisitorRecords(place);
+	if (ids.length === 0) return;
+	const collection = VISITOR_COLLECTIONS[place.collection];
+	const year = await getLatestVisitorYear(collection);
+	if (year === undefined) return;
+	const visitors = await getRecordVisitors(collection, ids, year);
+	return visitors.total > 0 ? visitors : undefined;
 }

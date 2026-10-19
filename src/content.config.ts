@@ -1,6 +1,7 @@
 import { defineCollection, reference } from 'astro:content';
 import { file, glob } from 'astro/loaders';
 import { z } from 'astro/zod';
+import { inahVisitorsLoader } from './loaders/visitors';
 
 const states = defineCollection({
     loader: file("./src/data/states.json"),
@@ -73,4 +74,26 @@ const tours = defineCollection({
     })
 })
 
-export const collections = { states, sites, museums, galleries, tours };
+const monthlyCounts = z.array(z.number().int().nonnegative()).length(12);
+
+const visitorRecord = z.object({
+    name: z.string(),
+    state: z.string(),
+    years: z.array(z.object({
+        year: z.number().int(),
+        national: monthlyCounts,
+        foreign: monthlyCounts,
+    })),
+});
+
+const siteVisitors = defineCollection({
+    loader: inahVisitorsLoader("visitantes_zonas_arqueologicas"),
+    schema: visitorRecord,
+});
+
+const museumVisitors = defineCollection({
+    loader: inahVisitorsLoader("visitantes_museos_abiertos_publico"),
+    schema: visitorRecord,
+});
+
+export const collections = { states, sites, museums, galleries, tours, siteVisitors, museumVisitors };
