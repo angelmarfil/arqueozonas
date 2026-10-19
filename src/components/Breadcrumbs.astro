@@ -23,12 +23,12 @@ const translatePath = useTranslatedPath(lang);
     <li>
       <a href={translatePath("/")} class="gap-1.5">
         <Icon name="boxicons:home" class="size-4" aria-hidden="true" />
-        {t("nav.home")}
+        <span class="max-sm:sr-only">{t("nav.home")}</span>
       </a>
     </li>
     {
-      items.map(({ label, href, icon }) => (
-        <li>
+      items.map(({ label, href, icon }, i) => (
+        <li class:list={{ "max-sm:hidden": !href && i > 0 }}>
           {href ? (
             <a href={translatePath(href)} class="gap-1.5">
               {icon && <Icon name={icon} class="size-4" aria-hidden="true" />}

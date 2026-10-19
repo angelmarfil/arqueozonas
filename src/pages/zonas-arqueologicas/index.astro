@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import { SEO } from "astro-seo";
 import { SITE_TITLE, TITLE_DELIMITER } from "astro:env/client";
+import PageHeader from "../../components/PageHeader.astro";
 import ImageLicense from "../../components/ImageLicense.astro";
 import LinkCard from "../../components/LinkCard.astro";
 import { getSites, getStateCover, getStates } from "../../i18n/content";
@@ -53,8 +54,14 @@ const siteCount = (stateId: string) =>
     }}
   />
 
-  <main class="mx-auto w-full max-w-7xl px-4 py-8 md:px-8">
-    <h1 class="mb-6 text-3xl font-bold">{t("nav.sites")}</h1>
+  <main class="mx-auto w-full max-w-7xl px-4 py-6 sm:py-10 md:px-8">
+    <PageHeader
+      class="mb-6 sm:mb-8"
+      title={t("nav.sites")}
+      crumbs={[{ label: t("nav.sites"), icon: "boxicons:pyramid-filled" }]}
+    >
+      <p class="text-base-content/70">{t("seo.sites.description")}</p>
+    </PageHeader>
 
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {

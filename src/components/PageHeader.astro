@@ -1,0 +1,24 @@
+---
+import Breadcrumbs, { type Crumb } from "./Breadcrumbs.astro";
+
+interface Props {
+  crumbs: Crumb[];
+  title: string;
+  searchable?: boolean;
+  class?: string;
+}
+
+const { crumbs, title, searchable = false, class: className } = Astro.props;
+const hasActions = Astro.slots.has("actions");
+---
+
+<header class:list={["flex flex-col gap-2 sm:gap-3", className]}>
+  <Breadcrumbs items={crumbs} />
+  <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between md:gap-8">
+    <div class="flex min-w-0 flex-col gap-2">
+      <h1 data-pagefind-body={searchable || undefined} class="text-3xl font-bold tracking-tight text-balance sm:text-4xl">{title}</h1>
+      <slot />
+    </div>
+    {hasActions && <div class="flex flex-wrap gap-2 md:shrink-0 md:justify-end"><slot name="actions" /></div>}
+  </div>
+</header>

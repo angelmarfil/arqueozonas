@@ -3,7 +3,7 @@ import Layout from '../../../layouts/Layout.astro';
 import { SEO } from 'astro-seo';
 import { SITE_TITLE, TITLE_DELIMITER } from 'astro:env/client';
 import type { CollectionEntry } from 'astro:content';
-import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import PageHeader from '../../../components/PageHeader.astro';
 import ImageLicense from '../../../components/ImageLicense.astro';
 import SiteBadges from '../../../components/SiteBadges.astro';
 import LinkCard from '../../../components/LinkCard.astro';
@@ -58,15 +58,17 @@ const covers = await Promise.all(sites.map(getSiteCover));
 		}}
 	/>
 
-	<main class="mx-auto w-full max-w-7xl px-4 py-8 md:px-8">
-		<Breadcrumbs
-			items={[
+	<main class="mx-auto w-full max-w-7xl px-4 py-6 sm:py-10 md:px-8">
+		<PageHeader
+			class="mb-6 sm:mb-8"
+			title={state.data.name}
+			crumbs={[
 				{ label: t('nav.sites'), href: '/zonas-arqueologicas', icon: 'boxicons:pyramid-filled' },
-				{ label: state.data.name },
+				{ label: state.data.name, icon: 'boxicons:map' },
 			]}
-		/>
-
-		<h1 class="mb-6 text-3xl font-bold">{state.data.name}</h1>
+		>
+			<p class="text-base-content/70">{`${sites.length} ${t(sites.length === 1 ? 'sites.one' : 'sites.other')}`}</p>
+		</PageHeader>
 
 		{sites.length > 0 ? (
 			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

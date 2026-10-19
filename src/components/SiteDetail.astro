@@ -4,7 +4,7 @@ import { SEO } from "astro-seo";
 import { GOOGLE_MAPS_API_KEY, SITE_TITLE, TITLE_DELIMITER } from "astro:env/client";
 import { render, type CollectionEntry } from "astro:content";
 import Layout from "../layouts/Layout.astro";
-import Breadcrumbs from "./Breadcrumbs.astro";
+import PageHeader from "./PageHeader.astro";
 import SiteBadges from "./SiteBadges.astro";
 import SiteGallery from "./SiteGallery.astro";
 import ZoneMap from "./ZoneMap";
@@ -99,77 +99,69 @@ if (tours.length === 1) {
   />
 
   <main
-    class="mx-auto flex w-full max-w-5xl flex-col gap-8 px-4 py-6 sm:gap-10 sm:px-6 sm:py-10"
+    class="mx-auto flex w-full max-w-5xl flex-col gap-10 px-4 py-6 sm:gap-12 sm:py-10 md:px-8"
     data-pagefind-meta={cover && `image:${cover}`}
   >
-    <div class="flex flex-col gap-4 sm:gap-6">
-      <Breadcrumbs
-        items={[
-          { label: t("nav.sites"), href: "/zonas-arqueologicas", icon: "boxicons:pyramid-filled" },
-          { label: state.data.name, href: statePath },
-          { label: site.data.name },
-        ]}
-      />
-
-      <header class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-        <div class="flex flex-col gap-3">
-          <SiteBadges site={site} size="md" />
-          <h1 data-pagefind-body class="text-3xl font-bold tracking-tight text-balance sm:text-4xl lg:text-5xl">
-            {site.data.name}
-          </h1>
-          <div class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-base-content/70">
-            <a href={translatePath(statePath)} class="link link-hover inline-flex items-center gap-1.5">
-              <Icon name="boxicons:map" class="size-4" aria-hidden="true" />
-              {state.data.name}
-            </a>
-            {
-              site.data.lastReviewed && (
-                <span class="inline-flex items-center gap-1.5">
-                  <Icon name="boxicons:calendar" class="size-4" aria-hidden="true" />
-                  {t("site.lastReviewed")}:
-                  <time datetime={isoDate(site.data.lastReviewed)}>{formatDate(site.data.lastReviewed)}</time>
-                </span>
-              )
-            }
-          </div>
-        </div>
-
+    <PageHeader
+      searchable
+      title={site.data.name}
+      crumbs={[
+        { label: t("nav.sites"), href: "/zonas-arqueologicas", icon: "boxicons:pyramid-filled" },
+        { label: state.data.name, href: statePath, icon: "boxicons:map" },
+        { label: site.data.name },
+      ]}
+    >
+      <div class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-base-content/70">
+        <SiteBadges site={site} size="md" />
+        <a href={translatePath(statePath)} class="link link-hover inline-flex items-center gap-1.5">
+          <Icon name="boxicons:map" class="size-4" aria-hidden="true" />
+          {state.data.name}
+        </a>
         {
-          (actions.length > 0 || groupTours) && (
-            <div class="flex flex-wrap gap-2 md:shrink-0 md:justify-end">
-              {actions.map(({ label, icon, href, external }) => (
-                <a
-                  href={href}
-                  class="btn"
-                  {...(external && { target: "_blank", rel: "noopener" })}
-                >
-                  <Icon name={icon} class="size-5" is:inline aria-hidden="true" />
-                  {label}
-                </a>
-              ))}
-              {groupTours && (
-                <div class="dropdown md:dropdown-end">
-                  <div tabindex="0" role="button" class="btn">
-                    <Icon name="boxicons:street-view" class="size-5" aria-hidden="true" />
-                    {t("site.tours")}
-                    <Icon name="boxicons:chevron-down" class="size-3 opacity-60" aria-hidden="true" />
-                  </div>
-                  <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-5 mt-2 w-72 p-2 shadow-sm">
-                    {tours.map(({ data }) => (
-                      <li>
-                        <a href={data.url} target="_blank" rel="noopener">
-                          {data.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
+          site.data.lastReviewed && (
+            <span class="inline-flex items-center gap-1.5">
+              <Icon name="boxicons:calendar" class="size-4" aria-hidden="true" />
+              {t("site.lastReviewed")}:
+              <time datetime={isoDate(site.data.lastReviewed)}>{formatDate(site.data.lastReviewed)}</time>
+            </span>
           )
         }
-      </header>
-    </div>
+      </div>
+      {
+        (actions.length > 0 || groupTours) && (
+          <Fragment slot="actions">
+            {actions.map(({ label, icon, href, external }) => (
+              <a
+                href={href}
+                class="btn"
+                {...(external && { target: "_blank", rel: "noopener" })}
+              >
+                <Icon name={icon} class="size-5" is:inline aria-hidden="true" />
+                {label}
+              </a>
+            ))}
+            {groupTours && (
+              <div class="dropdown md:dropdown-end">
+                <div tabindex="0" role="button" class="btn">
+                  <Icon name="boxicons:street-view" class="size-5" aria-hidden="true" />
+                  {t("site.tours")}
+                  <Icon name="boxicons:chevron-down" class="size-3 opacity-60" aria-hidden="true" />
+                </div>
+                <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-5 mt-2 w-72 p-2 shadow-sm">
+                  {tours.map(({ data }) => (
+                    <li>
+                      <a href={data.url} target="_blank" rel="noopener">
+                        {data.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </Fragment>
+        )
+      }
+    </PageHeader>
 
     {gallery && <SiteGallery gallery={gallery} />}
 
@@ -205,7 +197,10 @@ if (tours.length === 1) {
     {
       GOOGLE_MAPS_API_KEY && position && (
         <section class="flex flex-col gap-4">
-          <h2 class="text-2xl font-bold">{t("site.map")}</h2>
+          <h2 class="flex items-center gap-2 text-2xl font-bold tracking-tight">
+            <Icon name="boxicons:location" class="size-6 shrink-0 text-base-content/50" aria-hidden="true" />
+            {t("site.map")}
+          </h2>
           <ZoneMap client:visible name={site.data.name} lang={lang} position={position} boundary={boundary} />
         </section>
       )
