@@ -3,26 +3,34 @@ import { createPortal } from "react-dom";
 import type * as Leaflet from "leaflet";
 import Supercluster from "supercluster";
 import type { MapLabels } from "../i18n/utils";
-import { KIND_COLORS, MapFrame, kindIcon, streetsLayer, useLeafletMap, type LatLng, type PlaceKind } from "./MapFrame";
+import { KIND_COLORS, MapFrame, decodePath, kindIcon, streetsLayer, useLeafletMap, type LatLng, type PlaceKind } from "./MapFrame";
 
 const MIN_SPAN = 0.5;
 const CARD_WIDTH = 288;
 const KINDS: PlaceKind[] = ["site", "museum"];
+const TRAIN_SOURCE = "https://www.datos.gob.mx/dataset/red_ferroviaria_nacional";
 
 export interface MapSite {
 	id: string;
 	kind: PlaceKind;
 	name: string;
+	state: string;
 	href: string;
 	position: LatLng;
 	cover?: string;
 	isOpen?: boolean;
+	hasMayaTrain?: boolean;
+	type?: string;
+	visitors?: string;
 }
 
 interface Props {
 	sites: MapSite[];
+	trainRoute: string[];
 	labels: MapLabels;
 	closeIcon?: ReactNode;
+	trainIcon?: ReactNode;
+	visitorsIcon?: ReactNode;
 }
 
 interface SitePopup {
@@ -68,7 +76,7 @@ function clusterIcon(L: typeof Leaflet, count: number, museums: number) {
 	});
 }
 
-export default function ClusteredMap({ sites, labels, closeIcon }: Props) {
+export default function ClusteredMap({ sites, trainRoute, labels, closeIcon, trainIcon, visitorsIcon }: Props) {
 	const leafletMap = useLeafletMap(labels);
 	const { leaflet } = leafletMap;
 	const [sitePopup, setSitePopup] = useState<SitePopup>();
@@ -79,6 +87,13 @@ export default function ClusteredMap({ sites, labels, closeIcon }: Props) {
 		if (!leaflet) return;
 		const { L, map } = leaflet;
 		const streets = streetsLayer(L).addTo(map);
+		const paths = trainRoute.map(decodePath);
+		const route = L.layerGroup([
+			...paths.map((path) => L.polyline(path, { className: "map-train-casing", weight: 6, interactive: false })),
+			...paths.map((path) => L.polyline(path, { className: "map-train-route", weight: 3, interactive: false })),
+		]).addTo(map);
+		const attribution = `${labels.mayaTrainRoute}: <a href="${TRAIN_SOURCE}">ARTF</a> (CC BY 4.0)`;
+		if (paths.length) map.attributionControl.addAttribution(attribution);
 		const markers = L.layerGroup().addTo(map);
 		const index = new Supercluster<MapSite, { museums: number }>({
 			radius: 60,
@@ -136,10 +151,12 @@ export default function ClusteredMap({ sites, labels, closeIcon }: Props) {
 			map.off("moveend", render);
 			popup.remove();
 			markers.remove();
+			route.remove();
+			map.attributionControl.removeAttribution(attribution);
 			streets.remove();
 			setSitePopup(undefined);
 		};
-	}, [leaflet, sites]);
+	}, [leaflet, sites, trainRoute, labels]);
 
 	useEffect(() => {
 		if (!leaflet || !sitePopup) return;
@@ -172,6 +189,14 @@ export default function ClusteredMap({ sites, labels, closeIcon }: Props) {
 						{kind === "museum" ? labels.museums : labels.sites}
 					</li>
 				))}
+				{trainRoute.length > 0 && (
+					<li className="flex items-center gap-2">
+						<span className="grid size-5 place-items-center">
+							<span className="bg-accent ring-base-100 h-1 w-5 rounded-full ring-2" />
+						</span>
+						{labels.mayaTrainRoute}
+					</li>
+				)}
 			</ul>
 			{sitePopup &&
 				selected &&
@@ -184,7 +209,10 @@ export default function ClusteredMap({ sites, labels, closeIcon }: Props) {
 						)}
 						<div className="card-body gap-3 p-4">
 							<div className="flex items-start justify-between gap-2">
-								<h3 className="card-title text-base leading-snug">{selected.name}</h3>
+								<div className="min-w-0">
+									<h3 className="card-title text-base leading-snug">{selected.name}</h3>
+									<p className="text-base-content/60 text-sm">{selected.state}</p>
+								</div>
 								<button
 									type="button"
 									className="btn btn-ghost btn-sm btn-circle -mt-1 -mr-2 shrink-0"
@@ -194,10 +222,27 @@ export default function ClusteredMap({ sites, labels, closeIcon }: Props) {
 									{closeIcon}
 								</button>
 							</div>
-							{selected.isOpen !== undefined && (
-								<span className={`badge badge-soft badge-sm ${selected.isOpen ? "badge-success" : "badge-error"}`}>
-									{selected.isOpen ? labels.open : labels.closed}
-								</span>
+							{(selected.type || selected.isOpen !== undefined || selected.hasMayaTrain) && (
+								<div className="flex flex-wrap gap-1.5">
+									{selected.type && <span className="badge badge-soft badge-primary badge-sm">{selected.type}</span>}
+									{selected.isOpen !== undefined && (
+										<span className={`badge badge-soft badge-sm ${selected.isOpen ? "badge-success" : "badge-error"}`}>
+											{selected.isOpen ? labels.open : labels.closed}
+										</span>
+									)}
+									{selected.hasMayaTrain && (
+										<span className="badge badge-soft badge-info badge-sm">
+											{trainIcon}
+											{labels.mayaTrain}
+										</span>
+									)}
+								</div>
+							)}
+							{selected.visitors && (
+								<p className="text-base-content/70 flex items-center gap-1.5 text-sm">
+									{visitorsIcon}
+									{selected.visitors}
+								</p>
 							)}
 							<a href={selected.href} className="btn btn-primary btn-sm btn-block">
 								{selected.kind === "museum" ? labels.museumDetails : labels.details}

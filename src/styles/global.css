@@ -59,3 +59,11 @@
 .map-card .leaflet-popup-tip-container {
   display: none;
 }
+
+.map-train-casing {
+  stroke: var(--color-base-100);
+}
+
+.map-train-route {
+  stroke: var(--color-accent);
+}

@@ -2,8 +2,9 @@
 import type { CollectionEntry } from "astro:content";
 import { Icon } from "astro-icon/components";
 import ClusteredMap, { type MapSite } from "./ClusteredMap";
-import { getMuseums, getSiteCover, getSlug } from "../i18n/content";
-import { getLangFromUrl, getMapLabels, useTranslatedPath, useTranslations } from "../i18n/utils";
+import trainRoute from "../data/maya-train.json";
+import { getMuseums, getPlaceVisitors, getSiteCover, getSlug, getStates } from "../i18n/content";
+import { formatVisitorCount, getLangFromUrl, getMapLabels, useTranslatedPath, useTranslations } from "../i18n/utils";
 
 interface Props {
   sites: CollectionEntry<"sites">[];
@@ -16,42 +17,55 @@ const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
 const museums = await getMuseums(lang);
+const states = new Map((await getStates()).map(({ id, data }) => [id, data.name]));
+
+async function details(place: CollectionEntry<"sites"> | CollectionEntry<"museums">) {
+  const visitors = await getPlaceVisitors(place);
+  return {
+    name: place.data.name,
+    state: states.get(place.data.state) ?? place.data.state,
+    position: place.data.position!,
+    cover: await getSiteCover(place),
+    visitors: visitors && formatVisitorCount(lang, visitors),
+  };
+}
 
 const mapSites: MapSite[] = await Promise.all([
   ...sites
     .filter((site) => site.data.position)
     .map(async (site) => ({
+      ...(await details(site)),
       id: `site:${site.id}`,
       kind: "site" as const,
-      name: site.data.name,
       href: translatePath(`/zonas-arqueologicas/${site.data.state}/${getSlug(site)}`),
-      position: site.data.position!,
-      cover: await getSiteCover(site),
       isOpen: site.data.isOpen,
+      hasMayaTrain: site.data.hasMayaTrain,
     })),
   ...museums
     .filter((museum) => museum.data.position)
     .map(async (museum) => ({
+      ...(await details(museum)),
       id: `museum:${museum.id}`,
       kind: "museum" as const,
-      name: museum.data.name,
       href: translatePath(`/museos/${museum.data.state}/${getSlug(museum)}`),
-      position: museum.data.position!,
-      cover: await getSiteCover(museum),
+      type: museum.data.type && t(`museum.type.${museum.data.type}`),
     })),
 ]);
 ---
 
 {
   mapSites.length > 0 && (
-    <section class={className}>
+    <div class={className}>
       <ClusteredMap
         client:visible
         sites={mapSites}
+        trainRoute={trainRoute}
         labels={getMapLabels(t)}
       >
         <Icon slot="closeIcon" name="boxicons:x" class="size-5" is:inline aria-hidden="true" />
+        <Icon slot="trainIcon" name="boxicons:train" class="size-3.5" is:inline aria-hidden="true" />
+        <Icon slot="visitorsIcon" name="boxicons:group" class="size-4 shrink-0 text-base-content/50" is:inline aria-hidden="true" />
       </ClusteredMap>
-    </section>
+    </div>
   )
 }

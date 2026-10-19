@@ -32,6 +32,8 @@ export function getMapLabels(t: ReturnType<typeof useTranslations>) {
 		sites: t('nav.sites'),
 		museums: t('nav.museums'),
 		close: t('map.close'),
+		mayaTrain: t('site.mayaTrain'),
+		mayaTrainRoute: t('map.mayaTrainRoute'),
 	};
 }
 

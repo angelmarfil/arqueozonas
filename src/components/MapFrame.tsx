@@ -28,6 +28,27 @@ export function kindIcon(kind: PlaceKind, className: string) {
 	return `<svg viewBox="0 0 24 24" class="${className}" aria-hidden="true">${KIND_PATHS[kind]}</svg>`;
 }
 
+export function decodePath(encoded: string) {
+	const path: LatLng[] = [];
+	const coordinate = [0, 0];
+	let index = 0;
+	while (index < encoded.length) {
+		for (let axis = 0; axis < 2; axis++) {
+			let result = 0;
+			let shift = 0;
+			let byte: number;
+			do {
+				byte = encoded.charCodeAt(index++) - 63;
+				result |= (byte & 0x1f) << shift;
+				shift += 5;
+			} while (byte >= 0x20);
+			coordinate[axis] += result & 1 ? ~(result >> 1) : result >> 1;
+		}
+		path.push({ lat: coordinate[0] / 1e5, lng: coordinate[1] / 1e5 });
+	}
+	return path;
+}
+
 export interface LeafletMap {
 	L: LeafletModule;
 	map: Leaflet.Map;
