@@ -1,12 +1,13 @@
 ---
 import { Icon } from "astro-icon/components";
 import { SEO } from "astro-seo";
-import { SITE_TITLE, TITLE_DELIMITER } from "astro:env/client";
+import { GOOGLE_MAPS_API_KEY, SITE_TITLE, TITLE_DELIMITER } from "astro:env/client";
 import { render, type CollectionEntry } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import Breadcrumbs from "./Breadcrumbs.astro";
 import SiteBadges from "./SiteBadges.astro";
 import SiteGallery from "./SiteGallery.astro";
+import ZoneMap from "./ZoneMap";
 import { getSiteCover, getSiteGallery, getSiteState, getSiteTours } from "../i18n/content";
 import { getLangFromUrl, useTranslatedPath, useTranslations } from "../i18n/utils";
 
@@ -33,7 +34,16 @@ const statePath = `/zonas-arqueologicas/${state.id}`;
 const formatDate = (date: Date) => date.toLocaleDateString(lang, { dateStyle: "long", timeZone: "UTC" });
 const isoDate = (date: Date) => date.toISOString().slice(0, 10);
 
+const { position, boundary } = site.data;
 const actions: SiteAction[] = [];
+if (position) {
+  actions.push({
+    label: t("site.directions"),
+    icon: "boxicons:directions",
+    href: `https://www.google.com/maps/dir/?api=1&destination=${position.lat},${position.lng}`,
+    external: true,
+  });
+}
 if (site.data.guide) {
   actions.push({
     label: t("site.guide.download"),
@@ -189,5 +199,14 @@ if (tours.length === 1) {
         }
       </footer>
     </article>
+
+    {
+      GOOGLE_MAPS_API_KEY && position && (
+        <section class="flex flex-col gap-4">
+          <h2 class="text-2xl font-bold">{t("site.map")}</h2>
+          <ZoneMap client:visible name={site.data.name} lang={lang} position={position} boundary={boundary} />
+        </section>
+      )
+    }
   </main>
 </Layout>

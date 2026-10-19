@@ -25,6 +25,9 @@ export default defineConfig({
           R2_PUBLIC_URL: envField.string({ context: "server", access: "public", url: true, default: "https://pub-943f8dc39de9413eb77121b2bed8a963.r2.dev" }),
           IMAGE_TRANSFORMS: envField.boolean({ context: "server", access: "public", default: false }),
           LIGHTGALLERY_LICENSE_KEY: envField.string({ context: "client", access: "public", optional: true }),
+          GOOGLE_MAPS_API_KEY: envField.string({ context: "client", access: "public", optional: true }),
+          GOOGLE_MAPS_GENERAL_MAP_ID: envField.string({ context: "client", access: "public", default: "DEMO_MAP_ID" }),
+          GOOGLE_MAPS_ZONE_MAP_ID: envField.string({ context: "client", access: "public", default: "DEMO_MAP_ID" }),
       }
   },
 
@@ -34,6 +37,9 @@ export default defineConfig({
 
   vite: {
       plugins: [tailwindcss()],
+      ssr: {
+          noExternal: ["@googlemaps/markerclusterer"],
+      },
   },
 
   integrations: [mdx(), icon(), react(), pagefind()]

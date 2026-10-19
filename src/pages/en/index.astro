@@ -3,12 +3,12 @@ import "../../styles/global.css";
 import Layout from "../../layouts/Layout.astro";
 import { SEO } from "astro-seo";
 import { SITE_TITLE, TITLE_DELIMITER } from "astro:env/client";
-import { getStates } from "../../i18n/content";
-import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import SitesMap from "../../components/SitesMap.astro";
+import { getSites } from "../../i18n/content";
+import { getLangFromUrl } from "../../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-const states = await getStates();
+const sites = await getSites(lang);
 ---
 
 <Layout>
@@ -42,11 +42,5 @@ const states = await getStates();
     }}
   />
 
-  <h1 class="text-3xl font-bold underline">
-    {t("nav.states")}
-  </h1>
-
-  <ul>
-    {states.map((state) => <li>{state.data.name}</li>)}
-  </ul>
+  <SitesMap sites={sites} class="mx-auto w-full max-w-7xl px-4 py-8 md:px-8" />
 </Layout>
