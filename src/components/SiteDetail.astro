@@ -8,7 +8,8 @@ import Breadcrumbs from "./Breadcrumbs.astro";
 import SiteBadges from "./SiteBadges.astro";
 import SiteGallery from "./SiteGallery.astro";
 import ZoneMap from "./ZoneMap";
-import { getSiteCover, getSiteGallery, getSiteState, getSiteTours } from "../i18n/content";
+import { getSiteCover, getSiteGallery, getSiteState, getSiteTours, getSlug } from "../i18n/content";
+import { languages } from "../i18n/ui";
 import { getLangFromUrl, useTranslatedPath, useTranslations } from "../i18n/utils";
 
 interface Props {
@@ -44,11 +45,12 @@ if (position) {
     external: true,
   });
 }
-if (site.data.guide) {
+const { guide } = site.data;
+if (guide) {
   actions.push({
-    label: t("site.guide.download"),
+    label: guide === lang ? t("site.guide.download") : `${t("site.guide.download")} (${languages[guide]})`,
     icon: "boxicons:arrow-in-down-square-half",
-    href: `/guides/${site.data.guide}.pdf`,
+    href: `/guides/${guide}/${getSlug(site)}.pdf`,
     external: true,
   });
 }
@@ -141,7 +143,7 @@ if (tours.length === 1) {
                   class="btn"
                   {...(external && { target: "_blank", rel: "noopener" })}
                 >
-                  <Icon name={icon} class="size-5" aria-hidden="true" />
+                  <Icon name={icon} class="size-5" is:inline aria-hidden="true" />
                   {label}
                 </a>
               ))}

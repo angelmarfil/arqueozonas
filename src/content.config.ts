@@ -18,7 +18,7 @@ const sites = defineCollection({
         inahId: z.number().int().optional(),
         isOpen: z.boolean().optional(),
         hasMayaTrain: z.boolean().default(false),
-        guide: z.string().optional(),
+        guide: z.enum(["es", "en"]).optional(),
         lastReviewed: z.coerce.date().optional(),
         position: z.object({
             lat: z.number().min(-90).max(90),
