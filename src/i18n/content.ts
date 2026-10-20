@@ -11,6 +11,10 @@ export function getSlug(entry: { id: string }): string {
 	return entry.id.split('/').slice(1).join('/');
 }
 
+function isPublished(place: Place) {
+	return !import.meta.env.PROD || !place.data.draft;
+}
+
 export function getStates() {
 	return getCollection('states');
 }
@@ -20,6 +24,7 @@ export function getSites(lang: Lang, stateSlug?: string) {
 		'sites',
 		(site) =>
 			site.id.startsWith(`${lang}/`) &&
+			isPublished(site) &&
 			(stateSlug === undefined || site.data.state === stateSlug),
 	);
 }
@@ -29,6 +34,7 @@ export function getMuseums(lang: Lang, stateSlug?: string) {
 		'museums',
 		(museum) =>
 			museum.id.startsWith(`${lang}/`) &&
+			isPublished(museum) &&
 			(stateSlug === undefined || museum.data.state === stateSlug),
 	);
 }
@@ -82,13 +88,13 @@ export async function getSiteMuseums(site: CollectionEntry<'sites'>) {
 	const [lang] = site.id.split('/');
 	return getCollection(
 		'museums',
-		(museum) => museum.id.startsWith(`${lang}/`) && museum.data.sites.some(({ id }) => id === site.id),
+		(museum) => museum.id.startsWith(`${lang}/`) && isPublished(museum) && museum.data.sites.some(({ id }) => id === site.id),
 	);
 }
 
 export async function getMuseumSites(museum: CollectionEntry<'museums'>) {
 	const sites = await Promise.all(museum.data.sites.map((ref) => getEntry(ref)));
-	return sites.filter((site) => site !== undefined);
+	return sites.filter((site) => site !== undefined).filter(isPublished);
 }
 
 const COVER_WIDTH = 640;
@@ -133,7 +139,7 @@ export function getPlaceSummary(place: Place) {
 
 export async function getPlaceLangs(place: Place) {
 	const slug = getSlug(place);
-	const entries = await getCollection(place.collection, ({ id }) => getSlug({ id }) === slug);
+	const entries = await getCollection(place.collection, (entry) => getSlug(entry) === slug && isPublished(entry));
 	return entries.map(({ id }) => id.split('/')[0]).filter(isLang);
 }
 

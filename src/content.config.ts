@@ -16,6 +16,7 @@ const sites = defineCollection({
     schema: z.object({
         name: z.string(),
         state: z.string(),
+        draft: z.boolean().default(false),
         inahId: z.number().int().optional(),
         isOpen: z.boolean().optional(),
         hasMayaTrain: z.boolean().default(false),
@@ -34,6 +35,7 @@ const museums = defineCollection({
     schema: z.object({
         name: z.string(),
         state: z.string(),
+        draft: z.boolean().default(false),
         inahId: z.number().int(),
         type: z.enum(["site", "local", "regional", "national", "metropolitan", "exhibitionHall", "communityCenter"]).optional(),
         guide: z.enum(["es", "en"]).optional(),
