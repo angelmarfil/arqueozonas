@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 @plugin "daisyui" {
-  themes: all;
+  themes: false;
 }
 @plugin "daisyui/theme" {
   name: "arqueozonas";

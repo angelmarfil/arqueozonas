@@ -3,22 +3,28 @@ import { Icon } from 'astro-icon/components';
 import { languages, type Lang } from '../i18n/ui';
 import { getLangFromUrl, getRouteFromUrl, useTranslatedPath, useTranslations } from '../i18n/utils';
 
+interface Props {
+  block?: boolean;
+}
+
+const { block = false } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 const route = getRouteFromUrl(Astro.url);
 ---
-<div class="dropdown dropdown-end">
+<div class:list={['dropdown', block ? 'w-full' : 'dropdown-end']}>
   <div
     tabindex="0"
     role="button"
-    class="btn max-lg:btn-square"
+    class:list={['btn btn-sm', block ? 'w-full justify-start' : 'max-lg:btn-square']}
     aria-label={t('languagePicker.label')}
   >
-    <Icon name="boxicons:translate" class="size-5" aria-hidden="true" />
-    <span class="hidden lg:inline">{t('languagePicker.label')}</span>
+    <Icon name="boxicons:translate" class="size-4" aria-hidden="true" />
+    <span class:list={{ 'hidden lg:inline': !block }}>{t('languagePicker.label')}</span>
+    {block && <Icon name="boxicons:chevron-down" class="ms-auto size-4 opacity-60" aria-hidden="true" />}
   </div>
-  <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+  <ul tabindex="-1" class:list={['dropdown-content menu bg-base-100 rounded-box z-1 mt-1 gap-1 p-2 shadow-sm', block ? 'w-full' : 'w-52']}>
 		{Object.entries(languages).map(([code, label]) => (
 			<li>
 				<a

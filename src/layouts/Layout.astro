@@ -10,6 +10,7 @@ import NavLinks from "../components/NavLinks.astro";
 import Search from "../components/Search.astro";
 import BaseHead, { type Props as BaseHeadProps } from "../components/BaseHead.astro";
 import ThemePicker from "../components/ThemePicker.astro";
+import themes from "../data/themes.json";
 import { getLangFromUrl, useTranslatedPath, useTranslations } from "../i18n/utils";
 
 type Props = BaseHeadProps;
@@ -23,9 +24,10 @@ const translatePath = useTranslatedPath(lang);
 <html lang={lang}>
   <head>
     <BaseHead {...Astro.props} />
-    <script is:inline>
+    <script is:inline define:vars={{ themes }}>
       const theme = localStorage.getItem("theme");
-      if (theme) document.documentElement.dataset.theme = theme;
+      if (themes.includes(theme)) document.documentElement.dataset.theme = theme;
+      else localStorage.removeItem("theme");
     </script>
     <link rel="sitemap" href="/sitemap-index.xml" />
     <slot name="head" />
@@ -62,14 +64,17 @@ const translatePath = useTranslatedPath(lang);
               <LogoHorizontal class="h-9 w-auto sm:h-10" aria-hidden="true" />
             </a>
           </div>
-          <div class="flex flex-none items-center gap-2">
+          <div class="flex flex-none items-center gap-1 lg:gap-4">
             <Search />
-            <div class="hidden items-center gap-2 lg:flex">
-              <ul class="menu menu-horizontal">
+            <div class="hidden items-center gap-4 lg:flex">
+              <ul class="menu menu-horizontal gap-2 p-0">
                 <NavLinks />
               </ul>
-              <LanguagePicker />
-              <ThemePicker name="theme-navbar" />
+              <div class="bg-base-content/15 h-6 w-px" aria-hidden="true"></div>
+              <div class="flex items-center gap-2">
+                <LanguagePicker />
+                <ThemePicker name="theme-navbar" />
+              </div>
             </div>
             <GitHubLink />
           </div>
@@ -83,12 +88,17 @@ const translatePath = useTranslatedPath(lang);
           for="my-drawer-2"
           aria-label={t("nav.closeMenu")}
           class="drawer-overlay"></label>
-        <div class="flex min-h-full w-80 flex-col gap-4 bg-base-200 p-4">
-          <ul class="menu w-full p-0">
+        <div class="flex min-h-full w-80 max-w-[85vw] flex-col gap-4 bg-base-200 p-4">
+          <a href={translatePath("/")} aria-label={SITE_TITLE} class="inline-flex px-2 py-1">
+            <LogoHorizontal class="h-9 w-auto" aria-hidden="true" />
+          </a>
+          <ul class="menu w-full gap-1 p-0">
             <NavLinks />
           </ul>
-          <LanguagePicker />
-          <ThemePicker name="theme-drawer" />
+          <div class="border-base-content/10 flex flex-col gap-2 border-t pt-4">
+            <LanguagePicker block />
+            <ThemePicker name="theme-drawer" block />
+          </div>
         </div>
       </div>
     </div>

@@ -1,55 +1,46 @@
 ---
 import { Icon } from 'astro-icon/components';
-import themes from 'daisyui/functions/themeOrder';
+import themes from '../data/themes.json';
+import type { UIKey } from '../i18n/ui';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 interface Props {
   name: string;
+  block?: boolean;
 }
 
-const { name } = Astro.props;
-const themeList = ['arqueozonas', 'arqueozonas-dark', ...themes];
+const { name, block = false } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
-<div class="dropdown dropdown-end">
+<div class:list={['dropdown', block ? 'w-full' : 'dropdown-end']}>
   <div
     tabindex="0"
     role="button"
-    class="btn btn-ghost gap-1.5 px-1.5"
+    class:list={['btn btn-sm', block ? 'w-full justify-start' : 'max-lg:btn-square']}
     aria-label={t('themePicker.label')}
   >
-    <div class="bg-base-100 border-base-content/10 grid shrink-0 grid-cols-2 gap-0.5 rounded-md border p-1" aria-hidden="true">
-      <div class="bg-base-content size-1 rounded-full"></div>
-      <div class="bg-primary size-1 rounded-full"></div>
-      <div class="bg-secondary size-1 rounded-full"></div>
-      <div class="bg-accent size-1 rounded-full"></div>
-    </div>
-    <Icon name="boxicons:chevron-down" class="size-3 opacity-60" aria-hidden="true" />
+    <Icon name="boxicons:palette" class="size-4" aria-hidden="true" />
+    <span class:list={{ 'hidden lg:inline': !block }}>{t('themePicker.label')}</span>
+    {block && <Icon name="boxicons:chevron-down" class="ms-auto size-4 opacity-60" aria-hidden="true" />}
   </div>
-  <div
-    tabindex="-1"
-    class="dropdown-content bg-base-200 text-base-content rounded-box z-1 mt-2 max-h-[calc(100vh-8.6rem)] w-56 overflow-y-auto border border-white/5 shadow-2xl outline-1 outline-black/5"
-  >
-    <ul class="menu w-full">
-      <li class="menu-title text-xs">{t('themePicker.label')}</li>
-      {themeList.map((theme) => (
-        <li>
-          <label class="group gap-3 px-2">
-            <input type="radio" name={name} value={theme} class="theme-controller sr-only" />
-            <div data-theme={theme} class="bg-base-100 grid shrink-0 grid-cols-2 gap-0.5 rounded-md p-1 shadow-sm">
-              <div class="bg-base-content size-1 rounded-full"></div>
-              <div class="bg-primary size-1 rounded-full"></div>
-              <div class="bg-secondary size-1 rounded-full"></div>
-              <div class="bg-accent size-1 rounded-full"></div>
-            </div>
-            <div class="w-32 truncate">{theme}</div>
-            <Icon name="boxicons:check" class="invisible size-3 shrink-0 group-has-checked:visible" aria-hidden="true" />
-          </label>
-        </li>
-      ))}
-    </ul>
-  </div>
+  <ul tabindex="-1" class:list={['dropdown-content menu bg-base-100 rounded-box z-1 mt-1 gap-1 p-2 shadow-sm', block ? 'w-full' : 'w-60']}>
+    {themes.map((theme) => (
+      <li>
+        <label class="group">
+          <input type="radio" name={name} value={theme} class="theme-controller sr-only" />
+          <div data-theme={theme} class="bg-base-100 grid shrink-0 grid-cols-2 gap-0.5 rounded-md p-1 shadow-sm" aria-hidden="true">
+            <div class="bg-base-content size-1 rounded-full"></div>
+            <div class="bg-primary size-1 rounded-full"></div>
+            <div class="bg-secondary size-1 rounded-full"></div>
+            <div class="bg-accent size-1 rounded-full"></div>
+          </div>
+          <span class="flex-1 truncate">{t(`theme.${theme}` as UIKey)}</span>
+          <Icon name="boxicons:check" class="invisible size-4 shrink-0 group-has-checked:visible" aria-hidden="true" />
+        </label>
+      </li>
+    ))}
+  </ul>
 </div>
 
 <script>
