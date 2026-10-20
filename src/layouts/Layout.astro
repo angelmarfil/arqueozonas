@@ -4,6 +4,7 @@ import LogoHorizontal from "../assets/brand/logo-horizontal.svg";
 import { SITE_TITLE } from "astro:env/client";
 import { ClientRouter } from "astro:transitions";
 import Footer from "../components/Footer.astro";
+import GitHubLink from "../components/GitHubLink.astro";
 import LanguagePicker from "../components/LanguagePicker.astro";
 import NavLinks from "../components/NavLinks.astro";
 import Search from "../components/Search.astro";
@@ -70,6 +71,7 @@ const translatePath = useTranslatedPath(lang);
               <LanguagePicker />
               <ThemePicker name="theme-navbar" />
             </div>
+            <GitHubLink />
           </div>
         </div>
         <!-- Page content here -->
