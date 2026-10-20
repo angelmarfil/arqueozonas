@@ -16,7 +16,6 @@ const museums = await getMuseums(lang);
 const counts = [
   { value: sites.length, label: t("sites.other"), icon: "boxicons:pyramid-filled" },
   { value: museums.length, label: t("museums.other"), icon: "boxicons:bank-filled" },
-  { value: sites.filter(({ data }) => data.hasMayaTrain).length, label: `${t("sites.other")} ${t("home.mayaTrain")}`, icon: "boxicons:train" },
 ];
 ---
 
