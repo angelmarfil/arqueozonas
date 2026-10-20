@@ -9,7 +9,6 @@ import SiteGallery from "./SiteGallery.astro";
 import TourProviderBadge from "./TourProviderBadge.astro";
 import ZoneMap from "./ZoneMap";
 import { getMuseumSites, getMuseumTours, getPlaceLangs, getPlaceSummary, getSiteCover, getSiteGallery, getSiteSocialImage, getSiteState, getSlug, getTourProviders } from "../i18n/content";
-import { languages } from "../i18n/ui";
 import { getLangFromUrl, getMapLabels, useTranslatedPath, useTranslations } from "../i18n/utils";
 
 interface Props {
@@ -54,7 +53,7 @@ const actions: MuseumAction[] = [];
 const { guide } = museum.data;
 if (guide) {
   actions.push({
-    label: guide === lang ? t("site.guide.download") : `${t("site.guide.download")} (${languages[guide]})`,
+    label: guide === lang ? t("site.guide.download") : `${t("site.guide.download")} (${t(`language.${guide}`)})`,
     icon: "boxicons:arrow-in-down-square-half",
     href: `/guides/${guide}/${getSlug(museum)}.pdf`,
   });
