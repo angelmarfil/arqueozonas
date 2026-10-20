@@ -82,6 +82,11 @@
   --noise: 0;
 }
 
+html,
+body {
+  overscroll-behavior: none;
+}
+
 .leaflet-container {
   background-color: var(--color-base-200);
   font: inherit;
