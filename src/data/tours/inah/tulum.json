@@ -1,0 +1,10 @@
+{
+	"name": "Tulum",
+	"provider": "inah",
+	"type": "site",
+	"url": "https://www.inah.gob.mx/images/recorridos-virtuales/tulum/",
+	"state": "quintana-roo",
+	"sites": [
+		"es/tulum"
+	]
+}

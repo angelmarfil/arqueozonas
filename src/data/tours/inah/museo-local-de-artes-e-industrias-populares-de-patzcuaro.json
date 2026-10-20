@@ -1,0 +1,10 @@
+{
+	"name": "Museo Local de Artes e Industrias Populares de Pátzcuaro",
+	"provider": "inah",
+	"type": "museum",
+	"url": "https://www.inah.gob.mx/images/recorridos-virtuales/museodearteseindustriaspopulares/",
+	"state": "michoacan",
+	"museums": [
+		"es/museo-local-de-artes-e-industrias-populares-de-patzcuaro"
+	]
+}

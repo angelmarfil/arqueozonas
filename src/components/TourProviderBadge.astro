@@ -1,0 +1,24 @@
+---
+import { Icon } from "astro-icon/components";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  provider: CollectionEntry<"tourProviders">["data"];
+  class?: string;
+}
+
+const { provider, class: className } = Astro.props;
+const colorClass = {
+  primary: "badge-primary",
+  secondary: "badge-secondary",
+  accent: "badge-accent",
+  info: "badge-info",
+  success: "badge-success",
+  warning: "badge-warning",
+}[provider.color];
+---
+
+<span class:list={["badge badge-soft badge-sm", colorClass, className]}>
+  {provider.name}
+  <Icon name="boxicons:arrow-out-up-right-square" class="size-3" aria-hidden="true" />
+</span>

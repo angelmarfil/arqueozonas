@@ -1,0 +1,13 @@
+{
+	"name": "Museo de la Cultura Teotihuacana",
+	"provider": "inah",
+	"type": "museum",
+	"url": "https://www.inah.gob.mx/images/recorridos-virtuales/teotihuacanmuseodesitio/",
+	"state": "edomex",
+	"sites": [
+		"es/teotihuacan"
+	],
+	"museums": [
+		"es/museo-de-la-cultura-teotihuacana"
+	]
+}

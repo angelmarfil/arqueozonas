@@ -1,0 +1,10 @@
+{
+	"name": "Cempoala",
+	"provider": "inah",
+	"type": "site",
+	"url": "https://www.inah.gob.mx/images/recorridos-virtuales/cempoala/",
+	"state": "veracruz",
+	"sites": [
+		"es/cempoala"
+	]
+}

@@ -1,0 +1,10 @@
+{
+	"name": "Museo Regional de Querétaro",
+	"provider": "inah",
+	"type": "museum",
+	"url": "https://www.inah.gob.mx/images/recorridos-virtuales/museoregionaldequeretaro/",
+	"state": "queretaro",
+	"museums": [
+		"es/museo-regional-de-queretaro"
+	]
+}

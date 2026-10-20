@@ -6,8 +6,9 @@ import PageHeader from "./PageHeader.astro";
 import RelatedPlaces from "./RelatedPlaces.astro";
 import SiteBadges from "./SiteBadges.astro";
 import SiteGallery from "./SiteGallery.astro";
+import TourProviderBadge from "./TourProviderBadge.astro";
 import ZoneMap from "./ZoneMap";
-import { getPlaceLangs, getPlaceSummary, getSiteCover, getSiteGallery, getSiteSocialImage, getSiteMuseums, getSiteState, getSiteTours, getSlug } from "../i18n/content";
+import { getPlaceLangs, getPlaceSummary, getSiteCover, getSiteGallery, getSiteSocialImage, getSiteMuseums, getSiteState, getSiteTours, getSlug, getTourProviders } from "../i18n/content";
 import { languages } from "../i18n/ui";
 import { getLangFromUrl, getMapLabels, useTranslatedPath, useTranslations } from "../i18n/utils";
 
@@ -20,6 +21,7 @@ interface SiteAction {
   icon: string;
   href: string;
   external?: boolean;
+  source?: CollectionEntry<"tourProviders">["data"];
 }
 
 const { site } = Astro.props;
@@ -62,14 +64,16 @@ if (guide) {
 const tours = await getSiteTours(site);
 const groupTours = tours.length > 1;
 if (tours.length === 1) {
-  const [{ data }] = tours;
+  const [tour] = tours;
   actions.push({
-    label: data.type === "site" ? t("site.tour") : data.name,
+    label: tour.type === "site" ? t("site.tour") : tour.name,
     icon: "boxicons:street-view",
-    href: data.url,
+    href: tour.url,
     external: true,
+    source: tour.provider,
   });
 }
+const tourProviders = getTourProviders(tours);
 ---
 
 <Layout
@@ -110,7 +114,7 @@ if (tours.length === 1) {
       {
         (actions.length > 0 || groupTours) && (
           <Fragment slot="actions">
-            {actions.map(({ label, icon, href, external }) => (
+            {actions.map(({ label, icon, href, external, source }) => (
               <a
                 href={href}
                 class="btn"
@@ -118,6 +122,7 @@ if (tours.length === 1) {
               >
                 <Icon name={icon} class="size-5" is:inline aria-hidden="true" />
                 {label}
+                {source && <TourProviderBadge provider={source} />}
               </a>
             ))}
             {groupTours && (
@@ -128,10 +133,11 @@ if (tours.length === 1) {
                   <Icon name="boxicons:chevron-down" class="size-3 opacity-60" aria-hidden="true" />
                 </div>
                 <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-5 mt-2 w-72 p-2 shadow-sm">
-                  {tours.map(({ data }) => (
+                  {tours.map((tour) => (
                     <li>
-                      <a href={data.url} target="_blank" rel="noopener">
-                        {data.name}
+                      <a href={tour.url} target="_blank" rel="noopener" class="flex justify-between gap-3">
+                        {tour.type === "site" ? t("site.tour") : tour.name}
+                        <TourProviderBadge provider={tour.provider} class="shrink-0" />
                       </a>
                     </li>
                   ))}
@@ -168,6 +174,21 @@ if (tours.length === 1) {
               >
                 {t("site.source.lugares")}
               </a>
+            </p>
+          )
+        }
+        {
+          tourProviders.length > 0 && (
+            <p>
+              {t("site.tours.credit")}{" "}
+              {tourProviders.map(({ name, url }, index) => (
+                <>
+                  {index > 0 && ", "}
+                  <a href={url} target="_blank" rel="noopener" class="link">
+                    {name}
+                  </a>
+                </>
+              ))}
             </p>
           )
         }

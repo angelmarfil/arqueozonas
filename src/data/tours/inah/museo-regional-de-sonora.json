@@ -1,0 +1,10 @@
+{
+	"name": "Museo Regional de Sonora",
+	"provider": "inah",
+	"type": "museum",
+	"url": "https://www.inah.gob.mx/images/recorridos-virtuales/museoregionaldesonora/",
+	"state": "sonora",
+	"museums": [
+		"es/museo-regional-de-sonora"
+	]
+}

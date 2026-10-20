@@ -1,0 +1,10 @@
+{
+	"name": "Kabah",
+	"provider": "inah",
+	"type": "site",
+	"url": "https://www.inah.gob.mx/images/recorridos-virtuales/kabah/",
+	"state": "yucatan",
+	"sites": [
+		"es/kabah"
+	]
+}

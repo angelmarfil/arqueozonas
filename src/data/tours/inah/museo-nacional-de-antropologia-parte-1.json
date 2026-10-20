@@ -1,0 +1,10 @@
+{
+	"name": "Museo Nacional de Antropología, parte 1",
+	"provider": "inah",
+	"type": "museum",
+	"url": "https://www.inah.gob.mx/images/recorridos-virtuales/mna-pt1/",
+	"state": "cdmx",
+	"museums": [
+		"es/museo-nacional-de-antropologia"
+	]
+}

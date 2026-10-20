@@ -1,0 +1,13 @@
+{
+	"name": "Museo de sitio El Cerrito",
+	"provider": "inah",
+	"type": "museum",
+	"url": "https://www.inah.gob.mx/images/recorridos-virtuales/museoelcerrito/",
+	"state": "queretaro",
+	"sites": [
+		"es/el-cerrito"
+	],
+	"museums": [
+		"es/museo-de-sitio-el-cerrito"
+	]
+}

@@ -1,0 +1,10 @@
+{
+	"name": "Museo Regional Michoacano, \"Dr. Nicolás León Calderón\"",
+	"provider": "inah",
+	"type": "museum",
+	"url": "https://www.inah.gob.mx/images/recorridos-virtuales/museoregionaldemichoacan/",
+	"state": "michoacan",
+	"museums": [
+		"es/museo-regional-de-michoacan-dr-nicolas-leon-calderon"
+	]
+}

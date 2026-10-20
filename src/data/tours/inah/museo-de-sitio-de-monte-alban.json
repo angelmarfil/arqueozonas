@@ -1,0 +1,13 @@
+{
+	"name": "Museo de sitio de Monte Albán",
+	"provider": "inah",
+	"type": "museum",
+	"url": "https://www.inah.gob.mx/images/recorridos-virtuales/montealbanmuseo/",
+	"state": "oaxaca",
+	"sites": [
+		"es/monte-alban"
+	],
+	"museums": [
+		"es/museo-de-sitio-de-monte-alban"
+	]
+}

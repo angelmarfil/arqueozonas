@@ -45,15 +45,27 @@ export async function getSiteGallery(site: Place) {
 	return gallery;
 }
 
+async function withProviders(tours: CollectionEntry<'tours'>[]) {
+	const providers = await getCollection('tourProviders');
+	return tours
+		.sort((a, b) => a.data.provider.id.localeCompare(b.data.provider.id))
+		.map(({ data }) => ({ ...data, provider: providers.find(({ id }) => id === data.provider.id)!.data }));
+}
+
+export function getTourProviders(tours: Awaited<ReturnType<typeof withProviders>>) {
+	return [...new Map(tours.map(({ provider }) => [provider.url, provider])).values()];
+}
+
 export async function getSiteTours(site: CollectionEntry<'sites'>) {
 	const slug = getSlug(site);
 	const tours = await getCollection('tours', ({ data }) => data.sites.some((ref) => getSlug(ref) === slug));
-	return tours.sort((a, b) => Number(b.data.type === 'site') - Number(a.data.type === 'site'));
+	const resolved = await withProviders(tours);
+	return resolved.sort((a, b) => Number(b.type === 'site') - Number(a.type === 'site'));
 }
 
 export async function getMuseumTours(museum: CollectionEntry<'museums'>) {
 	const slug = getSlug(museum);
-	return getCollection('tours', ({ data }) => data.museums.some((ref) => getSlug(ref) === slug));
+	return withProviders(await getCollection('tours', ({ data }) => data.museums.some((ref) => getSlug(ref) === slug)));
 }
 
 export async function getSiteMuseums(site: CollectionEntry<'sites'>) {

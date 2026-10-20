@@ -1,0 +1,10 @@
+{
+	"name": "Edzná",
+	"provider": "inah",
+	"type": "site",
+	"url": "https://www.inah.gob.mx/images/recorridos-virtuales/edzna/",
+	"state": "campeche",
+	"sites": [
+		"es/edzna"
+	]
+}

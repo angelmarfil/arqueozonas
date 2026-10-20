@@ -1,0 +1,10 @@
+{
+	"name": "Bocana del Río Copalita",
+	"provider": "inah",
+	"type": "site",
+	"url": "https://www.inah.gob.mx/images/recorridos-virtuales/bocanadelriozona/",
+	"state": "oaxaca",
+	"sites": [
+		"es/bocana-del-rio-copalita"
+	]
+}

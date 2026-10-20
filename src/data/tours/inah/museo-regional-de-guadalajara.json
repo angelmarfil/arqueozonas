@@ -1,0 +1,10 @@
+{
+	"name": "Museo Regional de Guadalajara",
+	"provider": "inah",
+	"type": "museum",
+	"url": "https://www.inah.gob.mx/images/recorridos-virtuales/museoregionalgdl/",
+	"state": "jalisco",
+	"museums": [
+		"es/museo-regional-de-guadalajara"
+	]
+}

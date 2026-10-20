@@ -1,0 +1,10 @@
+{
+	"name": "Museo Regional de Guanajuato. Alhóndiga de Granaditas",
+	"provider": "inah",
+	"type": "museum",
+	"url": "https://www.inah.gob.mx/images/recorridos-virtuales/museoregionaldegto/",
+	"state": "guanajuato",
+	"museums": [
+		"es/museo-regional-de-guanajuato-alhondiga-de-granaditas"
+	]
+}

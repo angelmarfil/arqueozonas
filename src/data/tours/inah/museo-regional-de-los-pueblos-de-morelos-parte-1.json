@@ -1,0 +1,10 @@
+{
+	"name": "Museo Regional de los Pueblos de Morelos, parte 1",
+	"provider": "inah",
+	"type": "museum",
+	"url": "https://www.inah.gob.mx/images/360/MuseoRegionalDeLosPueblosDeMorelos/",
+	"state": "morelos",
+	"museums": [
+		"es/museo-regional-de-los-pueblos-de-morelos-palacio-de-cortes"
+	]
+}

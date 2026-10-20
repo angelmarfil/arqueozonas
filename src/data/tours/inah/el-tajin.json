@@ -1,0 +1,10 @@
+{
+	"name": "El Tajín",
+	"provider": "inah",
+	"type": "site",
+	"url": "https://www.inah.gob.mx/images/recorridos-virtuales/tajin/",
+	"state": "veracruz",
+	"sites": [
+		"es/el-tajin"
+	]
+}

@@ -62,10 +62,20 @@ const galleries = defineCollection({
     )
 })
 
-const tours = defineCollection({
-    loader: glob({ pattern: "*.json", base: "./src/data/tours" }),
+const tourProviders = defineCollection({
+    loader: file("./src/data/tour-providers.json"),
     schema: z.object({
         name: z.string(),
+        url: z.url(),
+        color: z.enum(["primary", "secondary", "accent", "info", "success", "warning"]),
+    })
+})
+
+const tours = defineCollection({
+    loader: glob({ pattern: "**/*.json", base: "./src/data/tours" }),
+    schema: z.object({
+        name: z.string(),
+        provider: reference("tourProviders"),
         type: z.enum(["site", "museum", "object", "exhibition", "other"]),
         url: z.url(),
         state: reference("states").optional(),
@@ -96,4 +106,4 @@ const museumVisitors = defineCollection({
     schema: visitorRecord,
 });
 
-export const collections = { states, sites, museums, galleries, tours, siteVisitors, museumVisitors };
+export const collections = { states, sites, museums, galleries, tourProviders, tours, siteVisitors, museumVisitors };
