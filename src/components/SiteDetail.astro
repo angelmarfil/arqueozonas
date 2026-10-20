@@ -1,7 +1,5 @@
 ---
 import { Icon } from "astro-icon/components";
-import { SEO } from "astro-seo";
-import { SITE_TITLE, TITLE_DELIMITER } from "astro:env/client";
 import { render, type CollectionEntry } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import PageHeader from "./PageHeader.astro";
@@ -9,7 +7,7 @@ import RelatedPlaces from "./RelatedPlaces.astro";
 import SiteBadges from "./SiteBadges.astro";
 import SiteGallery from "./SiteGallery.astro";
 import ZoneMap from "./ZoneMap";
-import { getSiteCover, getSiteGallery, getSiteMuseums, getSiteState, getSiteTours, getSlug } from "../i18n/content";
+import { getPlaceLangs, getPlaceSummary, getSiteCover, getSiteGallery, getSiteSocialImage, getSiteMuseums, getSiteState, getSiteTours, getSlug } from "../i18n/content";
 import { languages } from "../i18n/ui";
 import { getLangFromUrl, getMapLabels, useTranslatedPath, useTranslations } from "../i18n/utils";
 
@@ -32,6 +30,10 @@ const state = await getSiteState(site);
 const gallery = await getSiteGallery(site);
 const cover = await getSiteCover(site);
 const { Content } = await render(site);
+const description =
+  getPlaceSummary(site) ?? t("seo.site.description").replace("{name}", site.data.name).replace("{state}", state.data.name);
+const image = await getSiteSocialImage(site);
+const langs = await getPlaceLangs(site);
 const statePath = `/zonas-arqueologicas/${state.id}`;
 const formatDate = (date: Date) => date.toLocaleDateString(lang, { dateStyle: "long", timeZone: "UTC" });
 const isoDate = (date: Date) => date.toISOString().slice(0, 10);
@@ -70,56 +72,12 @@ if (tours.length === 1) {
 }
 ---
 
-<Layout>
-  <SEO
-    slot="head"
-    charset="utf-8"
-    title={site.data.name}
-    titleTemplate={`%s ${TITLE_DELIMITER} ${SITE_TITLE}`}
-    extend={{
-      meta: [
-        {
-          name: "viewport",
-          content: "width=device-width",
-        },
-        {
-          name: "generator",
-          content: Astro.generator,
-        },
-        {
-          name: "apple-mobile-web-app-title",
-          content: "Arqueozonas MX",
-        },
-      ],
-      link: [
-        {
-          rel: "icon",
-          type: "image/png",
-          href: "/favicon/favicon-96x96.png",
-          sizes: "96x96",
-        },
-        {
-          rel: "icon",
-          type: "image/svg+xml",
-          href: "/favicon/favicon.svg",
-        },
-        {
-          rel: "shortcut icon",
-          href: "/favicon/favicon.ico",
-        },
-        {
-          rel: "apple-touch-icon",
-          sizes: "180x180",
-          href: "/favicon/apple-touch-icon.png",
-        },
-        {
-          rel: "manifest",
-          href: "/site.webmanifest",
-        },
-      ],
-    }}
-  />
-
+<Layout
+  title={site.data.name}
+  description={description}
+  image={image}
+  langs={langs}
+>
   <main
     class="mx-auto flex w-full max-w-5xl flex-col gap-10 px-4 py-6 sm:gap-12 sm:py-10 md:px-8"
     data-pagefind-meta={cover && `image:${cover}`}

@@ -7,8 +7,11 @@ import Footer from "../components/Footer.astro";
 import LanguagePicker from "../components/LanguagePicker.astro";
 import NavLinks from "../components/NavLinks.astro";
 import Search from "../components/Search.astro";
+import BaseHead, { type Props as BaseHeadProps } from "../components/BaseHead.astro";
 import ThemePicker from "../components/ThemePicker.astro";
 import { getLangFromUrl, useTranslatedPath, useTranslations } from "../i18n/utils";
+
+type Props = BaseHeadProps;
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -18,6 +21,7 @@ const translatePath = useTranslatedPath(lang);
 <!doctype html>
 <html lang={lang}>
   <head>
+    <BaseHead {...Astro.props} />
     <script is:inline>
       const theme = localStorage.getItem("theme");
       if (theme) document.documentElement.dataset.theme = theme;

@@ -1,0 +1,88 @@
+---
+import { SEO } from "astro-seo";
+import { SITE_TITLE, TITLE_DELIMITER } from "astro:env/client";
+import { defaultLang, languages, locales, type Lang } from "../i18n/ui";
+import { getLangFromUrl, getRouteFromUrl, useTranslatedPath, useTranslations } from "../i18n/utils";
+
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  imageAlt?: string;
+  type?: string;
+  langs?: Lang[];
+}
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+const route = getRouteFromUrl(Astro.url);
+const {
+  title,
+  description = t("home.subtitle"),
+  image,
+  imageAlt = image ? title : SITE_TITLE,
+  type = "website",
+  langs = Object.keys(languages) as Lang[],
+} = Astro.props;
+
+const toAbsolute = (path: string) => new URL(path, Astro.site ?? Astro.url).href;
+const toOgLocale = (l: Lang) => locales[l].replace("-", "_");
+const pageTitle = title ?? t("home.title");
+const imageUrl = toAbsolute(image ?? "/og-image.png");
+const languageAlternates = [
+  ...langs.map((l) => ({ hrefLang: l, href: toAbsolute(translatePath(route, l)) })),
+  ...(langs.includes(defaultLang) ? [{ hrefLang: "x-default", href: toAbsolute(translatePath(route, defaultLang)) }] : []),
+];
+---
+
+<SEO
+  charset="utf-8"
+  title={title}
+  titleTemplate={`%s ${TITLE_DELIMITER} ${SITE_TITLE}`}
+  titleDefault={`${SITE_TITLE} ${TITLE_DELIMITER} ${pageTitle}`}
+  description={description}
+  canonical={toAbsolute(translatePath(route))}
+  languageAlternates={languageAlternates}
+  openGraph={{
+    basic: {
+      title: pageTitle,
+      type,
+      image: imageUrl,
+      url: toAbsolute(translatePath(route)),
+    },
+    optional: {
+      description,
+      siteName: SITE_TITLE,
+      locale: toOgLocale(lang),
+      localeAlternate: langs.filter((l) => l !== lang).map(toOgLocale),
+    },
+    image: {
+      alt: imageAlt,
+      ...(image ? {} : { type: "image/png", width: 1200, height: 630 }),
+    },
+  }}
+  twitter={{
+    card: "summary_large_image",
+    title: pageTitle,
+    description,
+    image: imageUrl,
+    imageAlt,
+  }}
+  extend={{
+    meta: [
+      { name: "viewport", content: "width=device-width" },
+      { name: "generator", content: Astro.generator },
+      { name: "apple-mobile-web-app-title", content: SITE_TITLE },
+      { name: "theme-color", media: "(prefers-color-scheme: light)", content: "#faf7f2" },
+      { name: "theme-color", media: "(prefers-color-scheme: dark)", content: "#1c1410" },
+    ],
+    link: [
+      { rel: "icon", type: "image/png", href: "/favicon/favicon-96x96.png", sizes: "96x96" },
+      { rel: "icon", type: "image/svg+xml", href: "/favicon/favicon.svg" },
+      { rel: "shortcut icon", href: "/favicon/favicon.ico" },
+      { rel: "apple-touch-icon", sizes: "180x180", href: "/favicon/apple-touch-icon.png" },
+      { rel: "manifest", href: "/site.webmanifest" },
+    ],
+  }}
+/>

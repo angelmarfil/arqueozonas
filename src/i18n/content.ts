@@ -3,6 +3,7 @@ import { IMAGE_TRANSFORMS, R2_PUBLIC_URL } from 'astro:env/server';
 import { visitorAliases } from '../lib/visitor-aliases';
 import { matchVisitorRecords } from '../lib/visitor-matching';
 import { defaultLang, type Lang } from './ui';
+import { isLang } from './utils';
 
 type Place = CollectionEntry<'sites'> | CollectionEntry<'museums'>;
 
@@ -69,6 +70,8 @@ export async function getMuseumSites(museum: CollectionEntry<'museums'>) {
 }
 
 const COVER_WIDTH = 640;
+const SOCIAL_IMAGE_WIDTH = 1200;
+const SUMMARY_LENGTH = 160;
 
 export function getImageUrl(key: string, width?: number) {
 	const path =
@@ -78,13 +81,38 @@ export function getImageUrl(key: string, width?: number) {
 	return new URL(path, R2_PUBLIC_URL).href;
 }
 
-function getGalleryCover(gallery: CollectionEntry<'galleries'> | undefined) {
+function getGalleryCover(gallery: CollectionEntry<'galleries'> | undefined, width = COVER_WIDTH) {
 	const key = gallery?.data.cover ?? gallery?.data.images[0]?.key;
-	return key && getImageUrl(key, COVER_WIDTH);
+	return key && getImageUrl(key, width);
 }
 
 export async function getSiteCover(site: Place) {
 	return getGalleryCover(await getSiteGallery(site));
+}
+
+export async function getSiteSocialImage(site: Place) {
+	return getGalleryCover(await getSiteGallery(site), SOCIAL_IMAGE_WIDTH);
+}
+
+export function getPlaceSummary(place: Place) {
+	const section = place.body?.match(/\{#description\}[^\n]*\n([\s\S]*?)(?=\n#{1,6}\s|$)/)?.[1];
+	if (!section) return;
+	const text = section
+		.replace(/<[^>]+>/g, '')
+		.replace(/!?\[([^\]]*)\]\([^)]*\)/g, '$1')
+		.replace(/[*_`]/g, '')
+		.replace(/\s+/g, ' ')
+		.trim();
+	if (!text) return;
+	if (text.length <= SUMMARY_LENGTH) return text;
+	const cut = text.slice(0, text.lastIndexOf(' ', SUMMARY_LENGTH - 1)).replace(/[\s,.;:]+$/, '');
+	return `${cut}…`;
+}
+
+export async function getPlaceLangs(place: Place) {
+	const slug = getSlug(place);
+	const entries = await getCollection(place.collection, ({ id }) => getSlug({ id }) === slug);
+	return entries.map(({ id }) => id.split('/')[0]).filter(isLang);
 }
 
 export async function getStateCover(state: CollectionEntry<'states'>) {
