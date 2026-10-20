@@ -4,9 +4,6 @@
 	"type": "museum",
 	"url": "https://www.inah.gob.mx/images/360/MuseoDeSitioTenayuca/",
 	"state": "edomex",
-	"sites": [
-		"es/tenayuca"
-	],
 	"museums": [
 		"es/museo-de-sitio-xolotl"
 	]

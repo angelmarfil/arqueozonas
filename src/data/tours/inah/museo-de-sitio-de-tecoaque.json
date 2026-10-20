@@ -4,9 +4,6 @@
 	"type": "museum",
 	"url": "https://www.inah.gob.mx/images/360/Tecoaque/",
 	"state": "tlaxcala",
-	"sites": [
-		"es/zultepec-tecoaque"
-	],
 	"museums": [
 		"es/museo-de-sitio-de-tecoaque"
 	]

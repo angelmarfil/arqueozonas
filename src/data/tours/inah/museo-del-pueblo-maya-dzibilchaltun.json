@@ -4,9 +4,6 @@
 	"type": "museum",
 	"url": "https://www.inah.gob.mx/images/recorridos-virtuales/museodelpueblomaya/",
 	"state": "yucatan",
-	"sites": [
-		"es/dzibilchaltun"
-	],
 	"museums": [
 		"es/museo-de-sitio-ichkaantijoo"
 	]

@@ -4,9 +4,6 @@
 	"type": "museum",
 	"url": "https://www.inah.gob.mx/images/recorridos-virtuales/teotihuacanpinturasmurales/",
 	"state": "edomex",
-	"sites": [
-		"es/teotihuacan"
-	],
 	"museums": [
 		"es/museo-de-murales-teotihuacanos-beatriz-de-la-fuente"
 	]
