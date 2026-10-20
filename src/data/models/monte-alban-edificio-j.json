@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Edificio J",
+		"en": "Building J"
+	},
+	"type": "structure",
+	"sketchfabId": "4224b561b62e4821896794058b5652ef",
+	"thumbnail": "https://media.sketchfab.com/models/4224b561b62e4821896794058b5652ef/thumbnails/0cd719b334df412aa46f3b6c29d8f172/a3b56ebfff4b42eb9d303e63886f4251.jpeg",
+	"author": {
+		"name": "Monte Albán Digital Archaeology Project (MADAP)",
+		"url": "https://sketchfab.com/MADAP"
+	},
+	"sites": [
+		"es/monte-alban"
+	]
+}

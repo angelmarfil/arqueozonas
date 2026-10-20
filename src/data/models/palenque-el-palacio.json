@@ -1,0 +1,20 @@
+{
+	"name": {
+		"es": "El Palacio",
+		"en": "The Palace"
+	},
+	"type": "structure",
+	"sketchfabId": "4f143d7d1718414fb70609607a7f528c",
+	"thumbnail": "https://media.sketchfab.com/models/4f143d7d1718414fb70609607a7f528c/thumbnails/d4363f4ad44c42ab82894f600dbdc0ab/640.jpeg",
+	"author": {
+		"name": "Daniel Bolaños",
+		"url": "https://sketchfab.com/dbolanos414"
+	},
+	"license": {
+		"name": "CC BY 4.0",
+		"url": "https://creativecommons.org/licenses/by/4.0/"
+	},
+	"sites": [
+		"es/palenque"
+	]
+}

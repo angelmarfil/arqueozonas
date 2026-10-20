@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "El Palacio, sección central",
+		"en": "The Palace, central section"
+	},
+	"type": "structure",
+	"sketchfabId": "07ac554457d34c06878abe9e37a83655",
+	"thumbnail": "https://media.sketchfab.com/models/07ac554457d34c06878abe9e37a83655/thumbnails/c2934b48551a4e7fbf7fc29bed873b7a/640.jpeg",
+	"author": {
+		"name": "yucatan",
+		"url": "https://sketchfab.com/yucatan"
+	},
+	"sites": [
+		"es/labna"
+	]
+}

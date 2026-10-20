@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Cabeza de señor con tocado",
+		"en": "Head of a lord with headdress"
+	},
+	"type": "object",
+	"sketchfabId": "c17d6f360ccb4a1fbdcfe37974c5f365",
+	"thumbnail": "https://media.sketchfab.com/models/c17d6f360ccb4a1fbdcfe37974c5f365/thumbnails/a6a0848850614b7d9626a140984352ee/640x360.jpeg",
+	"author": {
+		"name": "Museo Maya de Cancún INAH",
+		"url": "https://sketchfab.com/museomayacancun"
+	},
+	"sites": [
+		"es/el-rey"
+	]
+}

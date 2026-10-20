@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Tocado de la Reina Roja, Templo XIII",
+		"en": "Headdress of the Red Queen, Temple XIII"
+	},
+	"type": "object",
+	"sketchfabId": "e8f93a7746964dc495b5732e8a148a5b",
+	"thumbnail": "https://media.sketchfab.com/models/e8f93a7746964dc495b5732e8a148a5b/thumbnails/4c8a95aaa3604e688feb88229927ba28/c55bf9fa690a488c99151fea6ac82ab0.jpeg",
+	"author": {
+		"name": "Alexandre Tokovinine",
+		"url": "https://sketchfab.com/tokovinin3d"
+	},
+	"sites": [
+		"es/palenque"
+	]
+}

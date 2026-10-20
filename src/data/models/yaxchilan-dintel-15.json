@@ -1,0 +1,20 @@
+{
+	"name": {
+		"es": "Dintel 15",
+		"en": "Lintel 15"
+	},
+	"type": "object",
+	"sketchfabId": "074c2403d812451bae9dc5c0be7f4cfd",
+	"thumbnail": "https://media.sketchfab.com/models/074c2403d812451bae9dc5c0be7f4cfd/thumbnails/7c10dc2dab09487e8ea9fd5c29b340f8/ac2fd3927ce64caba791ed3243dfbaea.jpeg",
+	"author": {
+		"name": "danielpett",
+		"url": "https://sketchfab.com/danielpett"
+	},
+	"license": {
+		"name": "CC BY 4.0",
+		"url": "https://creativecommons.org/licenses/by/4.0/"
+	},
+	"sites": [
+		"es/yaxchilan"
+	]
+}

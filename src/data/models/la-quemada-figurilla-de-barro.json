@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Figurilla de barro",
+		"en": "Clay figurine"
+	},
+	"type": "object",
+	"sketchfabId": "e512fefb17a84f74a9c7ccf79ab384f3",
+	"thumbnail": "https://media.sketchfab.com/models/e512fefb17a84f74a9c7ccf79ab384f3/thumbnails/05561395002449eb96fd00a5b5340fcb/7415b61a21f24dac9c33af212dbbc658.jpeg",
+	"author": {
+		"name": "Museo Virtual La Quemada",
+		"url": "https://sketchfab.com/Museo_La_Quemada"
+	},
+	"sites": [
+		"es/la-quemada"
+	]
+}

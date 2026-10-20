@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Elemento arquitectónico de estuco",
+		"en": "Stucco architectural element"
+	},
+	"type": "object",
+	"sketchfabId": "f112a48a667641e0bcd37ccdabcb640a",
+	"thumbnail": "https://media.sketchfab.com/models/f112a48a667641e0bcd37ccdabcb640a/thumbnails/06884e6d8cd240cb8a5ce55705b9f249/640x360.jpeg",
+	"author": {
+		"name": "Museo Maya de Cancún INAH",
+		"url": "https://sketchfab.com/museomayacancun"
+	},
+	"sites": [
+		"es/oxtankah"
+	]
+}

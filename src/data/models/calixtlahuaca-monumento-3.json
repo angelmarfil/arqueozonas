@@ -1,0 +1,20 @@
+{
+	"name": {
+		"es": "Monumento 3",
+		"en": "Monument 3"
+	},
+	"type": "object",
+	"sketchfabId": "fba1958d05df408c924fd3612baf122b",
+	"thumbnail": "https://media.sketchfab.com/models/fba1958d05df408c924fd3612baf122b/thumbnails/1b553816e7774f0ab7b82877c356695c/155c584a0bd94d2299be25de3c95e474.jpeg",
+	"author": {
+		"name": "CINAHEM",
+		"url": "https://sketchfab.com/CINAHEM"
+	},
+	"license": {
+		"name": "CC BY 4.0",
+		"url": "https://creativecommons.org/licenses/by/4.0/"
+	},
+	"sites": [
+		"es/calixtlahuaca"
+	]
+}

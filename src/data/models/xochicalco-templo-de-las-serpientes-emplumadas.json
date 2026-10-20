@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Templo de las Serpientes Emplumadas",
+		"en": "Temple of the Feathered Serpents"
+	},
+	"type": "structure",
+	"sketchfabId": "4c86bfc3553742ecbee25efbed50cf70",
+	"thumbnail": "https://media.sketchfab.com/models/4c86bfc3553742ecbee25efbed50cf70/thumbnails/8236fb279eb44936acc2d11589b5023a/714270624e4f4baaa42ca11018de8002.jpeg",
+	"author": {
+		"name": "CyArk",
+		"url": "https://sketchfab.com/CyArk"
+	},
+	"sites": [
+		"es/xochicalco"
+	]
+}

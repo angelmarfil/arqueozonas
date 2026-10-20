@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Tzitzimitl",
+		"en": "Tzitzimitl"
+	},
+	"type": "object",
+	"sketchfabId": "71e4fd8aec9b48d6928ee4b04dbd7903",
+	"thumbnail": "https://media.sketchfab.com/models/71e4fd8aec9b48d6928ee4b04dbd7903/thumbnails/d72b8eec562b46c7b783499d7a19e7e1/a0d61e0ac6bb4cf8b0aff6d09770dafd.jpeg",
+	"author": {
+		"name": "CyArk",
+		"url": "https://sketchfab.com/CyArk"
+	},
+	"sites": [
+		"es/templo-mayor"
+	]
+}

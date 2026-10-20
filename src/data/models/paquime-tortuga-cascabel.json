@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Tortuga cascabel",
+		"en": "Turtle rattle"
+	},
+	"type": "object",
+	"sketchfabId": "9c4f498c7d9c41d4a9ba917948b18a21",
+	"thumbnail": "https://media.sketchfab.com/models/9c4f498c7d9c41d4a9ba917948b18a21/thumbnails/8b30b53e2dd347118435da76c821fadf/9006b82121d14b0a951b60cea47bec78.jpeg",
+	"author": {
+		"name": "Museo Nacional de Antropología",
+		"url": "https://sketchfab.com/mna_inah"
+	},
+	"sites": [
+		"es/paquime"
+	]
+}

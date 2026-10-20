@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Danzantes del Edificio L-sub",
+		"en": "Danzantes of Building L-sub"
+	},
+	"type": "object",
+	"sketchfabId": "e5e0f5792c9f4bcd89b293ae33305fe4",
+	"thumbnail": "https://media.sketchfab.com/models/e5e0f5792c9f4bcd89b293ae33305fe4/thumbnails/2278a56db20d4a319b059a2303e3d2b1/50c47fb4d7254a28925483dc62405612.jpeg",
+	"author": {
+		"name": "Monte Albán Digital Archaeology Project (MADAP)",
+		"url": "https://sketchfab.com/MADAP"
+	},
+	"sites": [
+		"es/monte-alban"
+	]
+}

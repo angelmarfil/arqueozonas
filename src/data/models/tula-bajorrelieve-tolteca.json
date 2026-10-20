@@ -1,0 +1,20 @@
+{
+	"name": {
+		"es": "Bajorrelieve tolteca",
+		"en": "Toltec bas-relief"
+	},
+	"type": "object",
+	"sketchfabId": "54e229d77feb4530a0c029a41d952606",
+	"thumbnail": "https://media.sketchfab.com/models/54e229d77feb4530a0c029a41d952606/thumbnails/96919edd80f24e32813ae0e3a630b973/702fdfea09f640f0a8e693875164c981.jpeg",
+	"author": {
+		"name": "Jorge Cu",
+		"url": "https://sketchfab.com/jorgecu"
+	},
+	"license": {
+		"name": "CC BY 4.0",
+		"url": "https://creativecommons.org/licenses/by/4.0/"
+	},
+	"sites": [
+		"es/tula"
+	]
+}

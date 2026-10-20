@@ -1,0 +1,20 @@
+{
+	"name": {
+		"es": "Friso poniente",
+		"en": "West frieze"
+	},
+	"type": "object",
+	"sketchfabId": "ac9fcbf4aa304485923cbc5b4ffe0e42",
+	"thumbnail": "https://media.sketchfab.com/models/ac9fcbf4aa304485923cbc5b4ffe0e42/thumbnails/db4c2ea44b7b4e928c7fa28f70e95543/640x360.jpeg",
+	"author": {
+		"name": "Asinoscovich",
+		"url": "https://sketchfab.com/asinoscovich"
+	},
+	"license": {
+		"name": "CC BY 4.0",
+		"url": "https://creativecommons.org/licenses/by/4.0/"
+	},
+	"sites": [
+		"es/xochicalco"
+	]
+}

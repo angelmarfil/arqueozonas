@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Templo de la Luna",
+		"en": "Temple of the Moon"
+	},
+	"type": "structure",
+	"sketchfabId": "b1e9d4762c964e198eabd0ba3faf9082",
+	"thumbnail": "https://media.sketchfab.com/models/b1e9d4762c964e198eabd0ba3faf9082/thumbnails/f44aceccee5c45b790b03bb731154e64/640.jpeg",
+	"author": {
+		"name": "Geography UGent 3D",
+		"url": "https://sketchfab.com/geographyugent"
+	},
+	"sites": [
+		"es/edzna"
+	]
+}

@@ -1,0 +1,20 @@
+{
+	"name": {
+		"es": "Tablero sureste del Juego de Pelota Sur",
+		"en": "Southeast panel of the South Ballcourt"
+	},
+	"type": "object",
+	"sketchfabId": "b70656eab125448d98f8c7cdededfe08",
+	"thumbnail": "https://media.sketchfab.com/models/b70656eab125448d98f8c7cdededfe08/thumbnails/2cf148264fa94ed5b97337daf1434917/766c1ed13b3945c79870ab8115068155.jpeg",
+	"author": {
+		"name": "rmark",
+		"url": "https://sketchfab.com/rmark"
+	},
+	"license": {
+		"name": "CC BY 4.0",
+		"url": "https://creativecommons.org/licenses/by/4.0/"
+	},
+	"sites": [
+		"es/el-tajin"
+	]
+}

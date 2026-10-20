@@ -1,0 +1,20 @@
+{
+	"name": {
+		"es": "Monumento 19",
+		"en": "Monument 19"
+	},
+	"type": "object",
+	"sketchfabId": "9c4c27b149264dbb866924553ac8429e",
+	"thumbnail": "https://media.sketchfab.com/models/9c4c27b149264dbb866924553ac8429e/thumbnails/4e28613e91b24c22a4423039bb526e58/720x405.jpeg",
+	"author": {
+		"name": "rmark",
+		"url": "https://sketchfab.com/rmark"
+	},
+	"license": {
+		"name": "CC BY 4.0",
+		"url": "https://creativecommons.org/licenses/by/4.0/"
+	},
+	"sites": [
+		"es/la-venta"
+	]
+}

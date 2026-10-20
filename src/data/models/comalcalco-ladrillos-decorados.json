@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Ladrillos decorados",
+		"en": "Decorated bricks"
+	},
+	"type": "object",
+	"sketchfabId": "c4cb264611f64d5da7246355d8855bbc",
+	"thumbnail": "https://media.sketchfab.com/models/c4cb264611f64d5da7246355d8855bbc/thumbnails/ac18c79581cd4015a4016c6e4b1ae801/78fd2e7c08b749ebabb8c4ac34d4ec9c.jpeg",
+	"author": {
+		"name": "Archeografica_3D",
+		"url": "https://sketchfab.com/sastun1962"
+	},
+	"sites": [
+		"es/comalcalco"
+	]
+}

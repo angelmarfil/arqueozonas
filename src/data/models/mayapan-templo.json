@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Templo",
+		"en": "Temple"
+	},
+	"type": "structure",
+	"sketchfabId": "85af97e9f6a34f699935eac390eec460",
+	"thumbnail": "https://media.sketchfab.com/models/85af97e9f6a34f699935eac390eec460/thumbnails/adde61d502b340328566846eb4fa50a7/640.jpeg",
+	"author": {
+		"name": "yucatan",
+		"url": "https://sketchfab.com/yucatan"
+	},
+	"sites": [
+		"es/mayapan"
+	]
+}

@@ -1,0 +1,20 @@
+{
+	"name": {
+		"es": "Torre del Palacio",
+		"en": "Palace Tower"
+	},
+	"type": "structure",
+	"sketchfabId": "bed048848c444fe49033228ab029dd27",
+	"thumbnail": "https://media.sketchfab.com/models/bed048848c444fe49033228ab029dd27/thumbnails/e6cfe381503d46caaed325497554d2d4/640.jpeg",
+	"author": {
+		"name": "Daniel Bolaños",
+		"url": "https://sketchfab.com/dbolanos414"
+	},
+	"license": {
+		"name": "CC BY 4.0",
+		"url": "https://creativecommons.org/licenses/by/4.0/"
+	},
+	"sites": [
+		"es/palenque"
+	]
+}

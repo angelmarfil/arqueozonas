@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Plato ceremonial",
+		"en": "Ceremonial plate"
+	},
+	"type": "object",
+	"sketchfabId": "3c28c1c7d26c4473b2c11cfb709db5df",
+	"thumbnail": "https://media.sketchfab.com/models/3c28c1c7d26c4473b2c11cfb709db5df/thumbnails/843e0384893c4f47bd3c688aa66d42e2/9d64f97349a547cfaac2baed9693521c.jpeg",
+	"author": {
+		"name": "Museo Nacional de Antropología",
+		"url": "https://sketchfab.com/mna_inah"
+	},
+	"sites": [
+		"es/zaachila"
+	]
+}

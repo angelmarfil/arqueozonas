@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Marcador de juego de pelota",
+		"en": "Ballcourt marker"
+	},
+	"type": "object",
+	"sketchfabId": "2d11b357dad846e28ad46e20461d5fea",
+	"thumbnail": "https://media.sketchfab.com/models/2d11b357dad846e28ad46e20461d5fea/thumbnails/92c00dccb712452596d7d9e06917679c/2a48d4465ebb4fedb5b32ac953641727.jpeg",
+	"author": {
+		"name": "Alexandre Tokovinine",
+		"url": "https://sketchfab.com/tokovinin3d"
+	},
+	"sites": [
+		"es/chinkultic"
+	]
+}

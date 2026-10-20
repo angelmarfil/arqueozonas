@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Tablero de los Esclavos",
+		"en": "Tablet of the Slaves"
+	},
+	"type": "object",
+	"sketchfabId": "0c1f69b7bd894045a875f12f306b200a",
+	"thumbnail": "https://media.sketchfab.com/models/0c1f69b7bd894045a875f12f306b200a/thumbnails/64dd2de5503e4393bc115377da69f61c/720x405.jpeg",
+	"author": {
+		"name": "Archeografica_3D",
+		"url": "https://sketchfab.com/sastun1962"
+	},
+	"sites": [
+		"es/palenque"
+	]
+}

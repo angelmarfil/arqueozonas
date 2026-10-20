@@ -1,0 +1,20 @@
+{
+	"name": {
+		"es": "Cabeza colosal",
+		"en": "Colossal head"
+	},
+	"type": "object",
+	"sketchfabId": "67a312a4f8c44eb0af6543775e37e5e6",
+	"thumbnail": "https://media.sketchfab.com/models/67a312a4f8c44eb0af6543775e37e5e6/thumbnails/3201e67d02864236b279c7d908a58a8d/720x405.jpeg",
+	"author": {
+		"name": "rmark",
+		"url": "https://sketchfab.com/rmark"
+	},
+	"license": {
+		"name": "CC BY 4.0",
+		"url": "https://creativecommons.org/licenses/by/4.0/"
+	},
+	"sites": [
+		"es/la-venta"
+	]
+}

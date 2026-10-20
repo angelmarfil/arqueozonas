@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Altar 4",
+		"en": "Altar 4"
+	},
+	"type": "object",
+	"sketchfabId": "2c4735dd3df14c589f87846d890d7e04",
+	"thumbnail": "https://media.sketchfab.com/models/2c4735dd3df14c589f87846d890d7e04/thumbnails/0f6dec2adbc14266aa0b7812c8855b5b/720x405.jpeg",
+	"author": {
+		"name": "rmark",
+		"url": "https://sketchfab.com/rmark"
+	},
+	"sites": [
+		"es/la-venta"
+	]
+}

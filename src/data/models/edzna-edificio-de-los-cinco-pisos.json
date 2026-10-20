@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Edificio de los Cinco Pisos",
+		"en": "Building of the Five Stories"
+	},
+	"type": "structure",
+	"sketchfabId": "4e3c9c3f6c4a44daae1174ad03bbf1cb",
+	"thumbnail": "https://media.sketchfab.com/models/4e3c9c3f6c4a44daae1174ad03bbf1cb/thumbnails/a66c8c5b87cb40b79128712132b23aed/640.jpeg",
+	"author": {
+		"name": "Geography UGent 3D",
+		"url": "https://sketchfab.com/geographyugent"
+	},
+	"sites": [
+		"es/edzna"
+	]
+}

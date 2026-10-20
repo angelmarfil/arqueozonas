@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Templo de los Mascarones",
+		"en": "Temple of the Masks"
+	},
+	"type": "structure",
+	"sketchfabId": "b13449ba3abe4fc48d27e70bde837c74",
+	"thumbnail": "https://media.sketchfab.com/models/b13449ba3abe4fc48d27e70bde837c74/thumbnails/12a15fc898674fdea4af839b6a3969ad/0d9de05306314b6ba73f2a7b9e1ba2cb.jpeg",
+	"author": {
+		"name": "Jorge Cu",
+		"url": "https://sketchfab.com/jorgecu"
+	},
+	"sites": [
+		"es/edzna"
+	]
+}

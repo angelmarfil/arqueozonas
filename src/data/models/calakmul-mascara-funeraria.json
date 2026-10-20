@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Máscara funeraria",
+		"en": "Funerary mask"
+	},
+	"type": "object",
+	"sketchfabId": "5616e379492a4911bcbeedc6f1a35d88",
+	"thumbnail": "https://media.sketchfab.com/models/5616e379492a4911bcbeedc6f1a35d88/thumbnails/e02cca803b164040b33b7a9507676b9b/75d4c55b40ca4340b5f39566227382f5.jpeg",
+	"author": {
+		"name": "arqueologia_3d",
+		"url": "https://sketchfab.com/arqueologia_3d"
+	},
+	"sites": [
+		"es/calakmul"
+	]
+}

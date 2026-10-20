@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Monumento 12",
+		"en": "Monument 12"
+	},
+	"type": "object",
+	"sketchfabId": "dc80eb38e04e4308b8343293c6d4e20c",
+	"thumbnail": "https://media.sketchfab.com/models/dc80eb38e04e4308b8343293c6d4e20c/thumbnails/dedd562fbc434414ba277413d7cbeece/a85fb441e8c64ecabccad4b1bd2b46ae.jpeg",
+	"author": {
+		"name": "University of South Florida Libraries",
+		"url": "https://sketchfab.com/USF_digital"
+	},
+	"sites": [
+		"es/chalcatzingo"
+	]
+}

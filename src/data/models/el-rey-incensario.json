@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Incensario",
+		"en": "Censer"
+	},
+	"type": "object",
+	"sketchfabId": "bf3b0b746c8e4233aa9eb712f93445b7",
+	"thumbnail": "https://media.sketchfab.com/models/bf3b0b746c8e4233aa9eb712f93445b7/thumbnails/134558ae47604e78ae35ea46b37502d1/640x360.jpeg",
+	"author": {
+		"name": "Museo Maya de Cancún INAH",
+		"url": "https://sketchfab.com/museomayacancun"
+	},
+	"sites": [
+		"es/el-rey"
+	]
+}

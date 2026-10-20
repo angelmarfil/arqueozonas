@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Tablero de glifos del museo de sitio",
+		"en": "Glyph panel from the site museum"
+	},
+	"type": "object",
+	"sketchfabId": "c498e1c8a33649f8a3b76598010e43ac",
+	"thumbnail": "https://media.sketchfab.com/models/c498e1c8a33649f8a3b76598010e43ac/thumbnails/0b31e12ff2fd465eaa81d1381e5ebf53/65edff09f8d147f99225c25f2f03fea1.jpeg",
+	"author": {
+		"name": "rmark",
+		"url": "https://sketchfab.com/rmark"
+	},
+	"sites": [
+		"es/palenque"
+	]
+}

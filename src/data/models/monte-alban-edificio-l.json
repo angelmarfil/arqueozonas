@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Edificio L",
+		"en": "Building L"
+	},
+	"type": "structure",
+	"sketchfabId": "58e9f1c6aa734d23bc6de4bda78771d2",
+	"thumbnail": "https://media.sketchfab.com/models/58e9f1c6aa734d23bc6de4bda78771d2/thumbnails/bd425d548a46442ea8085e1e32eff6ae/c380481d48ec4e86b1d7ea47b927c46c.jpeg",
+	"author": {
+		"name": "Monte Albán Digital Archaeology Project (MADAP)",
+		"url": "https://sketchfab.com/MADAP"
+	},
+	"sites": [
+		"es/monte-alban"
+	]
+}

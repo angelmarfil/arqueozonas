@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Rana",
+		"en": "Frog"
+	},
+	"type": "object",
+	"sketchfabId": "1718441c7b7e4456bacfd3e21d453650",
+	"thumbnail": "https://media.sketchfab.com/models/1718441c7b7e4456bacfd3e21d453650/thumbnails/83e1f3f38e97474a8dae090796b25c0a/db22c616a0544771b51a592145ec4089.jpeg",
+	"author": {
+		"name": "CyArk",
+		"url": "https://sketchfab.com/CyArk"
+	},
+	"sites": [
+		"es/templo-mayor"
+	]
+}

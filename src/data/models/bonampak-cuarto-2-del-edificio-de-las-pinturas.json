@@ -1,0 +1,20 @@
+{
+	"name": {
+		"es": "Cuarto 2 del Edificio de las Pinturas",
+		"en": "Room 2 of the Temple of the Murals"
+	},
+	"type": "structure",
+	"sketchfabId": "4484755d56214fd08292216ffde521fe",
+	"thumbnail": "https://media.sketchfab.com/models/4484755d56214fd08292216ffde521fe/thumbnails/9495cece6b2846678dee4f7bec8711ee/ad60bb881cb64b8b95ab327f01c2b215.jpeg",
+	"author": {
+		"name": "rmark",
+		"url": "https://sketchfab.com/rmark"
+	},
+	"license": {
+		"name": "CC BY 4.0",
+		"url": "https://creativecommons.org/licenses/by/4.0/"
+	},
+	"sites": [
+		"es/bonampak"
+	]
+}

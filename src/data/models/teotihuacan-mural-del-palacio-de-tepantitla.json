@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Mural del Palacio de Tepantitla",
+		"en": "Tepantitla Palace mural"
+	},
+	"type": "object",
+	"sketchfabId": "0a1a7df32cf9485f87fd7f7842595df9",
+	"thumbnail": "https://media.sketchfab.com/models/0a1a7df32cf9485f87fd7f7842595df9/thumbnails/61ab7a33825a4ef68ce3678074064a83/720x405.jpeg",
+	"author": {
+		"name": "rmark",
+		"url": "https://sketchfab.com/rmark"
+	},
+	"sites": [
+		"es/teotihuacan"
+	]
+}

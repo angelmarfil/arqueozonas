@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Escultura de Xipe Tótec",
+		"en": "Xipe Totec sculpture"
+	},
+	"type": "object",
+	"sketchfabId": "9e898967d93e406e8a1aecf878caec21",
+	"thumbnail": "https://media.sketchfab.com/models/9e898967d93e406e8a1aecf878caec21/thumbnails/50574d7ae56c459498576a3941eaaa2c/fa1272e0a03f4ae0b3662fd4874ccfcb.jpeg",
+	"author": {
+		"name": "Museo Nacional de Antropología",
+		"url": "https://sketchfab.com/mna_inah"
+	},
+	"sites": [
+		"es/teotihuacan"
+	]
+}

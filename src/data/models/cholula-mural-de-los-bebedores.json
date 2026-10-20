@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Mural de los Bebedores",
+		"en": "Mural of the Drinkers"
+	},
+	"type": "object",
+	"sketchfabId": "aa430ade9597403da1b40916868a7bba",
+	"thumbnail": "https://media.sketchfab.com/models/aa430ade9597403da1b40916868a7bba/thumbnails/2d38609a3e3b48fbb7befbb6ce335a03/d8eb8234d3fc4feead4cf96a28fcbdbd.jpeg",
+	"author": {
+		"name": "Jorge Cu",
+		"url": "https://sketchfab.com/jorgecu"
+	},
+	"sites": [
+		"es/cholula"
+	]
+}

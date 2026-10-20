@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Juego de Pelota",
+		"en": "Ballcourt"
+	},
+	"type": "structure",
+	"sketchfabId": "7e723aa1ee1c41e48da3402c3110b065",
+	"thumbnail": "https://media.sketchfab.com/models/7e723aa1ee1c41e48da3402c3110b065/thumbnails/d9bc95ac13e94e1285456177d15ce880/77ebb8a9b5b64c51aa3034ab514cfa99.jpeg",
+	"author": {
+		"name": "Archeografica_3D",
+		"url": "https://sketchfab.com/sastun1962"
+	},
+	"sites": [
+		"es/uxmal"
+	]
+}

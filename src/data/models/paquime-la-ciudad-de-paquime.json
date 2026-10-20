@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "La ciudad de Paquimé",
+		"en": "The city of Paquimé"
+	},
+	"type": "structure",
+	"sketchfabId": "5c16cdc4267946268cb8f51e67c7d4dd",
+	"thumbnail": "https://media.sketchfab.com/models/5c16cdc4267946268cb8f51e67c7d4dd/thumbnails/5bbf6cb3736a421ebb9e07c5fde6c7e6/640x360.jpeg",
+	"author": {
+		"name": "Pix4D SA.",
+		"url": "https://sketchfab.com/pix4d"
+	},
+	"sites": [
+		"es/paquime"
+	]
+}

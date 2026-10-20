@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Escultura",
+		"en": "Sculpture"
+	},
+	"type": "object",
+	"sketchfabId": "8b09dc8f89b4421281035b68bb1f4e96",
+	"thumbnail": "https://media.sketchfab.com/models/8b09dc8f89b4421281035b68bb1f4e96/thumbnails/7fa70f8426064b3b9dc42f8a1b3989b7/640x360.jpeg",
+	"author": {
+		"name": "Coordinación Nacional de Museos y Exposiciones",
+		"url": "https://sketchfab.com/cnme_inah"
+	},
+	"sites": [
+		"es/palenque"
+	]
+}

@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Altar 5",
+		"en": "Altar 5"
+	},
+	"type": "object",
+	"sketchfabId": "49a1e3e706344700ab217c81ff635065",
+	"thumbnail": "https://media.sketchfab.com/models/49a1e3e706344700ab217c81ff635065/thumbnails/2b9b16ba385b4833bfcbfe76ca616cb6/720x405.jpeg",
+	"author": {
+		"name": "rmark",
+		"url": "https://sketchfab.com/rmark"
+	},
+	"sites": [
+		"es/la-venta"
+	]
+}

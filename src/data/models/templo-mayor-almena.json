@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Almena",
+		"en": "Merlon"
+	},
+	"type": "object",
+	"sketchfabId": "585ff038852c471382fb0a6861b6e335",
+	"thumbnail": "https://media.sketchfab.com/models/585ff038852c471382fb0a6861b6e335/thumbnails/36f4e8023971463ea2d6a888c104028b/315d90040d1d4df6b456089d0f044afe.jpeg",
+	"author": {
+		"name": "CyArk",
+		"url": "https://sketchfab.com/CyArk"
+	},
+	"sites": [
+		"es/templo-mayor"
+	]
+}

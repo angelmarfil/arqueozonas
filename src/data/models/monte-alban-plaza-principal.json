@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Plaza Principal",
+		"en": "Main Plaza"
+	},
+	"type": "structure",
+	"sketchfabId": "8458ae703b184652bcbdaee79a607159",
+	"thumbnail": "https://media.sketchfab.com/models/8458ae703b184652bcbdaee79a607159/thumbnails/89431f9417bd4558a7e91ac4aa6447d8/d4983dbcd94b481fb39088aa20ac8a59.jpeg",
+	"author": {
+		"name": "Monte Albán Digital Archaeology Project (MADAP)",
+		"url": "https://sketchfab.com/MADAP"
+	},
+	"sites": [
+		"es/monte-alban"
+	]
+}

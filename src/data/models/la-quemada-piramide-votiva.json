@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Pirámide Votiva",
+		"en": "Votive Pyramid"
+	},
+	"type": "structure",
+	"sketchfabId": "fef51224b7df40cbbc1bbed7dd543012",
+	"thumbnail": "https://media.sketchfab.com/models/fef51224b7df40cbbc1bbed7dd543012/thumbnails/8664adb856fa434b96c8b2f6bfdad280/ab9b39577fac42e7909072fe92cab4d8.jpeg",
+	"author": {
+		"name": "Museo Virtual La Quemada",
+		"url": "https://sketchfab.com/Museo_La_Quemada"
+	},
+	"sites": [
+		"es/la-quemada"
+	]
+}

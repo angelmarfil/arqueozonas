@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Recipiente para ofrenda en forma de pie",
+		"en": "Foot-shaped offering vessel"
+	},
+	"type": "object",
+	"sketchfabId": "fa0a1c1204f2448ea8e3ccccc98a01bc",
+	"thumbnail": "https://media.sketchfab.com/models/fa0a1c1204f2448ea8e3ccccc98a01bc/thumbnails/d96d97012d8f474e8970db860ffdfb4b/640x360.jpeg",
+	"author": {
+		"name": "Museo Maya de Cancún INAH",
+		"url": "https://sketchfab.com/museomayacancun"
+	},
+	"sites": [
+		"es/oxtankah"
+	]
+}

@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Cajete con soporte de pedestal",
+		"en": "Pedestal bowl"
+	},
+	"type": "object",
+	"sketchfabId": "d479b42c31aa4bd8b5136a59c4f68b75",
+	"thumbnail": "https://media.sketchfab.com/models/d479b42c31aa4bd8b5136a59c4f68b75/thumbnails/81b3762265c8401e8816687c8008909a/640x360.jpeg",
+	"author": {
+		"name": "Museo Maya de Cancún INAH",
+		"url": "https://sketchfab.com/museomayacancun"
+	},
+	"sites": [
+		"es/xcaret"
+	]
+}

@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Juego de Pelota",
+		"en": "Ballcourt"
+	},
+	"type": "structure",
+	"sketchfabId": "e852849f95944734bf4d7aafdde5e48c",
+	"thumbnail": "https://media.sketchfab.com/models/e852849f95944734bf4d7aafdde5e48c/thumbnails/6d5e85a82c1d4b6395277462789e9762/640.jpeg",
+	"author": {
+		"name": "Geography UGent 3D",
+		"url": "https://sketchfab.com/geographyugent"
+	},
+	"sites": [
+		"es/edzna"
+	]
+}

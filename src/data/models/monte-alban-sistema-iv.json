@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Sistema IV",
+		"en": "System IV"
+	},
+	"type": "structure",
+	"sketchfabId": "e55b0b15e74e46c9ba82256168b3c305",
+	"thumbnail": "https://media.sketchfab.com/models/e55b0b15e74e46c9ba82256168b3c305/thumbnails/9e1ee2545fd94b53ad7d3c8015806978/7fbb20052baa4c3f8e4f161d23137e38.jpeg",
+	"author": {
+		"name": "Monte Albán Digital Archaeology Project (MADAP)",
+		"url": "https://sketchfab.com/MADAP"
+	},
+	"sites": [
+		"es/monte-alban"
+	]
+}

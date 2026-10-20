@@ -84,7 +84,29 @@ const tours = defineCollection({
     })
 })
 
-const monthlyCounts = z.array(z.number().int().nonnegative()).length(12);
+const models = defineCollection({
+    loader: glob({ pattern: "**/*.json", base: "./src/data/models" }),
+    schema: z.object({
+        name: z.object({
+            es: z.string(),
+            en: z.string(),
+        }),
+        type: z.enum(["structure", "object"]),
+        sketchfabId: z.string().regex(/^[0-9a-f]{32}$/),
+        thumbnail: z.url(),
+        author: z.object({
+            name: z.string(),
+            url: z.url(),
+        }),
+        license: z.object({
+            name: z.string(),
+            url: z.url(),
+        }).optional(),
+        sites: z.array(reference("sites")).min(1),
+    })
+})
+
+const monthlyCounts =z.array(z.number().int().nonnegative()).length(12);
 
 const visitorRecord = z.object({
     name: z.string(),
@@ -106,4 +128,4 @@ const museumVisitors = defineCollection({
     schema: visitorRecord,
 });
 
-export const collections = { states, sites, museums, galleries, tourProviders, tours, siteVisitors, museumVisitors };
+export const collections = { states, sites, museums, galleries, tourProviders, tours, models, siteVisitors, museumVisitors };

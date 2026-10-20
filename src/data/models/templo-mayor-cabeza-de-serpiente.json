@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Cabeza de serpiente",
+		"en": "Serpent head"
+	},
+	"type": "object",
+	"sketchfabId": "63ed245d301b4096a02d81a0dc7faeea",
+	"thumbnail": "https://media.sketchfab.com/models/63ed245d301b4096a02d81a0dc7faeea/thumbnails/948b788cf36b45a6a084ff5674e8ccc2/1c4848bce90a460892a3d8022dea7588.jpeg",
+	"author": {
+		"name": "CyArk",
+		"url": "https://sketchfab.com/CyArk"
+	},
+	"sites": [
+		"es/templo-mayor"
+	]
+}

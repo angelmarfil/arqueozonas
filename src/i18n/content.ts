@@ -68,6 +68,16 @@ export async function getMuseumTours(museum: CollectionEntry<'museums'>) {
 	return withProviders(await getCollection('tours', ({ data }) => data.museums.some((ref) => getSlug(ref) === slug)));
 }
 
+export async function getSiteModels(site: CollectionEntry<'sites'>) {
+	const slug = getSlug(site);
+	const [prefix] = site.id.split('/');
+	const lang = isLang(prefix) ? prefix : defaultLang;
+	const models = await getCollection('models', ({ data }) => data.sites.some((ref) => getSlug(ref) === slug));
+	return models
+		.map(({ data }) => ({ ...data, name: data.name[lang] }))
+		.sort((a, b) => Number(b.type === 'structure') - Number(a.type === 'structure') || a.name.localeCompare(b.name, lang));
+}
+
 export async function getSiteMuseums(site: CollectionEntry<'sites'>) {
 	const [lang] = site.id.split('/');
 	return getCollection(

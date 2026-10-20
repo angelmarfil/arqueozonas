@@ -6,9 +6,10 @@ import PageHeader from "./PageHeader.astro";
 import RelatedPlaces from "./RelatedPlaces.astro";
 import SiteBadges from "./SiteBadges.astro";
 import SiteGallery from "./SiteGallery.astro";
+import SiteModels from "./SiteModels.astro";
 import TourProviderBadge from "./TourProviderBadge.astro";
 import ZoneMap from "./ZoneMap";
-import { getPlaceLangs, getPlaceSummary, getSiteCover, getSiteGallery, getSiteSocialImage, getSiteMuseums, getSiteState, getSiteTours, getSlug, getTourProviders } from "../i18n/content";
+import { getPlaceLangs, getPlaceSummary, getSiteCover, getSiteGallery, getSiteModels, getSiteSocialImage, getSiteMuseums, getSiteState, getSiteTours, getSlug, getTourProviders } from "../i18n/content";
 import { getLangFromUrl, getMapLabels, useTranslatedPath, useTranslations } from "../i18n/utils";
 
 interface Props {
@@ -73,6 +74,7 @@ if (tours.length === 1) {
   });
 }
 const tourProviders = getTourProviders(tours);
+const models = await getSiteModels(site);
 ---
 
 <Layout
@@ -191,10 +193,18 @@ const tourProviders = getTourProviders(tours);
             </p>
           )
         }
+        {
+          models.length > 0 && (
+            <p>
+              {t("site.models.credit")}{" "}
+              <a href="https://sketchfab.com/" target="_blank" rel="noopener" class="link">
+                Sketchfab
+              </a>
+            </p>
+          )
+        }
       </footer>
     </article>
-
-    <RelatedPlaces title={t("site.museums")} icon="boxicons:bank-filled" places={relatedMuseums} />
 
     {
       position && (
@@ -207,5 +217,9 @@ const tourProviders = getTourProviders(tours);
         </section>
       )
     }
+
+    <RelatedPlaces title={t("site.museums")} icon="boxicons:bank-filled" places={relatedMuseums} />
+
+    <SiteModels models={models} />
   </main>
 </Layout>

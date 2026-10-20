@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Cetro de jade",
+		"en": "Jade scepter"
+	},
+	"type": "object",
+	"sketchfabId": "f75fd7e02c794970baa35d4405b46d11",
+	"thumbnail": "https://media.sketchfab.com/models/f75fd7e02c794970baa35d4405b46d11/thumbnails/d4a7698291ea499cbcbd625827841b09/eee98011f64f41e4ae84200d9e7d588d.jpeg",
+	"author": {
+		"name": "Museo Nacional de Antropología",
+		"url": "https://sketchfab.com/mna_inah"
+	},
+	"sites": [
+		"es/zaachila"
+	]
+}

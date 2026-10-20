@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Plataforma de los Cuchillos",
+		"en": "Platform of the Knives"
+	},
+	"type": "structure",
+	"sketchfabId": "56087e46a4534e0cb95c7128f93abb2a",
+	"thumbnail": "https://media.sketchfab.com/models/56087e46a4534e0cb95c7128f93abb2a/thumbnails/28ee1072d1834bb5a15dc8bab4375eb0/640.jpeg",
+	"author": {
+		"name": "Geography UGent 3D",
+		"url": "https://sketchfab.com/geographyugent"
+	},
+	"sites": [
+		"es/edzna"
+	]
+}

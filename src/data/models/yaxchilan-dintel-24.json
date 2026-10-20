@@ -1,0 +1,20 @@
+{
+	"name": {
+		"es": "Dintel 24",
+		"en": "Lintel 24"
+	},
+	"type": "object",
+	"sketchfabId": "9af8e4ddd9c642e69504cad782b43714",
+	"thumbnail": "https://media.sketchfab.com/models/9af8e4ddd9c642e69504cad782b43714/thumbnails/92a8ada406c04705999fde3ac335dbdf/b8e272be0a93490e908b6f78dfd2c6fd.jpeg",
+	"author": {
+		"name": "danielpett",
+		"url": "https://sketchfab.com/danielpett"
+	},
+	"license": {
+		"name": "CC BY 4.0",
+		"url": "https://creativecommons.org/licenses/by/4.0/"
+	},
+	"sites": [
+		"es/yaxchilan"
+	]
+}

@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "El Palacio",
+		"en": "The Palace"
+	},
+	"type": "structure",
+	"sketchfabId": "1f29b48dab094fc0bcfa83821ed69e56",
+	"thumbnail": "https://media.sketchfab.com/models/1f29b48dab094fc0bcfa83821ed69e56/thumbnails/bd8807ae3e8e499c9fa7fdef459558e3/f7b84bef7f2a4ce99f22392c4e0ce7a7.jpeg",
+	"author": {
+		"name": "yucatan",
+		"url": "https://sketchfab.com/yucatan"
+	},
+	"sites": [
+		"es/chacmultun"
+	]
+}

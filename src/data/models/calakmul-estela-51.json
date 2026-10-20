@@ -1,0 +1,20 @@
+{
+	"name": {
+		"es": "Estela 51",
+		"en": "Stela 51"
+	},
+	"type": "object",
+	"sketchfabId": "0656f0de5ef543e4a9b5e758b5cd3481",
+	"thumbnail": "https://media.sketchfab.com/models/0656f0de5ef543e4a9b5e758b5cd3481/thumbnails/bde5983fd8734a53ba6fddd6efd0a0ca/e5b1cbd8e85342caabaf0498258d0805.jpeg",
+	"author": {
+		"name": "rmark",
+		"url": "https://sketchfab.com/rmark"
+	},
+	"license": {
+		"name": "CC BY 4.0",
+		"url": "https://creativecommons.org/licenses/by/4.0/"
+	},
+	"sites": [
+		"es/calakmul"
+	]
+}

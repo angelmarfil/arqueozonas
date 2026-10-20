@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Friso",
+		"en": "Frieze"
+	},
+	"type": "object",
+	"sketchfabId": "00337600a47245278ec3127f4850fc37",
+	"thumbnail": "https://media.sketchfab.com/models/00337600a47245278ec3127f4850fc37/thumbnails/5b0c81e1bce04ce7a9a51dc872bbca50/640x360.jpeg",
+	"author": {
+		"name": "rmark",
+		"url": "https://sketchfab.com/rmark"
+	},
+	"sites": [
+		"es/balamku"
+	]
+}

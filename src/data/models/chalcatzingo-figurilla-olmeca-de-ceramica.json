@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Figurilla olmeca de cerámica",
+		"en": "Olmec ceramic figurine"
+	},
+	"type": "object",
+	"sketchfabId": "665cfe911bec4f77bebc90880e457235",
+	"thumbnail": "https://media.sketchfab.com/models/665cfe911bec4f77bebc90880e457235/thumbnails/d69546146fb14a7fbdcf71c70ad57dfe/3e8724babf9346dcb95534329a99257b.jpeg",
+	"author": {
+		"name": "University of South Florida Libraries",
+		"url": "https://sketchfab.com/USF_digital"
+	},
+	"sites": [
+		"es/chalcatzingo"
+	]
+}

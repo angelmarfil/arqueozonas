@@ -1,0 +1,20 @@
+{
+	"name": {
+		"es": "Coyolxauhqui",
+		"en": "Coyolxauhqui"
+	},
+	"type": "object",
+	"sketchfabId": "fe76123f45cc49b5ac1b5b235d508aaf",
+	"thumbnail": "https://media.sketchfab.com/models/fe76123f45cc49b5ac1b5b235d508aaf/thumbnails/08775b7ac5ad4faf8cd456be8d25e912/757b7711ba624f3498bda2104a94d163.jpeg",
+	"author": {
+		"name": "rmark",
+		"url": "https://sketchfab.com/rmark"
+	},
+	"license": {
+		"name": "CC BY 4.0",
+		"url": "https://creativecommons.org/licenses/by/4.0/"
+	},
+	"sites": [
+		"es/templo-mayor"
+	]
+}

@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "El Castillo (Templo de Kukulcán)",
+		"en": "El Castillo (Temple of Kukulcan)"
+	},
+	"type": "structure",
+	"sketchfabId": "1624b224a7514762baf9025e6fe7dc4f",
+	"thumbnail": "https://media.sketchfab.com/models/1624b224a7514762baf9025e6fe7dc4f/thumbnails/10b03b40f9d5486d99a1941b29512f7d/f542ad2f3c6b4c9bad3c35436a15eaef.jpeg",
+	"author": {
+		"name": "CyArk",
+		"url": "https://sketchfab.com/CyArk"
+	},
+	"sites": [
+		"es/chichen-itza"
+	]
+}

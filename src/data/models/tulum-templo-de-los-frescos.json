@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Templo de los Frescos",
+		"en": "Temple of the Frescoes"
+	},
+	"type": "structure",
+	"sketchfabId": "e2276f37b30745f28fe8938bd36d4571",
+	"thumbnail": "https://media.sketchfab.com/models/e2276f37b30745f28fe8938bd36d4571/thumbnails/46f01bd44b5f458abbedf50181742b70/720x405.jpeg",
+	"author": {
+		"name": "Mario_Wallner",
+		"url": "https://sketchfab.com/Mario_Wallner"
+	},
+	"sites": [
+		"es/tulum"
+	]
+}

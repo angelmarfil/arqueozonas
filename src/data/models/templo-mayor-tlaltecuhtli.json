@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Tlaltecuhtli",
+		"en": "Tlaltecuhtli"
+	},
+	"type": "object",
+	"sketchfabId": "215f2228b0884aaa816954dc2e56077b",
+	"thumbnail": "https://media.sketchfab.com/models/215f2228b0884aaa816954dc2e56077b/thumbnails/8b7d1867973944e28d529596bb9b5240/720x405.jpeg",
+	"author": {
+		"name": "rmark",
+		"url": "https://sketchfab.com/rmark"
+	},
+	"sites": [
+		"es/templo-mayor"
+	]
+}

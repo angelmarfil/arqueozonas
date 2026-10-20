@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Monumento 5",
+		"en": "Monument 5"
+	},
+	"type": "object",
+	"sketchfabId": "be56136e8ad9412c85a6f4b4eff5c655",
+	"thumbnail": "https://media.sketchfab.com/models/be56136e8ad9412c85a6f4b4eff5c655/thumbnails/3d5e9a83f4594f72b2f530b651875600/f1b67ff049a949a5a262e87fbf0e4d4c.jpeg",
+	"author": {
+		"name": "University of South Florida Libraries",
+		"url": "https://sketchfab.com/USF_digital"
+	},
+	"sites": [
+		"es/chalcatzingo"
+	]
+}

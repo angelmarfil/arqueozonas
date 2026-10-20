@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Máscara de piedra verde",
+		"en": "Greenstone mask"
+	},
+	"type": "object",
+	"sketchfabId": "94e48d525da84504be743df6fc2b64a8",
+	"thumbnail": "https://media.sketchfab.com/models/94e48d525da84504be743df6fc2b64a8/thumbnails/564ff321aa124d12b4901271bdeddca9/640x360.jpeg",
+	"author": {
+		"name": "Museo Maya de Cancún INAH",
+		"url": "https://sketchfab.com/museomayacancun"
+	},
+	"sites": [
+		"es/dzibanche"
+	]
+}

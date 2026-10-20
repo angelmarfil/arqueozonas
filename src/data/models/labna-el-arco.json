@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "El Arco",
+		"en": "The Arch"
+	},
+	"type": "structure",
+	"sketchfabId": "37bc3668f133445791210f75647d8ce9",
+	"thumbnail": "https://media.sketchfab.com/models/37bc3668f133445791210f75647d8ce9/thumbnails/0c66878f7f294b8e827122c1db8671fe/b699f1a1e9da4164b90251f3cd09677c.jpeg",
+	"author": {
+		"name": "yucatan",
+		"url": "https://sketchfab.com/yucatan"
+	},
+	"sites": [
+		"es/labna"
+	]
+}

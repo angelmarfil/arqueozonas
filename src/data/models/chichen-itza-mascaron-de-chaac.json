@@ -1,0 +1,20 @@
+{
+	"name": {
+		"es": "Mascarón de Chaac",
+		"en": "Chaac mask"
+	},
+	"type": "object",
+	"sketchfabId": "e68c1c0633674f6bb39e07d7f6dd9152",
+	"thumbnail": "https://media.sketchfab.com/models/e68c1c0633674f6bb39e07d7f6dd9152/thumbnails/255738db739f4f18ba2215778c7f5791/9757824265444c858e5344e3a0077c9e.jpeg",
+	"author": {
+		"name": "Jorge Cu",
+		"url": "https://sketchfab.com/jorgecu"
+	},
+	"license": {
+		"name": "CC BY 4.0",
+		"url": "https://creativecommons.org/licenses/by/4.0/"
+	},
+	"sites": [
+		"es/chichen-itza"
+	]
+}

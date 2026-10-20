@@ -1,0 +1,20 @@
+{
+	"name": {
+		"es": "Atlante",
+		"en": "Atlantean figure"
+	},
+	"type": "object",
+	"sketchfabId": "fc7aee1f37d9444ebd18ad71e993588c",
+	"thumbnail": "https://media.sketchfab.com/models/fc7aee1f37d9444ebd18ad71e993588c/thumbnails/e1bc48cf9d594b8c9101c4d57fbaf1c9/ff4ab84343f3413b8b992d80367923af.jpeg",
+	"author": {
+		"name": "Jorge Cu",
+		"url": "https://sketchfab.com/jorgecu"
+	},
+	"license": {
+		"name": "CC BY-NC 4.0",
+		"url": "https://creativecommons.org/licenses/by-nc/4.0/"
+	},
+	"sites": [
+		"es/tula"
+	]
+}

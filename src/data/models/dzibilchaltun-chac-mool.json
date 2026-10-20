@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Chac Mool",
+		"en": "Chac Mool"
+	},
+	"type": "object",
+	"sketchfabId": "ded2ae6e170d4488a597ee3d7c01d3a8",
+	"thumbnail": "https://media.sketchfab.com/models/ded2ae6e170d4488a597ee3d7c01d3a8/thumbnails/6840be0c83e14c5e82bae764ef09e274/4be0acafe8794316992c5420ad07d44b.jpeg",
+	"author": {
+		"name": "yucatan",
+		"url": "https://sketchfab.com/yucatan"
+	},
+	"sites": [
+		"es/dzibilchaltun"
+	]
+}

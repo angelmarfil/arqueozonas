@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Monumento 1, El Rey",
+		"en": "Monument 1, El Rey"
+	},
+	"type": "object",
+	"sketchfabId": "c17f6a64f7b44de88d96ebb982393c75",
+	"thumbnail": "https://media.sketchfab.com/models/c17f6a64f7b44de88d96ebb982393c75/thumbnails/6f6b937c77844aa0949510b4b0757262/f78c113d23d34fdc9322c7a80b7bf6af.jpeg",
+	"author": {
+		"name": "University of South Florida Libraries",
+		"url": "https://sketchfab.com/USF_digital"
+	},
+	"sites": [
+		"es/chalcatzingo"
+	]
+}

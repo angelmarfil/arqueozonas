@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Vista general",
+		"en": "Site overview"
+	},
+	"type": "structure",
+	"sketchfabId": "fadc48cff53843f381e8a918a8b78866",
+	"thumbnail": "https://media.sketchfab.com/models/fadc48cff53843f381e8a918a8b78866/thumbnails/a29c4246f23a4d2caa029c6cf5cfbb21/13e17741947b49a5ad09e2b8b06b61e3.jpeg",
+	"author": {
+		"name": "Geography UGent 3D",
+		"url": "https://sketchfab.com/geographyugent"
+	},
+	"sites": [
+		"es/edzna"
+	]
+}

@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Plaza de los Sacrificios",
+		"en": "Plaza of the Sacrifices"
+	},
+	"type": "structure",
+	"sketchfabId": "b9b3a29818594dbc85e50702d124542f",
+	"thumbnail": "https://media.sketchfab.com/models/b9b3a29818594dbc85e50702d124542f/thumbnails/2fe93ab4bf0545ad8fcd511053b93098/4ae40724568f4308aac0bc38b52e50c9.jpeg",
+	"author": {
+		"name": "Museo Virtual La Quemada",
+		"url": "https://sketchfab.com/Museo_La_Quemada"
+	},
+	"sites": [
+		"es/la-quemada"
+	]
+}

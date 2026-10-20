@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Muro sur del Edificio B",
+		"en": "South wall of Building B"
+	},
+	"type": "structure",
+	"sketchfabId": "2957b036d9f945e7bd2f1314627d8652",
+	"thumbnail": "https://media.sketchfab.com/models/2957b036d9f945e7bd2f1314627d8652/thumbnails/49122213bcd845d19c2437951e8df476/5a17ded1683a4709ba4c2046b924fc03.jpeg",
+	"author": {
+		"name": "Archeografica_3D",
+		"url": "https://sketchfab.com/sastun1962"
+	},
+	"sites": [
+		"es/tula"
+	]
+}

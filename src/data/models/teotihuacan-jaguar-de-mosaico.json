@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Jaguar de mosaico",
+		"en": "Mosaic jaguar"
+	},
+	"type": "object",
+	"sketchfabId": "35be6b76b24e40f8ad9d6188c708ff19",
+	"thumbnail": "https://media.sketchfab.com/models/35be6b76b24e40f8ad9d6188c708ff19/thumbnails/5e222c56e7ba4a7cb98ca6f031b09f83/720x405.jpeg",
+	"author": {
+		"name": "rmark",
+		"url": "https://sketchfab.com/rmark"
+	},
+	"sites": [
+		"es/teotihuacan"
+	]
+}

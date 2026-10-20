@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Atlantes de la Casa de los Caracoles",
+		"en": "Atlantean figures of the House of the Snails"
+	},
+	"type": "object",
+	"sketchfabId": "5a08b7aef2674c66a90cbabdae827085",
+	"thumbnail": "https://media.sketchfab.com/models/5a08b7aef2674c66a90cbabdae827085/thumbnails/46e7abd18f8649fe8234760707f4279c/720x405.jpeg",
+	"author": {
+		"name": "Museo Virtual de Chichén-Itzá",
+		"url": "https://sketchfab.com/chichen.itza"
+	},
+	"sites": [
+		"es/chichen-itza"
+	]
+}

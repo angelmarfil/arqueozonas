@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Petrograbado de las siete serpientes",
+		"en": "Petroglyph of the seven serpents"
+	},
+	"type": "object",
+	"sketchfabId": "c5eabaee3b6a4eb59911b865016221e3",
+	"thumbnail": "https://media.sketchfab.com/models/c5eabaee3b6a4eb59911b865016221e3/thumbnails/2ae6307954af45f196b0b48462a37a07/287febb27a24417c84ae9e90f03e994e.jpeg",
+	"author": {
+		"name": "Museo Virtual La Quemada",
+		"url": "https://sketchfab.com/Museo_La_Quemada"
+	},
+	"sites": [
+		"es/la-quemada"
+	]
+}

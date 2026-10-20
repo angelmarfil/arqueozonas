@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Juego de Pelota",
+		"en": "Ballcourt"
+	},
+	"type": "structure",
+	"sketchfabId": "24b100adfce34f3faf7dd9d5f7e289ec",
+	"thumbnail": "https://media.sketchfab.com/models/24b100adfce34f3faf7dd9d5f7e289ec/thumbnails/ec04623b2e1c4c36b08cf13fcf0b97d9/917974a5222c451fbef7f4e5b39ea3cd.jpeg",
+	"author": {
+		"name": "Instituto Regional del Patrimonio Mundial - UNESCO",
+		"url": "https://sketchfab.com/IRPMZ_UNESCO"
+	},
+	"sites": [
+		"es/yagul"
+	]
+}

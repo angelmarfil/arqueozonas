@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Chac Mool de El Castillo",
+		"en": "Chac Mool of El Castillo"
+	},
+	"type": "object",
+	"sketchfabId": "2fc0c0f73a1d407d8572ceb8306e4200",
+	"thumbnail": "https://media.sketchfab.com/models/2fc0c0f73a1d407d8572ceb8306e4200/thumbnails/821be21c41ea4b5690d1aa692d2b1537/720x405.jpeg",
+	"author": {
+		"name": "Museo Virtual de Chichén-Itzá",
+		"url": "https://sketchfab.com/chichen.itza"
+	},
+	"sites": [
+		"es/chichen-itza"
+	]
+}

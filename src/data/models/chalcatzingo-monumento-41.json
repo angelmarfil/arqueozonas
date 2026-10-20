@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Monumento 41",
+		"en": "Monument 41"
+	},
+	"type": "object",
+	"sketchfabId": "360d6e5620f041ab916d11fdce63dd1c",
+	"thumbnail": "https://media.sketchfab.com/models/360d6e5620f041ab916d11fdce63dd1c/thumbnails/4d8445c160724596859a8e3d82f346da/9465466b7869493182948d0f9a4a900f.jpeg",
+	"author": {
+		"name": "University of South Florida Libraries",
+		"url": "https://sketchfab.com/USF_digital"
+	},
+	"sites": [
+		"es/chalcatzingo"
+	]
+}

@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Juego de Pelota",
+		"en": "Ballcourt"
+	},
+	"type": "structure",
+	"sketchfabId": "6b869f2efe2b45fb90cd00a22ae978b7",
+	"thumbnail": "https://media.sketchfab.com/models/6b869f2efe2b45fb90cd00a22ae978b7/thumbnails/f43d640a4d54436994a2ccbafa347f3c/3f84f6b1cb12410e85c79bd33b116e9c.jpeg",
+	"author": {
+		"name": "Monte Albán Digital Archaeology Project (MADAP)",
+		"url": "https://sketchfab.com/MADAP"
+	},
+	"sites": [
+		"es/monte-alban"
+	]
+}

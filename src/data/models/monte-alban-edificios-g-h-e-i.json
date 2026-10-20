@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Edificios G, H e I",
+		"en": "Buildings G, H and I"
+	},
+	"type": "structure",
+	"sketchfabId": "aed4a100f7c141be823e14cf4a8df078",
+	"thumbnail": "https://media.sketchfab.com/models/aed4a100f7c141be823e14cf4a8df078/thumbnails/30a7b850b31f4353ba9eafc4faaed0b9/3081b837345e44ce82667ae13cfb287d.jpeg",
+	"author": {
+		"name": "Monte Albán Digital Archaeology Project (MADAP)",
+		"url": "https://sketchfab.com/MADAP"
+	},
+	"sites": [
+		"es/monte-alban"
+	]
+}

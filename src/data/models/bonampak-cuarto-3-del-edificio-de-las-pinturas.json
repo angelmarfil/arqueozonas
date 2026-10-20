@@ -1,0 +1,20 @@
+{
+	"name": {
+		"es": "Cuarto 3 del Edificio de las Pinturas",
+		"en": "Room 3 of the Temple of the Murals"
+	},
+	"type": "structure",
+	"sketchfabId": "81d84f864bbc4ec28473d3ec4401ea5e",
+	"thumbnail": "https://media.sketchfab.com/models/81d84f864bbc4ec28473d3ec4401ea5e/thumbnails/f8af3fddc3a149e5aa3dd2a218380b05/c6776d4c88ed45b0a03e233ea4220648.jpeg",
+	"author": {
+		"name": "rmark",
+		"url": "https://sketchfab.com/rmark"
+	},
+	"license": {
+		"name": "CC BY 4.0",
+		"url": "https://creativecommons.org/licenses/by/4.0/"
+	},
+	"sites": [
+		"es/bonampak"
+	]
+}

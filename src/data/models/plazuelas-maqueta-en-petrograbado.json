@@ -1,0 +1,20 @@
+{
+	"name": {
+		"es": "Maqueta en petrograbado",
+		"en": "Petroglyph model"
+	},
+	"type": "object",
+	"sketchfabId": "86189ffaf6fb4d86ae480e79ee60815d",
+	"thumbnail": "https://media.sketchfab.com/models/86189ffaf6fb4d86ae480e79ee60815d/thumbnails/e36b226cc27d4821ae3a7178ec25bd77/5c53e864302e46b0a1ce6301e8145294.jpeg",
+	"author": {
+		"name": "rmark",
+		"url": "https://sketchfab.com/rmark"
+	},
+	"license": {
+		"name": "CC BY 4.0",
+		"url": "https://creativecommons.org/licenses/by/4.0/"
+	},
+	"sites": [
+		"es/plazuelas"
+	]
+}

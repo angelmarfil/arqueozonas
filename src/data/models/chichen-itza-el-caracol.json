@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "El Caracol",
+		"en": "El Caracol (The Observatory)"
+	},
+	"type": "structure",
+	"sketchfabId": "a55462a123db498d8351ca45054cab85",
+	"thumbnail": "https://media.sketchfab.com/models/a55462a123db498d8351ca45054cab85/thumbnails/1703d6f08ae348df82c1a7824b01b907/fdee9e543c1b47388c66548228f09d1f.jpeg",
+	"author": {
+		"name": "CyArk",
+		"url": "https://sketchfab.com/CyArk"
+	},
+	"sites": [
+		"es/chichen-itza"
+	]
+}

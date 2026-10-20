@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Gran Jaguar",
+		"en": "Great Jaguar"
+	},
+	"type": "object",
+	"sketchfabId": "ece7cecafdad4eeab9e661579c0d6e2c",
+	"thumbnail": "https://media.sketchfab.com/models/ece7cecafdad4eeab9e661579c0d6e2c/thumbnails/243827615d26430b859e883779ff46eb/2bff950c15a14030a2aba48c560a91a6.jpeg",
+	"author": {
+		"name": "Museo Nacional de Antropología",
+		"url": "https://sketchfab.com/mna_inah"
+	},
+	"sites": [
+		"es/monte-alban"
+	]
+}

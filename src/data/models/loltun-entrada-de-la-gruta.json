@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Entrada de la gruta",
+		"en": "Cave entrance"
+	},
+	"type": "structure",
+	"sketchfabId": "ffe1d3fa95b1412998bf109908a609d1",
+	"thumbnail": "https://media.sketchfab.com/models/ffe1d3fa95b1412998bf109908a609d1/thumbnails/f11e0375f42747a48b71b7db005002e3/640x360.jpeg",
+	"author": {
+		"name": "rmark",
+		"url": "https://sketchfab.com/rmark"
+	},
+	"sites": [
+		"es/loltun"
+	]
+}

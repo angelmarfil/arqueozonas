@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Mural",
+		"en": "Mural"
+	},
+	"type": "object",
+	"sketchfabId": "826e789a607b4586bc39651109cee707",
+	"thumbnail": "https://media.sketchfab.com/models/826e789a607b4586bc39651109cee707/thumbnails/04b4390b318546cca18fa8716a7e42d2/425ba0acfd25428f94d4831c0c6a95a4.jpeg",
+	"author": {
+		"name": "rmark",
+		"url": "https://sketchfab.com/rmark"
+	},
+	"sites": [
+		"es/tulum"
+	]
+}

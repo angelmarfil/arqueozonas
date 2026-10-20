@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Templo de Quetzalcóatl",
+		"en": "Temple of Quetzalcoatl"
+	},
+	"type": "structure",
+	"sketchfabId": "1191545483b04a82bbe63475c666b0e8",
+	"thumbnail": "https://media.sketchfab.com/models/1191545483b04a82bbe63475c666b0e8/thumbnails/74b5f58b2c1047abbc7e76e88d7f9151/fd68c264a02d4d71b0c6193ac1cc66da.jpeg",
+	"author": {
+		"name": "CyArk",
+		"url": "https://sketchfab.com/CyArk"
+	},
+	"sites": [
+		"es/teotihuacan"
+	]
+}

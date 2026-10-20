@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Escultura de mujer noble",
+		"en": "Sculpture of a noblewoman"
+	},
+	"type": "object",
+	"sketchfabId": "b25a600bf6904258b26b083d5dfb2907",
+	"thumbnail": "https://media.sketchfab.com/models/b25a600bf6904258b26b083d5dfb2907/thumbnails/f471dbb53a14438a8b491baf713d8ae3/257ad299d44d408ca2a6995d3959aeb3.jpeg",
+	"author": {
+		"name": "Museo Maya de Cancún INAH",
+		"url": "https://sketchfab.com/museomayacancun"
+	},
+	"sites": [
+		"es/xelha"
+	]
+}

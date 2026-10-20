@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Juego de Pelota",
+		"en": "Ballcourt"
+	},
+	"type": "structure",
+	"sketchfabId": "dd7320701ac04fe8b75caefe6fb993b9",
+	"thumbnail": "https://media.sketchfab.com/models/dd7320701ac04fe8b75caefe6fb993b9/thumbnails/bf72027b6e974fa1ae6663d5a9959336/de542bc260494c40b38b7c4fa6a488d3.jpeg",
+	"author": {
+		"name": "Museo Virtual La Quemada",
+		"url": "https://sketchfab.com/Museo_La_Quemada"
+	},
+	"sites": [
+		"es/la-quemada"
+	]
+}

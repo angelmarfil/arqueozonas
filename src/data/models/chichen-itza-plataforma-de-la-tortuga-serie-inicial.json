@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Plataforma de la Tortuga, Serie Inicial",
+		"en": "Turtle Platform, Initial Series Group"
+	},
+	"type": "structure",
+	"sketchfabId": "5ac7188822674af79f948ed061364b9e",
+	"thumbnail": "https://media.sketchfab.com/models/5ac7188822674af79f948ed061364b9e/thumbnails/c5290ea127f940a0b6812f59670118bf/720x405.jpeg",
+	"author": {
+		"name": "Museo Virtual de Chichén-Itzá",
+		"url": "https://sketchfab.com/chichen.itza"
+	},
+	"sites": [
+		"es/chichen-itza"
+	]
+}

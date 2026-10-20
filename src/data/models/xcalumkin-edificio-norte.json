@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Edificio Norte",
+		"en": "North Building"
+	},
+	"type": "structure",
+	"sketchfabId": "adf4e6b587514445bc1ff3edec72be30",
+	"thumbnail": "https://media.sketchfab.com/models/adf4e6b587514445bc1ff3edec72be30/thumbnails/24c6895fa5f74ea889955c4e79299033/9b87b9f989b149d8aa56cd1584c60b51.jpeg",
+	"author": {
+		"name": "Heritage3D",
+		"url": "https://sketchfab.com/Heritage3D"
+	},
+	"sites": [
+		"es/xcalumkin"
+	]
+}

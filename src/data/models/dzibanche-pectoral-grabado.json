@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Pectoral grabado",
+		"en": "Engraved pectoral"
+	},
+	"type": "object",
+	"sketchfabId": "66fc7e4e797246d9b2cd500728c9a51a",
+	"thumbnail": "https://media.sketchfab.com/models/66fc7e4e797246d9b2cd500728c9a51a/thumbnails/66f0933d2b304737b50963eaa4fa6073/7d3f801bb53442279fee934015e2c5ab.jpeg",
+	"author": {
+		"name": "Museo Nacional de Antropología",
+		"url": "https://sketchfab.com/mna_inah"
+	},
+	"sites": [
+		"es/dzibanche"
+	]
+}

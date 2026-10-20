@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Escultura maya",
+		"en": "Maya sculpture"
+	},
+	"type": "object",
+	"sketchfabId": "4afd5e98e63a431c87e43f4add832b89",
+	"thumbnail": "https://media.sketchfab.com/models/4afd5e98e63a431c87e43f4add832b89/thumbnails/afe5e3fffd454b2fbe214c6ed87d4837/640x360.jpeg",
+	"author": {
+		"name": "rmark",
+		"url": "https://sketchfab.com/rmark"
+	},
+	"sites": [
+		"es/becan"
+	]
+}

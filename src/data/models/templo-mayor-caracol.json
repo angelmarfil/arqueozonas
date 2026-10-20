@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Caracol",
+		"en": "Conch shell"
+	},
+	"type": "object",
+	"sketchfabId": "1abbf472cf5e4fea878929dc8bdb74ae",
+	"thumbnail": "https://media.sketchfab.com/models/1abbf472cf5e4fea878929dc8bdb74ae/thumbnails/c94959ddc12f4803a96a673004703337/99f18b31b85c45aa861519404e456611.jpeg",
+	"author": {
+		"name": "CyArk",
+		"url": "https://sketchfab.com/CyArk"
+	},
+	"sites": [
+		"es/templo-mayor"
+	]
+}

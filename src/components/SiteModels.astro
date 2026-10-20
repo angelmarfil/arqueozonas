@@ -1,0 +1,115 @@
+---
+import { Icon } from "astro-icon/components";
+import type { getSiteModels } from "../i18n/content";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+interface Props {
+  models: Awaited<ReturnType<typeof getSiteModels>>;
+}
+
+const { models } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const embedUrl = (id: string) => `https://sketchfab.com/models/${id}/embed?autostart=1&dnt=1`;
+const modelUrl = (id: string) => `https://sketchfab.com/3d-models/${id}`;
+---
+
+{
+  models.length > 0 && (
+    <section class="flex flex-col gap-4">
+      <h2 class="flex items-center gap-2 text-2xl font-bold tracking-tight">
+        <Icon name="boxicons:cube" class="size-6 shrink-0 text-base-content/50" aria-hidden="true" />
+        {t("site.models")}
+      </h2>
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {models.map(({ name, type, sketchfabId, thumbnail, author }) => (
+          <button
+            type="button"
+            data-model-open={`model-${sketchfabId}`}
+            aria-label={`${t("site.models.view")}: ${name}`}
+            class="card card-border cursor-pointer bg-base-100 text-left transition-colors hover:bg-base-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-base-content"
+          >
+            <figure class="relative aspect-4/3 bg-base-200">
+              <Icon name="boxicons:cube" class="size-12 text-base-content/25" aria-hidden="true" />
+              <img
+                src={thumbnail}
+                alt=""
+                loading="lazy"
+                decoding="async"
+                onerror="this.hidden = true"
+                class="absolute inset-0 h-full w-full object-cover"
+              />
+              <span class="badge badge-sm absolute top-3 left-3 border-0 bg-base-100/85">
+                <Icon name="boxicons:cube" class="size-3" aria-hidden="true" />
+                {t(`site.models.${type}`)}
+              </span>
+            </figure>
+            <div class="card-body">
+              <h3 class="card-title">{name}</h3>
+              <p class="text-base-content/60">
+                {t("site.models.by")} {author.name}
+              </p>
+            </div>
+          </button>
+        ))}
+      </div>
+      {models.map(({ name, sketchfabId, author, license }) => (
+        <dialog id={`model-${sketchfabId}`} class="modal" aria-label={name}>
+          <div class="modal-box flex w-11/12 max-w-5xl flex-col gap-3 p-4 sm:p-6">
+            <div class="flex items-start justify-between gap-4">
+              <h3 class="text-lg font-bold">{name}</h3>
+              <form method="dialog">
+                <button class="btn btn-circle btn-ghost btn-sm" aria-label={t("map.close")}>
+                  <Icon name="boxicons:x" class="size-5" aria-hidden="true" />
+                </button>
+              </form>
+            </div>
+            <div class="aspect-4/3 w-full overflow-hidden rounded-box bg-base-200 sm:aspect-video">
+              <iframe
+                title={name}
+                data-src={embedUrl(sketchfabId)}
+                class="h-full w-full"
+                allow="autoplay; fullscreen; xr-spatial-tracking"
+                allowfullscreen
+              />
+            </div>
+            <p class="text-xs text-base-content/60">
+              {t("site.models.by")}{" "}
+              <a href={author.url} target="_blank" rel="noopener" class="link">{author.name}</a>
+              {" · "}
+              {license ? (
+                <a href={license.url} target="_blank" rel="noopener license" class="link">{license.name}</a>
+              ) : (
+                t("site.models.allRightsReserved")
+              )}
+              {" · "}
+              <a href={modelUrl(sketchfabId)} target="_blank" rel="noopener" class="link">
+                {t("site.models.openSketchfab")}
+              </a>
+            </p>
+          </div>
+          <form method="dialog" class="modal-backdrop">
+            <button>{t("map.close")}</button>
+          </form>
+        </dialog>
+      ))}
+    </section>
+  )
+}
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    for (const button of document.querySelectorAll<HTMLButtonElement>("[data-model-open]")) {
+      const dialog = document.getElementById(button.dataset.modelOpen!) as HTMLDialogElement | null;
+      const iframe = dialog?.querySelector<HTMLIFrameElement>("iframe[data-src]");
+      if (!dialog || !iframe) continue;
+      button.addEventListener("click", () => {
+        iframe.src = iframe.dataset.src!;
+        dialog.showModal();
+      });
+      dialog.addEventListener("close", () => {
+        iframe.src = "about:blank";
+      });
+    }
+  });
+</script>

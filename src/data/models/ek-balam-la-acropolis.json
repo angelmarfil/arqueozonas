@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "La Acrópolis",
+		"en": "The Acropolis"
+	},
+	"type": "structure",
+	"sketchfabId": "a597ef5d3c4e4e8195b897ca7970bedb",
+	"thumbnail": "https://media.sketchfab.com/models/a597ef5d3c4e4e8195b897ca7970bedb/thumbnails/f6ea023d3cb642a3809324e68f184022/720x405.jpeg",
+	"author": {
+		"name": "Mario_Wallner",
+		"url": "https://sketchfab.com/Mario_Wallner"
+	},
+	"sites": [
+		"es/ek-balam"
+	]
+}

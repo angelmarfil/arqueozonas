@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Trono del Jaguar Rojo",
+		"en": "Red Jaguar Throne"
+	},
+	"type": "object",
+	"sketchfabId": "1de2f97e4f344093964bd3712aba97e7",
+	"thumbnail": "https://media.sketchfab.com/models/1de2f97e4f344093964bd3712aba97e7/thumbnails/8e3919b1db6e4cf580a01dc893c8b324/720x405.jpeg",
+	"author": {
+		"name": "Museo Virtual de Chichén-Itzá",
+		"url": "https://sketchfab.com/chichen.itza"
+	},
+	"sites": [
+		"es/chichen-itza"
+	]
+}

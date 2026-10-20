@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Estela 1",
+		"en": "Stela 1"
+	},
+	"type": "object",
+	"sketchfabId": "72096d13ba2a45f5b545e602fe811ef3",
+	"thumbnail": "https://media.sketchfab.com/models/72096d13ba2a45f5b545e602fe811ef3/thumbnails/a1317c514cbf451d8c5e3ea7208604ac/720x405.jpeg",
+	"author": {
+		"name": "rmark",
+		"url": "https://sketchfab.com/rmark"
+	},
+	"sites": [
+		"es/bonampak"
+	]
+}

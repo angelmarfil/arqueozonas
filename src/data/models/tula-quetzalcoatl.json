@@ -1,0 +1,20 @@
+{
+	"name": {
+		"es": "Quetzalcóatl",
+		"en": "Quetzalcoatl"
+	},
+	"type": "object",
+	"sketchfabId": "1b3fe2643876448e940feb4b1257edfb",
+	"thumbnail": "https://media.sketchfab.com/models/1b3fe2643876448e940feb4b1257edfb/thumbnails/6c63b27edfcc402d85a93f5acba14e25/4e3c07904a444fdcb51c5df2fa57be14.jpeg",
+	"author": {
+		"name": "Jorge Cu",
+		"url": "https://sketchfab.com/jorgecu"
+	},
+	"license": {
+		"name": "CC BY 4.0",
+		"url": "https://creativecommons.org/licenses/by/4.0/"
+	},
+	"sites": [
+		"es/tula"
+	]
+}

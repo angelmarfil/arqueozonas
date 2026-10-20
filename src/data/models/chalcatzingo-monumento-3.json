@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Monumento 3",
+		"en": "Monument 3"
+	},
+	"type": "object",
+	"sketchfabId": "b828244b932f479786511d615b61d34e",
+	"thumbnail": "https://media.sketchfab.com/models/b828244b932f479786511d615b61d34e/thumbnails/8e89519eabf043f3ba1d97165077ee40/079608518c6044fd80c63a57a586f5a2.jpeg",
+	"author": {
+		"name": "University of South Florida Libraries",
+		"url": "https://sketchfab.com/USF_digital"
+	},
+	"sites": [
+		"es/chalcatzingo"
+	]
+}

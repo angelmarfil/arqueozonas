@@ -1,0 +1,16 @@
+{
+	"name": {
+		"es": "Panel oeste del Juego de Pelota",
+		"en": "West panel of the Great Ballcourt"
+	},
+	"type": "object",
+	"sketchfabId": "6b98bcd4b86a47fc9da8c6fe2fd17185",
+	"thumbnail": "https://media.sketchfab.com/models/6b98bcd4b86a47fc9da8c6fe2fd17185/thumbnails/b34e8f3023af42cda05f157ecbb3c25f/720x405.jpeg",
+	"author": {
+		"name": "Museo Virtual de Chichén-Itzá",
+		"url": "https://sketchfab.com/chichen.itza"
+	},
+	"sites": [
+		"es/chichen-itza"
+	]
+}

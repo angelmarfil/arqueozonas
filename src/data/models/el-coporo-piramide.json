@@ -1,0 +1,20 @@
+{
+	"name": {
+		"es": "Pirámide",
+		"en": "Pyramid"
+	},
+	"type": "structure",
+	"sketchfabId": "f1a611464b8040118d114e297cfc09cb",
+	"thumbnail": "https://media.sketchfab.com/models/f1a611464b8040118d114e297cfc09cb/thumbnails/9bc480c915c344cfac64188573d2da0f/720x405.jpeg",
+	"author": {
+		"name": "Daniel Bolaños",
+		"url": "https://sketchfab.com/dbolanos414"
+	},
+	"license": {
+		"name": "CC BY 4.0",
+		"url": "https://creativecommons.org/licenses/by/4.0/"
+	},
+	"sites": [
+		"es/el-coporo"
+	]
+}
