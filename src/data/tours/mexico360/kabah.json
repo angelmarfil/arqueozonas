@@ -1,0 +1,10 @@
+{
+	"name": "Kabah",
+	"provider": "mexico360",
+	"type": "site",
+	"url": "https://www.mexico360.com.mx/yucatan/kabah.html",
+	"state": "yucatan",
+	"sites": [
+		"es/kabah"
+	]
+}

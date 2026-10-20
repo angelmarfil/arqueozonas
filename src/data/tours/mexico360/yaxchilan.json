@@ -1,0 +1,10 @@
+{
+	"name": "Yaxchilán",
+	"provider": "mexico360",
+	"type": "site",
+	"url": "https://www.mexico360.com.mx/chiapas/yaxchilan.html",
+	"state": "chiapas",
+	"sites": [
+		"es/yaxchilan"
+	]
+}

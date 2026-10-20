@@ -1,0 +1,10 @@
+{
+	"name": "Tzintzuntzan",
+	"provider": "mexico360",
+	"type": "site",
+	"url": "https://www.mexico360.com.mx/michoacan/tzintzuntzan.html",
+	"state": "michoacan",
+	"sites": [
+		"es/tzintzuntzan"
+	]
+}

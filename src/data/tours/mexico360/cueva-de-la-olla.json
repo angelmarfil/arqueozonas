@@ -1,0 +1,10 @@
+{
+	"name": "Cueva de la Olla",
+	"provider": "mexico360",
+	"type": "site",
+	"url": "https://www.mexico360.com.mx/chihuahua/cuevadelaolla.html",
+	"state": "chihuahua",
+	"sites": [
+		"es/cueva-de-la-olla"
+	]
+}

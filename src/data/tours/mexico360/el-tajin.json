@@ -1,0 +1,10 @@
+{
+	"name": "El Tajín",
+	"provider": "mexico360",
+	"type": "site",
+	"url": "https://www.mexico360.com.mx/veracruz/eltajin.html",
+	"state": "veracruz",
+	"sites": [
+		"es/el-tajin"
+	]
+}

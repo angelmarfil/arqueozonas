@@ -1,0 +1,10 @@
+{
+	"name": "Zultepec-Tecoaque",
+	"provider": "mexico360",
+	"type": "site",
+	"url": "https://www.mexico360.com.mx/tlaxcala/tecoaque.html",
+	"state": "tlaxcala",
+	"sites": [
+		"es/zultepec-tecoaque"
+	]
+}

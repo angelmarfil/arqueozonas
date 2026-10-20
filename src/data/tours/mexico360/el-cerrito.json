@@ -1,0 +1,10 @@
+{
+	"name": "El Cerrito",
+	"provider": "mexico360",
+	"type": "site",
+	"url": "https://www.mexico360.com.mx/queretaro/elcerrito.html",
+	"state": "queretaro",
+	"sites": [
+		"es/el-cerrito"
+	]
+}

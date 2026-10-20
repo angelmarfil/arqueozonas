@@ -1,0 +1,10 @@
+{
+	"name": "Edzná",
+	"provider": "mexico360",
+	"type": "site",
+	"url": "https://www.mexico360.com.mx/campeche/edzna.html",
+	"state": "campeche",
+	"sites": [
+		"es/edzna"
+	]
+}

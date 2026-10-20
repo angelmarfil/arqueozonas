@@ -1,0 +1,10 @@
+{
+	"name": "Tula",
+	"provider": "mexico360",
+	"type": "site",
+	"url": "https://www.mexico360.com.mx/hidalgo/tula.html",
+	"state": "hidalgo",
+	"sites": [
+		"es/tula"
+	]
+}

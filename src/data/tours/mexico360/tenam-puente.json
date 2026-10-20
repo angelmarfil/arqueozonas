@@ -1,0 +1,10 @@
+{
+	"name": "Tenam Puente",
+	"provider": "mexico360",
+	"type": "site",
+	"url": "https://www.mexico360.com.mx/chiapas/tenampuente.html",
+	"state": "chiapas",
+	"sites": [
+		"es/tenam-puente"
+	]
+}

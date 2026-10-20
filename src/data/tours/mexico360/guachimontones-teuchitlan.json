@@ -1,0 +1,10 @@
+{
+	"name": "Guachimontones (Teuchitlán)",
+	"provider": "mexico360",
+	"type": "site",
+	"url": "https://www.mexico360.com.mx/jalisco/guachimontones.html",
+	"state": "jalisco",
+	"sites": [
+		"es/guachimontones-teuchitlan"
+	]
+}

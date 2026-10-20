@@ -1,0 +1,10 @@
+{
+	"name": "Yagul",
+	"provider": "mexico360",
+	"type": "site",
+	"url": "https://www.mexico360.com.mx/oaxaca/yagul.html",
+	"state": "oaxaca",
+	"sites": [
+		"es/yagul"
+	]
+}

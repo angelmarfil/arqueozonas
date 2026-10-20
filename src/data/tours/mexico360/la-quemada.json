@@ -1,0 +1,10 @@
+{
+	"name": "La Quemada",
+	"provider": "mexico360",
+	"type": "site",
+	"url": "https://www.mexico360.com.mx/zacatecas/laquemada.html",
+	"state": "zacatecas",
+	"sites": [
+		"es/la-quemada"
+	]
+}

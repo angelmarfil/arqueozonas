@@ -1,0 +1,10 @@
+{
+	"name": "Pahñú",
+	"provider": "mexico360",
+	"type": "site",
+	"url": "https://www.mexico360.com.mx/hidalgo/pahnu.html",
+	"state": "hidalgo",
+	"sites": [
+		"es/pahnu"
+	]
+}

@@ -1,0 +1,10 @@
+{
+	"name": "Bonampak",
+	"provider": "mexico360",
+	"type": "site",
+	"url": "https://www.mexico360.com.mx/chiapas/bonampak.html",
+	"state": "chiapas",
+	"sites": [
+		"es/bonampak"
+	]
+}

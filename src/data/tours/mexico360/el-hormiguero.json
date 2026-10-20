@@ -1,0 +1,10 @@
+{
+	"name": "El Hormiguero",
+	"provider": "mexico360",
+	"type": "site",
+	"url": "https://www.mexico360.com.mx/campeche/hormiguero.html",
+	"state": "campeche",
+	"sites": [
+		"es/el-hormiguero"
+	]
+}

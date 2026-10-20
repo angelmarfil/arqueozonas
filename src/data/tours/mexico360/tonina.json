@@ -1,0 +1,10 @@
+{
+	"name": "Toniná",
+	"provider": "mexico360",
+	"type": "site",
+	"url": "https://www.mexico360.com.mx/chiapas/tonina.html",
+	"state": "chiapas",
+	"sites": [
+		"es/tonina"
+	]
+}

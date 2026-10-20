@@ -1,0 +1,10 @@
+{
+	"name": "Teotihuacán",
+	"provider": "mexico360",
+	"type": "site",
+	"url": "https://www.mexico360.com.mx/edomex/teotihuacan.html",
+	"state": "edomex",
+	"sites": [
+		"es/teotihuacan"
+	]
+}

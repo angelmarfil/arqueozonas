@@ -1,0 +1,10 @@
+{
+	"name": "Toluquilla",
+	"provider": "mexico360",
+	"type": "site",
+	"url": "https://www.mexico360.com.mx/queretaro/toluquilla.html",
+	"state": "queretaro",
+	"sites": [
+		"es/toluquilla"
+	]
+}
