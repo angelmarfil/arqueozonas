@@ -26,7 +26,7 @@ const modelUrl = (id: string) => `https://sketchfab.com/3d-models/${id}`;
           <button
             type="button"
             data-model-open={`model-${sketchfabId}`}
-            aria-label={`${t("site.models.view")}: ${name}`}
+            aria-haspopup="dialog"
             class="card card-border cursor-pointer bg-base-100 text-left transition-colors hover:bg-base-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-base-content"
           >
             <figure class="relative aspect-4/3 bg-base-200">

@@ -24,9 +24,9 @@ const t = useTranslations(lang);
     <span class:list={{ 'hidden lg:inline': !block }}>{t('themePicker.label')}</span>
     {block && <Icon name="boxicons:chevron-down" class="ms-auto size-4 opacity-60" aria-hidden="true" />}
   </div>
-  <ul tabindex="-1" class:list={['dropdown-content menu bg-base-100 rounded-box z-1 mt-1 gap-1 p-2 shadow-sm', block ? 'w-full' : 'w-60']}>
+  <ul tabindex="-1" role="radiogroup" aria-label={t('themePicker.label')} class:list={['dropdown-content menu bg-base-100 rounded-box z-1 mt-1 gap-1 p-2 shadow-sm', block ? 'w-full' : 'w-60']}>
     {themes.map((theme) => (
-      <li>
+      <li role="none">
         <label class="group">
           <input type="radio" name={name} value={theme} class="theme-controller sr-only" />
           <div data-theme={theme} class="bg-base-100 grid shrink-0 grid-cols-2 gap-0.5 rounded-md p-1 shadow-sm" aria-hidden="true">

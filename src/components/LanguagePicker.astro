@@ -24,7 +24,7 @@ const route = getRouteFromUrl(Astro.url);
     <span class:list={{ 'hidden lg:inline': !block }}>{t('languagePicker.label')}</span>
     {block && <Icon name="boxicons:chevron-down" class="ms-auto size-4 opacity-60" aria-hidden="true" />}
   </div>
-  <ul tabindex="-1" class:list={['dropdown-content menu bg-base-100 rounded-box z-1 mt-1 gap-1 p-2 shadow-sm', block ? 'w-full' : 'w-52']}>
+  <ul tabindex="-1" aria-label={t('languagePicker.label')} class:list={['dropdown-content menu bg-base-100 rounded-box z-1 mt-1 gap-1 p-2 shadow-sm', block ? 'w-full' : 'w-52']}>
 		{Object.entries(languages).map(([code, label]) => (
 			<li>
 				<a
