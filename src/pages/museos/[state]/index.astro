@@ -57,7 +57,7 @@ const covers = await Promise.all(museums.map(getSiteCover));
 				))}
 			</div>
 		) : (
-			<p class="text-base-content/60">{t('museums.empty')}</p>
+			<p class="text-base-content/70">{t('museums.empty')}</p>
 		)}
 
 		{covers.some(Boolean) && <ImageLicense class="mt-6" />}

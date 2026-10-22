@@ -38,9 +38,12 @@
 }
 
 .lg-toolbar .lg-icon,
-.lg-counter,
 .lg-error-msg {
   color: color-mix(in oklab, var(--color-base-content) 70%, transparent);
+}
+
+.lg-counter {
+  color: color-mix(in oklab, var(--color-base-content) 80%, transparent);
 }
 
 .lg-toolbar .lg-icon:hover,

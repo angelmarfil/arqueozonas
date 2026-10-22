@@ -65,7 +65,7 @@ const visitPanel = (label, sections) =>
 		{ className: ["rounded-box", "bg-base-200", "p-6", "self-start", "max-lg:order-first", "lg:sticky", "lg:top-22"] },
 		[
 			element("h2", { className: ["flex", "items-center", "gap-2", "text-lg", "font-bold", "tracking-tight"] }, [
-				icon(VISIT_ICON, ["size-5", "shrink-0", "text-base-content/60"]),
+				icon(VISIT_ICON, ["size-5", "shrink-0", "text-base-content/70"]),
 				text(label),
 			]),
 			element(
@@ -73,7 +73,7 @@ const visitPanel = (label, sections) =>
 				{ className: ["mt-2", "divide-y", "divide-base-300"] },
 				sections.map(({ label, icon: iconName, children }) =>
 					element("section", { className: ["flex", "gap-3", "py-4", "last:pb-0"] }, [
-						icon(iconName, ["size-5", "shrink-0", "text-base-content/60"]),
+						icon(iconName, ["size-5", "shrink-0", "text-base-content/70"]),
 						element("div", { className: ["min-w-0", "flex-1"] }, [
 							element("h3", { className: ["text-sm", "font-semibold"] }, [text(label)]),
 							element(

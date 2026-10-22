@@ -1,7 +1,7 @@
 :root:root {
   --pf-text: var(--color-base-content);
   --pf-text-secondary: color-mix(in oklab, var(--color-base-content) 70%, transparent);
-  --pf-text-muted: color-mix(in oklab, var(--color-base-content) 60%, transparent);
+  --pf-text-muted: color-mix(in oklab, var(--color-base-content) 70%, transparent);
   --pf-background: var(--color-base-100);
   --pf-border: var(--color-base-300);
   --pf-border-focus: color-mix(in oklab, var(--color-base-content) 40%, transparent);
