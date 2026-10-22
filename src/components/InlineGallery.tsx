@@ -1,4 +1,4 @@
-import { useState, type CSSProperties, type ReactNode } from "react";
+import { useState, type ComponentProps, type CSSProperties, type ReactNode } from "react";
 import { LightGallery, type LgIconName } from "@lightgallery/react";
 import Thumbnail from "@lightgallery/react/plugins/thumbnail";
 import Zoom from "@lightgallery/react/plugins/zoom";
@@ -20,9 +20,10 @@ export interface Slide {
 
 interface Props extends Partial<Record<LgIconName, ReactNode>> {
 	slides: Slide[];
+	strings: ComponentProps<typeof LightGallery>["strings"];
 }
 
-export default function InlineGallery({ slides, ...icons }: Props) {
+export default function InlineGallery({ slides, strings, ...icons }: Props) {
 	const [container, setContainer] = useState<HTMLElement | null>(null);
 
 	return (
@@ -39,6 +40,7 @@ export default function InlineGallery({ slides, ...icons }: Props) {
 					closable={false}
 					showMaximizeIcon
 					licenseKey={LIGHTGALLERY_LICENSE_KEY}
+					strings={strings}
 					plugins={[Thumbnail, Zoom, Autoplay]}
 					speed={SPEED}
 					autoplay={{ slideShowAutoplay: true, slideShowInterval: SLIDE_INTERVAL }}

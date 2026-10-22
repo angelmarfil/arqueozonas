@@ -21,10 +21,27 @@ const slides: Slide[] = gallery.data.images.map(({ key, title, credit }) => ({
   alt: title,
   credit: credit && `${t("site.gallery.credit")}: ${credit}`,
 }));
+
+const strings = {
+  galleryLabel: t("gallery.galleryLabel"),
+  slideAnnouncement: t("gallery.slideAnnouncement"),
+  previousSlide: t("gallery.previousSlide"),
+  nextSlide: t("gallery.nextSlide"),
+  toggleMaximize: t("gallery.toggleMaximize"),
+  moreOptions: t("gallery.moreOptions"),
+  download: t("gallery.download"),
+  zoomIn: t("gallery.zoomIn"),
+  zoomOut: t("gallery.zoomOut"),
+  viewActualSize: t("gallery.viewActualSize"),
+  toggleAutoplay: t("gallery.toggleAutoplay"),
+  toggleThumbnails: t("gallery.toggleThumbnails"),
+  closeGallery: t("gallery.closeGallery"),
+  mediaLoadingFailed: t("gallery.mediaLoadingFailed"),
+};
 ---
 
 <section>
-  <InlineGallery client:load slides={slides}>
+  <InlineGallery client:load slides={slides} strings={strings}>
     <Icon slot="prev" name="boxicons:chevron-left" is:inline aria-hidden="true" />
     <Icon slot="next" name="boxicons:chevron-right" is:inline aria-hidden="true" />
     <Icon slot="download" name="boxicons:arrow-in-down-square-half" is:inline aria-hidden="true" />
