@@ -5,7 +5,7 @@ import { defineConfig, envField } from 'astro/config';
 import mdx from "@astrojs/mdx";
 import icon from "astro-icon";
 
-import react from "@astrojs/react";
+import preact from "@astrojs/preact";
 import pagefind from "astro-pagefind";
 import sitemap from "@astrojs/sitemap";
 import { satteri } from "@astrojs/markdown-satteri";
@@ -40,5 +40,5 @@ export default defineConfig({
       },
   },
 
-  integrations: [mdx(), icon(), react(), pagefind(), sitemap()]
+  integrations: [mdx(), icon(), preact({ compat: true }), pagefind(), sitemap()]
 });
