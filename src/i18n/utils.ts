@@ -34,6 +34,11 @@ export function getMapLabels(t: ReturnType<typeof useTranslations>) {
 		close: t('map.close'),
 		mayaTrain: t('site.mayaTrain'),
 		mayaTrainRoute: t('map.mayaTrainRoute'),
+		label: t('map.label'),
+		location: t('map.location'),
+		legend: t('map.legend'),
+		layers: t('map.layers'),
+		cluster: t('map.cluster'),
 	};
 }
 

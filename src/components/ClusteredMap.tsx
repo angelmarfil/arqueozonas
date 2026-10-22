@@ -123,7 +123,9 @@ export default function ClusteredMap({ sites, trainRoute, labels, closeIcon, tra
 					const { cluster_id, point_count, museums } = properties;
 					L.marker([lat, lng], { icon: clusterIcon(L, point_count, museums), zIndexOffset: 1000 + point_count })
 						.on("click", () => map.flyTo([lat, lng], index.getClusterExpansionZoom(cluster_id)))
-						.addTo(markers);
+						.addTo(markers)
+						.getElement()
+						?.setAttribute("aria-label", labels.cluster.replace("{count}", String(point_count)));
 				} else {
 					L.marker([lat, lng], { icon: placeIcon(L, properties.kind), title: properties.name })
 						.on("click", () => setSelectedId(properties.id))
@@ -178,8 +180,11 @@ export default function ClusteredMap({ sites, trainRoute, labels, closeIcon, tra
 	}, [selectedId]);
 
 	return (
-		<MapFrame map={leafletMap} className="rounded-box h-[75svh] min-h-96 w-full">
-			<ul className="bg-base-100/90 text-base-content rounded-box absolute bottom-2 left-2 z-1000 flex flex-col gap-1.5 p-2 text-xs shadow-sm">
+		<MapFrame map={leafletMap} label={labels.label} className="rounded-box h-[75svh] min-h-96 w-full">
+			<ul
+				aria-label={labels.legend}
+				className="bg-base-100/90 text-base-content rounded-box absolute bottom-2 left-2 z-1000 flex flex-col gap-1.5 p-2 text-xs shadow-sm"
+			>
 				{KINDS.map((kind) => (
 					<li key={kind} className="flex items-center gap-2">
 						<span

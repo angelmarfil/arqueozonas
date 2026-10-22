@@ -176,13 +176,19 @@ export function useLeafletMap(labels: MapLabels) {
 
 interface MapFrameProps {
 	map: ReturnType<typeof useLeafletMap>;
+	label: string;
 	className?: string;
 	children?: ReactNode;
 }
 
-export function MapFrame({ map, className = "", children }: MapFrameProps) {
+export function MapFrame({ map, label, className = "", children }: MapFrameProps) {
 	return (
-		<div ref={map.frameRef} className={`relative isolate overflow-hidden ${map.dark ? "map-dark" : ""} ${className}`}>
+		<div
+			ref={map.frameRef}
+			role="region"
+			aria-label={label}
+			className={`relative isolate overflow-hidden ${map.dark ? "map-dark" : ""} ${className}`}
+		>
 			<div ref={map.mapRef} className="size-full" />
 			<div
 				aria-hidden="true"

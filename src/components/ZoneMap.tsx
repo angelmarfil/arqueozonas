@@ -37,6 +37,9 @@ export default function ZoneMap({ kind, name, position, boundary, labels }: Prop
 		const satellite = satelliteLayer(L).addTo(map);
 		const streets = streetsLayer(L);
 		const layers = L.control.layers({ [labels.satellite]: satellite, [labels.streets]: streets }).addTo(map);
+		const layersToggle = layers.getContainer()?.querySelector(".leaflet-control-layers-toggle");
+		layersToggle?.setAttribute("title", labels.layers);
+		layersToggle?.setAttribute("aria-label", labels.layers);
 		const features = L.layerGroup([
 			...polygons.map((path) =>
 				L.polygon(path, {
@@ -61,5 +64,11 @@ export default function ZoneMap({ kind, name, position, boundary, labels }: Prop
 		};
 	}, [leaflet, labels, kind, name, position, polygons]);
 
-	return <MapFrame map={leafletMap} className="rounded-box aspect-square w-full sm:aspect-video" />;
+	return (
+		<MapFrame
+			map={leafletMap}
+			label={labels.location.replace("{name}", name)}
+			className="rounded-box aspect-square w-full sm:aspect-video"
+		/>
+	);
 }
