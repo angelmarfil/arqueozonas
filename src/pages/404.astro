@@ -1,0 +1,53 @@
+---
+import { Icon } from "astro-icon/components";
+import { SITE_TITLE, TITLE_DELIMITER } from "astro:env/client";
+import Layout from "../layouts/Layout.astro";
+import { defaultLang, languages, type Lang } from "../i18n/ui";
+import { useTranslatedPath, useTranslations } from "../i18n/utils";
+
+// Static hosts serve this one page for every missing URL, so render every
+// language and pick the one matching the URL prefix on the client.
+const langs = Object.keys(languages) as Lang[];
+const t = useTranslations(defaultLang);
+const titles = Object.fromEntries(
+  langs.map((lang) => [lang, `${useTranslations(lang)("notFound.title")} ${TITLE_DELIMITER} ${SITE_TITLE}`]),
+);
+---
+
+<Layout title={t("notFound.title")} description={t("notFound.description")}>
+  <main class="mx-auto w-full max-w-7xl flex-1 px-4 py-6 sm:py-10 md:px-8">
+    {
+      langs.map((lang) => {
+        const t = useTranslations(lang);
+        const translatePath = useTranslatedPath(lang);
+        return (
+          <section lang={lang} data-not-found={lang} hidden={lang !== defaultLang}>
+            <h1 class="text-3xl font-bold tracking-tight text-balance sm:text-4xl">{t("notFound.title")}</h1>
+            <p class="mt-2 max-w-2xl text-base-content/70 sm:mt-3">{t("notFound.description")}</p>
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a href={translatePath("/")} class="btn btn-primary">
+                <Icon name="boxicons:home" class="size-5" aria-hidden="true" />
+                {t("notFound.home")}
+              </a>
+              <a href={translatePath("/zonas-arqueologicas")} class="btn">
+                <Icon name="boxicons:pyramid-filled" class="size-5" aria-hidden="true" />
+                {t("home.exploreSites")}
+              </a>
+              <a href={translatePath("/museos")} class="btn">
+                <Icon name="boxicons:bank-filled" class="size-5" aria-hidden="true" />
+                {t("home.exploreMuseums")}
+              </a>
+            </div>
+          </section>
+        );
+      })
+    }
+  </main>
+  <script is:inline define:vars={{ titles, defaultLang }}>
+    const prefix = location.pathname.split("/")[1];
+    const lang = prefix in titles ? prefix : defaultLang;
+    document.documentElement.lang = lang;
+    document.title = titles[lang];
+    for (const el of document.querySelectorAll("[data-not-found]")) el.hidden = el.dataset.notFound !== lang;
+  </script>
+</Layout>
