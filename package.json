@@ -35,6 +35,7 @@
     "@tailwindcss/typography": "^0.5.20",
     "@types/geojson": "^7946.0.16",
     "@types/leaflet": "^1.9.22",
-    "daisyui": "^5.7.50"
+    "daisyui": "^5.7.50",
+    "wrangler": "^4.152.0"
   }
 }
