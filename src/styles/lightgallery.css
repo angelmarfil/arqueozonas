@@ -17,6 +17,10 @@
   font-family: inherit;
 }
 
+.lg-inline .lg-inner {
+  touch-action: pan-y !important;
+}
+
 .lg-backdrop {
   background-color: var(--color-base-300);
 }
