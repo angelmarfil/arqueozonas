@@ -19,6 +19,7 @@ interface MuseumAction {
   label: string;
   icon: string;
   href: string;
+  variant: string;
   source?: CollectionEntry<"tourProviders">["data"];
 }
 
@@ -56,12 +57,19 @@ if (guide) {
     label: guide === lang ? t("site.guide.download") : `${t("site.guide.download")} (${t(`language.${guide}`)})`,
     icon: "boxicons:arrow-in-down-square-half",
     href: `/guides/${guide}/${getSlug(museum)}.pdf`,
+    variant: "btn-primary",
   });
 }
 const tours = await getMuseumTours(museum);
 const groupTours = tours.length > 1;
 if (tours.length === 1) {
-  actions.push({ label: t("site.tour"), icon: "boxicons:street-view", href: tours[0].url, source: tours[0].provider });
+  actions.push({
+    label: t("site.tour"),
+    icon: "boxicons:street-view",
+    href: tours[0].url,
+    variant: "btn-secondary btn-soft",
+    source: tours[0].provider,
+  });
 }
 const tourProviders = getTourProviders(tours);
 ---
@@ -104,8 +112,8 @@ const tourProviders = getTourProviders(tours);
       {
         (actions.length > 0 || groupTours) && (
           <Fragment slot="actions">
-            {actions.map(({ label, icon, href, source }) => (
-              <a href={href} class="btn" target="_blank" rel="noopener">
+            {actions.map(({ label, icon, href, variant, source }) => (
+              <a href={href} class:list={["btn", variant]} target="_blank" rel="noopener">
                 <Icon name={icon} class="size-5" is:inline aria-hidden="true" />
                 {label}
                 {source && <TourProviderBadge provider={source} />}
@@ -113,7 +121,7 @@ const tourProviders = getTourProviders(tours);
             ))}
             {groupTours && (
               <div class="dropdown md:dropdown-end">
-                <div tabindex="0" role="button" class="btn">
+                <div tabindex="0" role="button" class="btn btn-secondary btn-soft">
                   <Icon name="boxicons:street-view" class="size-5" aria-hidden="true" />
                   {t("site.tours")}
                   <Icon name="boxicons:chevron-down" class="size-3 opacity-60" aria-hidden="true" />

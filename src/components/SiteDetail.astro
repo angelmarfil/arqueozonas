@@ -20,6 +20,7 @@ interface SiteAction {
   label: string;
   icon: string;
   href: string;
+  variant: string;
   external?: boolean;
   source?: CollectionEntry<"tourProviders">["data"];
 }
@@ -58,6 +59,7 @@ if (guide) {
     label: guide === lang ? t("site.guide.download") : `${t("site.guide.download")} (${t(`language.${guide}`)})`,
     icon: "boxicons:arrow-in-down-square-half",
     href: `/guides/${guide}/${getSlug(site)}.pdf`,
+    variant: "btn-primary",
     external: true,
   });
 }
@@ -69,6 +71,7 @@ if (tours.length === 1) {
     label: tour.type === "site" ? t("site.tour") : tour.name,
     icon: "boxicons:street-view",
     href: tour.url,
+    variant: "btn-secondary btn-soft",
     external: true,
     source: tour.provider,
   });
@@ -115,10 +118,10 @@ const models = await getSiteModels(site);
       {
         (actions.length > 0 || groupTours) && (
           <Fragment slot="actions">
-            {actions.map(({ label, icon, href, external, source }) => (
+            {actions.map(({ label, icon, href, variant, external, source }) => (
               <a
                 href={href}
-                class="btn"
+                class:list={["btn", variant]}
                 {...(external && { target: "_blank", rel: "noopener" })}
               >
                 <Icon name={icon} class="size-5" is:inline aria-hidden="true" />
@@ -128,7 +131,7 @@ const models = await getSiteModels(site);
             ))}
             {groupTours && (
               <div class="dropdown md:dropdown-end">
-                <div tabindex="0" role="button" class="btn">
+                <div tabindex="0" role="button" class="btn btn-secondary btn-soft">
                   <Icon name="boxicons:street-view" class="size-5" aria-hidden="true" />
                   {t("site.tours")}
                   <Icon name="boxicons:chevron-down" class="size-3 opacity-60" aria-hidden="true" />
