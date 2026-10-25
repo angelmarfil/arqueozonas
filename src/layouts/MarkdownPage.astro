@@ -1,0 +1,24 @@
+---
+import type { MarkdownLayoutProps } from "astro";
+import Layout from "./Layout.astro";
+import PageHeader from "../components/PageHeader.astro";
+
+type Props = MarkdownLayoutProps<{
+  title: string;
+  description: string;
+  icon?: string;
+}>;
+
+const { title, description, icon } = Astro.props.frontmatter;
+---
+
+<Layout title={title} description={description}>
+  <main class="mx-auto w-full max-w-7xl px-4 py-6 sm:py-10 md:px-8">
+    <PageHeader class="mb-6 sm:mb-8" title={title} crumbs={[{ label: title, icon }]}>
+      <p class="text-base-content/70">{description}</p>
+    </PageHeader>
+    <article class="prose max-w-[65ch] text-pretty prose-p:leading-relaxed prose-headings:tracking-tight">
+      <slot />
+    </article>
+  </main>
+</Layout>

@@ -134,6 +134,7 @@ export const ui = {
 		'footer.disclaimer.1': 'Este sitio es un proyecto independiente y sin fines de lucro.',
 		'footer.disclaimer.2': 'No es un sitio oficial ni está afiliado al Instituto Nacional de Antropología e Historia (INAH).',
 		'footer.disclaimer.3': 'Todo el contenido sobre zonas arqueológicas y museos es propiedad del INAH.',
+		'footer.privacy': 'Aviso de privacidad',
 	},
 	en: {
 		'nav.home': 'Home',
@@ -256,6 +257,7 @@ export const ui = {
 		'footer.disclaimer.1': 'This website is an independent, non-profit project.',
 		'footer.disclaimer.2': 'It is not an official site of, nor affiliated with, the National Institute of Anthropology and History (INAH).',
 		'footer.disclaimer.3': 'All content about archaeological sites and museums is the property of INAH.',
+		'footer.privacy': 'Privacy notice',
 	},
 } as const;
 
@@ -265,5 +267,6 @@ export const routes: Partial<Record<Lang, Record<string, string>>> = {
 	en: {
 		'zonas-arqueologicas': 'archaeological-sites',
 		museos: 'museums',
+		privacidad: 'privacy',
 	},
 };
