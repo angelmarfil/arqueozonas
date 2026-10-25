@@ -25,17 +25,17 @@ const t = useTranslations(lang);
     {block && <Icon name="boxicons:chevron-down" class="ms-auto size-4 opacity-60" aria-hidden="true" />}
   </div>
   <ul tabindex="-1" role="radiogroup" aria-label={t('themePicker.label')} class:list={['dropdown-content menu bg-base-100 rounded-box z-1 mt-1 gap-1 p-2 shadow-sm', block ? 'w-full' : 'w-60']}>
-    {themes.map((theme) => (
-      <li role="none">
+    {themes.map(({ id, season }) => (
+      <li role="none" hidden={!!season} data-seasonal-theme={season ? id : undefined}>
         <label class="group">
-          <input type="radio" name={name} value={theme} class="theme-controller sr-only" />
-          <div data-theme={theme} class="bg-base-100 grid shrink-0 grid-cols-2 gap-0.5 rounded-md p-1 shadow-sm" aria-hidden="true">
+          <input type="radio" name={name} value={id} class="theme-controller sr-only" />
+          <div data-theme={id} class="bg-base-100 grid shrink-0 grid-cols-2 gap-0.5 rounded-md p-1 shadow-sm" aria-hidden="true">
             <div class="bg-base-content size-1 rounded-full"></div>
             <div class="bg-primary size-1 rounded-full"></div>
             <div class="bg-secondary size-1 rounded-full"></div>
             <div class="bg-accent size-1 rounded-full"></div>
           </div>
-          <span class="flex-1 truncate">{t(`theme.${theme}` as UIKey)}</span>
+          <span class="flex-1 truncate">{t(`theme.${id}` as UIKey)}</span>
           <Icon name="boxicons:check" class="invisible size-4 shrink-0 group-has-checked:visible" aria-hidden="true" />
         </label>
       </li>
@@ -54,17 +54,25 @@ const t = useTranslations(lang);
   };
 
   document.addEventListener('astro:before-swap', ({ newDocument }) => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) newDocument.documentElement.dataset.theme = savedTheme;
+    const { theme, season } = document.documentElement.dataset;
+    if (theme) newDocument.documentElement.dataset.theme = theme;
+    if (season) newDocument.documentElement.dataset.season = season;
   });
 
   document.addEventListener('astro:page-load', () => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) applyTheme(savedTheme);
+    const { theme, season } = document.documentElement.dataset;
+    const seasonalTheme = season?.split(':')[0];
+
+    document.querySelectorAll<HTMLElement>('[data-seasonal-theme]').forEach((item) => {
+      item.hidden = item.dataset.seasonalTheme !== seasonalTheme;
+    });
+
+    if (theme) applyTheme(theme);
 
     getControllers().forEach((input) => {
       input.addEventListener('change', () => {
         localStorage.setItem('theme', input.value);
+        if (season) localStorage.setItem('themeSeason', season);
         applyTheme(input.value);
       });
     });

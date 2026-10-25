@@ -25,8 +25,24 @@ const translatePath = useTranslatedPath(lang);
   <head>
     <BaseHead {...Astro.props} />
     <script is:inline define:vars={{ themes }}>
+      const root = document.documentElement;
+      const today = new Date();
+      const monthDay = `${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
+      const inSeason = ({ from, to }) => (from <= to ? monthDay >= from && monthDay <= to : monthDay >= from || monthDay <= to);
+      const seasonal = themes.find((theme) => theme.season && inSeason(theme.season));
+      const available = themes.filter((theme) => !theme.season || theme === seasonal).map((theme) => theme.id);
       const theme = localStorage.getItem("theme");
-      if (themes.includes(theme)) document.documentElement.dataset.theme = theme;
+
+      if (seasonal) {
+        const { from, to } = seasonal.season;
+        const startYear = from > to && monthDay <= to ? today.getFullYear() - 1 : today.getFullYear();
+        root.dataset.season = `${seasonal.id}:${startYear}`;
+      } else {
+        localStorage.removeItem("themeSeason");
+      }
+
+      if (seasonal && localStorage.getItem("themeSeason") !== root.dataset.season) root.dataset.theme = seasonal.id;
+      else if (available.includes(theme)) root.dataset.theme = theme;
       else localStorage.removeItem("theme");
     </script>
     <link rel="sitemap" href="/sitemap-index.xml" />

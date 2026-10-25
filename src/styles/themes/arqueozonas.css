@@ -1,0 +1,39 @@
+@plugin "daisyui/theme" {
+  name: "arqueozonas";
+  default: true;
+  prefersdark: false;
+  color-scheme: light;
+
+  --color-base-100: #faf7f2;
+  --color-base-200: #f3ece2;
+  --color-base-300: #eadccb;
+  --color-base-content: #3e2f25;
+  --color-primary: #a84c18;
+  --color-primary-content: #ffffff;
+  --color-secondary: #2e6b57;
+  --color-secondary-content: #ffffff;
+  --color-accent: #3e2f25;
+  --color-accent-content: #eadccb;
+  --color-neutral: #3e2f25;
+  --color-neutral-content: #eadccb;
+  --color-info: #2f6f8f;
+  --color-info-content: #ffffff;
+  --color-success: #3b7536;
+  --color-success-content: #ffffff;
+  --color-warning: #e0a82e;
+  --color-warning-content: #1f1712;
+  --color-error: #b3362b;
+  --color-error-content: #ffffff;
+
+  --radius-selector: 1rem;
+  --radius-field: 0.5rem;
+  --radius-box: 1rem;
+
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+
+  --border: 1px;
+
+  --depth: 1;
+  --noise: 0;
+}

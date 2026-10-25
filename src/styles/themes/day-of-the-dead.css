@@ -1,0 +1,39 @@
+@plugin "daisyui/theme" {
+  name: "day-of-the-dead";
+  default: false;
+  prefersdark: false;
+  color-scheme: dark;
+
+  --color-base-100: #1a0f24;
+  --color-base-200: #23142f;
+  --color-base-300: #2f1c3f;
+  --color-base-content: #f6e7d3;
+  --color-primary: #f7931e;
+  --color-primary-content: #1a0f24;
+  --color-secondary: #e4007c;
+  --color-secondary-content: #ffffff;
+  --color-accent: #b07ee8;
+  --color-accent-content: #1a0f24;
+  --color-neutral: #2f1c3f;
+  --color-neutral-content: #f6e7d3;
+  --color-info: #4fb3d9;
+  --color-info-content: #1a0f24;
+  --color-success: #6cc070;
+  --color-success-content: #1a0f24;
+  --color-warning: #ffc93c;
+  --color-warning-content: #1a0f24;
+  --color-error: #ff5468;
+  --color-error-content: #1a0f24;
+
+  --radius-selector: 1rem;
+  --radius-field: 1rem;
+  --radius-box: 0.5rem;
+
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+
+  --border: 1.5px;
+
+  --depth: 0;
+  --noise: 0;
+}

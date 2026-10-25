@@ -3,84 +3,9 @@
 @plugin "daisyui" {
   themes: false;
 }
-@plugin "daisyui/theme" {
-  name: "arqueozonas";
-  default: true;
-  prefersdark: false;
-  color-scheme: light;
-
-  --color-base-100: #faf7f2;
-  --color-base-200: #f3ece2;
-  --color-base-300: #eadccb;
-  --color-base-content: #3e2f25;
-  --color-primary: #a84c18;
-  --color-primary-content: #ffffff;
-  --color-secondary: #2e6b57;
-  --color-secondary-content: #ffffff;
-  --color-accent: #3e2f25;
-  --color-accent-content: #eadccb;
-  --color-neutral: #3e2f25;
-  --color-neutral-content: #eadccb;
-  --color-info: #2f6f8f;
-  --color-info-content: #ffffff;
-  --color-success: #3b7536;
-  --color-success-content: #ffffff;
-  --color-warning: #e0a82e;
-  --color-warning-content: #1f1712;
-  --color-error: #b3362b;
-  --color-error-content: #ffffff;
-
-  --radius-selector: 1rem;
-  --radius-field: 0.5rem;
-  --radius-box: 1rem;
-
-  --size-selector: 0.25rem;
-  --size-field: 0.25rem;
-
-  --border: 1px;
-
-  --depth: 1;
-  --noise: 0;
-}
-@plugin "daisyui/theme" {
-  name: "arqueozonas-dark";
-  default: false;
-  prefersdark: true;
-  color-scheme: dark;
-
-  --color-base-100: #1c1410;
-  --color-base-200: #251b15;
-  --color-base-300: #2f241c;
-  --color-base-content: #eadccb;
-  --color-primary: #e07b3f;
-  --color-primary-content: #1c1410;
-  --color-secondary: #4a9a7e;
-  --color-secondary-content: #1c1410;
-  --color-accent: #eadccb;
-  --color-accent-content: #3e2f25;
-  --color-neutral: #3e2f25;
-  --color-neutral-content: #eadccb;
-  --color-info: #6fa8c7;
-  --color-info-content: #1c1410;
-  --color-success: #6faf6a;
-  --color-success-content: #1c1410;
-  --color-warning: #e8b84a;
-  --color-warning-content: #1c1410;
-  --color-error: #e0675c;
-  --color-error-content: #1c1410;
-
-  --radius-selector: 1rem;
-  --radius-field: 0.5rem;
-  --radius-box: 1rem;
-
-  --size-selector: 0.25rem;
-  --size-field: 0.25rem;
-
-  --border: 1px;
-
-  --depth: 1;
-  --noise: 0;
-}
+@import "./themes/arqueozonas.css";
+@import "./themes/arqueozonas-dark.css";
+@import "./themes/day-of-the-dead.css";
 
 html,
 body {

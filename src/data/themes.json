@@ -1,1 +1,15 @@
-["arqueozonas", "arqueozonas-dark"]
+[
+  {
+    "id": "arqueozonas"
+  },
+  {
+    "id": "arqueozonas-dark"
+  },
+  {
+    "id": "day-of-the-dead",
+    "season": {
+      "from": "10-15",
+      "to": "11-02"
+    }
+  }
+]
