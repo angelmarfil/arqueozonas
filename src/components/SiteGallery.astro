@@ -17,7 +17,7 @@ const t = useTranslations(lang);
 const slides: Slide[] = gallery.data.images.map(({ key, title, credit }) => ({
   src: getImageUrl(key, 1600),
   thumb: getImageUrl(key, 240),
-  downloadUrl: getImageUrl(key),
+  downloadUrl: `${getImageUrl(key)}?download`,
   alt: title,
   credit: credit && `${t("site.gallery.credit")}: ${credit}`,
 }));
