@@ -1,0 +1,39 @@
+@plugin "daisyui/theme" {
+  name: "mexica";
+  default: false;
+  prefersdark: false;
+  color-scheme: dark;
+
+  --color-base-100: #12181a;
+  --color-base-200: #182124;
+  --color-base-300: #1f2b2f;
+  --color-base-content: #ece3cf;
+  --color-primary: #2bb3a3;
+  --color-primary-content: #12181a;
+  --color-secondary: #e5533f;
+  --color-secondary-content: #12181a;
+  --color-accent: #d9a63a;
+  --color-accent-content: #12181a;
+  --color-neutral: #1f2b2f;
+  --color-neutral-content: #ece3cf;
+  --color-info: #6fa8c7;
+  --color-info-content: #12181a;
+  --color-success: #6faf6a;
+  --color-success-content: #12181a;
+  --color-warning: #e8b84a;
+  --color-warning-content: #12181a;
+  --color-error: #e0675c;
+  --color-error-content: #12181a;
+
+  --radius-selector: 0.25rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.25rem;
+
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+
+  --border: 1.5px;
+
+  --depth: 1;
+  --noise: 0;
+}

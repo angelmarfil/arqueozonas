@@ -1,0 +1,39 @@
+@plugin "daisyui/theme" {
+  name: "winter-solstice";
+  default: false;
+  prefersdark: false;
+  color-scheme: dark;
+
+  --color-base-100: #0f1626;
+  --color-base-200: #152037;
+  --color-base-300: #1c2a47;
+  --color-base-content: #e6e9f2;
+  --color-primary: #e2b44a;
+  --color-primary-content: #0f1626;
+  --color-secondary: #7fa3d9;
+  --color-secondary-content: #0f1626;
+  --color-accent: #f2e3b3;
+  --color-accent-content: #0f1626;
+  --color-neutral: #1c2a47;
+  --color-neutral-content: #e6e9f2;
+  --color-info: #6fa8c7;
+  --color-info-content: #0f1626;
+  --color-success: #6faf6a;
+  --color-success-content: #0f1626;
+  --color-warning: #e8b84a;
+  --color-warning-content: #0f1626;
+  --color-error: #e0675c;
+  --color-error-content: #0f1626;
+
+  --radius-selector: 2rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.25rem;
+
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+
+  --border: 1px;
+
+  --depth: 0;
+  --noise: 0;
+}

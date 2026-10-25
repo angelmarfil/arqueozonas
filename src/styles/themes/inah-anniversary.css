@@ -1,0 +1,39 @@
+@plugin "daisyui/theme" {
+  name: "inah-anniversary";
+  default: false;
+  prefersdark: false;
+  color-scheme: light;
+
+  --color-base-100: #f7f4f3;
+  --color-base-200: #ece6e4;
+  --color-base-300: #ddd3d0;
+  --color-base-content: #2e2224;
+  --color-primary: #7b1e34;
+  --color-primary-content: #ffffff;
+  --color-secondary: #5d5a58;
+  --color-secondary-content: #ffffff;
+  --color-accent: #b38b4d;
+  --color-accent-content: #2e2224;
+  --color-neutral: #2e2224;
+  --color-neutral-content: #ece6e4;
+  --color-info: #2f6f8f;
+  --color-info-content: #ffffff;
+  --color-success: #3b7536;
+  --color-success-content: #ffffff;
+  --color-warning: #e0a82e;
+  --color-warning-content: #1f1712;
+  --color-error: #b3362b;
+  --color-error-content: #ffffff;
+
+  --radius-selector: 0.25rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.25rem;
+
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+
+  --border: 1px;
+
+  --depth: 0;
+  --noise: 0;
+}

@@ -1,0 +1,39 @@
+@plugin "daisyui/theme" {
+  name: "teotihuacan";
+  default: false;
+  prefersdark: false;
+  color-scheme: light;
+
+  --color-base-100: #f6efe7;
+  --color-base-200: #ecdfd2;
+  --color-base-300: #dfcab8;
+  --color-base-content: #3a2620;
+  --color-primary: #9e3324;
+  --color-primary-content: #ffffff;
+  --color-secondary: #b07a1f;
+  --color-secondary-content: #1f1410;
+  --color-accent: #4a4744;
+  --color-accent-content: #f6efe7;
+  --color-neutral: #3a2620;
+  --color-neutral-content: #ecdfd2;
+  --color-info: #2f6f8f;
+  --color-info-content: #ffffff;
+  --color-success: #3b7536;
+  --color-success-content: #ffffff;
+  --color-warning: #e0a82e;
+  --color-warning-content: #1f1712;
+  --color-error: #b3362b;
+  --color-error-content: #ffffff;
+
+  --radius-selector: 0.25rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.25rem;
+
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+
+  --border: 1px;
+
+  --depth: 0;
+  --noise: 1;
+}

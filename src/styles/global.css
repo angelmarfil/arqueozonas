@@ -5,7 +5,18 @@
 }
 @import "./themes/arqueozonas.css";
 @import "./themes/arqueozonas-dark.css";
+@import "./themes/maya.css";
+@import "./themes/teotihuacan.css";
+@import "./themes/mexica.css";
+@import "./themes/olmec.css";
+@import "./themes/zapotec.css";
 @import "./themes/day-of-the-dead.css";
+@import "./themes/spring-equinox.css";
+@import "./themes/autumn-equinox.css";
+@import "./themes/winter-solstice.css";
+@import "./themes/monuments-day.css";
+@import "./themes/inah-anniversary.css";
+@import "./themes/independence-day.css";
 
 html,
 body {

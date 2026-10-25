@@ -1,0 +1,39 @@
+@plugin "daisyui/theme" {
+  name: "independence-day";
+  default: false;
+  prefersdark: false;
+  color-scheme: light;
+
+  --color-base-100: #faf7f1;
+  --color-base-200: #f0ebe0;
+  --color-base-300: #e2d9c7;
+  --color-base-content: #2f2a22;
+  --color-primary: #2d6a4f;
+  --color-primary-content: #ffffff;
+  --color-secondary: #a3352b;
+  --color-secondary-content: #ffffff;
+  --color-accent: #c9a227;
+  --color-accent-content: #2f2a22;
+  --color-neutral: #2f2a22;
+  --color-neutral-content: #f0ebe0;
+  --color-info: #2f6f8f;
+  --color-info-content: #ffffff;
+  --color-success: #3b7536;
+  --color-success-content: #ffffff;
+  --color-warning: #e0a82e;
+  --color-warning-content: #1f1712;
+  --color-error: #b3362b;
+  --color-error-content: #ffffff;
+
+  --radius-selector: 2rem;
+  --radius-field: 2rem;
+  --radius-box: 1rem;
+
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+
+  --border: 1.5px;
+
+  --depth: 1;
+  --noise: 0;
+}

@@ -1,0 +1,39 @@
+@plugin "daisyui/theme" {
+  name: "spring-equinox";
+  default: false;
+  prefersdark: false;
+  color-scheme: light;
+
+  --color-base-100: #fbf4e4;
+  --color-base-200: #f3e6c8;
+  --color-base-300: #e8d4a8;
+  --color-base-content: #3a2b17;
+  --color-primary: #a8561a;
+  --color-primary-content: #ffffff;
+  --color-secondary: #4c6b8a;
+  --color-secondary-content: #ffffff;
+  --color-accent: #d9a441;
+  --color-accent-content: #2a1e10;
+  --color-neutral: #3a2b17;
+  --color-neutral-content: #f3e6c8;
+  --color-info: #2f6f8f;
+  --color-info-content: #ffffff;
+  --color-success: #3b7536;
+  --color-success-content: #ffffff;
+  --color-warning: #e0a82e;
+  --color-warning-content: #1f1712;
+  --color-error: #b3362b;
+  --color-error-content: #ffffff;
+
+  --radius-selector: 0.5rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.5rem;
+
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+
+  --border: 1px;
+
+  --depth: 1;
+  --noise: 0;
+}

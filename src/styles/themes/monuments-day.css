@@ -1,0 +1,39 @@
+@plugin "daisyui/theme" {
+  name: "monuments-day";
+  default: false;
+  prefersdark: false;
+  color-scheme: light;
+
+  --color-base-100: #f3f4ee;
+  --color-base-200: #e6e9df;
+  --color-base-300: #d5dacb;
+  --color-base-content: #24302a;
+  --color-primary: #2f6b45;
+  --color-primary-content: #ffffff;
+  --color-secondary: #6b6a5e;
+  --color-secondary-content: #ffffff;
+  --color-accent: #8a6d3b;
+  --color-accent-content: #ffffff;
+  --color-neutral: #24302a;
+  --color-neutral-content: #e6e9df;
+  --color-info: #2f6f8f;
+  --color-info-content: #ffffff;
+  --color-success: #3b7536;
+  --color-success-content: #ffffff;
+  --color-warning: #e0a82e;
+  --color-warning-content: #1f1712;
+  --color-error: #b3362b;
+  --color-error-content: #ffffff;
+
+  --radius-selector: 0.25rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.25rem;
+
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+
+  --border: 1px;
+
+  --depth: 1;
+  --noise: 1;
+}

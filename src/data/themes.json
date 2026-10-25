@@ -6,10 +6,67 @@
     "id": "arqueozonas-dark"
   },
   {
+    "id": "maya"
+  },
+  {
+    "id": "teotihuacan"
+  },
+  {
+    "id": "mexica"
+  },
+  {
+    "id": "olmec"
+  },
+  {
+    "id": "zapotec"
+  },
+  {
     "id": "day-of-the-dead",
     "season": {
       "from": "10-15",
       "to": "11-02"
+    }
+  },
+  {
+    "id": "spring-equinox",
+    "season": {
+      "from": "03-15",
+      "to": "03-23"
+    }
+  },
+  {
+    "id": "autumn-equinox",
+    "season": {
+      "from": "09-18",
+      "to": "09-25"
+    }
+  },
+  {
+    "id": "winter-solstice",
+    "season": {
+      "from": "12-18",
+      "to": "12-23"
+    }
+  },
+  {
+    "id": "monuments-day",
+    "season": {
+      "from": "04-15",
+      "to": "04-21"
+    }
+  },
+  {
+    "id": "inah-anniversary",
+    "season": {
+      "from": "02-01",
+      "to": "02-05"
+    }
+  },
+  {
+    "id": "independence-day",
+    "season": {
+      "from": "09-01",
+      "to": "09-16"
     }
   }
 ]

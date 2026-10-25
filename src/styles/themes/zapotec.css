@@ -1,0 +1,39 @@
+@plugin "daisyui/theme" {
+  name: "zapotec";
+  default: false;
+  prefersdark: false;
+  color-scheme: light;
+
+  --color-base-100: #f3f1ec;
+  --color-base-200: #e7e3da;
+  --color-base-300: #d6d0c3;
+  --color-base-content: #2d2a26;
+  --color-primary: #9b1b3a;
+  --color-primary-content: #ffffff;
+  --color-secondary: #2f3f73;
+  --color-secondary-content: #ffffff;
+  --color-accent: #b08a4a;
+  --color-accent-content: #1c1a17;
+  --color-neutral: #2d2a26;
+  --color-neutral-content: #e7e3da;
+  --color-info: #2f6f8f;
+  --color-info-content: #ffffff;
+  --color-success: #3b7536;
+  --color-success-content: #ffffff;
+  --color-warning: #e0a82e;
+  --color-warning-content: #1f1712;
+  --color-error: #b3362b;
+  --color-error-content: #ffffff;
+
+  --radius-selector: 0rem;
+  --radius-field: 0rem;
+  --radius-box: 0rem;
+
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+
+  --border: 2px;
+
+  --depth: 0;
+  --noise: 1;
+}
