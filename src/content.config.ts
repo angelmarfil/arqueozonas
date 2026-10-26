@@ -108,6 +108,31 @@ const models = defineCollection({
     })
 })
 
+const mayaTrainSections = defineCollection({
+    loader: file("./src/data/maya-train-sections.json"),
+    schema: z.object({
+        name: z.string(),
+        color: z.string().regex(/^#[0-9a-f]{6}$/),
+    })
+})
+
+const mayaTrainStations = defineCollection({
+    loader: file("./src/data/maya-train-stations.json"),
+    schema: z.object({
+        name: z.string(),
+        order: z.number().int().positive(),
+        state: z.string(),
+        section: reference("mayaTrainSections"),
+        position: z.object({
+            lat: z.number().min(-90).max(90),
+            lng: z.number().min(-180).max(180),
+        }),
+        connections: z.array(reference("mayaTrainStations")).default([]),
+        wikidataId: z.string().regex(/^Q\d+$/),
+        logoSource: z.string(),
+    })
+})
+
 const monthlyCounts =z.array(z.number().int().nonnegative()).length(12);
 
 const visitorRecord = z.object({
@@ -130,4 +155,4 @@ const museumVisitors = defineCollection({
     schema: visitorRecord,
 });
 
-export const collections = { states, sites, museums, galleries, tourProviders, tours, models, siteVisitors, museumVisitors };
+export const collections = { states, sites, museums, galleries, tourProviders, tours, models, mayaTrainSections, mayaTrainStations, siteVisitors, museumVisitors };

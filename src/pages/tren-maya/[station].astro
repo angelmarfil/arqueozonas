@@ -1,0 +1,12 @@
+---
+import StationDetail from "../../components/StationDetail.astro";
+import { getStationPaths } from "../../i18n/content";
+
+export function getStaticPaths() {
+  return getStationPaths();
+}
+
+const { station } = Astro.props;
+---
+
+<StationDetail station={station} />

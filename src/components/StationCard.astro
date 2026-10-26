@@ -1,0 +1,38 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import { getStationLogo } from "../i18n/content";
+import { getLangFromUrl, useTranslatedPath, useTranslations } from "../i18n/utils";
+import { getTransitionName } from "../lib/view-transitions";
+
+interface Props {
+  station: CollectionEntry<"mayaTrainStations">;
+  subtitle?: string;
+}
+
+const { station, subtitle } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+const href = translatePath(`/tren-maya/${station.id}`);
+---
+
+<a
+  href={href}
+  class="card card-border card-side bg-base-100 items-center gap-4 p-3 transition-colors hover:bg-base-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-base-content"
+>
+  <Image
+    src={getStationLogo(station)}
+    alt=""
+    width={64}
+    height={64}
+    densities={[1, 2]}
+    class="size-14 shrink-0 rounded-xl sm:size-16"
+  />
+  <div class="flex min-w-0 flex-col gap-0.5">
+    <h3 class="font-semibold leading-snug" transition:name={getTransitionName(href)}>
+      {t("mayaTrain.station").replace("{name}", station.data.name)}
+    </h3>
+    {subtitle && <p class="text-sm text-base-content/70">{subtitle}</p>}
+  </div>
+</a>

@@ -1,0 +1,580 @@
+[
+	{
+		"id": "palenque",
+		"order": 1,
+		"name": "Palenque",
+		"state": "chiapas",
+		"section": "1",
+		"position": {
+			"lat": 17.53326,
+			"lng": -91.97951
+		},
+		"connections": [
+			"boca-del-cerro"
+		],
+		"wikidataId": "Q131545189",
+		"logoSource": "TM de Palenque.png"
+	},
+	{
+		"id": "boca-del-cerro",
+		"order": 2,
+		"name": "Boca del Cerro",
+		"state": "tabasco",
+		"section": "1",
+		"position": {
+			"lat": 17.42739,
+			"lng": -91.4927
+		},
+		"connections": [
+			"palenque",
+			"tenosique"
+		],
+		"wikidataId": "Q111743674",
+		"logoSource": "Picto2 Boca del Cerro.png"
+	},
+	{
+		"id": "tenosique",
+		"order": 3,
+		"name": "Tenosique",
+		"state": "tabasco",
+		"section": "1",
+		"position": {
+			"lat": 17.46038,
+			"lng": -91.43045
+		},
+		"connections": [
+			"boca-del-cerro",
+			"el-triunfo"
+		],
+		"wikidataId": "Q124078073",
+		"logoSource": "TM de Tenosique.png"
+	},
+	{
+		"id": "el-triunfo",
+		"order": 4,
+		"name": "El Triunfo",
+		"state": "tabasco",
+		"section": "1",
+		"position": {
+			"lat": 17.9237,
+			"lng": -91.17104
+		},
+		"connections": [
+			"candelaria",
+			"tenosique"
+		],
+		"wikidataId": "Q121177356",
+		"logoSource": "TM de El Triunfo.png"
+	},
+	{
+		"id": "candelaria",
+		"order": 5,
+		"name": "Candelaria",
+		"state": "campeche",
+		"section": "1",
+		"position": {
+			"lat": 18.18388,
+			"lng": -91.04634
+		},
+		"connections": [
+			"escarcega",
+			"el-triunfo"
+		],
+		"wikidataId": "Q121177374",
+		"logoSource": "TM de Candelaria.png"
+	},
+	{
+		"id": "escarcega",
+		"order": 6,
+		"name": "Escárcega",
+		"state": "campeche",
+		"section": "1",
+		"position": {
+			"lat": 18.61269,
+			"lng": -90.73157
+		},
+		"connections": [
+			"candelaria",
+			"carrillo-puerto",
+			"centenario"
+		],
+		"wikidataId": "Q111734219",
+		"logoSource": "TM de Escárcega.png"
+	},
+	{
+		"id": "carrillo-puerto",
+		"order": 7,
+		"name": "Carrillo Puerto",
+		"state": "campeche",
+		"section": "2",
+		"position": {
+			"lat": 19.0947,
+			"lng": -90.5193
+		},
+		"connections": [
+			"escarcega",
+			"edzna"
+		],
+		"wikidataId": "Q121178723",
+		"logoSource": "TM de Carrillo Puerto Champotón.png"
+	},
+	{
+		"id": "edzna",
+		"order": 8,
+		"name": "Edzná",
+		"state": "campeche",
+		"section": "2",
+		"position": {
+			"lat": 19.59335,
+			"lng": -90.36933
+		},
+		"connections": [
+			"san-francisco-de-campeche",
+			"carrillo-puerto"
+		],
+		"wikidataId": "Q115871141",
+		"logoSource": "TM de Edzná.png"
+	},
+	{
+		"id": "san-francisco-de-campeche",
+		"order": 9,
+		"name": "San Francisco de Campeche",
+		"state": "campeche",
+		"section": "2",
+		"position": {
+			"lat": 19.82238,
+			"lng": -90.47638
+		},
+		"connections": [
+			"tenabo",
+			"edzna"
+		],
+		"wikidataId": "Q111734207",
+		"logoSource": "TM de San Francisco de Campeche.png"
+	},
+	{
+		"id": "tenabo",
+		"order": 10,
+		"name": "Tenabo",
+		"state": "campeche",
+		"section": "2",
+		"position": {
+			"lat": 20.04042,
+			"lng": -90.24387
+		},
+		"connections": [
+			"san-francisco-de-campeche",
+			"hecelchakan"
+		],
+		"wikidataId": "Q111749292",
+		"logoSource": "TM de Tenabo.png"
+	},
+	{
+		"id": "hecelchakan",
+		"order": 11,
+		"name": "Hecelchakán",
+		"state": "campeche",
+		"section": "2",
+		"position": {
+			"lat": 20.17532,
+			"lng": -90.15129
+		},
+		"connections": [
+			"tenabo",
+			"calkini"
+		],
+		"wikidataId": "Q111749304",
+		"logoSource": "TM de Hecelchakán.png"
+	},
+	{
+		"id": "calkini",
+		"order": 12,
+		"name": "Calkiní",
+		"state": "campeche",
+		"section": "3",
+		"position": {
+			"lat": 20.37869,
+			"lng": -90.06721
+		},
+		"connections": [
+			"hecelchakan",
+			"maxcanu"
+		],
+		"wikidataId": "Q112657896",
+		"logoSource": "TM de Calkiní.png"
+	},
+	{
+		"id": "maxcanu",
+		"order": 13,
+		"name": "Maxcanú",
+		"state": "yucatan",
+		"section": "3",
+		"position": {
+			"lat": 20.60045,
+			"lng": -89.97688
+		},
+		"connections": [
+			"calkini",
+			"uman"
+		],
+		"wikidataId": "Q112759903",
+		"logoSource": "TM de Maxcanú.png"
+	},
+	{
+		"id": "uman",
+		"order": 14,
+		"name": "Umán",
+		"state": "yucatan",
+		"section": "3",
+		"position": {
+			"lat": 20.84836,
+			"lng": -89.75327
+		},
+		"connections": [
+			"maxcanu",
+			"teya-merida"
+		],
+		"wikidataId": "Q121179971",
+		"logoSource": "TM de Umán.png"
+	},
+	{
+		"id": "teya-merida",
+		"order": 15,
+		"name": "Teya Mérida",
+		"state": "yucatan",
+		"section": "3",
+		"position": {
+			"lat": 20.93087,
+			"lng": -89.51362
+		},
+		"connections": [
+			"tixkokob",
+			"uman"
+		],
+		"wikidataId": "Q115871158",
+		"logoSource": "TM de Teya.png"
+	},
+	{
+		"id": "tixkokob",
+		"order": 16,
+		"name": "Tixkokob",
+		"state": "yucatan",
+		"section": "3",
+		"position": {
+			"lat": 20.98815,
+			"lng": -89.39486
+		},
+		"connections": [
+			"izamal",
+			"teya-merida"
+		],
+		"wikidataId": "Q112760041",
+		"logoSource": "TM de Tixkokob.png"
+	},
+	{
+		"id": "izamal",
+		"order": 17,
+		"name": "Izamal",
+		"state": "yucatan",
+		"section": "3",
+		"position": {
+			"lat": 20.93679,
+			"lng": -89.08001
+		},
+		"connections": [
+			"tixkokob",
+			"chichen-itza"
+		],
+		"wikidataId": "Q112657883",
+		"logoSource": "TM de Izamal.png"
+	},
+	{
+		"id": "chichen-itza",
+		"order": 18,
+		"name": "Chichén Itzá",
+		"state": "yucatan",
+		"section": "4",
+		"position": {
+			"lat": 20.7205,
+			"lng": -88.5489
+		},
+		"connections": [
+			"valladolid",
+			"izamal"
+		],
+		"wikidataId": "Q121268820",
+		"logoSource": "TM de Chichén-Itzá.png"
+	},
+	{
+		"id": "valladolid",
+		"order": 19,
+		"name": "Valladolid",
+		"state": "yucatan",
+		"section": "4",
+		"position": {
+			"lat": 20.73988,
+			"lng": -88.19333
+		},
+		"connections": [
+			"nuevo-xcan",
+			"chichen-itza"
+		],
+		"wikidataId": "Q112657724",
+		"logoSource": "TM de Valladolid.png"
+	},
+	{
+		"id": "nuevo-xcan",
+		"order": 20,
+		"name": "Nuevo Xcán",
+		"state": "quintana-roo",
+		"section": "4",
+		"position": {
+			"lat": 20.87938,
+			"lng": -87.60286
+		},
+		"connections": [
+			"valladolid",
+			"leona-vicario"
+		],
+		"wikidataId": "Q112760206",
+		"logoSource": "TM de Nuevo Xcán.png"
+	},
+	{
+		"id": "leona-vicario",
+		"order": 21,
+		"name": "Leona Vicario",
+		"state": "quintana-roo",
+		"section": "4",
+		"position": {
+			"lat": 20.9794,
+			"lng": -87.19696
+		},
+		"connections": [
+			"nuevo-xcan",
+			"cancun-aeropuerto"
+		],
+		"wikidataId": "Q121268893",
+		"logoSource": "TM de Leona Vicario.png"
+	},
+	{
+		"id": "cancun-aeropuerto",
+		"order": 22,
+		"name": "Cancún Aeropuerto",
+		"state": "quintana-roo",
+		"section": "4",
+		"position": {
+			"lat": 21.02841,
+			"lng": -86.8716
+		},
+		"connections": [
+			"leona-vicario",
+			"puerto-morelos"
+		],
+		"wikidataId": "Q121268963",
+		"logoSource": "TM de Cancún Aeropuerto.png"
+	},
+	{
+		"id": "puerto-morelos",
+		"order": 23,
+		"name": "Puerto Morelos",
+		"state": "quintana-roo",
+		"section": "5",
+		"position": {
+			"lat": 20.85636,
+			"lng": -86.94932
+		},
+		"connections": [
+			"cancun-aeropuerto",
+			"playa-del-carmen"
+		],
+		"wikidataId": "Q125173546",
+		"logoSource": "TM de Puerto Morelos.png"
+	},
+	{
+		"id": "playa-del-carmen",
+		"order": 24,
+		"name": "Playa del Carmen",
+		"state": "quintana-roo",
+		"section": "5",
+		"position": {
+			"lat": 20.67832,
+			"lng": -87.11665
+		},
+		"connections": [
+			"tulum",
+			"puerto-morelos"
+		],
+		"wikidataId": "Q124827243",
+		"logoSource": "TM de Playa del Carmen.png"
+	},
+	{
+		"id": "tulum",
+		"order": 25,
+		"name": "Tulum",
+		"state": "quintana-roo",
+		"section": "5",
+		"position": {
+			"lat": 20.2468,
+			"lng": -87.45339
+		},
+		"connections": [
+			"tulum-aeropuerto",
+			"playa-del-carmen"
+		],
+		"wikidataId": "Q112657784",
+		"logoSource": "Picto25 Tulum.png"
+	},
+	{
+		"id": "tulum-aeropuerto",
+		"order": 26,
+		"name": "Tulum Aeropuerto",
+		"state": "quintana-roo",
+		"section": "6",
+		"position": {
+			"lat": 20.15156,
+			"lng": -87.63996
+		},
+		"connections": [
+			"tulum",
+			"felipe-carrillo-puerto"
+		],
+		"wikidataId": "Q121949104",
+		"logoSource": "TM de Tulum Aeropuerto.png"
+	},
+	{
+		"id": "felipe-carrillo-puerto",
+		"order": 27,
+		"name": "Felipe Carrillo Puerto",
+		"state": "quintana-roo",
+		"section": "6",
+		"position": {
+			"lat": 19.59241,
+			"lng": -88.07426
+		},
+		"connections": [
+			"tulum-aeropuerto",
+			"limones-chacchoben"
+		],
+		"wikidataId": "Q130237060",
+		"logoSource": "TM de Felipe Carrillo Puerto.png"
+	},
+	{
+		"id": "limones-chacchoben",
+		"order": 28,
+		"name": "Limones-Chacchoben",
+		"state": "quintana-roo",
+		"section": "6",
+		"position": {
+			"lat": 19.02757,
+			"lng": -88.11804
+		},
+		"connections": [
+			"bacalar",
+			"felipe-carrillo-puerto"
+		],
+		"wikidataId": "Q130237062",
+		"logoSource": "TM de Limones-Chacchoben.png"
+	},
+	{
+		"id": "bacalar",
+		"order": 29,
+		"name": "Bacalar",
+		"state": "quintana-roo",
+		"section": "6",
+		"position": {
+			"lat": 18.70896,
+			"lng": -88.39773
+		},
+		"connections": [
+			"chetumal-aeropuerto",
+			"limones-chacchoben"
+		],
+		"wikidataId": "Q130237059",
+		"logoSource": "TM de Bacalar.png"
+	},
+	{
+		"id": "chetumal-aeropuerto",
+		"order": 30,
+		"name": "Chetumal Aeropuerto",
+		"state": "quintana-roo",
+		"section": "6",
+		"position": {
+			"lat": 18.5082,
+			"lng": -88.3227
+		},
+		"connections": [
+			"bacalar",
+			"nicolas-bravo-kohunlich"
+		],
+		"wikidataId": "Q122173190",
+		"logoSource": "TM de Chetumal Aeropuerto.png"
+	},
+	{
+		"id": "nicolas-bravo-kohunlich",
+		"order": 31,
+		"name": "Nicolás Bravo-Kohunlich",
+		"state": "quintana-roo",
+		"section": "7",
+		"position": {
+			"lat": 18.45265,
+			"lng": -88.99561
+		},
+		"connections": [
+			"chetumal-aeropuerto",
+			"xpujil"
+		],
+		"wikidataId": "Q130262413",
+		"logoSource": "TM de Nicolás Bravo-Kohunlich.png"
+	},
+	{
+		"id": "xpujil",
+		"order": 32,
+		"name": "Xpujil",
+		"state": "campeche",
+		"section": "7",
+		"position": {
+			"lat": 18.49861,
+			"lng": -89.35151
+		},
+		"connections": [
+			"calakmul",
+			"nicolas-bravo-kohunlich"
+		],
+		"wikidataId": "Q130262414",
+		"logoSource": "TM de Xpujil.png"
+	},
+	{
+		"id": "calakmul",
+		"order": 33,
+		"name": "Calakmul",
+		"state": "campeche",
+		"section": "7",
+		"position": {
+			"lat": 18.52988,
+			"lng": -89.88941
+		},
+		"connections": [
+			"xpujil",
+			"centenario"
+		],
+		"wikidataId": "Q130262411",
+		"logoSource": "Picto33 Calakmul.png"
+	},
+	{
+		"id": "centenario",
+		"order": 34,
+		"name": "Centenario",
+		"state": "campeche",
+		"section": "7",
+		"position": {
+			"lat": 18.65564,
+			"lng": -90.28401
+		},
+		"connections": [
+			"escarcega",
+			"calakmul"
+		],
+		"wikidataId": "Q130664214",
+		"logoSource": "Picto34 Centenario.png"
+	}
+]

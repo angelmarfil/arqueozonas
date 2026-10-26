@@ -1,13 +1,14 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { Icon } from "astro-icon/components";
-import ClusteredMap, { type MapSite } from "./ClusteredMap";
+import { getImage } from "astro:assets";
+import ClusteredMap, { type MapSite, type MapStation } from "./ClusteredMap";
 import trainRoute from "../data/maya-train.json";
-import { getMuseums, getPlaceVisitors, getSiteCover, getSlug, getStates } from "../i18n/content";
+import { getMuseums, getPlaceVisitors, getSiteCover, getSlug, getStates, getStationLogo, getStationSections, getStations } from "../i18n/content";
 import { formatVisitorCount, getLangFromUrl, getMapLabels, useTranslatedPath, useTranslations } from "../i18n/utils";
 
 interface Props {
   sites: CollectionEntry<"sites">[];
+  museums?: CollectionEntry<"museums">[];
   class?: string;
 }
 
@@ -16,7 +17,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
-const museums = await getMuseums(lang);
+const museums = Astro.props.museums ?? (await getMuseums(lang));
 const states = new Map((await getStates()).map(({ id, data }) => [id, data.name]));
 
 async function details(place: CollectionEntry<"sites"> | CollectionEntry<"museums">) {
@@ -51,6 +52,18 @@ const mapSites: MapSite[] = await Promise.all([
       type: museum.data.type && t(`museum.type.${museum.data.type}`),
     })),
 ]);
+
+const sections = new Map((await getStationSections()).map(({ id, data }) => [id, data]));
+const mapStations: MapStation[] = await Promise.all((await getStations()).map(async (station) => ({
+  id: `station:${station.id}`,
+  name: t("mayaTrain.station").replace("{name}", station.data.name),
+  state: states.get(station.data.state) ?? station.data.state,
+  href: translatePath(`/tren-maya/${station.id}`),
+  position: station.data.position,
+  logo: (await getImage({ src: getStationLogo(station), width: 112 })).src,
+  section: t("mayaTrain.section").replace("{number}", station.data.section.id),
+  color: sections.get(station.data.section.id)!.color,
+})));
 ---
 
 {
@@ -59,13 +72,10 @@ const mapSites: MapSite[] = await Promise.all([
       <ClusteredMap
         client:visible
         sites={mapSites}
+        stations={mapStations}
         trainRoute={trainRoute}
         labels={getMapLabels(t)}
-      >
-        <Icon slot="closeIcon" name="boxicons:x" class="size-5" is:inline aria-hidden="true" />
-        <Icon slot="trainIcon" name="boxicons:train" class="size-3.5" is:inline aria-hidden="true" />
-        <Icon slot="visitorsIcon" name="boxicons:group" class="size-4 shrink-0 text-base-content/50" is:inline aria-hidden="true" />
-      </ClusteredMap>
+      />
     </div>
   )
 }

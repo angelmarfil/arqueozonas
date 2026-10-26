@@ -1,0 +1,138 @@
+---
+import { Icon } from "astro-icon/components";
+import { Image, getImage } from "astro:assets";
+import { getEntry, type CollectionEntry } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import PageHeader from "./PageHeader.astro";
+import RelatedPlaces from "./RelatedPlaces.astro";
+import StationCard from "./StationCard.astro";
+import StationCredits from "./StationCredits.astro";
+import ZoneMap from "./ZoneMap";
+import { NEARBY_RADIUS_KM, getMuseums, getNearbyPlaces, getSiteCover, getSiteState, getSites, getSlug, getStationLogo } from "../i18n/content";
+import { locales } from "../i18n/ui";
+import { getLangFromUrl, getMapLabels, useTranslatedPath, useTranslations } from "../i18n/utils";
+
+interface Props {
+  station: CollectionEntry<"mayaTrainStations">;
+}
+
+const { station } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+const formatDistance = new Intl.NumberFormat(locales[lang], { maximumFractionDigits: 0 }).format;
+const state = await getSiteState(station);
+const section = await getEntry(station.data.section);
+const title = t("mayaTrain.station").replace("{name}", station.data.name);
+const description = t("seo.station.description").replace("{name}", station.data.name).replace("{state}", state.data.name);
+const logo = getStationLogo(station);
+const socialImage = await getImage({ src: logo, format: "png" });
+const searchImage = await getImage({ src: logo, width: 128 });
+const { position } = station.data;
+
+const connections = (await Promise.all(station.data.connections.map((ref) => getEntry(ref)))).filter(
+  (connection) => connection !== undefined,
+);
+const connectionSections = new Map(
+  await Promise.all(connections.map(async (connection) => [connection.id, await getEntry(connection.data.section)] as const)),
+);
+
+async function nearby<T extends CollectionEntry<"sites"> | CollectionEntry<"museums">>(places: T[], section: string) {
+  return Promise.all(
+    getNearbyPlaces(position, places).map(async ({ place, distance }) => ({
+      href: translatePath(`/${section}/${place.data.state}/${getSlug(place)}`),
+      title: place.data.name,
+      subtitle: t("mayaTrain.distance").replace("{distance}", formatDistance(Math.max(1, distance))),
+      cover: await getSiteCover(place),
+      entry: place,
+    })),
+  );
+}
+
+const nearbySites = await nearby(await getSites(lang), "zonas-arqueologicas");
+const nearbyMuseums = await nearby(await getMuseums(lang), "museos");
+---
+
+<Layout title={title} description={description} image={socialImage.src}>
+  <main class="mx-auto flex w-full max-w-5xl flex-col gap-10 px-4 py-6 sm:gap-12 sm:py-10 md:px-8" data-pagefind-meta={`image:${searchImage.src}`}>
+    <PageHeader
+      searchable
+      title={title}
+      crumbs={[
+        { label: t("nav.mayaTrain"), href: "/tren-maya", icon: "boxicons:train" },
+        { label: station.data.name },
+      ]}
+    >
+      <Image
+        slot="media"
+        src={logo}
+        alt={t("mayaTrain.logoAlt").replace("{name}", station.data.name)}
+        width={96}
+        height={96}
+        densities={[1, 2]}
+        loading="eager"
+        class="size-20 shrink-0 rounded-2xl sm:size-24"
+      />
+      <div class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-base-content/70">
+        {
+          section && (
+            <span class="badge badge-soft badge-md">
+              <span class="size-2.5 rounded-full" style={`background-color: ${section.data.color}`} aria-hidden="true" />
+              {t("mayaTrain.section").replace("{number}", section.id)} · {section.data.name}
+            </span>
+          )
+        }
+        <span class="inline-flex items-center gap-1.5">
+          <Icon name="boxicons:map" class="size-4" aria-hidden="true" />
+          {state.data.name}
+        </span>
+      </div>
+      <Fragment slot="actions">
+        <a href="https://www.trenmaya.gob.mx/" class="btn btn-accent" target="_blank" rel="noopener">
+          <Icon name="boxicons:ticket" class="size-5" is:inline aria-hidden="true" />
+          {t("mayaTrain.official")}
+        </a>
+      </Fragment>
+    </PageHeader>
+
+    {
+      connections.length > 0 && (
+        <section class="flex flex-col gap-4">
+          <h2 class="flex items-center gap-2 text-2xl font-bold tracking-tight">
+            <Icon name="boxicons:route" class="size-6 shrink-0 text-base-content/50" aria-hidden="true" />
+            {t("mayaTrain.connections")}
+          </h2>
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {connections.map((connection) => {
+              const connectionSection = connectionSections.get(connection.id);
+              return (
+                <StationCard
+                  station={connection}
+                  subtitle={connectionSection && t("mayaTrain.section").replace("{number}", connectionSection.id)}
+                />
+              );
+            })}
+          </div>
+        </section>
+      )
+    }
+
+    <RelatedPlaces title={t("mayaTrain.nearbySites")} icon="boxicons:pyramid-filled" places={nearbySites} />
+    <RelatedPlaces title={t("mayaTrain.nearbyMuseums")} icon="boxicons:bank-filled" places={nearbyMuseums} />
+    {
+      nearbySites.length === 0 && nearbyMuseums.length === 0 && (
+        <p class="text-base-content/70">{t("mayaTrain.nearbyEmpty").replace("{distance}", String(NEARBY_RADIUS_KM))}</p>
+      )
+    }
+
+    <section class="flex flex-col gap-4">
+      <h2 class="flex items-center gap-2 text-2xl font-bold tracking-tight">
+        <Icon name="boxicons:location" class="size-6 shrink-0 text-base-content/50" aria-hidden="true" />
+        {t("site.map")}
+      </h2>
+      <ZoneMap client:visible kind="station" name={title} position={position} labels={getMapLabels(t)} />
+    </section>
+
+    <StationCredits station={station} />
+  </main>
+</Layout>

@@ -6,6 +6,7 @@ import { defaultLang, type Lang } from './ui';
 import { isLang } from './utils';
 
 type Place = CollectionEntry<'sites'> | CollectionEntry<'museums'>;
+type Position = { lat: number; lng: number };
 
 export function getSlug(entry: { id: string }): string {
 	return entry.id.split('/').slice(1).join('/');
@@ -39,7 +40,7 @@ export function getMuseums(lang: Lang, stateSlug?: string) {
 	);
 }
 
-export async function getSiteState(site: Place) {
+export async function getSiteState(site: { id: string; data: { state: string } }) {
 	const state = await getEntry('states', site.data.state);
 	if (!state) throw new Error(`State "${site.data.state}" not found (site ${site.id})`);
 	return state;
@@ -179,6 +180,50 @@ export async function getSitePaths(lang: Lang) {
 		params: { state: site.data.state, site: getSlug(site) },
 		props: { site },
 	}));
+}
+
+export async function getStations() {
+	const stations = await getCollection('mayaTrainStations');
+	return stations.sort((a, b) => a.data.order - b.data.order);
+}
+
+export function getStationSections() {
+	return getCollection('mayaTrainSections');
+}
+
+const stationLogos = import.meta.glob<{ default: ImageMetadata }>('../assets/maya-train/stations/*.png', { eager: true });
+
+export function getStationLogo(station: { id: string }) {
+	const logo = stationLogos[`../assets/maya-train/stations/${station.id}.png`];
+	if (!logo) throw new Error(`Logo for station "${station.id}" not found`);
+	return logo.default;
+}
+
+export async function getStationPaths() {
+	const stations = await getStations();
+	return stations.map((station) => ({
+		params: { station: station.id },
+		props: { station },
+	}));
+}
+
+const EARTH_RADIUS_KM = 6371;
+export const NEARBY_RADIUS_KM = 30;
+
+export function getDistanceKm(from: Position, to: Position) {
+	const radians = (degrees: number) => (degrees * Math.PI) / 180;
+	const a =
+		Math.sin(radians(to.lat - from.lat) / 2) ** 2 +
+		Math.cos(radians(from.lat)) * Math.cos(radians(to.lat)) * Math.sin(radians(to.lng - from.lng) / 2) ** 2;
+	return 2 * EARTH_RADIUS_KM * Math.asin(Math.sqrt(a));
+}
+
+export function getNearbyPlaces<T extends Place>(position: Position, places: T[], radius = NEARBY_RADIUS_KM) {
+	return places
+		.filter((place) => place.data.position)
+		.map((place) => ({ place, distance: getDistanceKm(position, place.data.position!) }))
+		.filter(({ distance }) => distance <= radius)
+		.sort((a, b) => a.distance - b.distance);
 }
 
 export async function getMuseumPaths(lang: Lang) {

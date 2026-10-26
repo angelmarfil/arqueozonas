@@ -1,0 +1,96 @@
+---
+import { Icon } from "astro-icon/components";
+import type { CollectionEntry } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import PageHeader from "./PageHeader.astro";
+import SitesMap from "./SitesMap.astro";
+import StationCard from "./StationCard.astro";
+import StationCredits from "./StationCredits.astro";
+import { NEARBY_RADIUS_KM, getDistanceKm, getMuseums, getSites, getStates, getStationSections, getStations } from "../i18n/content";
+import { locales } from "../i18n/ui";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const formatNumber = new Intl.NumberFormat(locales[lang]).format;
+const stations = await getStations();
+const sections = await getStationSections();
+const states = new Map((await getStates()).map(({ id, data }) => [id, data.name]));
+
+const isNearStation = ({ data: { position } }: CollectionEntry<"sites"> | CollectionEntry<"museums">) =>
+  position !== undefined && stations.some(({ data }) => getDistanceKm(data.position, position) <= NEARBY_RADIUS_KM);
+
+const sites = (await getSites(lang)).filter(isNearStation);
+const museums = (await getMuseums(lang)).filter(isNearStation);
+
+const counts = [
+  { value: stations.length, label: t("mayaTrain.stations.other"), icon: "boxicons:train" },
+  { value: sections.length, label: t("mayaTrain.sections"), icon: "boxicons:route" },
+  { value: sites.length, label: t("mayaTrain.nearby.sites"), icon: "boxicons:pyramid-filled" },
+];
+---
+
+<Layout title={t("nav.mayaTrain")} description={t("mayaTrain.description")}>
+  <main class="mx-auto flex w-full max-w-7xl flex-col gap-10 px-4 py-6 sm:gap-12 sm:py-10 md:px-8">
+    <PageHeader title={t("nav.mayaTrain")} crumbs={[{ label: t("nav.mayaTrain"), icon: "boxicons:train" }]}>
+      <p class="max-w-3xl text-base-content/70">{t("mayaTrain.description")}</p>
+      <ul class="mt-1 flex flex-wrap gap-x-8 gap-y-3 text-base-content/70">
+        {
+          counts.map(({ value, label, icon }) => (
+            <li class="flex items-center gap-2">
+              <Icon name={icon} class="size-5 shrink-0 text-base-content/40" aria-hidden="true" />
+              <span><strong class="font-semibold text-base-content">{formatNumber(value)}</strong> {label}</span>
+            </li>
+          ))
+        }
+      </ul>
+      <Fragment slot="actions">
+        <a href="https://www.trenmaya.gob.mx/" class="btn btn-accent" target="_blank" rel="noopener">
+          <Icon name="boxicons:ticket" class="size-5" is:inline aria-hidden="true" />
+          {t("mayaTrain.official")}
+        </a>
+      </Fragment>
+    </PageHeader>
+
+    <section class="flex flex-col gap-4">
+      <div class="flex flex-col gap-1">
+        <h2 class="flex items-center gap-2 text-2xl font-bold tracking-tight">
+          <Icon name="boxicons:map" class="size-6 shrink-0 text-base-content/50" aria-hidden="true" />
+          {t("mayaTrain.map.title")}
+        </h2>
+        <p class="max-w-3xl text-base-content/70">
+          {t("mayaTrain.map.description").replace("{distance}", String(NEARBY_RADIUS_KM))}
+        </p>
+      </div>
+      <SitesMap sites={sites} museums={museums} />
+    </section>
+
+    <section class="flex flex-col gap-8">
+      <h2 class="flex items-center gap-2 text-2xl font-bold tracking-tight">
+        <Icon name="boxicons:train" class="size-6 shrink-0 text-base-content/50" aria-hidden="true" />
+        {t("mayaTrain.stations")}
+      </h2>
+      {
+        sections.map((section) => {
+          const sectionStations = stations.filter(({ data }) => data.section.id === section.id);
+          return (
+            <section class="flex flex-col gap-4" aria-labelledby={`section-${section.id}`}>
+              <h3 id={`section-${section.id}`} class="flex flex-wrap items-center gap-x-3 gap-y-1 text-lg font-semibold">
+                <span class="size-3 shrink-0 rounded-full" style={`background-color: ${section.data.color}`} aria-hidden="true" />
+                {t("mayaTrain.section").replace("{number}", section.id)}
+                <span class="font-normal text-base-content/70">{section.data.name}</span>
+              </h3>
+              <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                {sectionStations.map((station) => (
+                  <StationCard station={station} subtitle={states.get(station.data.state)} />
+                ))}
+              </div>
+            </section>
+          );
+        })
+      }
+    </section>
+
+    <StationCredits />
+  </main>
+</Layout>

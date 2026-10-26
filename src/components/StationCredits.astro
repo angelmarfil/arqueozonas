@@ -1,0 +1,25 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+interface Props {
+  station?: CollectionEntry<"mayaTrainStations">;
+  class?: string;
+}
+
+const { station, class: className } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const logoUrl = station
+  ? `https://commons.wikimedia.org/wiki/File:${encodeURIComponent(station.data.logoSource.replaceAll(" ", "_"))}`
+  : "https://commons.wikimedia.org/wiki/Category:Tren_Maya";
+const locationUrl = station ? `https://www.wikidata.org/wiki/${station.data.wikidataId}` : "https://www.wikidata.org/";
+---
+
+<p class:list={["text-xs text-base-content/70", className]}>
+  {t("mayaTrain.credit.logos")}{" "}
+  <a href={logoUrl} target="_blank" rel="noopener" class="link">Wikimedia Commons</a>{" · "}
+  {t("mayaTrain.credit.location")}{" "}
+  <a href={locationUrl} target="_blank" rel="noopener" class="link">Wikidata</a>{" "}
+  (<a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener license" class="link">CC0</a>)
+</p>

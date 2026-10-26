@@ -1,0 +1,9 @@
+{
+	"1": { "name": "Palenque – Escárcega", "color": "#6b61dc" },
+	"2": { "name": "Escárcega – Calkiní", "color": "#b1a372" },
+	"3": { "name": "Calkiní – Izamal", "color": "#d44b87" },
+	"4": { "name": "Izamal – Cancún", "color": "#e6ba4c" },
+	"5": { "name": "Cancún – Tulum", "color": "#0a44cc" },
+	"6": { "name": "Tulum – Chetumal", "color": "#f37044" },
+	"7": { "name": "Chetumal – Escárcega", "color": "#9bc419" }
+}

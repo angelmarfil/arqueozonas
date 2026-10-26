@@ -7,6 +7,7 @@ const BOUNDARY_COLOR = "#f59e0b";
 const PIN_COLORS: Record<PlaceKind, string> = {
 	site: "text-primary",
 	museum: "text-secondary",
+	station: "text-accent",
 };
 
 interface Props {
